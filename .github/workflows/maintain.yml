@@ -1,0 +1,105 @@
+name: Swarm Maintenance
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # Daily at 06:00 UTC
+  workflow_dispatch: {}   # Manual trigger
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  id-token: write
+
+jobs:
+  maintain:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Install ralph-loop plugin
+        run: |
+          claude plugin marketplace add anthropics/claude-plugins-official
+          claude plugin install ralph-loop@claude-plugins-official
+
+      - name: Set up GCP credentials
+        run: |
+          echo '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}' > /tmp/gcp-credentials.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/gcp-credentials.json" >> $GITHUB_ENV
+
+      - name: Run swarm maintenance
+        env:
+          CLAUDE_CODE_USE_VERTEX: ${{ secrets.CLAUDE_CODE_USE_VERTEX }}
+          ANTHROPIC_VERTEX_PROJECT_ID: ${{ secrets.ANTHROPIC_VERTEX_PROJECT_ID }}
+          CLOUD_ML_REGION: ${{ secrets.CLOUD_ML_REGION }}
+          GITHUB_TOKEN: ${{ secrets.PROFILE_HOOK }}
+        run: |
+          # Force line-buffered output so GitHub Actions shows progress in real-time
+          script -q -e -c 'claude -p \
+            --dangerously-skip-permissions \
+            --verbose \
+            --max-turns 200 \
+            "You are the swarm orchestrator. You MUST use tools to do real work. Do NOT just output text.
+
+          STEP 1: Run this command to check rate limit:
+            gh api rate_limit --jq .rate.remaining
+
+          STEP 2: Run this command to read the swarm state:
+            cat .claude/.swarm-state.json 2>/dev/null || echo {}
+
+          STEP 3: Use gh repo list dmzoneill --limit 200 --json name -q .[].name to get all repos.
+          For EACH repo, check if the latest CI run is failing:
+            gh api repos/dmzoneill/REPO/actions/runs?per_page=1&branch=main --jq .workflow_runs[0].conclusion
+          Collect all repos where conclusion is failure.
+
+          STEP 4: For each failing repo, get the failed job and error:
+            gh api repos/dmzoneill/REPO/actions/runs/ID/jobs --jq .jobs[].name
+
+          STEP 5: Fix what you can:
+          - Lint failures: clone repo, run formatters, commit and push
+          - Missing version files: create them
+          - Broken action refs: update main.yml inputs
+          - Release tag conflicts: bump version past the conflict
+
+          STEP 6: Find open dependabot PRs and merge those with passing CI:
+            gh api search/issues?q=user:dmzoneill+is:pr+is:open+author:dependabot
+          Close any with merge conflicts.
+
+          STEP 7: Find untriaged issues and respond:
+            gh api search/issues?q=user:dmzoneill+is:issue+is:open
+
+          STEP 8: Write results to .claude/.swarm-state.json
+
+          STEP 9: Output a summary of all actions taken.
+
+          IMPORTANT: You must actually run commands and do work. Do not skip steps."' /tmp/claude-output.log
+
+      - name: Show summary
+        if: always()
+        run: |
+          echo "=== Claude Output (last 200 lines) ==="
+          tail -200 /tmp/claude-output.log 2>/dev/null || echo "No output log found"
+
+      - name: Cleanup credentials
+        if: always()
+        run: rm -f /tmp/gcp-credentials.json
+
+      - name: Commit state file
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f .claude/.swarm-state.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore: update swarm state after maintenance run"
+          git push || true
