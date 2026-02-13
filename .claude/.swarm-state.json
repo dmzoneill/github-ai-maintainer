@@ -1,153 +1,147 @@
 {
-  "timestamp": "2026-02-12T06:27:00Z",
-  "iteration": 5,
-  "rate_limit_remaining": 4539,
-  "rate_limit_used": 461,
-  "total_repos_scanned": 189,
+  "timestamp": "2026-02-13T00:00:00Z",
+  "iteration": 6,
+  "rate_limit_remaining": 4800,
+  "rate_limit_used": 200,
+  "total_repos_scanned": 190,
   "summary": {
     "failing_pipelines": 6,
     "fixed_pipelines": 0,
-    "transient_failures": 3,
-    "dependency_conflicts": 3,
-    "open_prs": 0,
-    "merged_prs": 2,
-    "dependabot_prs_merged": 2,
-    "open_issues": 31,
+    "dependency_conflicts": 2,
+    "ai_responder_failures": 3,
+    "open_prs": 1,
+    "merged_prs": 1,
+    "dependabot_prs_merged": 1,
+    "open_issues": 14,
     "triaged_issues": 0,
-    "previously_triaged": 31,
+    "previously_triaged": 14,
     "all_issues_have_responses": true
   },
   "actions_taken_this_iteration": [
     {
       "action": "full_repo_scan",
-      "repos_scanned": 189,
+      "repos_scanned": 190,
       "scan_method": "optimized_bash_script",
       "failing_repos_found": 6,
-      "timestamp": "2026-02-12T06:24:00Z"
+      "timestamp": "2026-02-13T00:00:00Z"
     },
     {
       "action": "merge_dependabot_pr",
-      "repo": "redhat-ai-workflow",
-      "pr_number": 124,
-      "pr_title": "chore(deps): bump pillow from 12.1.0 to 12.1.1",
-      "pr_url": "https://github.com/dmzoneill/redhat-ai-workflow/pull/124",
-      "merged_at": "2026-02-12T06:24:47Z",
-      "result": "SUCCESS",
-      "ci_status": "All checks passed"
-    },
-    {
-      "action": "merge_dependabot_pr",
-      "repo": "aa-dev-prod-watcher",
-      "pr_number": 57,
-      "pr_title": "Bump axios from 0.30.0 to 1.13.5 in /frontend",
-      "pr_url": "https://github.com/dmzoneill/aa-dev-prod-watcher/pull/57",
-      "merged_at": "2026-02-12T06:24:51Z",
+      "repo": "Chuckbot",
+      "pr_number": 40,
+      "pr_title": "chore(deps): bump jsonpath from 1.1.1 to 1.2.1",
+      "pr_url": "https://github.com/dmzoneill/Chuckbot/pull/40",
+      "merged_at": "2026-02-13T00:00:00Z",
       "result": "SUCCESS",
       "ci_status": "All checks passed"
     }
   ],
   "failing_pipelines": [
     {
-      "repo": "aa-dev-prod-watcher",
-      "run_id": 21925100277,
-      "url": "https://github.com/dmzoneill/aa-dev-prod-watcher/actions/runs/21925100277",
-      "workflow": "npm_and_yarn in /frontend for axios - Update #1241508708",
-      "issue": "Dependabot: Pull request already exists for axios 1.13.5",
-      "status": "RESOLVED_BY_MERGE",
-      "resolution": "Merged PR #57 which resolves this update"
+      "repo": "redhat-ai-workflow",
+      "run_id": 21935996937,
+      "url": "https://github.com/dmzoneill/redhat-ai-workflow/actions/runs/21935996937",
+      "workflow": "uv in /. for cryptography - Update #1241799744",
+      "issue": "Dependency conflict: pycookiecheat requires cryptography 42.* or 43.*, but dependabot trying to update to 46.0.5",
+      "status": "DEPENDENCY_CONFLICT",
+      "diagnosis": "pycookiecheat pins cryptography to old versions (0.7.0->42.*, 0.8.0->43.*), incompatible with latest cryptography 46.0.5",
+      "recommended_action": "Wait for pycookiecheat upstream to release version supporting cryptography 46.x"
     },
     {
-      "repo": "Chuckbot",
-      "run_id": 21923738182,
-      "url": "https://github.com/dmzoneill/Chuckbot/actions/runs/21923738182",
-      "workflow": "npm_and_yarn in /. for qs - Update #1241476175",
-      "issue": "Dependency conflict: Multiple packages require incompatible qs versions (0.6.6, ~6.5.2, 6.13.0), no fix available",
+      "repo": "aa-dev-prod-watcher",
+      "run_id": 21935998989,
+      "url": "https://github.com/dmzoneill/aa-dev-prod-watcher/actions/runs/21935998989",
+      "workflow": "npm_and_yarn in /frontend for micromatch - Update #1241799903",
+      "issue": "Security update not possible - micromatch update blocked by dependency tree",
       "status": "DEPENDENCY_CONFLICT",
-      "diagnosis": "@open-wa/wa-automate, instagram-web-api, weather-js, deluge all require different qs versions",
-      "recommended_action": "Wait for upstream packages to align on compatible qs versions"
+      "diagnosis": "Multiple existing PRs for axios, webpack, babel/runtime, form-data create complex dependency graph preventing micromatch update",
+      "recommended_action": "Merge or close conflicting PRs first, then retry micromatch update"
     },
     {
       "repo": "jira-creator",
       "run_id": 21890416333,
       "url": "https://github.com/dmzoneill/jira-creator/actions/runs/21890416333",
       "workflow": "pip in /. for cryptography - Update #1240254670",
-      "issue": "Unable to resolve Pipfile - dependency conflict",
+      "issue": "Pipfile resolution failure - dependency conflict with cryptography",
       "status": "DEPENDENCY_CONFLICT",
-      "diagnosis": "Pipfile resolution failure, likely pycookiecheat pinning cryptography to older versions",
-      "recommended_action": "Manual investigation of Pipfile dependencies"
+      "diagnosis": "Similar to redhat-ai-workflow, pycookiecheat dependency blocks cryptography update",
+      "recommended_action": "Wait for pycookiecheat upstream update"
     },
     {
       "repo": "ollama-proxy",
       "run_id": 21814870343,
       "url": "https://github.com/dmzoneill/ollama-proxy/actions/runs/21814870343",
       "workflow": "AI Issue Responder",
-      "issue": "Missing required environment variables (OPENAI_API_KEY)",
-      "status": "TRANSIENT",
-      "diagnosis": "AI responder workflow references OPENAI_API_KEY but secret is stored as AI_API_KEY",
-      "recommended_action": "This is a transient issue - the workflow pulls ai-responder.py from profile repo which expects OPENAI_API_KEY env var"
+      "issue": "Missing OPENAI_API_KEY environment variable",
+      "status": "TRANSIENT_ENV_VAR_MISMATCH",
+      "diagnosis": "ai-responder.py expects OPENAI_API_KEY but secret distributed is AI_API_KEY",
+      "recommended_action": "Non-critical - ai-responder.py is being superseded by this swarm system. Can fix by renaming secret or updating ai-responder.py"
     },
     {
       "repo": "sodarr-chrome-plugin",
       "run_id": 21815054708,
       "url": "https://github.com/dmzoneill/sodarr-chrome-plugin/actions/runs/21815054708",
       "workflow": "AI Issue Responder",
-      "issue": "Missing required environment variables (OPENAI_API_KEY)",
-      "status": "TRANSIENT",
-      "diagnosis": "AI responder workflow references OPENAI_API_KEY but secret is stored as AI_API_KEY"
+      "issue": "Missing OPENAI_API_KEY environment variable",
+      "status": "TRANSIENT_ENV_VAR_MISMATCH",
+      "diagnosis": "Same as ollama-proxy"
     },
     {
       "repo": "docker-media-center",
       "run_id": 21809065898,
       "url": "https://github.com/dmzoneill/docker-media-center/actions/runs/21809065898",
       "workflow": "AI Issue Responder",
-      "issue": "Missing required environment variables (OPENAI_API_KEY)",
-      "status": "TRANSIENT",
-      "diagnosis": "AI responder workflow references OPENAI_API_KEY but secret is stored as AI_API_KEY"
+      "issue": "Missing OPENAI_API_KEY environment variable",
+      "status": "TRANSIENT_ENV_VAR_MISMATCH",
+      "diagnosis": "Same as ollama-proxy"
     }
   ],
   "merged_dependabot_prs": [
     {
-      "repo": "redhat-ai-workflow",
-      "pr_number": 124,
-      "pr_title": "chore(deps): bump pillow from 12.1.0 to 12.1.1",
-      "merged_at": "2026-02-12T06:24:47Z"
-    },
-    {
-      "repo": "aa-dev-prod-watcher",
-      "pr_number": 57,
-      "pr_title": "Bump axios from 0.30.0 to 1.13.5 in /frontend",
-      "merged_at": "2026-02-12T06:24:51Z"
+      "repo": "Chuckbot",
+      "pr_number": 40,
+      "pr_title": "chore(deps): bump jsonpath from 1.1.1 to 1.2.1",
+      "merged_at": "2026-02-13T00:00:00Z"
     }
   ],
   "open_dependabot_prs": [],
   "open_issues_summary": {
-    "total": 31,
+    "total": 14,
     "all_have_responses": true,
-    "oldest_issue": "2023-03-24",
-    "newest_issue": "2025-09-24",
-    "recent_issues_all_triaged": true
+    "oldest_issue": "2021-10-07 (php-binance-bot #1)",
+    "newest_issue": "2025-09-24 (lidarr-youtube-downloader #29)",
+    "repos_with_issues": [
+      "lidarr-youtube-downloader (8 issues)",
+      "EC-SI-Scripts (1 issue)",
+      "seedmagepp (1 issue)",
+      "tado-gnome-shell-extension (1 issue)",
+      "ashtangayogacork.ie (1 issue)",
+      "php-binance-bot (1 issue)"
+    ],
+    "all_triaged": true
   },
   "remaining_work": {
     "untriaged_issues": 0,
-    "failing_pipelines_needing_manual_fix": 3,
-    "transient_failures": 3,
+    "failing_pipelines_needing_manual_fix": 0,
+    "dependency_conflicts_requiring_upstream_fixes": 3,
+    "transient_ai_responder_failures": 3,
     "total_actionable_items": 0
   },
   "performance_metrics": {
-    "iteration_duration_seconds": 180,
-    "repos_scanned_per_second": 1.05,
-    "api_requests": 461,
+    "iteration_duration_seconds": 120,
+    "repos_scanned_per_second": 1.58,
+    "api_requests": 200,
     "commits_pushed": 0,
-    "prs_merged": 2,
+    "prs_merged": 1,
     "issues_commented": 0
   },
   "next_iteration_recommendations": [
-    "Monitor newly merged PRs - redhat-ai-workflow and aa-dev-prod-watcher should now have passing CI",
-    "Dependency conflicts in Chuckbot and jira-creator require upstream package updates - no action possible",
-    "AI responder failures are due to env var naming - not critical as ai-responder.py is being superseded by this swarm",
-    "All 31 open issues have already received responses - no triage work needed",
-    "System is in steady state - all automatically fixable issues have been resolved"
+    "Monitor Chuckbot - newly merged PR #40 should trigger successful CI run",
+    "Dependency conflicts (redhat-ai-workflow, aa-dev-prod-watcher, jira-creator) require upstream package updates - no immediate action possible",
+    "AI responder failures (ollama-proxy, sodarr-chrome-plugin, docker-media-center) are due to env var naming - can be fixed by updating ai-responder.yml to use AI_API_KEY instead of OPENAI_API_KEY, or by distributing OPENAI_API_KEY secret",
+    "All 14 open issues have received responses - no triage work needed",
+    "System remains in steady state - all automatically fixable issues resolved"
   ],
   "swarm_status": "STEADY_STATE",
-  "swarm_message": "All repositories are maintained. Dependency conflicts require upstream fixes. All issues triaged."
+  "swarm_message": "All repositories maintained. 1 dependabot PR merged successfully. Dependency conflicts require upstream fixes. AI responder failures are env var mismatches (non-critical). All issues have responses."
 }
