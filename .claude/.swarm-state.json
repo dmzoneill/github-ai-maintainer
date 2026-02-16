@@ -1,0 +1,115 @@
+{
+  "timestamp": "2026-02-16T06:24:00Z",
+  "total_repos_checked": 200,
+  "failing_repos": 10,
+  "actions_taken": {
+    "fixes_applied": [
+      {
+        "repo": "redhat-oracle",
+        "issue": "Lint failure - missing ruff and mypy commands",
+        "fix": "Updated checks.sh to auto-install dev dependencies",
+        "commit": "de278bd",
+        "status": "fixed"
+      },
+      {
+        "repo": "jira-creator",
+        "issue": "Release tag conflict - version 1.0.14 already exists",
+        "fix": "Bumped version to 1.0.15",
+        "commit": "6724be3",
+        "status": "fixed"
+      },
+      {
+        "repo": "redhat-ai-workflow",
+        "issue": "Release tag conflict - version 0.0.30 already exists",
+        "fix": "Bumped version to 0.0.31",
+        "commit": "97fc60c",
+        "status": "fixed"
+      },
+      {
+        "repo": "redhatter",
+        "issue": "Release tag conflict - version 1.0.11 already exists",
+        "fix": "Bumped version to 1.0.12",
+        "commit": "53ff9e1",
+        "status": "fixed"
+      },
+      {
+        "repo": "lidarr-youtube-downloader",
+        "issue": "Release tag conflict - version 0.3.35 already exists",
+        "fix": "Bumped version to 0.3.36",
+        "commit": "f5f8b37",
+        "status": "fixed"
+      }
+    ],
+    "non_fixable_failures": [
+      {
+        "repo": "DFakeSeeder",
+        "issue": "Flatpak install failure",
+        "reason": "System/infrastructure issue with flatpak-builder installation",
+        "status": "requires_manual_intervention"
+      },
+      {
+        "repo": "Chuckbot",
+        "issue": "Dependabot workflow failure",
+        "reason": "Dependabot service error",
+        "status": "requires_manual_intervention"
+      },
+      {
+        "repo": "ollama-proxy",
+        "issue": "AI responder workflow failure",
+        "reason": "Workflow-specific issue, not code-related",
+        "status": "requires_manual_intervention"
+      },
+      {
+        "repo": "sodarr-chrome-plugin",
+        "issue": "AI responder workflow failure",
+        "reason": "Workflow-specific issue, not code-related",
+        "status": "requires_manual_intervention"
+      },
+      {
+        "repo": "docker-media-center",
+        "issue": "AI responder workflow failure",
+        "reason": "Workflow-specific issue, not code-related",
+        "status": "requires_manual_intervention"
+      }
+    ],
+    "dependabot_prs": {
+      "merged": [
+        {
+          "repo": "aa-dev-prod-watcher",
+          "pr_number": 59,
+          "title": "Bump webpack from 5.95.0 to 5.105.2 in /frontend"
+        },
+        {
+          "repo": "aa-dev-prod-watcher",
+          "pr_number": 58,
+          "title": "Bump axios from 0.30.0 to 1.13.5 in /frontend"
+        },
+        {
+          "repo": "redhatter",
+          "pr_number": 4,
+          "title": "chore(deps): bump starlette from 0.48.0 to 0.49.1"
+        }
+      ],
+      "total_merged": 3
+    },
+    "issues_checked": {
+      "total_open_issues": 13,
+      "recent_issues_reviewed": 8,
+      "untriaged_requiring_response": 0,
+      "note": "All recent issues have existing engagement (comments and labels)"
+    }
+  },
+  "statistics": {
+    "repos_scanned": 200,
+    "failing_ci": 10,
+    "fixes_applied": 5,
+    "fixes_percentage": "50%",
+    "dependabot_prs_merged": 3,
+    "api_calls_remaining": "~4950/5000"
+  },
+  "recommendations": [
+    "Monitor DFakeSeeder, Chuckbot, and ai-respond failures - these appear to be infrastructure/workflow issues",
+    "Consider updating the shared dispatch workflow to handle release tag conflicts automatically",
+    "Review and potentially refactor ai-respond workflow as it's failing across multiple repos"
+  ]
+}
