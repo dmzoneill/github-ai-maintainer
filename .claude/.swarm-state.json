@@ -1,99 +1,132 @@
 {
-  "timestamp": "2026-02-17T06:21:00Z",
-  "total_repos_checked": 200,
-  "failing_repos": 10,
-  "actions_taken": {
-    "fixes_applied": [
-      {
-        "repo": "aa-dev-prod-watcher",
-        "issue": "Release tag conflict - version 0.0.62 already exists",
-        "fix": "Bumped version to 0.0.63",
-        "commit": "55dd210",
-        "status": "fixed"
-      },
-      {
-        "repo": "skills",
-        "issue": "Release tag conflict - version 0.0.2 already exists",
-        "fix": "Bumped version to 0.0.3",
-        "commit": "0819b64",
-        "status": "fixed"
-      }
-    ],
-    "non_fixable_failures": [
-      {
-        "repo": "DFakeSeeder",
-        "issue": "Dependabot workflow failure",
-        "reason": "Dependabot service error - requires GitHub intervention",
-        "status": "requires_manual_intervention"
-      },
-      {
-        "repo": "jira-creator",
-        "issue": "Deb/Rpm publish failure - UPLOAD_URL is null",
-        "reason": "Workflow orchestration issue in shared dispatch workflow",
-        "status": "requires_manual_intervention"
-      },
-      {
-        "repo": "redhat-oracle",
-        "issue": "Lint failure - No space left on device",
-        "reason": "GitHub Actions runner disk space issue - transient error",
-        "status": "requires_manual_intervention"
-      },
-      {
-        "repo": "Chuckbot",
-        "issue": "Dependabot workflow failure",
-        "reason": "Dependabot service error - requires GitHub intervention",
-        "status": "requires_manual_intervention"
-      },
-      {
-        "repo": "ollama-proxy",
-        "issue": "AI responder workflow failure",
-        "reason": "Workflow-specific issue, not code-related",
-        "status": "requires_manual_intervention"
-      },
-      {
-        "repo": "sodarr-chrome-plugin",
-        "issue": "AI responder workflow failure",
-        "reason": "Workflow-specific issue, not code-related",
-        "status": "requires_manual_intervention"
-      },
-      {
-        "repo": "docker-media-center",
-        "issue": "AI responder workflow failure",
-        "reason": "Workflow-specific issue, not code-related",
-        "status": "requires_manual_intervention"
-      },
-      {
-        "repo": "dmzoneill",
-        "issue": "Setup repos workflow failure",
-        "reason": "Transient error in setup.sh workflow distribution script",
-        "status": "requires_manual_intervention"
-      }
-    ],
-    "dependabot_prs": {
-      "merged": [],
-      "total_merged": 0,
-      "note": "No open dependabot PRs found"
+  "timestamp": "2026-02-09T09:30:20Z",
+  "iteration": 1,
+  "rate_limit_remaining": 4478,
+  "total_repos_scanned": 186,
+  "summary": {
+    "failing_pipelines": 8,
+    "fixed_pipelines": 2,
+    "open_prs": 0,
+    "merged_prs": 0,
+    "open_issues": 30,
+    "triaged_issues": 2
+  },
+  "failing_pipelines": [
+    {
+      "repo": "dmzoneill",
+      "run_id": 21818798586,
+      "url": "https://github.com/dmzoneill/dmzoneill/actions/runs/21818798586",
+      "workflow": "CICD",
+      "issue": "Black formatting error in updater.py",
+      "status": "FIXED",
+      "fix_commit": "4e1d603",
+      "fix_description": "Fixed Black formatting issue - collapsed multi-line template.replace() call"
     },
-    "issues_checked": {
-      "total_open_issues": 13,
-      "recent_issues_reviewed": 13,
-      "untriaged_requiring_response": 0,
-      "note": "All issues have existing engagement (comments and labels)"
+    {
+      "repo": "redhatter",
+      "run_id": 21807818545,
+      "url": "https://github.com/dmzoneill/redhatter/actions/runs/21807818545",
+      "workflow": "CICD",
+      "issue": "Release v1.0.13 already exists",
+      "status": "FIXED",
+      "fix_commit": "91fad3a",
+      "fix_description": "Triggered new CI run to create release v1.0.14 with empty commit"
+    },
+    {
+      "repo": "aa-dev-prod-watcher",
+      "run_id": 21809064461,
+      "url": "https://github.com/dmzoneill/aa-dev-prod-watcher/actions/runs/21809064461",
+      "workflow": "AI Issue Responder",
+      "issue": "OpenAI API rate limit (429 Too Many Requests)",
+      "status": "TRANSIENT",
+      "fix_description": "Rate limit error - will auto-resolve when rate limit resets"
+    },
+    {
+      "repo": "Chuckbot",
+      "run_id": 21809064812,
+      "url": "https://github.com/dmzoneill/Chuckbot/actions/runs/21809064812",
+      "workflow": "AI Issue Responder",
+      "issue": "OpenAI API rate limit (429 Too Many Requests)",
+      "status": "TRANSIENT",
+      "fix_description": "Rate limit error - will auto-resolve when rate limit resets"
+    },
+    {
+      "repo": "ollama-proxy",
+      "run_id": 21814870343,
+      "url": "https://github.com/dmzoneill/ollama-proxy/actions/runs/21814870343",
+      "workflow": "AI Issue Responder",
+      "issue": "OpenAI API rate limit (429 Too Many Requests)",
+      "status": "TRANSIENT",
+      "fix_description": "Rate limit error - will auto-resolve when rate limit resets"
+    },
+    {
+      "repo": "jira-creator",
+      "run_id": 21809065236,
+      "url": "https://github.com/dmzoneill/jira-creator/actions/runs/21809065236",
+      "workflow": "AI Issue Responder",
+      "issue": "OpenAI API rate limit (429 Too Many Requests)",
+      "status": "TRANSIENT",
+      "fix_description": "Rate limit error - will auto-resolve when rate limit resets"
+    },
+    {
+      "repo": "sodarr-chrome-plugin",
+      "run_id": 21815054708,
+      "url": "https://github.com/dmzoneill/sodarr-chrome-plugin/actions/runs/21815054708",
+      "workflow": "AI Issue Responder",
+      "issue": "OpenAI API rate limit (429 Too Many Requests)",
+      "status": "TRANSIENT",
+      "fix_description": "Rate limit error - will auto-resolve when rate limit resets"
+    },
+    {
+      "repo": "docker-media-center",
+      "run_id": 21809065898,
+      "url": "https://github.com/dmzoneill/docker-media-center/actions/runs/21809065898",
+      "workflow": "AI Issue Responder",
+      "issue": "OpenAI API rate limit (429 Too Many Requests)",
+      "status": "TRANSIENT",
+      "fix_description": "Rate limit error - will auto-resolve when rate limit resets"
     }
+  ],
+  "open_prs": [],
+  "triaged_issues": [
+    {
+      "repo": "sodarr-chrome-plugin",
+      "number": 3,
+      "title": "Chrome Web Store publish failing since August 2025",
+      "url": "https://github.com/dmzoneill/sodarr-chrome-plugin/issues/3",
+      "status": "COMMENTED",
+      "comment_url": "https://github.com/dmzoneill/sodarr-chrome-plugin/issues/3#issuecomment-3870509942",
+      "recommendation": "Verify Chrome Web Store OAuth credentials and update chrome-webstore-upload-cli"
+    },
+    {
+      "repo": "ollama-proxy",
+      "number": 1,
+      "title": "CI Pipeline: Multiple Job Failures (Docker Auth, Lint Errors, Test Timeout)",
+      "url": "https://github.com/dmzoneill/ollama-proxy/issues/1",
+      "status": "COMMENTED",
+      "comment_url": "https://github.com/dmzoneill/ollama-proxy/issues/1#issuecomment-3870512703",
+      "recommendation": "Fix Docker auth config, update test mocks for dbus.Sender parameter, investigate test timeout"
+    }
+  ],
+  "remaining_work": {
+    "untriaged_issues": 28,
+    "failing_pipelines_needing_manual_fix": 0,
+    "transient_failures": 6
   },
-  "statistics": {
-    "repos_scanned": 200,
-    "failing_ci": 10,
-    "fixes_applied": 2,
-    "fixes_percentage": "20%",
-    "dependabot_prs_merged": 0,
-    "api_calls_remaining": "~4757/5000"
-  },
-  "recommendations": [
-    "Monitor DFakeSeeder and Chuckbot - Dependabot workflow failures require GitHub support",
-    "Fix shared dispatch workflow in dmzoneill/dmzoneill to handle UPLOAD_URL properly for deb/rpm publish",
-    "Review ai-respond workflow failures across ollama-proxy, sodarr-chrome-plugin, docker-media-center",
-    "redhat-oracle lint failure is transient - rerun workflow when runner disk space is resolved",
-    "dmzoneill setup.sh workflow distribution failure appears transient - monitor next run"
+  "actions_taken": [
+    "Scanned 186 repos for CI failures",
+    "Fixed Black formatting error in dmzoneill/dmzoneill",
+    "Fixed release creation in dmzoneill/redhatter by triggering new run",
+    "Identified 6 transient AI responder failures due to OpenAI rate limiting",
+    "Triaged and commented on sodarr-chrome-plugin issue #3",
+    "Triaged and commented on ollama-proxy issue #1",
+    "Confirmed 0 open PRs, 0 dependabot PRs to merge"
+  ],
+  "next_iteration_tasks": [
+    "Monitor redhatter CI run to verify release v1.0.14 succeeds",
+    "Monitor dmzoneill CI run to verify Black formatting fix passes",
+    "Respond to remaining 28 open issues",
+    "Investigate and fix ollama-proxy Docker auth and test issues",
+    "Investigate Chrome Web Store credentials for sodarr-chrome-plugin"
   ]
 }

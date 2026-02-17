@@ -1,5 +1,4 @@
 # AI tool configurations
-.claude/
 .cursor/
 .codex/
 .opencode/
@@ -13,7 +12,6 @@
 .v0/
 .lovable/
 .codeium/
-CLAUDE.md
 GEMINI.md
 .cursorrules
 .cursorignore
