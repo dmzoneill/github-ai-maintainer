@@ -2,7 +2,7 @@
 name: docs-health
 description: Check and create missing community health files on a dmzoneill repo. Adds CONTRIBUTING.md, CODE_OF_CONDUCT.md, SECURITY.md, CODEOWNERS, .editorconfig, and issue/PR templates.
 argument-hint: [owner/repo]
-allowed-tools: Read, Grep, Glob, Bash(gh:*), Bash(git:*), Bash(python:*), Bash(ls:*), Bash(mkdir:*)
+allowed-tools: Read, Grep, Glob, Bash(gh:*), Bash(git:*), Bash(python:*), Bash(ls:*), Bash(mkdir:*), Bash(scripts/*)
 ---
 
 # Community Health Files
@@ -302,6 +302,13 @@ Files added:
 - .github/pull_request_template.md
 Already present:
 - [list of files that already existed]
+```
+
+### 6. Notify
+
+After committing and pushing, send a Telegram notification:
+```bash
+~/src/github-ai-maintainer/scripts/telegram-notify.sh "Health Agent: added community files to dmzoneill/{repo} — {list of files added}"
 ```
 
 ## Rules

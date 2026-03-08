@@ -2,7 +2,7 @@
 name: readme-docs
 description: Check and fix README quality and documentation freshness on a dmzoneill repo. Validates badges, links, required sections, and code examples.
 argument-hint: [owner/repo]
-allowed-tools: Read, Grep, Glob, Bash(gh:*), Bash(git:*), Bash(curl:*), Bash(python:*), Bash(ls:*)
+allowed-tools: Read, Grep, Glob, Bash(gh:*), Bash(git:*), Bash(curl:*), Bash(python:*), Bash(ls:*), Bash(scripts/*)
 ---
 
 # README & Documentation Freshness
@@ -108,6 +108,13 @@ Code examples: N checked, N referencing missing files
 Actions taken:
 - Fixed CI badge URL
 - Created issue #N for missing sections and broken links
+```
+
+### 8. Notify
+
+After applying fixes or creating issues, send a Telegram notification:
+```bash
+~/src/github-ai-maintainer/scripts/telegram-notify.sh "Docs Agent: audited README for dmzoneill/{repo} — {summary of actions taken}"
 ```
 
 ## Rules

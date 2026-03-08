@@ -2,7 +2,7 @@
 name: license-compliance
 description: Check and fix license compliance on a dmzoneill repo. Validates LICENSE file exists, matches package metadata, and checks for dependency license conflicts.
 argument-hint: [owner/repo]
-allowed-tools: Read, Grep, Glob, Bash(gh:*), Bash(git:*), Bash(python:*), Bash(pip:*), Bash(pipenv:*), Bash(ls:*)
+allowed-tools: Read, Grep, Glob, Bash(gh:*), Bash(git:*), Bash(python:*), Bash(pip:*), Bash(pipenv:*), Bash(ls:*), Bash(scripts/*)
 ---
 
 # License Compliance
@@ -140,6 +140,13 @@ Dependency conflicts: none/advisory ({details})
 Actions taken:
 - Added MIT LICENSE file
 - Created issue #N for metadata mismatch
+```
+
+### 9. Notify
+
+After applying fixes or creating issues, send a Telegram notification:
+```bash
+~/src/github-ai-maintainer/scripts/telegram-notify.sh "License Agent: audited dmzoneill/{repo} — {summary of actions taken}"
 ```
 
 ## Rules

@@ -2,7 +2,7 @@
 name: git-hygiene
 description: Audit and fix git hygiene on a dmzoneill repo. Checks .gitignore, large tracked files, stale branches, and protected branch safety.
 argument-hint: [owner/repo]
-allowed-tools: Read, Grep, Glob, Bash(gh:*), Bash(git:*), Bash(python:*), Bash(ls:*)
+allowed-tools: Read, Grep, Glob, Bash(gh:*), Bash(git:*), Bash(python:*), Bash(ls:*), Bash(scripts/*)
 ---
 
 # Git Hygiene
@@ -171,6 +171,13 @@ Large tracked files: N found
 Stale branches: N found, N deleted
   Deleted: [list]
   Skipped (protected): [list]
+```
+
+### 7. Notify
+
+After applying fixes, send a Telegram notification:
+```bash
+~/src/github-ai-maintainer/scripts/telegram-notify.sh "Git Hygiene Agent: cleaned dmzoneill/{repo} — {summary of actions taken}"
 ```
 
 ## Rules

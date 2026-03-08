@@ -1,6 +1,6 @@
 ---
 description: Start the ralph loop swarm — continuously maintain all repos until everything is clean
-allowed-tools: Read, Bash(gh:*), Bash(cat:*), Bash(date:*), Skill
+allowed-tools: Read, Bash(gh:*), Bash(cat:*), Bash(date:*), Bash(scripts/*), Skill
 ---
 
 # Unleash the Swarm
@@ -16,6 +16,11 @@ Invokes `/ralph-loop` with the `/swarm` command as the prompt. The ralph loop wi
 4. When everything is clean (no failed pipelines, no untriaged issues, no unreviewed PRs), the swarm outputs its completion promise and stops
 
 ## Launch
+
+Notify that the swarm is starting:
+```bash
+~/src/github-ai-maintainer/scripts/telegram-notify.sh "Swarm UNLEASHED — starting continuous maintenance across all dmzoneill repos"
+```
 
 Invoke the ralph-loop skill with the swarm as the task:
 

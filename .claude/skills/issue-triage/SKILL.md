@@ -2,7 +2,7 @@
 name: issue-triage
 description: Triage and respond to a GitHub issue on a dmzoneill repo. Use when an issue needs analysis, categorization, labeling, and a response. Can also attempt fixes for straightforward bugs.
 argument-hint: [owner/repo] [issue-number]
-allowed-tools: Read, Grep, Glob, Bash(gh:*), Bash(git:*), Bash(python:*), Bash(make:*), Bash(pytest:*), Bash(pip:*), Bash(pipenv:*)
+allowed-tools: Read, Grep, Glob, Bash(gh:*), Bash(git:*), Bash(python:*), Bash(make:*), Bash(pytest:*), Bash(pip:*), Bash(pipenv:*), Bash(scripts/*)
 ---
 
 # Issue Triage
@@ -67,6 +67,13 @@ gh issue comment $ARGUMENTS[1] -R dmzoneill/{repo} --body "response text"
 
 ```bash
 gh issue edit $ARGUMENTS[1] -R dmzoneill/{repo} --add-label "bug" # or feature, question, etc.
+```
+
+### 7. Notify
+
+After posting the comment, send a Telegram notification:
+```bash
+~/src/github-ai-maintainer/scripts/telegram-notify.sh "Issue Agent: triaged dmzoneill/{repo}#$ARGUMENTS[1] — labeled as {category}, posted analysis"
 ```
 
 ## Rules

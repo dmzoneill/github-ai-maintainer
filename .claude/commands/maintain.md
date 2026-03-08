@@ -1,7 +1,7 @@
 ---
 description: Run a full maintenance cycle across all dmzoneill repos (scan issues, PRs, pipelines, and act)
 argument-hint: [repo-name-or-all]
-allowed-tools: Read, Grep, Glob, Bash(gh:*), Bash(git:*), Bash(python:*), Bash(make:*), Bash(pytest:*), Bash(pip:*), Bash(pipenv:*)
+allowed-tools: Read, Grep, Glob, Bash(gh:*), Bash(git:*), Bash(python:*), Bash(make:*), Bash(pytest:*), Bash(pip:*), Bash(pipenv:*), Bash(scripts/*)
 ---
 
 Run a full maintenance pass across dmzoneill repos. This is the orchestrator command that ties all agents together.
@@ -38,6 +38,11 @@ Output a maintenance report:
 - PRs reviewed (repo, PR #, decision)
 - PRs auto-merged (repo, PR #)
 - Problems that need manual attention
+
+Send a Telegram summary:
+```bash
+~/src/github-ai-maintainer/scripts/telegram-notify.sh "Maintain: cycle complete — {X} pipelines fixed, {X} issues triaged, {X} PRs reviewed, {X} PRs merged, {X} need manual attention"
+```
 
 ## Rules
 - Process repos in alphabetical order for consistency

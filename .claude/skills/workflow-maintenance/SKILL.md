@@ -2,7 +2,7 @@
 name: workflow-maintenance
 description: Audit and update GitHub Actions workflow files on a dmzoneill repo. Checks for outdated action versions, deprecated references, and missing best practices.
 argument-hint: [owner/repo]
-allowed-tools: Read, Grep, Glob, Bash(gh:*), Bash(git:*), Bash(python:*), Bash(ls:*)
+allowed-tools: Read, Grep, Glob, Bash(gh:*), Bash(git:*), Bash(python:*), Bash(ls:*), Bash(scripts/*)
 ---
 
 # GitHub Actions Workflow Maintenance
@@ -110,6 +110,13 @@ Actions taken:
 - Updated actions/checkout v3 → v4
 - Updated actions/setup-python v4 → v5
 - Advisory: consider SHA-pinning third-party actions
+```
+
+### 9. Notify
+
+After applying fixes, send a Telegram notification:
+```bash
+~/src/github-ai-maintainer/scripts/telegram-notify.sh "Workflow Agent: updated actions in dmzoneill/{repo} — {summary of updates}"
 ```
 
 ## Rules

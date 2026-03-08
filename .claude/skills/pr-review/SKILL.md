@@ -2,7 +2,7 @@
 name: pr-review
 description: Review a pull request on a dmzoneill repo with code analysis. Checks for bugs, security issues, style violations, and test coverage. Can approve, request changes, or comment.
 argument-hint: [owner/repo] [pr-number]
-allowed-tools: Read, Grep, Glob, Bash(gh:*), Bash(git:*), Bash(python:*), Bash(make:*), Bash(pytest:*), Bash(pip:*), Bash(pipenv:*)
+allowed-tools: Read, Grep, Glob, Bash(gh:*), Bash(git:*), Bash(python:*), Bash(make:*), Bash(pytest:*), Bash(pip:*), Bash(pipenv:*), Bash(scripts/*)
 ---
 
 # PR Review
@@ -90,6 +90,18 @@ gh pr review $ARGUMENTS[1] -R dmzoneill/{repo} --comment --body "review text"
 If the PR is from dependabot/renovate AND CI is passing:
 ```bash
 gh pr merge $ARGUMENTS[1] -R dmzoneill/{repo} --auto --squash
+```
+
+### 7. Notify
+
+After posting the review, send a Telegram notification:
+```bash
+~/src/github-ai-maintainer/scripts/telegram-notify.sh "PR Agent: reviewed dmzoneill/{repo}#$ARGUMENTS[1] — {decision} ({summary})"
+```
+
+For auto-merged dependabot PRs:
+```bash
+~/src/github-ai-maintainer/scripts/telegram-notify.sh "PR Agent: auto-merged dependabot PR dmzoneill/{repo}#$ARGUMENTS[1]"
 ```
 
 ## Rules

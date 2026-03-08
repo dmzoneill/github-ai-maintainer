@@ -2,7 +2,7 @@
 name: cicd-maintenance
 description: Proactive CI/CD maintenance on a dmzoneill repo. Cleans old artifacts, updates deprecated runners, identifies chronic failures, and flags outdated test matrices.
 argument-hint: [owner/repo]
-allowed-tools: Read, Grep, Glob, Bash(gh:*), Bash(git:*), Bash(python:*), Bash(ls:*)
+allowed-tools: Read, Grep, Glob, Bash(gh:*), Bash(git:*), Bash(python:*), Bash(ls:*), Bash(scripts/*)
 ---
 
 # Proactive CI/CD Maintenance
@@ -128,6 +128,13 @@ Actions taken:
 - Deleted N old artifacts (reclaimed X MB)
 - Updated runner ubuntu-20.04 → ubuntu-24.04
 - Created issue #N for chronic failure pattern
+```
+
+### 9. Notify
+
+After applying fixes, send a Telegram notification:
+```bash
+~/src/github-ai-maintainer/scripts/telegram-notify.sh "CI/CD Agent: maintained dmzoneill/{repo} — {summary of actions taken}"
 ```
 
 ## Rules

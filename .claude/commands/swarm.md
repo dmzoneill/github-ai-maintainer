@@ -1,6 +1,6 @@
 ---
 description: Launch the full agent swarm — all agents work in parallel across all repos until everything is clean
-allowed-tools: Read, Grep, Glob, Bash(gh:*), Bash(git:*), Bash(python:*), Bash(make:*), Bash(pytest:*), Bash(pip:*), Bash(pipenv:*), Bash(black:*), Bash(curl:*), Bash(ls:*), Bash(mkdir:*), Task
+allowed-tools: Read, Grep, Glob, Bash(gh:*), Bash(git:*), Bash(python:*), Bash(make:*), Bash(pytest:*), Bash(pip:*), Bash(pipenv:*), Bash(black:*), Bash(curl:*), Bash(ls:*), Bash(mkdir:*), Bash(scripts/*), Task
 ---
 
 # GitHub Maintainer — Full Swarm
@@ -13,7 +13,11 @@ You are the Orchestrator. You manage a swarm of parallel agents that maintain al
 ```bash
 gh api rate_limit --jq '.rate | "Remaining: \(.remaining)/\(.limit)"'
 ```
-If remaining < 500, stop and report. Do not proceed.
+If remaining < 500, notify and stop:
+```bash
+~/src/github-ai-maintainer/scripts/telegram-notify.sh "Swarm: rate limit too low ($(gh api rate_limit --jq '.rate.remaining') remaining), aborting"
+```
+Do not proceed.
 
 2. Read the swarm state file if it exists:
 ```bash
@@ -63,7 +67,10 @@ Launch FOUR Task agents in parallel to scan for all work across all repos:
 4. Classify each finding by severity: **high** (missing README/LICENSE, chronic CI failure >50%), **medium** (missing badges, outdated actions, no .gitignore), **low** (missing community files, stale branches, old artifacts)
 5. Return a JSON array of `{repo, category, severity, detail, suggested_skill}`
 
-Wait for all four to complete.
+Wait for all four to complete. Notify discovery results:
+```bash
+~/src/github-ai-maintainer/scripts/telegram-notify.sh "Swarm: discovery complete — {N} pipeline failures, {N} issues, {N} PRs, {N} health findings"
+```
 
 ## Phase 2: Triage
 
@@ -215,15 +222,23 @@ Remaining work (needs manual attention):
 
 If there is NO remaining work (no failed pipelines, no untriaged issues, no unreviewed PRs, no repo health findings):
 
+```bash
+~/src/github-ai-maintainer/scripts/telegram-notify.sh "Swarm: ALL REPOS MAINTAINED — zero outstanding items"
+```
+
 <promise>I DONE DID IT - ALL REPOS ARE MAINTAINED AND I'M HELPING</promise>
 
-If there IS remaining work, do NOT output the promise tag. The ralph loop will re-run this command and pick up where we left off using the state file.
+If there IS remaining work, notify with iteration summary and do NOT output the promise tag. The ralph loop will re-run this command and pick up where we left off using the state file.
+
+```bash
+~/src/github-ai-maintainer/scripts/telegram-notify.sh "Swarm: iteration complete — {X} pipelines fixed, {X} issues triaged, {X} PRs merged, {X} health fixes, {X} remaining"
+```
 
 ## Safety Rails
 
 - Never push more than 10 fix commits per iteration
 - Never auto-merge non-bot PRs
-- If rate limit drops below 200 during execution, stop and save state
+- If rate limit drops below 200 during execution, notify via `~/src/github-ai-maintainer/scripts/telegram-notify.sh "Swarm: rate limit critical (<200), stopping"`, then stop and save state
 - Never modify dispatch.yaml (lives in profile repo)
 - Use conventional commit messages: `fix:`, `feat:`, `chore:`
 - Track everything in the state file so the next iteration doesn't redo work

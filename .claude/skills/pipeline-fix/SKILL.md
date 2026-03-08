@@ -2,7 +2,7 @@
 name: pipeline-fix
 description: Diagnose and fix a failed CI/CD pipeline run on a dmzoneill repo. Understands the dispatch.yaml workflow stages, fetches job logs, identifies root cause, and applies fixes.
 argument-hint: [owner/repo] [run-id-optional]
-allowed-tools: Read, Grep, Glob, Bash(gh:*), Bash(git:*), Bash(python:*), Bash(make:*), Bash(pip:*), Bash(pipenv:*), Bash(black:*), Bash(flake8:*)
+allowed-tools: Read, Grep, Glob, Bash(gh:*), Bash(git:*), Bash(python:*), Bash(make:*), Bash(pip:*), Bash(pipenv:*), Bash(black:*), Bash(flake8:*), Bash(scripts/*)
 ---
 
 # Pipeline Fix
@@ -109,6 +109,20 @@ gh api repos/dmzoneill/{repo}/actions/jobs/{job_id}/logs 2>&1 | tail -100
 After pushing the fix, check if a new workflow run started:
 ```bash
 gh api repos/dmzoneill/{repo}/actions/runs -q '.workflow_runs[0] | {id: .id, status: .status, conclusion: .conclusion}' -f per_page=1
+```
+
+### 7. Notify
+
+After pushing a fix or creating an issue, send a Telegram notification:
+
+For pushed fixes:
+```bash
+~/src/github-ai-maintainer/scripts/telegram-notify.sh "Pipeline Agent: fixed dmzoneill/{repo} — {stage} stage, pushed fix commit"
+```
+
+For issues created (complex failures):
+```bash
+~/src/github-ai-maintainer/scripts/telegram-notify.sh "Pipeline Agent: dmzoneill/{repo} — {stage} failure too complex, created issue #{number}"
 ```
 
 ## Rules
