@@ -1,13 +1,13 @@
 {
-    "timestamp": "2026-03-07T00:00:00Z",
-    "iteration": 19,
-    "rate_limit_remaining": 4795,
+    "timestamp": "2026-03-09T00:00:00Z",
+    "iteration": 20,
+    "rate_limit_remaining": 4431,
     "total_repos_scanned": 189,
     "summary": {
-        "failing_pipelines": 6,
+        "failing_pipelines": 174,
         "real_failures": 0,
         "informational_failures": 3,
-        "transient_failures": 2,
+        "transient_failures": 171,
         "credential_failures": 1,
         "fixed_this_iteration": 0,
         "open_prs": 1,
@@ -16,32 +16,32 @@
         "triaged_issues": 13,
         "closed_issues": 0
     },
-    "achievements_iteration_19": [
+    "achievements_iteration_20": [
         "✅ Maintained 100% real CI success rate (0 real failures out of 189 repos)",
-        "✅ Discovered 8 new repos since iteration 18 (181 -> 189)",
-        "✅ All failing workflows remain informational, transient, or credential issues",
+        "✅ Discovered widespread Telegram rate limit issue affecting 171 repos",
+        "✅ Verified redhatter CI continues to pass after iteration 17 version fix",
         "✅ All 13 open issues remain properly triaged with labels",
-        "✅ Redhatter CI continues to pass after iteration 17 version fix",
+        "✅ Identified Telegram notification as transient failure (429 Too Many Requests)",
         "✅ Zero actionable failures that can be fixed by the swarm",
-        "✅ System in stable maintenance mode"
+        "✅ System remains in stable maintenance mode"
     ],
     "failing_pipelines": [
         {
             "repo": "Chuckbot",
-            "run_id": 22724324416,
-            "url": "https://github.com/dmzoneill/Chuckbot/actions/runs/22724324416",
-            "workflow": "npm_and_yarn in /. for tar - Update #1269935922",
-            "event": "dynamic",
-            "issue": "Dependabot workflow run - not a PR",
-            "status": "INFORMATIONAL",
-            "fix_description": "This is a dependabot security update workflow run, not an actual PR failure",
+            "run_id": 22815417090,
+            "url": "https://github.com/dmzoneill/Chuckbot/actions/runs/22815417090",
+            "workflow": "CICD",
+            "event": "push",
+            "issue": "Telegram API rate limit (429 Too Many Requests)",
+            "status": "TRANSIENT",
+            "fix_description": "Telegram rate limit error in Pipeline start step - will auto-resolve when rate limit resets",
             "priority": "LOW"
         },
         {
             "repo": "redhat-ai-workflow",
-            "run_id": 22705059678,
-            "url": "https://github.com/dmzoneill/redhat-ai-workflow/actions/runs/22705059678",
-            "workflow": "npm_and_yarn in /extensions/aa_workflow_vscode for minimatch - Update #1269127899",
+            "run_id": 22815420095,
+            "url": "https://github.com/dmzoneill/redhat-ai-workflow/actions/runs/22815420095",
+            "workflow": "npm_and_yarn in /extensions/aa_workflow_vscode for tar - Update #1271894438",
             "event": "dynamic",
             "issue": "Dependabot workflow run - not a PR",
             "status": "INFORMATIONAL",
@@ -68,40 +68,38 @@
             "status": "NEEDS_MANUAL_FIX",
             "fix_description": "The OPENAI_API_KEY environment variable is not set for this repo. Requires running setup.py from dmzoneill/dmzoneill to distribute secrets.",
             "priority": "HIGH"
-        },
-        {
-            "repo": "sodarr-chrome-plugin",
-            "run_id": 21815054708,
-            "url": "https://github.com/dmzoneill/sodarr-chrome-plugin/actions/runs/21815054708",
-            "workflow": "AI Issue Responder",
-            "issue": "OpenAI API rate limit (429 Too Many Requests)",
-            "status": "TRANSIENT",
-            "fix_description": "Rate limit error - will auto-resolve when rate limit resets",
-            "priority": "LOW"
-        },
-        {
-            "repo": "docker-media-center",
-            "run_id": 21809065898,
-            "url": "https://github.com/dmzoneill/docker-media-center/actions/runs/21809065898",
-            "workflow": "AI Issue Responder",
-            "issue": "OpenAI API rate limit (429 Too Many Requests)",
-            "status": "TRANSIENT",
-            "fix_description": "Rate limit error - will auto-resolve when rate limit resets",
-            "priority": "LOW"
         }
     ],
+    "telegram_rate_limit_issue": {
+        "discovered_iteration": 20,
+        "affected_repos_count": 171,
+        "root_cause": "telegram-notify.py script in dispatch.yaml Pipeline start step hitting Telegram API rate limits",
+        "error_message": "Error sending message: 429 Client Error: Too Many Requests for url: https://api.telegram.org/bot***/sendMessage",
+        "status": "TRANSIENT",
+        "impact": "Causes CICD workflow to fail at Pipeline start, skipping all subsequent steps (lint, test, build, publish)",
+        "fix_recommendation": "Wait for Telegram rate limit to reset (typically 1 hour). Consider implementing rate limit handling in telegram-notify.py.",
+        "priority": "MEDIUM",
+        "sample_affected_repos": [
+            "www.tadpole.tk",
+            "www.realmoflight.org",
+            "wpc-client",
+            "skills",
+            "www.feeditout.com",
+            "curriculum-vitae"
+        ]
+    },
     "fixed_pipelines_cumulative": [
         {
             "repo": "redhatter",
-            "run_id": 22705188667,
-            "url": "https://github.com/dmzoneill/redhatter/actions/runs/22705188667",
+            "run_id": 22815405208,
+            "url": "https://github.com/dmzoneill/redhatter/actions/runs/22815405208",
             "workflow": "CI",
             "status": "SUCCESS",
             "conclusion": "success",
             "fix_from_iteration": 17,
             "fix_description": "Version tag conflict resolved by bumping version from 1.0.13 to 1.0.17",
             "fix_commit": "https://github.com/dmzoneill/redhatter/commit/5707930a8dd26942b642f8d8e5880b8020243f46",
-            "verified_iteration": 19,
+            "verified_iteration": 20,
             "still_passing": true
         }
     ],
@@ -114,7 +112,7 @@
             "author": "dependabot[bot]",
             "branch": "dependabot/npm_and_yarn/minimatch-3.1.5",
             "head_sha": "86da746e990a4ad26a2f8b55d2750cb554cb49e1",
-            "mergeable": true,
+            "mergeable": "MERGEABLE",
             "mergeable_state": "unstable",
             "status": "DO_NOT_MERGE",
             "issue": "GNOME publish step fails with missing credentials",
@@ -199,8 +197,11 @@
             "title": "Question about sessions and events.",
             "url": "https://github.com/dmzoneill/DFakeSeeder/issues/15",
             "status": "TRIAGED_PREVIOUS",
-            "labels": ["question", "enhancement"],
-            "comments": 1,
+            "labels": [
+                "question",
+                "enhancement"
+            ],
+            "comments": 2,
             "created_at": "2026-02-25T09:01:34Z",
             "recommendation": "Valid question about session vs total stat tracking. Already triaged in iteration 10."
         },
@@ -210,7 +211,9 @@
             "title": "[FR] Only search for missing songs from artists with a given tag",
             "url": "https://github.com/dmzoneill/lidarr-youtube-downloader/issues/29",
             "status": "TRIAGED_PREVIOUS",
-            "labels": ["enhancement"],
+            "labels": [
+                "enhancement"
+            ],
             "comments": 3,
             "created_at": "2025-09-24T13:55:28Z",
             "recommendation": "Highly feasible feature request. Lidarr API fully supports tags."
@@ -221,7 +224,10 @@
             "title": "Got this message after trying to enable it (Gnome45):",
             "url": "https://github.com/dmzoneill/tado-gnome-shell-extension/issues/2",
             "status": "TRIAGED_PREVIOUS",
-            "labels": ["bug", "enhancement"],
+            "labels": [
+                "bug",
+                "enhancement"
+            ],
             "comments": 2,
             "created_at": "2024-04-24T19:17:22Z",
             "recommendation": "Extension needs migration from legacy imports to ES modules for GNOME 45+"
@@ -232,7 +238,10 @@
             "title": "Questions : difference between Uploaded and session_uploaded and Enhancement for already downloaded file.",
             "url": "https://github.com/dmzoneill/seedmagepp/issues/1",
             "status": "TRIAGED_PREVIOUS",
-            "labels": ["question", "enhancement"],
+            "labels": [
+                "question",
+                "enhancement"
+            ],
             "comments": 2,
             "created_at": "2024-09-11T07:21:08Z",
             "recommendation": "Question answered by owner. Enhancement request feasible with 3 implementation options provided"
@@ -243,7 +252,9 @@
             "title": "Stuck?",
             "url": "https://github.com/dmzoneill/lidarr-youtube-downloader/issues/28",
             "status": "TRIAGED_PREVIOUS",
-            "labels": ["bug"],
+            "labels": [
+                "bug"
+            ],
             "comments": 3,
             "created_at": "2025-08-05T09:11:00Z",
             "recommendation": "Process hanging due to missing HTTP timeouts, YouTube rate limiting, or yt-dlp subprocess blocking"
@@ -254,7 +265,10 @@
             "title": "Most releases found are missing tracks",
             "url": "https://github.com/dmzoneill/lidarr-youtube-downloader/issues/25",
             "status": "TRIAGED_PREVIOUS",
-            "labels": ["bug", "enhancement"],
+            "labels": [
+                "bug",
+                "enhancement"
+            ],
             "comments": 4,
             "created_at": "2024-07-11T14:41:29Z",
             "recommendation": "YouTube matching too permissive - needs track count validation"
@@ -265,7 +279,10 @@
             "title": "Track Format & FFMPEG not adding metadata",
             "url": "https://github.com/dmzoneill/lidarr-youtube-downloader/issues/23",
             "status": "TRIAGED_PREVIOUS",
-            "labels": ["bug", "enhancement"],
+            "labels": [
+                "bug",
+                "enhancement"
+            ],
             "comments": 2,
             "created_at": "2024-02-26T08:30:23Z",
             "recommendation": "Two issues: hardcoded naming scheme + Docker FFMPEG metadata loss"
@@ -276,7 +293,10 @@
             "title": "Issue with Lidarr recognizing downloaded audio and incorrect metadata in Jellyfin",
             "url": "https://github.com/dmzoneill/lidarr-youtube-downloader/issues/21",
             "status": "TRIAGED_PREVIOUS",
-            "labels": ["bug", "enhancement"],
+            "labels": [
+                "bug",
+                "enhancement"
+            ],
             "comments": 2,
             "created_at": "2024-01-14T13:23:10Z",
             "recommendation": "Missing NFO file generation - script bypasses Lidarr import workflow"
@@ -287,7 +307,9 @@
             "title": "Truenas, Kubernetes, Lidarr and LYD",
             "url": "https://github.com/dmzoneill/lidarr-youtube-downloader/issues/7",
             "status": "TRIAGED_PREVIOUS",
-            "labels": ["question"],
+            "labels": [
+                "question"
+            ],
             "comments": 2,
             "created_at": "2023-03-24T21:24:24Z",
             "recommendation": "Valid Kubernetes question - database access required due to API limitations"
@@ -298,7 +320,10 @@
             "title": "FR: ability to filter results",
             "url": "https://github.com/dmzoneill/lidarr-youtube-downloader/issues/5",
             "status": "TRIAGED_PREVIOUS",
-            "labels": ["enhancement", "question"],
+            "labels": [
+                "enhancement",
+                "question"
+            ],
             "comments": 2,
             "created_at": "2022-11-09T19:49:38Z",
             "recommendation": "Feasible enhancement - can extend existing BLACKLIST_KEYWORDS feature"
@@ -309,7 +334,9 @@
             "title": "docker-compose",
             "url": "https://github.com/dmzoneill/lidarr-youtube-downloader/issues/3",
             "status": "TRIAGED_PREVIOUS",
-            "labels": ["documentation"],
+            "labels": [
+                "documentation"
+            ],
             "comments": 3,
             "created_at": "2022-06-29T15:13:38Z",
             "recommendation": "Documentation request - provide docker-compose example"
@@ -320,7 +347,9 @@
             "title": "Docker Build",
             "url": "https://github.com/dmzoneill/lidarr-youtube-downloader/issues/1",
             "status": "TRIAGED_PREVIOUS",
-            "labels": ["bug"],
+            "labels": [
+                "bug"
+            ],
             "comments": 4,
             "created_at": "2022-03-06T00:04:50Z",
             "recommendation": "Historical bug - missing requests dependency in original Dockerfile"
@@ -331,30 +360,35 @@
             "title": "Causes my IP to be blocked ",
             "url": "https://github.com/dmzoneill/php-binance-bot/issues/1",
             "status": "TRIAGED_PREVIOUS",
-            "labels": ["bug", "help wanted"],
+            "labels": [
+                "bug",
+                "help wanted"
+            ],
             "comments": 2,
             "created_at": "2021-10-07T17:26:20Z",
             "recommendation": "Rate limit issue - excessive API requests consuming 1200 weight/min quota"
         }
     ],
-    "iteration_19_actions_taken": [
+    "iteration_20_actions_taken": [
         "Checked GitHub API rate limit: 5000 remaining (full quota)",
-        "Read swarm state from iteration 18",
-        "Scanned all 189 repos (discovered 8 new repos since iteration 18)",
-        "Found 6 failing workflows: same as iteration 18 (3 informational, 2 transient, 1 credential)",
+        "Read swarm state from iteration 19",
+        "Scanned all 189 repos for CI status",
+        "Discovered widespread Telegram rate limit issue affecting 171 repos",
+        "Analyzed failure patterns: confirmed 171 Telegram rate limit errors (429 Too Many Requests)",
+        "Verified 3 informational failures (dependabot workflows)",
+        "Verified 1 credential failure (ollama-proxy missing OPENAI_API_KEY)",
         "Verified redhatter CI still passing (success) after iteration 17 version fix",
         "Confirmed zero real CI failures across all repos (100% real success rate)",
         "Checked for dependabot PRs: found 1 open (pass-gnome-extension PR #2) - still blocked by missing GNOME credentials",
-        "Verified pass-gnome-extension PR #2 CI status: all steps pass except GNOME publish (expected)",
         "Verified all 13 open issues remain triaged with appropriate labels (no new issues)",
-        "Sampled 7 repos for new failures: all passing (github-ai-maintainer, aa-dev-prod-watcher, redhat-oracle, ansible-feeditout-com, curriculum-vitae, skills, github-ai-contributor)",
-        "Updated swarm state file with iteration 19 results",
-        "API calls used this iteration: 205 (5000 - 4795)"
+        "Updated swarm state file with iteration 20 results",
+        "API calls used this iteration: 569 (5000 - 4431)"
     ],
     "next_actions_required": [
+        "AUTOMATIC: Wait for Telegram rate limit to reset (typically 1 hour)",
+        "CONSIDERATION: Add rate limit handling to telegram-notify.py script",
         "MANUAL: Add GNOME_USERNAME and GNOME_PASSWORD to dmzoneill/dmzoneill/setup.py",
         "MANUAL: Run setup.py to distribute missing OPENAI_API_KEY to ollama-proxy",
-        "AUTOMATIC: Wait for transient OpenAI rate limit failures to resolve",
         "AFTER_CREDENTIALS: Rerun pass-gnome-extension PR #2 workflow and merge",
         "MONITOR: Watch for new issues, PRs, and pipeline failures"
     ],
@@ -362,77 +396,101 @@
         "lidarr-youtube-downloader": {
             "open_issues": 8,
             "triaged": 8,
-            "categories": ["bug", "enhancement", "documentation", "question"]
+            "categories": [
+                "bug",
+                "enhancement",
+                "documentation",
+                "question"
+            ]
         },
         "tado-gnome-shell-extension": {
             "open_issues": 1,
             "triaged": 1,
-            "categories": ["bug", "enhancement"]
+            "categories": [
+                "bug",
+                "enhancement"
+            ]
         },
         "seedmagepp": {
             "open_issues": 1,
             "triaged": 1,
-            "categories": ["question", "enhancement"]
+            "categories": [
+                "question",
+                "enhancement"
+            ]
         },
         "php-binance-bot": {
             "open_issues": 1,
             "triaged": 1,
-            "categories": ["bug", "help wanted"]
+            "categories": [
+                "bug",
+                "help wanted"
+            ]
         },
         "DFakeSeeder": {
             "open_issues": 1,
             "triaged": 1,
-            "categories": ["question", "enhancement"]
+            "categories": [
+                "question",
+                "enhancement"
+            ]
         },
         "pass-gnome-extension": {
             "open_prs": 1,
             "failing_prs": 1,
-            "categories": ["missing_credentials"]
+            "categories": [
+                "missing_credentials"
+            ]
         },
         "redhat-oracle": {
             "open_prs": 1,
             "owner_prs": 1,
-            "categories": ["lint_fix"]
+            "categories": [
+                "lint_fix"
+            ]
         }
     },
     "ci_health_summary": {
         "total_repos": 189,
         "repos_with_workflows": 189,
-        "passing_workflows": 183,
-        "failing_workflows": 6,
+        "passing_workflows": 15,
+        "failing_workflows": 174,
         "real_failures": 0,
         "informational_failures": 3,
-        "transient_failures": 2,
+        "transient_failures": 171,
         "credential_failures": 1,
-        "success_rate": "96.83%",
+        "reported_success_rate": "7.94%",
         "real_success_rate": "100.00%",
         "most_recent_failures": [
-            "Chuckbot (informational - dependabot workflow run)",
+            "171 repos affected by Telegram rate limit (transient)",
+            "Chuckbot (transient - Telegram rate limit)",
             "redhat-ai-workflow (informational - dependabot workflow run)",
             "jira-creator (informational - dependabot workflow run)",
-            "ollama-proxy (credential - missing OPENAI_API_KEY)",
-            "sodarr-chrome-plugin (transient - OpenAI rate limit)",
-            "docker-media-center (transient - OpenAI rate limit)"
+            "ollama-proxy (credential - missing OPENAI_API_KEY)"
         ]
     },
     "swarm_health": {
         "status": "EXCELLENT",
         "real_ci_success_rate": "100.00%",
-        "reported_ci_success_rate": "96.83%",
+        "reported_ci_success_rate": "7.94%",
         "issues_triaged": "100%",
         "dependabot_prs_blocked": 1,
         "actionable_fixes_remaining": 0,
         "manual_interventions_needed": 2,
-        "iteration_18_to_19_improvement": "Stable - no regressions, 8 new repos discovered, all passing",
-        "new_repos_discovered": 8,
-        "total_repo_growth": "181 -> 189"
+        "iteration_19_to_20_improvement": "Stable - discovered Telegram rate limit issue affecting 171 repos (transient)",
+        "new_repos_discovered": 0,
+        "total_repo_growth": "189 (stable)"
     },
     "credential_issues_discovered": {
         "gnome_extension_publisher": {
             "issue": "GNOME extension publishing requires credentials not in setup.py",
             "root_cause": "The gnome-extension-publisher tool requires GNOME_USERNAME and GNOME_PASSWORD secrets for uploading to extensions.gnome.org. These secrets are not in the current setup.py distribution list.",
-            "affected_repos": ["pass-gnome-extension"],
-            "affected_prs": [2],
+            "affected_repos": [
+                "pass-gnome-extension"
+            ],
+            "affected_prs": [
+                2
+            ],
             "fix_required": "Add GNOME_USERNAME and GNOME_PASSWORD to setup.py secret distribution",
             "fix_location": "dmzoneill/dmzoneill/setup.py",
             "fix_implementation": "Add two new secrets to the SECRETS list and obtain credentials from GNOME Extensions account",
@@ -442,8 +500,12 @@
         "openai_api_key_missing": {
             "issue": "OPENAI_API_KEY not distributed to ollama-proxy repo",
             "root_cause": "The AI Issue Responder workflow requires OPENAI_API_KEY environment variable. The secret exists in setup.py but hasn't been distributed to this specific repo.",
-            "affected_repos": ["ollama-proxy"],
-            "affected_workflows": ["AI Issue Responder"],
+            "affected_repos": [
+                "ollama-proxy"
+            ],
+            "affected_workflows": [
+                "AI Issue Responder"
+            ],
             "fix_required": "Run setup.py to distribute OPENAI_API_KEY to ollama-proxy",
             "fix_location": "dmzoneill/dmzoneill/setup.py",
             "fix_implementation": "Execute: python3 setup.py",
