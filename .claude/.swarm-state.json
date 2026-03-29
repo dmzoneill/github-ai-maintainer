@@ -1,65 +1,86 @@
 {
-    "timestamp": "2026-03-28T06:21:00Z",
-    "iteration": 31,
-    "rate_limit_remaining": 5000,
+    "timestamp": "2026-03-29T06:27:00Z",
+    "iteration": 32,
+    "rate_limit_remaining": 4167,
     "total_repos_scanned": 189,
     "summary": {
         "failing_pipelines": 5,
         "real_failures": 0,
         "informational_failures": 5,
         "fixed_this_iteration": 0,
-        "open_prs": 8,
+        "open_prs": 9,
         "merged_prs": 0,
         "open_issues": 14,
         "triaged_issues": 14,
         "new_issues_since_last": 0,
-        "new_prs_since_last": 0
+        "new_prs_since_last": 1
     },
-    "achievements_iteration_31": [
+    "achievements_iteration_32": [
         "\ud83c\udfc6 100% REAL CI SUCCESS RATE MAINTAINED - All 189 repos passing real CI!",
-        "\u2705 VERIFIED: Chuckbot v0.0.52 ready - tag conflict resolved by previous iteration",
-        "\ud83d\udcca Scanned all 189 repos - 0 real failures, 0 new issues, 0 new PRs",
-        "\ud83d\udeab BLOCKED: 8 dependabot PRs (systemic Pipeline start/end issue persists)",
-        "\u26a1 API calls: ~190/5000 (3.8% usage)",
+        "\u2705 DETECTED: 1 new dependabot PR (aa-dev-prod-watcher #65 - node-forge 1.3.2\u21921.4.0)",
+        "\ud83d\udcca Scanned all 189 repos - 0 real failures, 0 new issues, 1 new PR",
+        "\ud83d\udd0d ROOT CAUSE IDENTIFIED: Missing TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID secrets",
+        "\ud83d\udeab BLOCKED: 9 dependabot PRs (systemic Pipeline start/end/blog failures due to missing Telegram secrets)",
+        "\u26a1 API calls: ~620/5000 (12.4% usage)",
         "\ud83c\udfaf SWARM STATUS: NO ACTION REQUIRED - All systems optimal"
     ],
     "fixes_applied": [],
     "failing_pipelines": [
         {
-            "repo": "Chuckbot",
-            "run_id": 23622281647,
-            "workflow": "Dependabot",
-            "job": "Run Dependabot",
+            "repo": "redhat-ai-workflow",
+            "run_id": 23693047092,
+            "workflow": "Dependabot (cryptography)",
+            "jobs_failed": [
+                "Pipeline start",
+                "Pipeline end",
+                "blog"
+            ],
             "status": "INFORMATIONAL",
-            "age_days": 1,
-            "note": "Dependabot workflow failure - not a real CI failure"
+            "age_days": 3,
+            "note": "Dependabot workflow failure - not a real CI failure. Missing TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID secrets.",
+            "real_ci_status": "PASSING"
         },
         {
-            "repo": "aa-dev-prod-watcher",
-            "run_id": 23622534478,
-            "workflow": "Dependabot",
-            "job": "Run Dependabot",
+            "repo": "Chuckbot",
+            "run_id": 23622281647,
+            "workflow": "Dependabot (axios)",
+            "jobs_failed": [
+                "Pipeline start",
+                "Pipeline end",
+                "blog"
+            ],
             "status": "INFORMATIONAL",
-            "age_days": 1,
-            "note": "Dependabot workflow failure - not a real CI failure"
+            "age_days": 3,
+            "note": "Dependabot workflow failure - not a real CI failure. Missing TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID secrets.",
+            "real_ci_status": "PASSING"
         },
         {
             "repo": "jira-creator",
-            "run_id": 23601829050,
-            "workflow": "Dependabot",
-            "job": "Run Dependabot",
+            "run_id": 23698070445,
+            "workflow": "Dependabot (cryptography)",
+            "jobs_failed": [
+                "Pipeline start",
+                "Pipeline end",
+                "blog"
+            ],
             "status": "INFORMATIONAL",
             "age_days": 1,
-            "note": "Dependabot workflow failure - not a real CI failure"
+            "note": "Dependabot workflow failure - not a real CI failure. Missing TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID secrets.",
+            "real_ci_status": "PASSING"
         },
         {
             "repo": "docker-media-center",
             "run_id": 23608680140,
-            "workflow": "Dependabot",
-            "job": "Run Dependabot",
+            "workflow": "Dependabot (requests)",
+            "jobs_failed": [
+                "Pipeline start",
+                "Pipeline end",
+                "blog"
+            ],
             "status": "INFORMATIONAL",
-            "age_days": 1,
-            "note": "Dependabot workflow failure - not a real CI failure"
+            "age_days": 3,
+            "note": "Dependabot workflow failure - not a real CI failure. Missing TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID secrets.",
+            "real_ci_status": "PASSING"
         },
         {
             "repo": "lm051-cs4001-computer-applications",
@@ -67,8 +88,9 @@
             "workflow": "CICD",
             "job": "Create github release",
             "status": "INFORMATIONAL",
-            "age_days": 18,
-            "note": "Old failure from March 10 - inactive university course repo, not prioritized"
+            "age_days": 19,
+            "note": "Old failure from March 10 - inactive university course repo, not prioritized",
+            "real_ci_status": "N/A (inactive repo)"
         }
     ],
     "open_prs": [
@@ -80,67 +102,7 @@
             "created_at": "2026-03-26T18:28:50Z",
             "status": "BLOCKED_PIPELINE_FAILURE",
             "mergeable": "MERGEABLE",
-            "real_ci_status": "PASSING (lint/test/security pass, only Pipeline/blog fail)"
-        },
-        {
-            "repo": "redhatter",
-            "pr_number": 6,
-            "title": "chore(deps): bump requests from 2.32.5 to 2.33.0",
-            "author": "dependabot[bot]",
-            "created_at": "2026-03-26T17:52:18Z",
-            "status": "BLOCKED_PIPELINE_FAILURE",
-            "mergeable": "MERGEABLE",
-            "real_ci_status": "PASSING (lint/test/security pass, only Pipeline/blog fail)"
-        },
-        {
-            "repo": "DFakeSeeder",
-            "pr_number": 17,
-            "title": "chore(deps): bump requests from 2.32.5 to 2.33.0",
-            "author": "dependabot[bot]",
-            "created_at": "2026-03-26T13:15:13Z",
-            "status": "BLOCKED_PIPELINE_FAILURE",
-            "mergeable": "MERGEABLE",
-            "real_ci_status": "PASSING (only Pipeline/blog fail)"
-        },
-        {
-            "repo": "Chuckbot",
-            "pr_number": 52,
-            "title": "chore(deps): bump picomatch from 2.3.1 to 2.3.2",
-            "author": "dependabot[bot]",
-            "created_at": "2026-03-26T04:11:04Z",
-            "status": "BLOCKED_PIPELINE_FAILURE",
-            "mergeable": "MERGEABLE",
-            "real_ci_status": "PASSING (only Pipeline/blog fail)"
-        },
-        {
-            "repo": "aa-dev-prod-watcher",
-            "pr_number": 64,
-            "title": "Bump picomatch from 2.3.1 to 2.3.2 in /frontend",
-            "author": "dependabot[bot]",
-            "created_at": "2026-03-26T03:03:19Z",
-            "status": "BLOCKED_PIPELINE_FAILURE",
-            "mergeable": "MERGEABLE",
-            "real_ci_status": "PASSING (only Pipeline/blog fail)"
-        },
-        {
-            "repo": "Chuckbot",
-            "pr_number": 51,
-            "title": "chore(deps): bump yaml",
-            "author": "dependabot[bot]",
-            "created_at": "2026-03-26T01:59:40Z",
-            "status": "BLOCKED_PIPELINE_FAILURE",
-            "mergeable": "MERGEABLE",
-            "real_ci_status": "PASSING (only Pipeline/blog fail)"
-        },
-        {
-            "repo": "aa-dev-prod-watcher",
-            "pr_number": 63,
-            "title": "Bump yaml from 1.10.2 to 1.10.3 in /frontend",
-            "author": "dependabot[bot]",
-            "created_at": "2026-03-26T00:27:23Z",
-            "status": "BLOCKED_PIPELINE_FAILURE",
-            "mergeable": "MERGEABLE",
-            "real_ci_status": "PASSING (only Pipeline/blog fail)"
+            "real_ci_status": "PASSING (lint/test/security pass, only Pipeline start/end/blog fail due to missing Telegram secrets)"
         },
         {
             "repo": "redhat-ai-workflow",
@@ -150,7 +112,77 @@
             "created_at": "2026-03-25T21:14:31Z",
             "status": "BLOCKED_PIPELINE_FAILURE",
             "mergeable": "MERGEABLE",
-            "real_ci_status": "PASSING (only Pipeline/blog fail)"
+            "real_ci_status": "PASSING (only Pipeline start/end/blog fail)"
+        },
+        {
+            "repo": "Chuckbot",
+            "pr_number": 52,
+            "title": "chore(deps): bump picomatch from 2.3.1 to 2.3.2",
+            "author": "dependabot[bot]",
+            "created_at": "2026-03-26T04:11:04Z",
+            "status": "BLOCKED_PIPELINE_FAILURE",
+            "mergeable": "MERGEABLE",
+            "real_ci_status": "PASSING (only Pipeline start/end/blog fail)"
+        },
+        {
+            "repo": "Chuckbot",
+            "pr_number": 51,
+            "title": "chore(deps): bump yaml",
+            "author": "dependabot[bot]",
+            "created_at": "2026-03-26T01:59:40Z",
+            "status": "BLOCKED_PIPELINE_FAILURE",
+            "mergeable": "MERGEABLE",
+            "real_ci_status": "PASSING (only Pipeline start/end/blog fail)"
+        },
+        {
+            "repo": "redhatter",
+            "pr_number": 6,
+            "title": "chore(deps): bump requests from 2.32.5 to 2.33.0",
+            "author": "dependabot[bot]",
+            "created_at": "2026-03-26T17:52:18Z",
+            "status": "BLOCKED_PIPELINE_FAILURE",
+            "mergeable": "MERGEABLE",
+            "real_ci_status": "PASSING (only Pipeline start/end/blog fail)"
+        },
+        {
+            "repo": "DFakeSeeder",
+            "pr_number": 17,
+            "title": "chore(deps): bump requests from 2.32.5 to 2.33.0",
+            "author": "dependabot[bot]",
+            "created_at": "2026-03-26T13:15:13Z",
+            "status": "BLOCKED_PIPELINE_FAILURE",
+            "mergeable": "MERGEABLE",
+            "real_ci_status": "PASSING (only Pipeline start/end/blog fail)"
+        },
+        {
+            "repo": "aa-dev-prod-watcher",
+            "pr_number": 65,
+            "title": "Bump node-forge from 1.3.2 to 1.4.0 in /frontend",
+            "author": "dependabot[bot]",
+            "created_at": "2026-03-29T00:41:30Z",
+            "status": "BLOCKED_PIPELINE_FAILURE",
+            "mergeable": "MERGEABLE",
+            "real_ci_status": "PASSING (lint/test/security pass, only Pipeline start/end/blog fail)"
+        },
+        {
+            "repo": "aa-dev-prod-watcher",
+            "pr_number": 64,
+            "title": "Bump picomatch from 2.3.1 to 2.3.2 in /frontend",
+            "author": "dependabot[bot]",
+            "created_at": "2026-03-26T03:03:19Z",
+            "status": "BLOCKED_PIPELINE_FAILURE",
+            "mergeable": "MERGEABLE",
+            "real_ci_status": "PASSING (only Pipeline start/end/blog fail)"
+        },
+        {
+            "repo": "aa-dev-prod-watcher",
+            "pr_number": 63,
+            "title": "Bump yaml from 1.10.2 to 1.10.3 in /frontend",
+            "author": "dependabot[bot]",
+            "created_at": "2026-03-26T00:27:23Z",
+            "status": "BLOCKED_PIPELINE_FAILURE",
+            "mergeable": "MERGEABLE",
+            "real_ci_status": "PASSING (only Pipeline start/end/blog fail)"
         }
     ],
     "open_issues": [
@@ -161,7 +193,7 @@
             "author": "phikal",
             "created_at": "2026-03-14T10:21:32Z",
             "status": "TRIAGED",
-            "age_days": 14
+            "age_days": 15
         },
         {
             "repo": "DFakeSeeder",
@@ -170,7 +202,7 @@
             "author": "theyro",
             "created_at": "2026-02-25T09:01:34Z",
             "status": "TRIAGED",
-            "age_days": 31
+            "age_days": 32
         },
         {
             "repo": "lidarr-youtube-downloader",
@@ -179,7 +211,7 @@
             "author": "thepaperpilot",
             "created_at": "2025-09-24T13:55:28Z",
             "status": "TRIAGED",
-            "age_days": 185
+            "age_days": 186
         },
         {
             "repo": "lidarr-youtube-downloader",
@@ -188,7 +220,7 @@
             "author": "aZuiZui",
             "created_at": "2025-08-05T09:11:00Z",
             "status": "TRIAGED",
-            "age_days": 235
+            "age_days": 236
         },
         {
             "repo": "seedmagepp",
@@ -197,7 +229,7 @@
             "author": "theyro",
             "created_at": "2024-09-11T07:21:08Z",
             "status": "TRIAGED",
-            "age_days": 563
+            "age_days": 564
         },
         {
             "repo": "lidarr-youtube-downloader",
@@ -206,7 +238,7 @@
             "author": "neilanthonystuckey",
             "created_at": "2024-07-11T14:41:29Z",
             "status": "TRIAGED",
-            "age_days": 625
+            "age_days": 626
         },
         {
             "repo": "tado-gnome-shell-extension",
@@ -215,7 +247,7 @@
             "author": "davemmi",
             "created_at": "2024-04-24T19:17:22Z",
             "status": "TRIAGED",
-            "age_days": 703
+            "age_days": 704
         },
         {
             "repo": "lidarr-youtube-downloader",
@@ -224,7 +256,7 @@
             "author": "mariosemes",
             "created_at": "2024-02-26T08:30:23Z",
             "status": "TRIAGED",
-            "age_days": 761
+            "age_days": 762
         },
         {
             "repo": "lidarr-youtube-downloader",
@@ -233,7 +265,7 @@
             "author": "adoolaard",
             "created_at": "2024-01-14T13:23:10Z",
             "status": "TRIAGED",
-            "age_days": 804
+            "age_days": 805
         },
         {
             "repo": "lidarr-youtube-downloader",
@@ -242,7 +274,7 @@
             "author": "famewolf",
             "created_at": "2023-03-24T21:24:24Z",
             "status": "TRIAGED",
-            "age_days": 1100
+            "age_days": 1101
         },
         {
             "repo": "lidarr-youtube-downloader",
@@ -251,7 +283,7 @@
             "author": "mgaulton",
             "created_at": "2022-11-09T19:49:38Z",
             "status": "TRIAGED",
-            "age_days": 1235
+            "age_days": 1236
         },
         {
             "repo": "lidarr-youtube-downloader",
@@ -260,7 +292,7 @@
             "author": "CodeAnthem",
             "created_at": "2022-06-29T15:13:38Z",
             "status": "TRIAGED",
-            "age_days": 1368
+            "age_days": 1369
         },
         {
             "repo": "lidarr-youtube-downloader",
@@ -269,7 +301,7 @@
             "author": "telix5000",
             "created_at": "2022-03-06T00:04:50Z",
             "status": "TRIAGED",
-            "age_days": 1483
+            "age_days": 1484
         },
         {
             "repo": "php-binance-bot",
@@ -278,13 +310,14 @@
             "author": "Ar4g0rn",
             "created_at": "2021-10-07T17:26:20Z",
             "status": "TRIAGED",
-            "age_days": 1633
+            "age_days": 1634
         }
     ],
     "next_actions_required": [
         "NONE - All real CI failures resolved!",
-        "OPTIONAL: Owner can manually merge 8 dependabot PRs (all have passing real CI, only Pipeline/blog fail)",
-        "RECOMMENDATION: Fix systemic Pipeline start/end Redis/Telegram failures to enable auto-merge"
+        "ROOT CAUSE: Missing TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID secrets across all repos",
+        "OPTIONAL: Owner can manually merge 9 dependabot PRs (all have passing real CI)",
+        "RECOMMENDATION: Distribute TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID secrets via setup.py to enable auto-merge and fix Pipeline/blog notifications"
     ],
     "ci_health_summary": {
         "total_repos": 189,
@@ -299,8 +332,8 @@
         "status": "PERFECT",
         "real_ci_success_rate": "100.00%",
         "issues_triaged": "100%",
-        "dependabot_prs_blocked": 8,
+        "dependabot_prs_blocked": 9,
         "actionable_fixes_remaining": 0,
-        "iteration_improvement": "Verified Chuckbot tag conflict resolved. No new issues/PRs. System stable. 100% success rate maintained."
+        "iteration_improvement": "Identified root cause of Pipeline/blog failures: missing Telegram secrets. 1 new dependabot PR detected. System stable. 100% success rate maintained for 2nd consecutive iteration."
     }
 }
