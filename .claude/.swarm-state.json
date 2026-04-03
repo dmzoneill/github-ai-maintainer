@@ -1,41 +1,49 @@
 {
-    "timestamp": "2026-04-02T00:00:00Z",
-    "iteration": 35,
-    "rate_limit_remaining": 4950,
+    "timestamp": "2026-04-03T06:25:40Z",
+    "iteration": 36,
+    "rate_limit_remaining": 4581,
     "total_repos_scanned": 189,
     "summary": {
-        "failing_pipelines": 4,
-        "real_failures": 1,
-        "informational_failures": 3,
+        "failing_pipelines": 7,
+        "real_failures": 2,
+        "dependabot_infra_failures": 3,
+        "informational_failures": 2,
         "fixed_this_iteration": 0,
-        "triggered_retries": 1,
+        "triggered_retries": 2,
         "open_prs": 2,
         "merged_prs": 0,
         "open_issues": 14,
         "triaged_issues": 14,
         "new_issues_since_last": 0,
-        "new_prs_since_last": 2
+        "new_prs_since_last": 0
     },
-    "achievements_iteration_35": [
-        "🔄 TRIGGERED RETRY - aa-dev-prod-watcher via repository_dispatch (version already bumped to 0.0.76)",
-        "🔍 IDENTIFIED ROOT CAUSE - Dependabot workflow failures are GITHUB_REGISTRIES_PROXY parsing errors (GitHub infra issue)",
-        "📊 Scanned 189 repos - 4 failures found (1 real recovering, 3 Dependabot infrastructure errors)",
-        "🚫 BLOCKED - 2 dependabot PRs cannot merge due to Telegram secret failures in CI",
-        "⚡ API calls: ~200/5000 (4% usage)",
-        "📈 TREND - Iteration 34 fixed 2 repos, both recovered successfully before new dependabot merges triggered new runs"
+    "achievements_iteration_36": [
+        "🔄 TRIGGERED RETRY - aa-dev-prod-watcher via repository_dispatch (v0.0.76, was stuck on v0.0.75 tag)",
+        "🔄 TRIGGERED RETRY - lm051-cs4001-computer-applications via repository_dispatch (v0.0.5, was stuck on v0.0.3 tag)",
+        "🔍 DISCOVERED 3 NEW FAILURES - jira-creator, docker-media-center (both Dependabot infra), lm051 (release tag conflict)",
+        "📊 Scanned 189 repos - 7 failures found (2 real recovering, 3 Dependabot infra, 2 informational)",
+        "🚫 BLOCKED - 2 dependabot PRs cannot merge due to Pipeline start failures (Telegram secrets missing)",
+        "⚡ API calls: ~220/5000 (4.4% usage)",
+        "📈 TREND - Same Dependabot infra issues persist. 2 release tag conflicts found and retried."
     ],
     "fixes_applied": [
         {
             "repo": "aa-dev-prod-watcher",
             "action": "Triggered repository_dispatch retry",
-            "issue": "Release creation failure after dependabot merge, version already at 0.0.76",
+            "issue": "Release tag already exists (v0.0.75), version file is v0.0.76",
+            "status": "RECOVERING"
+        },
+        {
+            "repo": "lm051-cs4001-computer-applications",
+            "action": "Triggered repository_dispatch retry",
+            "issue": "Release tag stuck at v0.0.3, version file is v0.0.5",
             "status": "RECOVERING"
         }
     ],
     "failing_pipelines": [
         {
             "repo": "redhat-ai-workflow",
-            "run_id": 23873962578,
+            "run_id": 23890212370,
             "workflow": "Dependabot (onnx 1.21.0)",
             "jobs_failed": ["Dependabot"],
             "status": "GITHUB_INFRASTRUCTURE_ERROR",
@@ -50,7 +58,27 @@
             "workflow": "Dependabot (aiohttp 3.13.4)",
             "jobs_failed": ["Dependabot"],
             "status": "GITHUB_INFRASTRUCTURE_ERROR",
-            "age_days": 0,
+            "age_days": 1,
+            "note": "GITHUB_REGISTRIES_PROXY environment variable parsing error in Dependabot action - not fixable by user",
+            "real_ci_status": "N/A (GitHub infra issue)"
+        },
+        {
+            "repo": "jira-creator",
+            "run_id": 23876484885,
+            "workflow": "Dependabot (poetry)",
+            "jobs_failed": ["Dependabot"],
+            "status": "GITHUB_INFRASTRUCTURE_ERROR",
+            "age_days": 2,
+            "note": "GITHUB_REGISTRIES_PROXY environment variable parsing error in Dependabot action - not fixable by user",
+            "real_ci_status": "N/A (GitHub infra issue)"
+        },
+        {
+            "repo": "docker-media-center",
+            "run_id": 23608680140,
+            "workflow": "Dependabot (requests)",
+            "jobs_failed": ["Dependabot"],
+            "status": "GITHUB_INFRASTRUCTURE_ERROR",
+            "age_days": 2,
             "note": "GITHUB_REGISTRIES_PROXY environment variable parsing error in Dependabot action - not fixable by user",
             "real_ci_status": "N/A (GitHub infra issue)"
         },
@@ -60,8 +88,8 @@
             "workflow": "Dependabot (yaml)",
             "jobs_failed": ["Pipeline start", "Pipeline end", "blog"],
             "status": "INFORMATIONAL",
-            "age_days": 2,
-            "note": "Telegram secret failure - PR workflow, not main CI",
+            "age_days": 3,
+            "note": "Telegram secret failure - PR workflow, not main CI. Blocks dependabot merges.",
             "real_ci_status": "SKIPPED"
         },
         {
@@ -70,10 +98,23 @@
             "workflow": "CICD",
             "job": "Create github release",
             "status": "RECOVERING",
-            "age_days": 1,
-            "note": "Release creation failure after dependabot merge. Version bumped to 0.0.76. Repository dispatch triggered.",
+            "age_days": 2,
+            "note": "Release creation failure - tag v0.0.75 already exists. Version bumped to 0.0.76. Repository dispatch triggered.",
             "real_ci_status": "RETRY_TRIGGERED",
-            "retry_run_expected": true
+            "retry_run_expected": true,
+            "retry_triggered_at": "2026-04-03T06:25:30Z"
+        },
+        {
+            "repo": "lm051-cs4001-computer-applications",
+            "run_id": 22924464587,
+            "workflow": "CICD",
+            "job": "Create github release",
+            "status": "RECOVERING",
+            "age_days": 8,
+            "note": "Release creation failure - tag v0.0.3 already exists. Version file at 0.0.5. Repository dispatch triggered.",
+            "real_ci_status": "RETRY_TRIGGERED",
+            "retry_run_expected": true,
+            "retry_triggered_at": "2026-04-03T06:25:35Z"
         }
     ],
     "open_prs": [
@@ -82,22 +123,26 @@
             "pr_number": 143,
             "title": "chore(deps): bump onnx from 1.20.1 to 1.21.0",
             "author": "dependabot",
-            "created_at": "2026-03-31T22:11:42Z",
+            "created_at": "2026-04-01T22:11:43Z",
             "status": "BLOCKED",
-            "block_reason": "Telegram secret failures in Pipeline start/end/blog jobs",
+            "block_reason": "Pipeline start fails (Telegram secret). CI skipped. Cannot verify code quality.",
             "mergeable": true,
-            "age_days": 2
+            "merge_state": "UNSTABLE",
+            "age_days": 2,
+            "note": "Mergeable but waiting for CI to run. Need Telegram secrets fix first."
         },
         {
             "repo": "DFakeSeeder",
             "pr_number": 19,
             "title": "chore(deps): bump aiohttp from 3.13.3 to 3.13.4",
             "author": "dependabot",
-            "created_at": "2026-04-01T22:00:39Z",
+            "created_at": "2026-04-01T22:00:44Z",
             "status": "BLOCKED",
-            "block_reason": "Telegram secret failures in Pipeline start/end/blog jobs",
+            "block_reason": "Pipeline start fails (Telegram secret). CI skipped. Cannot verify code quality.",
             "mergeable": true,
-            "age_days": 0
+            "merge_state": "UNSTABLE",
+            "age_days": 2,
+            "note": "Mergeable but waiting for CI to run. Need Telegram secrets fix first."
         }
     ],
     "open_issues": [
@@ -108,7 +153,7 @@
             "author": "phikal",
             "created_at": "2026-03-14T10:21:32Z",
             "status": "TRIAGED",
-            "age_days": 19
+            "age_days": 20
         },
         {
             "repo": "DFakeSeeder",
@@ -117,7 +162,7 @@
             "author": "theyro",
             "created_at": "2026-02-25T09:01:34Z",
             "status": "TRIAGED",
-            "age_days": 36
+            "age_days": 37
         },
         {
             "repo": "lidarr-youtube-downloader",
@@ -126,7 +171,7 @@
             "author": "thepaperpilot",
             "created_at": "2025-09-24T13:55:28Z",
             "status": "TRIAGED",
-            "age_days": 190
+            "age_days": 191
         },
         {
             "repo": "lidarr-youtube-downloader",
@@ -135,7 +180,7 @@
             "author": "aZuiZui",
             "created_at": "2025-08-05T09:11:00Z",
             "status": "TRIAGED",
-            "age_days": 240
+            "age_days": 241
         },
         {
             "repo": "seedmagepp",
@@ -144,7 +189,7 @@
             "author": "theyro",
             "created_at": "2024-09-11T07:21:08Z",
             "status": "TRIAGED",
-            "age_days": 568
+            "age_days": 569
         },
         {
             "repo": "lidarr-youtube-downloader",
@@ -153,7 +198,7 @@
             "author": "neilanthonystuckey",
             "created_at": "2024-07-11T14:41:29Z",
             "status": "TRIAGED",
-            "age_days": 630
+            "age_days": 631
         },
         {
             "repo": "tado-gnome-shell-extension",
@@ -162,7 +207,7 @@
             "author": "davemmi",
             "created_at": "2024-04-24T19:17:22Z",
             "status": "TRIAGED",
-            "age_days": 708
+            "age_days": 709
         },
         {
             "repo": "lidarr-youtube-downloader",
@@ -171,7 +216,7 @@
             "author": "mariosemes",
             "created_at": "2024-02-26T08:30:23Z",
             "status": "TRIAGED",
-            "age_days": 766
+            "age_days": 767
         },
         {
             "repo": "lidarr-youtube-downloader",
@@ -180,7 +225,7 @@
             "author": "adoolaard",
             "created_at": "2024-01-14T13:23:10Z",
             "status": "TRIAGED",
-            "age_days": 809
+            "age_days": 810
         },
         {
             "repo": "lidarr-youtube-downloader",
@@ -189,7 +234,7 @@
             "author": "famewolf",
             "created_at": "2023-03-24T21:24:24Z",
             "status": "TRIAGED",
-            "age_days": 1105
+            "age_days": 1106
         },
         {
             "repo": "lidarr-youtube-downloader",
@@ -198,7 +243,7 @@
             "author": "mgaulton",
             "created_at": "2022-11-09T19:49:38Z",
             "status": "TRIAGED",
-            "age_days": 1240
+            "age_days": 1241
         },
         {
             "repo": "lidarr-youtube-downloader",
@@ -207,7 +252,7 @@
             "author": "CodeAnthem",
             "created_at": "2022-06-29T15:13:38Z",
             "status": "TRIAGED",
-            "age_days": 1373
+            "age_days": 1374
         },
         {
             "repo": "lidarr-youtube-downloader",
@@ -216,7 +261,7 @@
             "author": "telix5000",
             "created_at": "2022-03-06T00:04:50Z",
             "status": "TRIAGED",
-            "age_days": 1488
+            "age_days": 1489
         },
         {
             "repo": "php-binance-bot",
@@ -225,41 +270,57 @@
             "author": "Ar4g0rn",
             "created_at": "2021-10-07T17:26:20Z",
             "status": "TRIAGED",
-            "age_days": 1638
+            "age_days": 1639
         }
     ],
     "next_actions_required": [
-        "Monitor aa-dev-prod-watcher for successful retry run after repository_dispatch",
-        "ROOT CAUSE UPDATE: Dependabot failures are GitHub infrastructure errors (GITHUB_REGISTRIES_PROXY parsing) - not user-fixable",
-        "RECOMMENDATION: Wait for GitHub to fix Dependabot infrastructure issue before new security updates can process",
-        "TELEGRAM SECRETS: Still missing in some repos, causing PR workflow notification failures"
+        "Monitor aa-dev-prod-watcher and lm051-cs4001-computer-applications for successful retry runs",
+        "ROOT CAUSE: Dependabot failures are GitHub infrastructure errors (GITHUB_REGISTRIES_PROXY parsing) - 4 repos affected",
+        "ROOT CAUSE: Telegram secrets missing in repos blocks dependabot PR CI runs - 2 PRs blocked",
+        "RECOMMENDATION: Fix Telegram secret distribution to unblock dependabot PRs",
+        "RECOMMENDATION: Wait for GitHub to fix Dependabot infrastructure issue"
     ],
     "ci_health_summary": {
         "total_repos": 189,
-        "passing_workflows": 185,
-        "failing_workflows": 4,
-        "real_failures": 1,
-        "github_infra_failures": 2,
+        "passing_workflows": 182,
+        "failing_workflows": 7,
+        "real_failures": 2,
+        "github_infra_failures": 4,
         "informational_failures": 1,
-        "real_success_rate": "99.47%",
-        "trend": "EXCELLENT - Only 1 real failure (recovering via retry). 2 Dependabot failures are GitHub infra issues beyond user control."
+        "real_success_rate": "98.94%",
+        "trend": "EXCELLENT - 2 real failures (both recovering via retry). 4 Dependabot failures are GitHub infra issues. 1 informational (Telegram)."
     },
     "swarm_health": {
         "status": "EXCELLENT",
-        "real_ci_success_rate": "99.47%",
+        "real_ci_success_rate": "98.94%",
         "issues_triaged": "100%",
         "dependabot_prs_blocked": 2,
-        "dependabot_blocked_by_infra": 2,
+        "dependabot_blocked_by_infra": 4,
         "actionable_fixes_remaining": 0,
-        "iteration_improvement": "Triggered retry for aa-dev-prod-watcher. Identified Dependabot failures as GitHub infra errors (GITHUB_REGISTRIES_PROXY parsing) - not fixable by user. 2 PRs blocked by Telegram secrets but mergeable. Waiting on GitHub to fix Dependabot."
+        "iteration_improvement": "Triggered retries for 2 repos with release tag conflicts. Identified 3 new Dependabot infra failures (same root cause). All issues remain triaged. 2 dependabot PRs blocked by Telegram secret issue."
     },
     "dependabot_infrastructure_issue": {
         "identified": true,
         "error": "Failed to parse GITHUB_REGISTRIES_PROXY environment variable",
-        "affected_repos": ["redhat-ai-workflow", "DFakeSeeder"],
+        "affected_repos": [
+            "redhat-ai-workflow",
+            "DFakeSeeder",
+            "jira-creator",
+            "docker-media-center"
+        ],
         "affected_prs": [143, 19],
         "user_actionable": false,
         "status": "WAITING_FOR_GITHUB_FIX",
         "first_seen": "2026-04-01T22:28:38Z"
+    },
+    "telegram_secret_issue": {
+        "identified": true,
+        "error": "Missing TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID secrets",
+        "impact": "Pipeline start/end/blog jobs fail on PRs, causing entire CI to skip",
+        "affected_repos": ["redhat-ai-workflow", "DFakeSeeder", "Chuckbot"],
+        "blocked_prs": 2,
+        "user_actionable": true,
+        "recommended_fix": "Run setup.py to distribute TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID secrets to all repos",
+        "workaround": "Manually merge dependabot PRs after code review, since actual CI is skipped"
     }
 }
