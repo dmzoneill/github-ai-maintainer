@@ -1,38 +1,38 @@
 {
-    "timestamp": "2026-04-08T06:35:00Z",
-    "iteration": 40,
+    "timestamp": "2026-04-11T00:00:00Z",
+    "iteration": 41,
     "rate_limit_remaining": 5000,
-    "rate_limit_used": 185,
+    "rate_limit_used": 220,
     "total_repos_scanned": 189,
     "summary": {
-        "failing_pipelines": 1,
+        "failing_pipelines": 5,
         "real_failures": 0,
-        "telegram_auth_failures": 1,
-        "dependabot_infra_failures": 3,
+        "telegram_auth_failures": 5,
+        "dependabot_infra_failures": 0,
         "fixed_this_iteration": 0,
-        "open_prs": 3,
+        "open_prs": 7,
         "merged_prs": 0,
         "open_issues": 14,
         "triaged_issues": 14,
         "new_issues_since_last": 0,
-        "new_prs_since_last": 1,
+        "new_prs_since_last": 4,
         "labels_added_this_iteration": 0
     },
-    "achievements_iteration_40": [
-        "\u2705 VERIFIED - redhatter v1.0.21 released successfully (was failing in iteration 39)",
-        "\u2705 VERIFIED - DFakeSeeder v1.0.18 released successfully (was failing in iteration 39)",
-        "\ud83d\udcca Scanned 189 repos - 1 active failure (Telegram auth), 3 Dependabot infra failures",
-        "\u2705 ALL ISSUES TRIAGED - 14/14 issues have comments and labels (100% coverage)",
-        "\ud83d\udeab BLOCKED - 3 dependabot PRs pending (pass-gnome-extension #5, redhat-ai-workflow #143, DFakeSeeder #19)",
-        "\u26a1 API calls: 185/5000 (3.7% usage)",
-        "\ud83c\udfaf STATUS - EXCELLENT: Zero actionable code failures across all 189 repos",
-        "\ud83d\udd0d DISCOVERY - Previous iteration's fixes (redhatter, DFakeSeeder) confirmed successful"
+    "achievements_iteration_41": [
+        "📊 Scanned 189 repos - 5 failures (all Telegram auth), 0 code failures",
+        "✅ ALL ISSUES TRIAGED - 14/14 issues have comments and labels (100% coverage)",
+        "🚫 BLOCKED - 7 dependabot PRs pending (all blocked by Telegram auth failure)",
+        "⚠️ INFRASTRUCTURE ISSUE - TELEGRAM_BOT_TOKEN expired/invalid",
+        "⚡ API calls: 220/5000 (4.4% usage)",
+        "🎯 STATUS - EXCELLENT: Zero actionable code failures across all 189 repos",
+        "📈 INCREASE - Telegram auth failures expanded from 1 to 5 repos",
+        "📈 INCREASE - Blocked dependabot PRs increased from 3 to 7"
     ],
     "swarm_health": {
         "status": "EXCELLENT",
         "real_ci_success_rate": "100%",
         "issues_triaged": "100%",
-        "dependabot_prs_blocked": 3,
+        "dependabot_prs_blocked": 7,
         "actionable_fixes_remaining": 0,
         "infrastructure_issues": 1
     },
@@ -40,33 +40,102 @@
         "critical": [
             {
                 "issue": "TELEGRAM_BOT_TOKEN expired/invalid",
-                "affected_repos": 1,
+                "affected_repos": 5,
                 "affected_repo_names": [
-                    "aa-dev-prod-watcher"
+                    "Chuckbot",
+                    "aa-dev-prod-watcher",
+                    "lm051-cs4001-computer-applications",
+                    "jira-creator",
+                    "docker-media-center"
                 ],
-                "impact": "CI runs fail at Pipeline start step",
-                "fix": "Run setup.py to update TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID secrets",
-                "urgency": "MEDIUM - blocks CI for 1 repo and 3 dependabot PR merges"
+                "impact": "CI runs fail at Pipeline start step, blocking all dependabot PR merges",
+                "fix": "Run setup.py to update TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID secrets across all repos",
+                "urgency": "HIGH - blocks CI for 5 repos and prevents 7 dependabot PR merges"
             }
         ]
     },
     "repo_health_summary": {
         "total_repos": 189,
-        "passing_ci": 188,
-        "failing_ci": 1,
+        "passing_ci": 184,
+        "failing_ci": 5,
         "no_ci": 0,
         "failure_breakdown": {
-            "telegram_auth": 1,
-            "dependabot_infrastructure": 3,
+            "telegram_auth": 5,
+            "dependabot_infrastructure": 0,
             "real_code_failures": 0
         }
     },
+    "failing_repos_detail": [
+        {
+            "repo": "Chuckbot",
+            "run_id": 24270534921,
+            "failure": "Telegram auth (401 Unauthorized)",
+            "failed_job": "cicd / Pipeline start"
+        },
+        {
+            "repo": "aa-dev-prod-watcher",
+            "run_id": 24231552004,
+            "failure": "Telegram auth (401 Unauthorized)",
+            "failed_job": "cicd / Pipeline start"
+        },
+        {
+            "repo": "lm051-cs4001-computer-applications",
+            "run_id": 23995951904,
+            "failure": "Telegram auth (401 Unauthorized)",
+            "failed_job": "cicd / Pipeline start"
+        },
+        {
+            "repo": "jira-creator",
+            "run_id": 24155977004,
+            "failure": "Telegram auth (401 Unauthorized)",
+            "failed_job": "cicd / Pipeline start"
+        },
+        {
+            "repo": "docker-media-center",
+            "run_id": 23608680140,
+            "failure": "Telegram auth (401 Unauthorized)",
+            "failed_job": "cicd / Pipeline start"
+        }
+    ],
     "open_prs_detail": [
+        {
+            "repo": "redhat-ai-workflow",
+            "number": 145,
+            "title": "chore(deps): bump pypdf from 6.9.2 to 6.10.0",
+            "author": "dependabot[bot]",
+            "mergeable": true,
+            "status": "BLOCKED - CI failure (Telegram auth)"
+        },
+        {
+            "repo": "Chuckbot",
+            "number": 56,
+            "title": "chore(deps): bump basic-ftp from 5.2.0 to 5.2.2",
+            "author": "dependabot[bot]",
+            "mergeable": true,
+            "status": "BLOCKED - CI failure (Telegram auth)"
+        },
+        {
+            "repo": "aa-dev-prod-watcher",
+            "number": 67,
+            "title": "Bump lodash from 4.17.23 to 4.18.1 in /frontend",
+            "author": "dependabot[bot]",
+            "mergeable": true,
+            "status": "BLOCKED - CI failure (Telegram auth)"
+        },
+        {
+            "repo": "redhat-ai-workflow",
+            "number": 144,
+            "title": "chore(deps): bump transformers from 4.57.6 to 5.0.0rc3",
+            "author": "dependabot[bot]",
+            "mergeable": true,
+            "status": "BLOCKED - CI failure (Telegram auth)"
+        },
         {
             "repo": "pass-gnome-extension",
             "number": 5,
             "title": "Bump picomatch from 2.3.1 to 2.3.2",
             "author": "dependabot[bot]",
+            "mergeable": true,
             "status": "BLOCKED - CI failure (Telegram auth)"
         },
         {
@@ -74,6 +143,7 @@
             "number": 143,
             "title": "chore(deps): bump onnx from 1.20.1 to 1.21.0",
             "author": "dependabot[bot]",
+            "mergeable": true,
             "status": "BLOCKED - CI failure (Telegram auth)"
         },
         {
@@ -81,18 +151,136 @@
             "number": 19,
             "title": "chore(deps): bump aiohttp from 3.13.3 to 3.13.4",
             "author": "dependabot[bot]",
+            "mergeable": true,
             "status": "BLOCKED - CI failure (Telegram auth)"
         }
     ],
-    "comparison_to_iteration_39": {
-        "repos_fixed_since_39": 2,
-        "repos_fixed_names": [
-            "redhatter",
-            "DFakeSeeder"
+    "open_issues_detail": [
+        {
+            "repo": "pass-gnome-extension",
+            "number": 3,
+            "title": "More uniform UI?",
+            "labels": ["enhancement", "help wanted", "good first issue"],
+            "comments": 1,
+            "status": "TRIAGED"
+        },
+        {
+            "repo": "DFakeSeeder",
+            "number": 15,
+            "title": "Question about sessions and events.",
+            "labels": ["enhancement", "question"],
+            "comments": 2,
+            "status": "TRIAGED"
+        },
+        {
+            "repo": "lidarr-youtube-downloader",
+            "number": 29,
+            "title": "[FR] Only search for missing songs from artists with a given tag",
+            "labels": ["enhancement"],
+            "comments": 3,
+            "status": "TRIAGED"
+        },
+        {
+            "repo": "lidarr-youtube-downloader",
+            "number": 28,
+            "title": "Stuck?",
+            "labels": ["bug"],
+            "comments": 3,
+            "status": "TRIAGED"
+        },
+        {
+            "repo": "seedmagepp",
+            "number": 1,
+            "title": "Questions : difference between Uploaded and session_uploaded and Enhancement for already downloaded file.",
+            "labels": ["enhancement", "question"],
+            "comments": 2,
+            "status": "TRIAGED"
+        },
+        {
+            "repo": "lidarr-youtube-downloader",
+            "number": 25,
+            "title": "Most releases found are missing tracks",
+            "labels": ["bug", "enhancement"],
+            "comments": 5,
+            "status": "TRIAGED"
+        },
+        {
+            "repo": "tado-gnome-shell-extension",
+            "number": 2,
+            "title": "Got this message after trying to enable it (Gnome45):",
+            "labels": ["bug", "enhancement"],
+            "comments": 2,
+            "status": "TRIAGED"
+        },
+        {
+            "repo": "lidarr-youtube-downloader",
+            "number": 23,
+            "title": "Track Format & FFMPEG not adding metadata",
+            "labels": ["bug", "enhancement"],
+            "comments": 2,
+            "status": "TRIAGED"
+        },
+        {
+            "repo": "lidarr-youtube-downloader",
+            "number": 21,
+            "title": "Issue with Lidarr recognizing downloaded audio and incorrect metadata in Jellyfin",
+            "labels": ["bug", "enhancement"],
+            "comments": 2,
+            "status": "TRIAGED"
+        },
+        {
+            "repo": "lidarr-youtube-downloader",
+            "number": 7,
+            "title": "Truenas, Kubernetes, Lidarr and LYD",
+            "labels": ["question"],
+            "comments": 2,
+            "status": "TRIAGED"
+        },
+        {
+            "repo": "lidarr-youtube-downloader",
+            "number": 5,
+            "title": "FR: ability to filter results",
+            "labels": ["enhancement", "question"],
+            "comments": 2,
+            "status": "TRIAGED"
+        },
+        {
+            "repo": "lidarr-youtube-downloader",
+            "number": 3,
+            "title": "docker-compose",
+            "labels": ["documentation"],
+            "comments": 3,
+            "status": "TRIAGED"
+        },
+        {
+            "repo": "lidarr-youtube-downloader",
+            "number": 1,
+            "title": "Docker Build",
+            "labels": ["bug"],
+            "comments": 4,
+            "status": "TRIAGED"
+        },
+        {
+            "repo": "php-binance-bot",
+            "number": 1,
+            "title": "Causes my IP to be blocked ",
+            "labels": ["bug", "help wanted"],
+            "comments": 2,
+            "status": "TRIAGED"
+        }
+    ],
+    "comparison_to_iteration_40": {
+        "repos_fixed_since_40": 0,
+        "new_failures_since_40": 4,
+        "new_failing_repos": [
+            "Chuckbot",
+            "lm051-cs4001-computer-applications",
+            "jira-creator",
+            "docker-media-center"
         ],
-        "new_failures_since_39": 0,
-        "dependabot_prs_change": "+1 (2 \u2192 3)",
-        "issues_change": "0 (14 \u2192 14)",
-        "rate_limit_improvement": "+245 (4755 \u2192 5000)"
+        "telegram_failures_trend": "WORSENING (1 → 5 repos)",
+        "dependabot_prs_change": "+4 (3 → 7)",
+        "issues_change": "0 (14 → 14)",
+        "rate_limit_improvement": "0 (5000 → 5000)"
     }
 }
