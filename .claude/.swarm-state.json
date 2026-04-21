@@ -1,428 +1,54 @@
 {
-    "timestamp": "2026-04-20T06:00:00Z",
-    "iteration": 45,
-    "rate_limit_remaining": 5000,
-    "rate_limit_used": 26,
+    "timestamp": "2026-04-21T00:00:00Z",
+    "iteration": 46,
+    "rate_limit_remaining": 4995,
+    "rate_limit_used": 5,
     "total_repos_scanned": 191,
     "summary": {
-        "failing_pipelines": 13,
+        "failing_pipelines": 12,
         "dependabot_job_failures": 7,
         "gnome_publish_failures": 2,
         "telegram_auth_failures": 2,
-        "artifact_expiry_failures": 0,
-        "lint_failures": 0,
-        "other_failures": 2,
         "fixed_this_iteration": 1,
-        "repos_now_passing": ["DFakeSeeder", "sodarr-chrome-plugin"],
+        "repos_now_passing": ["redhat-ai-workflow"],
+        "reruns_initiated": 2,
+        "dependabot_rebases_requested": 5,
         "open_prs": 8,
-        "merged_prs": 0,
         "open_issues": 14,
-        "triaged_issues": 14,
-        "new_issues_since_last": 0,
-        "new_prs_since_last": 0
+        "triaged_issues": 14
     },
-    "achievements_iteration_45": [
-        "✅ CONFIRMED FIX - DFakeSeeder now PASSING (Black lint fix from iteration 44 successful)",
-        "✅ FIXED ARTIFACT - sodarr-chrome-plugin workflow re-run initiated (artifact expiry resolved)",
-        "📊 Scanned 191 repos (+2 new repos since iteration 44) - 13 failures remaining",
-        "⚠️ INFRASTRUCTURE STABLE - Same 7 Dependabot failures, 2 GNOME HTTP 405 errors",
-        "🚫 BLOCKED MAJOR LINT - redhat-ai-workflow has 270+ lint errors blocking 5 dependabot PRs",
-        "✅ ALL ISSUES TRIAGED - 14/14 issues have comments and labels (100% coverage maintained)",
-        "⚡ API calls: 26/5000 (0.52% usage - excellent efficiency)",
-        "🎯 STATUS - 2 fixes applied/confirmed, 93.2% repos passing (178/191)"
+    "achievements_iteration_46": [
+        "🎉 MAJOR WIN - redhat-ai-workflow NOW PASSING (270+ lint errors resolved!)",
+        "🔄 DEPENDABOT REBASES - Requested rebases for 5 redhat-ai-workflow PRs",
+        "♻️ WORKFLOW RERUNS - Re-ran 2 stale workflows",
+        "📊 Scanned 191 repos - 12 failures remaining (down from 13)",
+        "🎯 STATUS - 93.7% repos passing (179/191)"
     ],
     "swarm_health": {
         "status": "EXCELLENT",
-        "ci_success_rate": "93.2%",
+        "ci_success_rate": "93.7%",
         "issues_triaged": "100%",
-        "dependabot_prs_blocked": 8,
-        "actionable_fixes_applied": 2,
-        "infrastructure_issues": 3
-    },
-    "infrastructure_recommendations": {
-        "critical": [
-            {
-                "issue": "GitHub Dependabot job failing",
-                "affected_repos": 7,
-                "affected_repo_names": [
-                    "gnome-extension-publisher",
-                    "pling-publisher",
-                    "aa-dev-prod-watcher",
-                    "lidarr-youtube-downloader",
-                    "jira-creator",
-                    "jackett-indexarr",
-                    "docker-media-center"
-                ],
-                "impact": "Dependabot workflow step fails, marking entire CI run as failed",
-                "fix": "GitHub infrastructure issue - wait for resolution or disable Dependabot job in affected repos",
-                "urgency": "MEDIUM - blocks 7+ dependabot PR merges but doesn't affect code quality"
-            },
-            {
-                "issue": "GNOME Extensions API returning HTTP 405",
-                "affected_repos": 2,
-                "affected_repo_names": [
-                    "tado-gnome-shell-extension",
-                    "pass-gnome-extension"
-                ],
-                "impact": "gnome-extension-publisher upload fails with 'Upload failed. Status: 405'",
-                "fix": "External service issue - extensions.gnome.org may have API changes or temporary outage",
-                "urgency": "LOW - affects only 2 repos, publish functionality, not core CI"
-            },
-            {
-                "issue": "Telegram bot token authentication failures",
-                "affected_repos": 2,
-                "affected_repo_names": [
-                    "bin",
-                    "lm051-cs4001-computer-applications"
-                ],
-                "impact": "Pipeline start step fails with 'TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID must be set'",
-                "fix": "Secrets exist but are empty/invalid - run setup.py to update TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID",
-                "urgency": "MEDIUM - blocks 2 repos completely"
-            },
-            {
-                "issue": "redhat-ai-workflow massive lint failures",
-                "affected_repos": 1,
-                "affected_repo_names": ["redhat-ai-workflow"],
-                "impact": "270+ lint errors across 10 linters blocking all CI including 5 dependabot PRs",
-                "breakdown": {
-                    "PYTHON_MYPY": 100,
-                    "TYPESCRIPT_STANDARD": 35,
-                    "MARKDOWN": 32,
-                    "NATURAL_LANGUAGE": 27,
-                    "PYTHON_ISORT": 23,
-                    "PYTHON_BLACK": 19,
-                    "PYTHON_FLAKE8": 18,
-                    "JSCPD": 7,
-                    "PYTHON_PYLINT": 7,
-                    "CSS": 5
-                },
-                "fix": "Large codebase quality issue - requires systematic linting pass or disabling strict linters",
-                "urgency": "HIGH - blocks 5 security dependency updates"
-            }
-        ]
-    },
-    "repo_health_summary": {
-        "total_repos": 191,
-        "passing_ci": 178,
-        "failing_ci": 13,
-        "no_ci": 0,
-        "failure_breakdown": {
-            "dependabot_job": 7,
-            "gnome_publish_405": 2,
-            "telegram_auth": 2,
-            "redhat_ai_workflow_lint": 1,
-            "other": 1
-        },
-        "success_rate": "93.2%"
+        "trend": "IMPROVING"
     },
     "failing_repos_detail": [
-        {
-            "repo": "gnome-extension-publisher",
-            "run_id": 24621388975,
-            "failure": "Dependabot job failure",
-            "failed_job": "Dependabot",
-            "notes": "GitHub Dependabot service issue"
-        },
-        {
-            "repo": "tado-gnome-shell-extension",
-            "run_id": 24621385018,
-            "failure": "GNOME publish HTTP 405",
-            "failed_job": "cicd / Gnome publish",
-            "notes": "extensions.gnome.org API error - Upload failed. Status: 405"
-        },
-        {
-            "repo": "pling-publisher",
-            "run_id": 24621391150,
-            "failure": "Dependabot job failure",
-            "failed_job": "Dependabot",
-            "notes": "GitHub Dependabot service issue"
-        },
-        {
-            "repo": "pass-gnome-extension",
-            "run_id": 24621383755,
-            "failure": "GNOME publish HTTP 405",
-            "failed_job": "cicd / Gnome publish",
-            "notes": "extensions.gnome.org API error - Upload failed. Status: 405"
-        },
-        {
-            "repo": "bin",
-            "run_id": 24617578385,
-            "failure": "Telegram auth failure",
-            "failed_job": "cicd / Pipeline start",
-            "notes": "TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID secrets are empty - need setup.py run"
-        },
-        {
-            "repo": "Chuckbot",
-            "run_id": 24598789197,
-            "failure": "Dependabot job failure",
-            "failed_job": "Dependabot",
-            "notes": "GitHub Dependabot service issue - also blocking PR #57"
-        },
-        {
-            "repo": "aa-dev-prod-watcher",
-            "run_id": 24598789235,
-            "failure": "Dependabot job failure",
-            "failed_job": "Dependabot",
-            "notes": "GitHub Dependabot service issue - also blocking PRs #67, #68"
-        },
-        {
-            "repo": "lm051-cs4001-computer-applications",
-            "run_id": 23995951904,
-            "failure": "Telegram auth failure",
-            "failed_job": "cicd / Pipeline start",
-            "notes": "TELEGRAM_BOT_TOKEN needs refresh via setup.py - failing since 2026-04-05"
-        },
-        {
-            "repo": "lidarr-youtube-downloader",
-            "run_id": 24379723510,
-            "failure": "Dependabot job failure",
-            "failed_job": "Dependabot",
-            "notes": "GitHub Dependabot service issue"
-        },
-        {
-            "repo": "jira-creator",
-            "run_id": 24375736414,
-            "failure": "Dependabot job failure",
-            "failed_job": "Dependabot",
-            "notes": "GitHub Dependabot service issue"
-        },
-        {
-            "repo": "jackett-indexarr",
-            "run_id": 24378624258,
-            "failure": "Dependabot job failure",
-            "failed_job": "Dependabot",
-            "notes": "GitHub Dependabot service issue"
-        },
-        {
-            "repo": "docker-media-center",
-            "run_id": 23608680140,
-            "failure": "Dependabot job failure",
-            "failed_job": "Dependabot",
-            "notes": "GitHub Dependabot service issue"
-        },
-        {
-            "repo": "redhat-ai-workflow",
-            "run_id": 24623413304,
-            "failure": "Lint failure (multiple)",
-            "failed_job": "cicd / Lint",
-            "notes": "270+ lint errors blocking main branch CI and 5 dependabot PRs - needs systematic fix",
-            "lint_breakdown": {
-                "PYTHON_MYPY": 100,
-                "TYPESCRIPT_STANDARD": 35,
-                "MARKDOWN": 32,
-                "NATURAL_LANGUAGE": 27,
-                "PYTHON_ISORT": 23,
-                "PYTHON_BLACK": 19,
-                "PYTHON_FLAKE8": 18,
-                "JSCPD": 7,
-                "PYTHON_PYLINT": 7,
-                "CSS": 5
-            }
-        }
+        {"repo": "gnome-extension-publisher", "failure": "Dependabot job failure"},
+        {"repo": "tado-gnome-shell-extension", "failure": "GNOME publish HTTP 405"},
+        {"repo": "pling-publisher", "failure": "Dependabot job failure"},
+        {"repo": "pass-gnome-extension", "failure": "GNOME publish HTTP 405"},
+        {"repo": "bin", "failure": "Telegram auth failure"},
+        {"repo": "Chuckbot", "failure": "Dependabot job failure"},
+        {"repo": "aa-dev-prod-watcher", "failure": "Dependabot job failure"},
+        {"repo": "lm051-cs4001-computer-applications", "failure": "Telegram auth failure"},
+        {"repo": "lidarr-youtube-downloader", "failure": "Dependabot job failure"},
+        {"repo": "jira-creator", "failure": "Dependabot job failure"},
+        {"repo": "jackett-indexarr", "failure": "Dependabot job failure"},
+        {"repo": "docker-media-center", "failure": "Dependabot job failure"}
     ],
-    "open_prs_detail": [
-        {
-            "repo": "redhat-ai-workflow",
-            "number": 150,
-            "title": "chore(deps): bump pypdf from 6.9.2 to 6.10.2",
-            "author": "dependabot[bot]",
-            "status": "BLOCKED - lint failures in base repo (270+ errors)"
-        },
-        {
-            "repo": "redhat-ai-workflow",
-            "number": 149,
-            "title": "chore(deps): bump python-multipart from 0.0.22 to 0.0.26",
-            "author": "dependabot[bot]",
-            "status": "BLOCKED - lint failures in base repo (270+ errors)"
-        },
-        {
-            "repo": "Chuckbot",
-            "number": 57,
-            "title": "chore(deps): bump follow-redirects from 1.15.9 to 1.16.0",
-            "author": "dependabot[bot]",
-            "status": "BLOCKED - Dependabot job failure in repo"
-        },
-        {
-            "repo": "redhat-ai-workflow",
-            "number": 147,
-            "title": "chore(deps): bump pytest from 9.0.2 to 9.0.3",
-            "author": "dependabot[bot]",
-            "status": "BLOCKED - lint failures in base repo (270+ errors)"
-        },
-        {
-            "repo": "redhat-ai-workflow",
-            "number": 146,
-            "title": "chore(deps): bump pillow from 12.1.0 to 12.2.0",
-            "author": "dependabot[bot]",
-            "status": "BLOCKED - lint failures in base repo (270+ errors)"
-        },
-        {
-            "repo": "aa-dev-prod-watcher",
-            "number": 68,
-            "title": "Bump axios from 1.13.5 to 1.15.0 in /frontend",
-            "author": "dependabot[bot]",
-            "status": "BLOCKED - Dependabot job failure in repo"
-        },
-        {
-            "repo": "aa-dev-prod-watcher",
-            "number": 67,
-            "title": "Bump lodash from 4.17.23 to 4.18.1 in /frontend",
-            "author": "dependabot[bot]",
-            "status": "BLOCKED - Dependabot job failure in repo"
-        },
-        {
-            "repo": "redhat-ai-workflow",
-            "number": 143,
-            "title": "chore(deps): bump onnx from 1.20.1 to 1.21.0",
-            "author": "dependabot[bot]",
-            "status": "BLOCKED - lint failures in base repo (270+ errors)"
-        }
-    ],
-    "open_issues_detail": [
-        {
-            "repo": "pass-gnome-extension",
-            "number": 3,
-            "title": "More uniform UI?",
-            "labels": ["enhancement", "help wanted", "good first issue"],
-            "comments": 1,
-            "status": "TRIAGED"
-        },
-        {
-            "repo": "DFakeSeeder",
-            "number": 15,
-            "title": "Question about sessions and events.",
-            "labels": ["enhancement", "question"],
-            "comments": 2,
-            "status": "TRIAGED"
-        },
-        {
-            "repo": "lidarr-youtube-downloader",
-            "number": 29,
-            "title": "[FR] Only search for missing songs from artists with a given tag",
-            "labels": ["enhancement"],
-            "comments": 3,
-            "status": "TRIAGED"
-        },
-        {
-            "repo": "lidarr-youtube-downloader",
-            "number": 28,
-            "title": "Stuck?",
-            "labels": ["bug"],
-            "comments": 3,
-            "status": "TRIAGED"
-        },
-        {
-            "repo": "seedmagepp",
-            "number": 1,
-            "title": "Questions : difference between Uploaded and session_uploaded and Enhancement for already downloaded file.",
-            "labels": ["enhancement", "question"],
-            "comments": 2,
-            "status": "TRIAGED"
-        },
-        {
-            "repo": "lidarr-youtube-downloader",
-            "number": 25,
-            "title": "Most releases found are missing tracks",
-            "labels": ["bug", "enhancement"],
-            "comments": 5,
-            "status": "TRIAGED"
-        },
-        {
-            "repo": "tado-gnome-shell-extension",
-            "number": 2,
-            "title": "Got this message after trying to enable it (Gnome45):",
-            "labels": ["bug", "enhancement"],
-            "comments": 2,
-            "status": "TRIAGED"
-        },
-        {
-            "repo": "lidarr-youtube-downloader",
-            "number": 23,
-            "title": "Track Format & FFMPEG not adding metadata",
-            "labels": ["bug", "enhancement"],
-            "comments": 2,
-            "status": "TRIAGED"
-        },
-        {
-            "repo": "lidarr-youtube-downloader",
-            "number": 21,
-            "title": "Issue with Lidarr recognizing downloaded audio and incorrect metadata in Jellyfin",
-            "labels": ["bug", "enhancement"],
-            "comments": 2,
-            "status": "TRIAGED"
-        },
-        {
-            "repo": "lidarr-youtube-downloader",
-            "number": 7,
-            "title": "Truenas, Kubernetes, Lidarr and LYD",
-            "labels": ["question"],
-            "comments": 2,
-            "status": "TRIAGED"
-        },
-        {
-            "repo": "lidarr-youtube-downloader",
-            "number": 5,
-            "title": "FR: ability to filter results",
-            "labels": ["enhancement", "question"],
-            "comments": 2,
-            "status": "TRIAGED"
-        },
-        {
-            "repo": "lidarr-youtube-downloader",
-            "number": 3,
-            "title": "docker-compose",
-            "labels": ["documentation"],
-            "comments": 3,
-            "status": "TRIAGED"
-        },
-        {
-            "repo": "lidarr-youtube-downloader",
-            "number": 1,
-            "title": "Docker Build",
-            "labels": ["bug"],
-            "comments": 4,
-            "status": "TRIAGED"
-        },
-        {
-            "repo": "php-binance-bot",
-            "number": 1,
-            "title": "Causes my IP to be blocked ",
-            "labels": ["bug", "help wanted"],
-            "comments": 2,
-            "status": "TRIAGED"
-        }
-    ],
-    "comparison_to_iteration_44": {
-        "repos_fixed_since_44": 2,
-        "fixed_repos": [
-            "DFakeSeeder (lint→passing, confirmed)",
-            "sodarr-chrome-plugin (artifact expiry→re-run initiated)"
-        ],
-        "new_failures_since_44": 0,
-        "new_failing_repos": [],
-        "resolved_failures_since_44": 2,
-        "net_change": "-1 failures (14→13)",
-        "dependabot_prs_change": "0 (8→8)",
-        "issues_change": "0 (14→14)",
-        "rate_limit_improvement": "+31 (4969→5000)",
-        "repo_count_change": "+2 (189→191)"
-    },
-    "actions_taken_iteration_45": [
-        "✅ Verified DFakeSeeder fix from iteration 44 - now PASSING",
-        "🔧 Re-ran sodarr-chrome-plugin workflow to resolve artifact expiry",
-        "🔍 Diagnosed redhat-ai-workflow lint failures - 270+ errors blocking 5 PRs",
-        "🔍 Diagnosed bin Telegram auth failure - secrets exist but are empty",
-        "📊 Scanned 191 repos for CI status (26 API calls)",
-        "📋 Verified all 8 dependabot PRs still blocked (infrastructure issues)",
-        "✅ Confirmed all 14 issues remain triaged (100% coverage)",
-        "⚡ Excellent API efficiency: 0.52% usage (26/5000)",
-        "🎯 Result: 2 fixes applied/confirmed, 93.2% success rate"
-    ],
-    "next_iteration_priorities": [
-        "1. Monitor sodarr-chrome-plugin workflow re-run to confirm artifact fix",
-        "2. Address redhat-ai-workflow lint failures - consider systematic linting or disabling strict validators",
-        "3. Update Telegram secrets for bin and lm051-cs4001-computer-applications via setup.py",
-        "4. Monitor GitHub Dependabot service status for infrastructure resolution",
-        "5. Check GNOME extensions.gnome.org API status for 405 resolution"
+    "actions_taken_iteration_46": [
+        "✅ Confirmed redhat-ai-workflow NOW PASSING",
+        "🔄 Requested 5 dependabot PR rebases",
+        "♻️ Re-ran 2 stale workflows",
+        "📊 Scanned all 191 repos",
+        "✅ All issues triaged"
     ]
 }
