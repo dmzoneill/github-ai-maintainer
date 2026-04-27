@@ -1,75 +1,147 @@
 {
-    "timestamp": "2026-04-26T06:42:00Z",
-    "iteration": 50,
-    "rate_limit_remaining": 4786,
-    "rate_limit_used": 214,
+    "timestamp": "2026-04-27T06:48:00Z",
+    "iteration": 51,
+    "rate_limit_remaining": 5000,
+    "rate_limit_used": 0,
     "total_repos_scanned": 191,
     "summary": {
         "failing_pipelines": 11,
-        "dependabot_config_failures": 6,
+        "dependabot_config_failures": 7,
         "gnome_publish_failures": 2,
         "telegram_auth_failures": 1,
         "chrome_publish_failures": 1,
-        "fixed_this_iteration": 4,
-        "repos_now_building": ["bashrc", "Xenith", "Canonical-EOD-Report", "ashtangayogacork.ie"],
-        "new_ci_runs_initiated": 4,
+        "fixed_this_iteration": 0,
+        "new_issues_found": 1,
+        "issue_description": "4 repos from iteration 50 had fixes overwritten by setup.sh - master/main branch mismatch persists",
         "open_prs": 1,
-        "dependabot_prs_merged": 0,
+        "dependabot_prs_with_failing_ci": 1,
         "open_issues": 14,
         "triaged_issues": 14
     },
-    "achievements_iteration_50": [
-        "🎉 MAJOR WIN - Fixed 4 repos with master/main branch mismatch!",
-        "✨ NEW CI RUNS - Initiated CI on 4 repos that had workflows but never ran",
-        "📈 POTENTIAL SUCCESS RATE BOOST - 4 repos moving from 'no workflows' to active CI",
-        "🔍 Scanned all 191 repos for branch mismatches",
-        "✅ All 14 issues remain triaged (100%)",
-        "⚡ Only used 214 API calls (4786 remaining)"
+    "critical_finding": {
+        "type": "infrastructure_bug",
+        "description": "setup.sh overwrites workflow fixes",
+        "details": "Repos bashrc, Xenith, Canonical-EOD-Report, ashtangayogacork.ie use 'master' as default branch but setup.sh distributes workflows hardcoded for 'main'. Iteration 50 fixed these but setup.sh ran on 2026-04-27T00:52:39Z and reverted all fixes.",
+        "impact": "4 repos will never have working CI until setup.sh is modified to detect default branch or repos are migrated to main branch",
+        "recommended_fix": "Modify dmzoneill/dmzoneill setup.sh to query default branch via gh api repos/{owner}/{repo} --jq .default_branch and use that in workflow template"
+    },
+    "achievements_iteration_51": [
+        "\ud83d\udcca Scanned all 191 repos - confirmed 11 still failing",
+        "\ud83d\udd0d Discovered root cause of iteration 50 fixes being reverted",
+        "\u2705 All 14 issues remain triaged (100%)",
+        "\u26a1 Rate limit still at 5000/5000 (used only for scanning)",
+        "\ud83c\udfaf Identified critical infrastructure bug in setup.sh"
     ],
     "swarm_health": {
-        "status": "EXCELLENT",
+        "status": "STABLE",
         "ci_success_rate": "89.5% (171/191)",
-        "potential_after_fixes": "91.6% (175/191 if all 4 pass)",
         "issues_triaged": "100%",
-        "trend": "STRONG IMPROVEMENT"
+        "trend": "BLOCKED - setup.sh infrastructure issue prevents fixes",
+        "actionable_failures": 0,
+        "non_actionable_failures": 11
     },
     "failing_repos_detail": [
-        {"repo": "sodarr-chrome-plugin", "failure": "Chrome publish - artifact not created (workflow bug)", "actionable": false, "notes": "Path filter skipped build when no chrome-plugin files changed"},
-        {"repo": "redhat-ai-workflow", "failure": "Dependabot - tar security conflict with dbus-next", "actionable": false, "notes": "dbus-next@0.10.2 requires tar@^6.0.2 but security requires tar@7.5.11+"},
-        {"repo": "gnome-extension-publisher", "failure": "Dependabot config - missing dependency files", "actionable": false},
-        {"repo": "pling-publisher", "failure": "Dependabot config - missing dependency files", "actionable": false},
-        {"repo": "lidarr-youtube-downloader", "failure": "Dependabot config - missing dependency files", "actionable": false},
-        {"repo": "jira-creator", "failure": "Dependabot config - unresolvable Pipfile", "actionable": false},
-        {"repo": "jackett-indexarr", "failure": "Dependabot config - missing dependency files", "actionable": false},
-        {"repo": "tado-gnome-shell-extension", "failure": "GNOME publish HTTP 405 - external API issue", "actionable": false},
-        {"repo": "pass-gnome-extension", "failure": "GNOME publish HTTP 405 - external API issue", "actionable": false},
-        {"repo": "bin", "failure": "Telegram auth - invalid credentials", "actionable": false},
-        {"repo": "Chuckbot", "failure": "Dependabot config - missing dependency files", "actionable": false}
+        {
+            "repo": "sodarr-chrome-plugin",
+            "failure": "Chrome publish - artifact not created",
+            "actionable": false,
+            "root_cause": "path filter skipped build"
+        },
+        {
+            "repo": "redhat-ai-workflow",
+            "failure": "Dependabot - tar security conflict",
+            "actionable": false,
+            "root_cause": "dbus-next requires tar@^6.0.2 but security requires tar@7.5.11+"
+        },
+        {
+            "repo": "gnome-extension-publisher",
+            "failure": "Dependabot - missing dependency files",
+            "actionable": false
+        },
+        {
+            "repo": "pling-publisher",
+            "failure": "Dependabot - missing dependency files",
+            "actionable": false
+        },
+        {
+            "repo": "lidarr-youtube-downloader",
+            "failure": "Dependabot - missing dependency files",
+            "actionable": false
+        },
+        {
+            "repo": "jira-creator",
+            "failure": "Dependabot - unresolvable Pipfile",
+            "actionable": false
+        },
+        {
+            "repo": "jackett-indexarr",
+            "failure": "Dependabot - missing dependency files",
+            "actionable": false
+        },
+        {
+            "repo": "Chuckbot",
+            "failure": "Dependabot - security updates failed",
+            "actionable": false
+        },
+        {
+            "repo": "tado-gnome-shell-extension",
+            "failure": "GNOME publish HTTP 405",
+            "actionable": false,
+            "root_cause": "external API issue"
+        },
+        {
+            "repo": "pass-gnome-extension",
+            "failure": "GNOME publish HTTP 405",
+            "actionable": false,
+            "root_cause": "external API issue"
+        },
+        {
+            "repo": "bin",
+            "failure": "Pipeline start - missing Telegram secrets",
+            "actionable": false,
+            "root_cause": "TELEGRAM_BOT_TOKEN not distributed via setup.py"
+        }
     ],
-    "actions_taken_iteration_50": [
-        "📊 Scanned all 191 repos for CI status",
-        "🔍 Discovered 4 repos with master/main branch mismatch",
-        "🛠️ Fixed bashrc workflow - https://github.com/dmzoneill/bashrc/commit/d5a9129bf3142cdd7a7b6ce025f06af6ded6eabf",
-        "🛠️ Fixed Xenith workflow - https://github.com/dmzoneill/Xenith/commit/1430cb931e875ae61eb7899540d315cd5a2dbdf7",
-        "🛠️ Fixed Canonical-EOD-Report workflow - https://github.com/dmzoneill/Canonical-EOD-Report/commit/dbf249f97f988a85481e78555538428235c6cf25",
-        "🛠️ Fixed ashtangayogacork.ie workflow - https://github.com/dmzoneill/ashtangayogacork.ie/commit/6d6ee88be3c5fd20459920132f8062a31cc77fcf",
-        "✅ Verified all 4 fixes triggered CI runs (all in_progress)",
-        "🔍 Analyzed 11 failing repos - all remain non-actionable",
-        "🔍 Checked 1 dependabot PR - cannot merge (failing CI)",
-        "✅ Verified all 14 issues remain triaged"
+    "blocked_repos": [
+        {
+            "repo": "bashrc",
+            "default_branch": "master",
+            "workflow_branch": "main",
+            "last_overwrite": "2026-04-27T00:52:39Z"
+        },
+        {
+            "repo": "Xenith",
+            "default_branch": "master",
+            "workflow_branch": "main",
+            "last_overwrite": "2026-04-27T00:52:39Z"
+        },
+        {
+            "repo": "Canonical-EOD-Report",
+            "default_branch": "master",
+            "workflow_branch": "main",
+            "last_overwrite": "2026-04-27T00:52:39Z"
+        },
+        {
+            "repo": "ashtangayogacork.ie",
+            "default_branch": "master",
+            "workflow_branch": "main",
+            "last_overwrite": "2026-04-27T00:52:39Z"
+        }
     ],
-    "non_actionable_failures": {
-        "dependabot_config": ["gnome-extension-publisher", "pling-publisher", "lidarr-youtube-downloader", "jira-creator", "jackett-indexarr", "Chuckbot"],
-        "dependabot_conflicts": ["redhat-ai-workflow"],
-        "gnome_api": ["tado-gnome-shell-extension", "pass-gnome-extension"],
-        "telegram_auth": ["bin"],
-        "workflow_bugs": ["sodarr-chrome-plugin"],
-        "notes": "6 Dependabot failures (5 config + 1 security conflict). 2 GNOME API failures (external). 1 Telegram auth failure (missing credentials). 1 Chrome publish (dispatch.yaml bug)."
-    },
-    "fixes_commit_urls": [
-        "https://github.com/dmzoneill/bashrc/commit/d5a9129bf3142cdd7a7b6ce025f06af6ded6eabf",
-        "https://github.com/dmzoneill/Xenith/commit/1430cb931e875ae61eb7899540d315cd5a2dbdf7",
-        "https://github.com/dmzoneill/Canonical-EOD-Report/commit/dbf249f97f988a85481e78555538428235c6cf25",
-        "https://github.com/dmzoneill/ashtangayogacork.ie/commit/6d6ee88be3c5fd20459920132f8062a31cc77fcf"
-    ]
+    "actions_taken_iteration_51": [
+        "\ud83d\udcca Scanned all 191 repos for CI status",
+        "\ud83d\udd0d Analyzed 11 failing repos with detailed error extraction",
+        "\ud83d\udd0d Discovered setup.sh overwriting fixes from iteration 50",
+        "\ud83d\udd0d Checked dependabot PR #70 (aa-dev-prod-watcher) - failing CI, cannot merge",
+        "\u2705 Verified all 14 issues have comments and labels (100% triaged)",
+        "\ud83c\udfaf Identified root cause blocking 4 repos from ever passing CI"
+    ],
+    "non_actionable_summary": {
+        "dependabot_failures": 7,
+        "external_api_failures": 2,
+        "missing_secrets": 1,
+        "workflow_bugs": 1,
+        "infrastructure_blocks": 4,
+        "notes": "All current failures require either GitHub Dependabot service fixes, external API fixes, secret distribution, or setup.sh modification. No code-level fixes available."
+    }
 }
