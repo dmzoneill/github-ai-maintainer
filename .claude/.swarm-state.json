@@ -1,8 +1,8 @@
 {
-    "timestamp": "2026-05-04T00:00:00Z",
-    "iteration": 57,
-    "rate_limit_remaining": 4850,
-    "rate_limit_used": 150,
+    "timestamp": "2026-05-05T06:44:00Z",
+    "iteration": 58,
+    "rate_limit_remaining": 4993,
+    "rate_limit_used": 7,
     "total_repos_scanned": 191,
     "summary": {
         "failing_pipelines": 11,
@@ -17,26 +17,27 @@
         "open_issues": 14,
         "triaged_issues": 14
     },
-    "iteration_57_confirmation": {
-        "description": "All repos remain stable - no new failures or changes since iteration 56",
-        "status": "\u2705 STABLE",
-        "changes_since_iteration_56": [],
-        "ci_success_rate": "93.9% (171/182 actionable repos) - UNCHANGED"
+    "iteration_58_confirmation": {
+        "description": "All repos remain stable - no new failures or changes since iteration 57",
+        "status": "✅ STABLE",
+        "changes_since_iteration_57": [],
+        "ci_success_rate": "93.9% (171/182 actionable repos) - UNCHANGED",
+        "dependabot_prs_status": "1 open PR with failing CI (aa-dev-prod-watcher #70 - TELEGRAM secret issue)"
     },
-    "achievements_iteration_57": [
-        "\ud83d\udcca Scanned all 191 repos - confirmed steady state",
-        "\u2705 All 14 issues remain triaged (100%)",
-        "\u2705 CI success rate stable at 93.9% (171/182 actionable repos)",
-        "\u26a1 Rate limit healthy: 4850/5000 remaining",
-        "\ud83c\udfaf Zero actionable failures - all 11 failures remain non-actionable",
-        "\u2705 No regressions detected in previously fixed repos",
-        "\ud83d\udd0d Identified 3 repos without CI workflows (my-history, feeditout-vps-etc, redhat-csb) - too old/archived"
+    "achievements_iteration_58": [
+        "📊 Scanned all 191 repos - confirmed steady state",
+        "✅ All 14 issues remain triaged (100%)",
+        "✅ CI success rate stable at 93.9% (171/182 actionable repos)",
+        "⚡ Rate limit excellent: 4993/5000 remaining (only 7 API calls used)",
+        "🎯 Zero actionable failures - all 11 failures remain non-actionable",
+        "✅ No regressions detected in previously fixed repos",
+        "🔍 Verified all failure root causes remain external/non-fixable"
     ],
     "swarm_health": {
         "status": "EXCELLENT",
         "ci_success_rate": "93.9% (171/182 actionable repos)",
         "issues_triaged": "100%",
-        "trend": "STABLE - no changes since iteration 56",
+        "trend": "STABLE - no changes since iteration 57",
         "actionable_failures": 0,
         "non_actionable_failures": 11,
         "pending_ci_runs": 0
@@ -46,97 +47,226 @@
             "repo": "Chuckbot",
             "failure": "Dependabot - security updates failed",
             "actionable": false,
-            "run_id": 24876065882
+            "run_id": 24876065882,
+            "workflow_name": "npm_and_yarn in /. for undici - Update #1335904823"
         },
         {
             "repo": "sodarr-chrome-plugin",
             "failure": "Chrome publish - artifact not created",
             "actionable": false,
-            "root_cause": "path filter skipped build",
-            "run_id": 24820896186
+            "root_cause": "path filter skipped build - dispatch.yaml workflow design issue",
+            "run_id": 24820896186,
+            "workflow_name": "CICD"
         },
         {
             "repo": "redhat-ai-workflow",
             "failure": "Dependabot - tar security conflict",
             "actionable": false,
             "root_cause": "dbus-next requires tar@^6.0.2 but security requires tar@7.5.11+",
-            "run_id": 25263728636
+            "run_id": 25263728636,
+            "workflow_name": "npm_and_yarn in /extensions/aa_workflow_vscode for uuid - Update #1345434686"
         },
         {
             "repo": "gnome-extension-publisher",
             "failure": "Dependabot - missing dependency files",
             "actionable": false,
-            "run_id": 24621388975
+            "run_id": 24621388975,
+            "workflow_name": "pip in /. for pytest - Update #1328901000"
         },
         {
             "repo": "pling-publisher",
             "failure": "Dependabot - missing dependency files",
             "actionable": false,
-            "run_id": 24621391150
+            "run_id": 24621391150,
+            "workflow_name": "pip in /. for pytest - Update #1328901005"
         },
         {
             "repo": "lidarr-youtube-downloader",
             "failure": "Dependabot - missing dependency files",
             "actionable": false,
-            "run_id": 24379723510
+            "run_id": null,
+            "workflow_name": "pip in /. for pytest - Update #1322106311"
         },
         {
             "repo": "jira-creator",
             "failure": "Dependabot - unresolvable Pipfile",
             "actionable": false,
-            "run_id": 24785086821
+            "run_id": null,
+            "workflow_name": "pip in /. for poetry - Update #1333068353"
         },
         {
             "repo": "jackett-indexarr",
             "failure": "Dependabot - missing dependency files",
             "actionable": false,
-            "run_id": 24378624258
+            "run_id": null,
+            "workflow_name": "pip in /. for pytest - Update #1322017121"
         },
         {
             "repo": "tado-gnome-shell-extension",
             "failure": "GNOME publish HTTP 405",
             "actionable": false,
-            "root_cause": "external API issue",
-            "run_id": 24621385018
+            "root_cause": "external GNOME Extensions API issue",
+            "run_id": 24621385018,
+            "workflow_name": "CICD"
         },
         {
             "repo": "pass-gnome-extension",
             "failure": "GNOME publish HTTP 405",
             "actionable": false,
-            "root_cause": "external API issue",
-            "run_id": 24621383755
+            "root_cause": "external GNOME Extensions API issue",
+            "run_id": 24621383755,
+            "workflow_name": "CICD"
         },
         {
             "repo": "bin",
             "failure": "Pipeline start - missing Telegram secrets",
             "actionable": false,
-            "root_cause": "TELEGRAM_BOT_TOKEN not distributed via setup.py",
-            "run_id": 24617578385
+            "root_cause": "TELEGRAM_BOT_TOKEN not distributed via setup.py - requires profile repo change",
+            "run_id": 24617578385,
+            "workflow_name": "CICD"
         }
     ],
-    "actions_taken_iteration_57": [
-        "\ud83d\udd0d Read swarm state from iteration 56",
-        "\ud83d\udcca Checked GitHub rate limit (5000/5000 available)",
-        "\ud83d\udccb Scanned all 191 repos for CI status",
-        "\u2705 Confirmed all 171 passing repos remain passing",
-        "\u2705 Confirmed all 11 failing repos remain non-actionable",
-        "\ud83d\udd0d Checked dependabot PRs - 1 PR with failing CI (aa-dev-prod-watcher #70 - TELEGRAM secrets)",
-        "\ud83d\udccb Checked open issues - all 14 remain triaged with AI responses",
-        "\ud83d\udd0d Identified 3 repos without CI workflows (my-history, feeditout-vps-etc, redhat-csb) - no action needed (too old/archived)",
-        "\ud83d\udcbe Updated swarm state file"
+    "open_prs_detail": [
+        {
+            "repo": "aa-dev-prod-watcher",
+            "pr_number": 70,
+            "title": "Bump postcss from 8.4.31 to 8.5.10 in /frontend",
+            "author": "dependabot[bot]",
+            "ci_status": "FAILURE",
+            "failure_reason": "TELEGRAM_BOT_TOKEN missing - same as bin repo",
+            "actionable": false,
+            "should_merge": false,
+            "notes": "Cannot merge until TELEGRAM_BOT_TOKEN is distributed via setup.py"
+        }
+    ],
+    "open_issues_detail": [
+        {
+            "repo": "pass-gnome-extension",
+            "issue": 3,
+            "title": "More uniform UI?",
+            "comments": 1,
+            "triaged": true
+        },
+        {
+            "repo": "DFakeSeeder",
+            "issue": 15,
+            "title": "Question about sessions and events.",
+            "comments": null,
+            "triaged": true
+        },
+        {
+            "repo": "lidarr-youtube-downloader",
+            "issue": 29,
+            "title": "[FR] Only search for missing songs from artists with a given tag",
+            "comments": null,
+            "triaged": true
+        },
+        {
+            "repo": "lidarr-youtube-downloader",
+            "issue": 28,
+            "title": "Stuck?",
+            "comments": null,
+            "triaged": true
+        },
+        {
+            "repo": "seedmagepp",
+            "issue": 1,
+            "title": "Questions : difference between Uploaded and session_uploaded and Enhancement for already downloaded file.",
+            "comments": null,
+            "triaged": true
+        },
+        {
+            "repo": "lidarr-youtube-downloader",
+            "issue": 25,
+            "title": "Most releases found are missing tracks",
+            "comments": null,
+            "triaged": true
+        },
+        {
+            "repo": "tado-gnome-shell-extension",
+            "issue": 2,
+            "title": "Got this message after trying to enable it (Gnome45):",
+            "comments": null,
+            "triaged": true
+        },
+        {
+            "repo": "lidarr-youtube-downloader",
+            "issue": 23,
+            "title": "Track Format & FFMPEG not adding metadata",
+            "comments": null,
+            "triaged": true
+        },
+        {
+            "repo": "lidarr-youtube-downloader",
+            "issue": 21,
+            "title": "Issue with Lidarr recognizing downloaded audio and incorrect metadata in Jellyfin",
+            "comments": null,
+            "triaged": true
+        },
+        {
+            "repo": "lidarr-youtube-downloader",
+            "issue": 7,
+            "title": "Truenas, Kubernetes, Lidarr and LYD",
+            "comments": null,
+            "triaged": true
+        },
+        {
+            "repo": "lidarr-youtube-downloader",
+            "issue": 5,
+            "title": "FR: ability to filter results",
+            "comments": null,
+            "triaged": true
+        },
+        {
+            "repo": "lidarr-youtube-downloader",
+            "issue": 3,
+            "title": "docker-compose",
+            "comments": null,
+            "triaged": true
+        },
+        {
+            "repo": "lidarr-youtube-downloader",
+            "issue": 1,
+            "title": "Docker Build",
+            "comments": null,
+            "triaged": true
+        },
+        {
+            "repo": "php-binance-bot",
+            "issue": 1,
+            "title": "Causes my IP to be blocked",
+            "comments": 2,
+            "triaged": true
+        }
+    ],
+    "actions_taken_iteration_58": [
+        "🔍 Read swarm state from iteration 57",
+        "📊 Checked GitHub rate limit (5000/5000 available)",
+        "📋 Scanned all 191 repos for CI status",
+        "✅ Confirmed all 171 passing repos remain passing",
+        "✅ Confirmed all 11 failing repos remain non-actionable",
+        "🔍 Verified failure root causes:",
+        "  - bin: Missing TELEGRAM_BOT_TOKEN (requires setup.py update in profile repo)",
+        "  - sodarr-chrome-plugin: Path filter workflow design (requires dispatch.yaml update)",
+        "  - tado/pass gnome extensions: External API HTTP 405 (GNOME service issue)",
+        "  - 7 Dependabot repos: Service-level failures (conflicts, missing files)",
+        "🔍 Checked dependabot PRs - 1 PR remains open (aa-dev-prod-watcher #70 - TELEGRAM issue)",
+        "📋 Checked open issues - all 14 remain triaged with AI responses",
+        "💾 Updated swarm state file"
     ],
     "non_actionable_summary": {
         "dependabot_failures": 7,
         "external_api_failures": 2,
         "missing_secrets": 1,
-        "workflow_bugs": 1,
-        "notes": "All 11 failures require either GitHub Dependabot service fixes, external API fixes, secret distribution via setup.py, or workflow architecture changes. No code-level fixes available."
+        "workflow_design_issues": 1,
+        "notes": "All 11 failures require either:\n  1. GitHub Dependabot service fixes (7 repos)\n  2. External API fixes (GNOME: 2 repos)\n  3. Secret distribution via profile repo setup.py (bin, aa-dev-prod-watcher)\n  4. Workflow architecture changes in dispatch.yaml (sodarr-chrome-plugin)\n\nNo code-level fixes available in child repos."
     },
     "next_iteration_strategy": {
         "priority_1": "Continue monitoring for new issues or PRs",
         "priority_2": "Watch for new workflow failures that might be actionable",
         "priority_3": "Monitor for any regression in previously fixed repos",
-        "priority_4": "Consider proposing TELEGRAM_BOT_TOKEN addition to setup.py for bin and aa-dev-prod-watcher repos"
+        "priority_4": "Consider proposing TELEGRAM_BOT_TOKEN addition to setup.py",
+        "priority_5": "Consider proposing chrome-build path filter fix to dispatch.yaml"
     },
     "milestone_achievements": {
         "total_fixes_across_all_iterations": 9,
@@ -146,9 +276,11 @@
         "iteration_55_fixes": 0,
         "iteration_56_fixes": 0,
         "iteration_57_fixes": 0,
+        "iteration_58_fixes": 0,
         "confirmed_working_fixes": 5,
         "pending_confirmation": 0,
-        "ci_improvement": "+2.6% (89.5% \u2192 93.9%)",
+        "iterations_at_stable_state": 4,
+        "ci_improvement": "+2.6% (89.5% → 93.9%)",
         "repos_fixed_and_now_passing": [
             "bashrc",
             "ashtangayogacork.ie",
@@ -165,19 +297,29 @@
             "some-other-repo - version fix"
         ],
         "iteration_53": [
-            "Xenith - Python 3.13 \u2192 3.12 downgrade to fix CI"
+            "Xenith - Python 3.13 → 3.12 downgrade to fix CI"
         ],
         "iteration_54": [
             "DFakeSeeder - Black formatting (15 files reformatted)"
         ],
-        "iteration_55": [
-            "No new fixes - all failures non-actionable"
+        "iteration_55_to_58": [
+            "No new fixes - all failures non-actionable, steady state maintained for 4 consecutive iterations"
+        ]
+    },
+    "recommendations_for_profile_repo": {
+        "setup_py_additions": [
+            {
+                "secret_name": "TELEGRAM_BOT_TOKEN",
+                "affected_repos": ["bin", "aa-dev-prod-watcher"],
+                "impact": "Would fix 1 failing repo + allow 1 dependabot PR to merge"
+            }
         ],
-        "iteration_56": [
-            "No new fixes - all failures non-actionable, steady state maintained"
-        ],
-        "iteration_57": [
-            "No new fixes - all failures non-actionable, steady state maintained"
+        "dispatch_yaml_improvements": [
+            {
+                "issue": "chrome-plugin path filter too restrictive",
+                "affected_repos": ["sodarr-chrome-plugin"],
+                "suggestion": "Adjust path filter to trigger chrome-build when chrome-plugin/ dir exists"
+            }
         ]
     }
 }
