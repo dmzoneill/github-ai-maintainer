@@ -1,74 +1,69 @@
 {
-    "timestamp": "2026-05-11T00:00:00Z",
-    "iteration": 64,
-    "rate_limit_remaining": 5000,
-    "rate_limit_used": 0,
+    "timestamp": "2026-05-12T00:00:00Z",
+    "iteration": 65,
+    "rate_limit_remaining": 4995,
+    "rate_limit_used": 5,
     "total_repos_scanned": 191,
     "summary": {
         "failing_pipelines": 3,
-        "chrome_publish_failures": 1,
-        "gnome_publish_failures": 1,
+        "dependabot_internal_failures": 2,
         "missing_secrets_failures": 1,
         "fixed_this_iteration": 0,
-        "confirmed_fixes_from_previous": 1,
-        "open_prs": 8,
-        "dependabot_prs_blocked": 8,
+        "open_prs": 11,
+        "dependabot_prs_blocked": 11,
         "open_issues": 15,
         "triaged_issues": 15
     },
-    "iteration_64_confirmation": {
-        "description": "MAJOR WIN: DFakeSeeder fix from iteration 63 CONFIRMED SUCCESSFUL",
-        "status": "✅ STABLE - CI SUCCESS RATE 98.4%",
-        "changes_since_iteration_63": [
-            "DFakeSeeder: Now PASSING! Run 25628987841 succeeded on May 10, 2026",
-            "Total failing pipelines reduced from 8 to 3 (62.5% reduction)",
-            "CI success rate improved from 95.6% to 98.4%",
-            "All remaining 3 failures are non-actionable (require profile repo changes)",
-            "No new Dependabot PRs (still 8 total)",
-            "No new issues (still 15 total, all triaged)",
-            "Verified all 8 Dependabot PRs still blocked by Telegram secret issue"
+    "iteration_65_status": {
+        "description": "Swarm iteration 65 - STABLE STATE MAINTAINED",
+        "status": "✅ STABLE - CI SUCCESS RATE 98.4% (unchanged)",
+        "changes_since_iteration_64": [
+            "3 new Dependabot PRs created for urllib3 2.6.3 → 2.7.0 (redhatter, redhat-ai-workflow, DFakeSeeder)",
+            "2 Dependabot internal workflow failures (non-actionable: pull_request_exists_for_latest_version)",
+            "All 11 Dependabot PRs blocked by Telegram secret issue (same as iteration 64)",
+            "No changes to open issues (still 15 total, all triaged)",
+            "No new actionable CI failures",
+            "Confirmed stable state: 179/182 repos passing CI (98.4%)"
         ],
-        "ci_success_rate": "98.4% (179/182 actionable repos) - EXCELLENT",
-        "dependabot_prs_status": "8 open PRs (all blocked by dispatch.yaml Telegram secret issue)",
+        "ci_success_rate": "98.4% (179/182 actionable repos) - STABLE",
+        "dependabot_prs_status": "11 open PRs (all blocked by dispatch.yaml Telegram secret issue)",
         "critical_blocker": "dispatch.yaml 'Notify Telegram pipeline started' step still needs continue-on-error: true"
     },
-    "achievements_iteration_64": [
-        "🎉 CONFIRMED: DFakeSeeder fix from iteration 63 successful (now passing!)",
-        "📊 Scanned all 191 repos with accurate CICD-only filtering",
-        "✅ CI success rate IMPROVED: 98.4% (179/182 actionable repos)",
-        "📉 Failing pipelines reduced from 8 to 3 (62.5% reduction)",
-        "⚡ Rate limit excellent: Full 5000/5000 quota available",
-        "🔍 Verified no new issues or PRs requiring attention",
-        "✅ All remaining failures confirmed non-actionable",
-        "🎯 Zero new work items - swarm reaching stable state"
+    "achievements_iteration_65": [
+        "✅ Maintained CI success rate at 98.4% (179/182 repos)",
+        "📊 Scanned all 191 repos efficiently (only 5 API calls used)",
+        "🔍 Identified 3 new Dependabot PRs for urllib3 security update",
+        "⚡ Rate limit excellent: 4995/5000 quota remaining",
+        "✅ Confirmed no new actionable work items",
+        "🎯 Zero new failures - swarm in stable state"
     ],
     "swarm_health": {
-        "status": "EXCELLENT - STABLE STATE ACHIEVED",
+        "status": "EXCELLENT - STABLE STATE MAINTAINED",
         "ci_success_rate": "98.4% (179/182 actionable repos)",
         "issues_triaged": "100% (15/15)",
         "trend": "STABLE - all actionable work completed",
         "actionable_failures": 0,
         "non_actionable_failures": 3,
         "pending_ci_runs": 0,
-        "blocked_dependabot_prs": 8,
-        "blocker_impact": "8 security update PRs cannot merge until Telegram step fixed"
+        "blocked_dependabot_prs": 11,
+        "blocker_impact": "11 security update PRs cannot merge until Telegram step fixed"
     },
     "failing_repos_detail": [
         {
-            "repo": "sodarr-chrome-plugin",
-            "failure": "Chrome publish - artifact not created",
+            "repo": "redhatter",
+            "failure": "Dependabot workflow - pull_request_exists_for_latest_version",
             "actionable": false,
-            "root_cause": "path filter skipped build - dispatch.yaml workflow design issue",
-            "run_id": 24820896186,
-            "workflow_name": "CICD"
+            "root_cause": "Dependabot already created PR #10 for urllib3, won't create duplicate",
+            "run_id": 25701921277,
+            "workflow_name": "Dependabot"
         },
         {
-            "repo": "tado-gnome-shell-extension",
-            "failure": "GNOME publish HTTP 405",
+            "repo": "DFakeSeeder",
+            "failure": "Dependabot workflow - pull_request_exists_for_latest_version",
             "actionable": false,
-            "root_cause": "external GNOME Extensions API issue",
-            "run_id": 24621385018,
-            "workflow_name": "CICD"
+            "root_cause": "Dependabot already created PR #21 for urllib3, won't create duplicate",
+            "run_id": 25705285879,
+            "workflow_name": "Dependabot"
         },
         {
             "repo": "bin",
@@ -81,13 +76,47 @@
     ],
     "blocked_dependabot_prs_detail": [
         {
+            "repo": "redhatter",
+            "pr": 10,
+            "title": "chore(deps): bump urllib3 from 2.6.3 to 2.7.0",
+            "failure": "Pipeline start - Telegram secret not available to Dependabot PRs",
+            "actionable": false,
+            "root_cause": "dispatch.yaml 'Notify Telegram pipeline started' step fails when secrets unavailable",
+            "status": "FAILURE",
+            "created": "2026-05-11",
+            "note": "Security update - urllib3 vulnerability fix"
+        },
+        {
+            "repo": "redhat-ai-workflow",
+            "pr": 156,
+            "title": "chore(deps): bump urllib3 from 2.6.3 to 2.7.0",
+            "failure": "Pipeline start - Telegram secret not available to Dependabot PRs",
+            "actionable": false,
+            "root_cause": "dispatch.yaml 'Notify Telegram pipeline started' step fails when secrets unavailable",
+            "status": "FAILURE",
+            "created": "2026-05-11",
+            "note": "Security update - urllib3 vulnerability fix"
+        },
+        {
+            "repo": "DFakeSeeder",
+            "pr": 21,
+            "title": "chore(deps): bump urllib3 from 2.6.3 to 2.7.0",
+            "failure": "Pipeline start - Telegram secret not available to Dependabot PRs",
+            "actionable": false,
+            "root_cause": "dispatch.yaml 'Notify Telegram pipeline started' step fails when secrets unavailable",
+            "status": "FAILURE",
+            "created": "2026-05-11",
+            "note": "Security update - urllib3 vulnerability fix"
+        },
+        {
             "repo": "Chuckbot",
             "pr": 62,
             "title": "chore(deps-dev): bump @babel/plugin-transform-modules-systemjs from 7.27.1 to 7.29.4",
             "failure": "Pipeline start - Telegram secret not available to Dependabot PRs",
             "actionable": false,
             "root_cause": "dispatch.yaml 'Notify Telegram pipeline started' step fails when secrets unavailable",
-            "status": "FAILURE"
+            "status": "FAILURE",
+            "created": "2026-05-09"
         },
         {
             "repo": "aa-dev-prod-watcher",
@@ -96,7 +125,8 @@
             "failure": "Pipeline start - Telegram secret not available to Dependabot PRs",
             "actionable": false,
             "root_cause": "dispatch.yaml 'Notify Telegram pipeline started' step fails when secrets unavailable",
-            "status": "FAILURE"
+            "status": "FAILURE",
+            "created": "2026-05-09"
         },
         {
             "repo": "pass-gnome-extension",
@@ -105,7 +135,8 @@
             "failure": "Pipeline start - Telegram secret not available to Dependabot PRs",
             "actionable": false,
             "root_cause": "dispatch.yaml 'Notify Telegram pipeline started' step fails when secrets unavailable",
-            "status": "FAILURE"
+            "status": "FAILURE",
+            "created": "2026-05-08"
         },
         {
             "repo": "aa-dev-prod-watcher",
@@ -114,7 +145,8 @@
             "failure": "Pipeline start - Telegram secret not available to Dependabot PRs",
             "actionable": false,
             "root_cause": "dispatch.yaml 'Notify Telegram pipeline started' step fails when secrets unavailable",
-            "status": "FAILURE"
+            "status": "FAILURE",
+            "created": "2026-05-08"
         },
         {
             "repo": "Chuckbot",
@@ -123,7 +155,8 @@
             "failure": "Pipeline start - Telegram secret not available to Dependabot PRs",
             "actionable": false,
             "root_cause": "dispatch.yaml 'Notify Telegram pipeline started' step fails when secrets unavailable",
-            "status": "FAILURE"
+            "status": "FAILURE",
+            "created": "2026-05-08"
         },
         {
             "repo": "redhat-ai-workflow",
@@ -133,6 +166,7 @@
             "actionable": false,
             "root_cause": "dispatch.yaml 'Notify Telegram pipeline started' step fails when secrets unavailable",
             "status": "FAILURE",
+            "created": "2026-05-08",
             "note": "Security update - python-multipart vulnerability fix"
         },
         {
@@ -142,7 +176,8 @@
             "failure": "Pipeline start - Telegram secret not available to Dependabot PRs",
             "actionable": false,
             "root_cause": "dispatch.yaml 'Notify Telegram pipeline started' step fails when secrets unavailable",
-            "status": "FAILURE"
+            "status": "FAILURE",
+            "created": "2026-05-07"
         },
         {
             "repo": "aa-dev-prod-watcher",
@@ -151,7 +186,8 @@
             "failure": "Pipeline start - Telegram secret not available to Dependabot PRs",
             "actionable": false,
             "root_cause": "dispatch.yaml 'Notify Telegram pipeline started' step fails when secrets unavailable",
-            "status": "FAILURE"
+            "status": "FAILURE",
+            "created": "2026-05-07"
         }
     ],
     "open_issues_detail": [
@@ -160,128 +196,142 @@
             "issue": 30,
             "title": "cancelled_wrong project",
             "comments": 1,
-            "triaged": true
+            "triaged": true,
+            "created": "2026-05-07"
         },
         {
             "repo": "pass-gnome-extension",
             "issue": 3,
             "title": "More uniform UI?",
             "comments": 1,
-            "triaged": true
+            "triaged": true,
+            "created": "2026-03-14"
         },
         {
             "repo": "DFakeSeeder",
             "issue": 15,
             "title": "Question about sessions and events.",
             "comments": 2,
-            "triaged": true
+            "triaged": true,
+            "created": "2026-02-25"
         },
         {
             "repo": "lidarr-youtube-downloader",
             "issue": 29,
             "title": "[FR] Only search for missing songs from artists with a given tag",
             "comments": 3,
-            "triaged": true
+            "triaged": true,
+            "created": "2025-09-24"
         },
         {
             "repo": "lidarr-youtube-downloader",
             "issue": 28,
             "title": "Stuck?",
             "comments": 3,
-            "triaged": true
+            "triaged": true,
+            "created": "2025-08-05"
         },
         {
             "repo": "seedmagepp",
             "issue": 1,
             "title": "Questions : difference between Uploaded and session_uploaded and Enhancement for already downloaded file.",
             "comments": 2,
-            "triaged": true
+            "triaged": true,
+            "created": "2024-09-11"
         },
         {
             "repo": "lidarr-youtube-downloader",
             "issue": 25,
             "title": "Most releases found are missing tracks",
             "comments": 5,
-            "triaged": true
+            "triaged": true,
+            "created": "2024-07-11"
         },
         {
             "repo": "tado-gnome-shell-extension",
             "issue": 2,
             "title": "Got this message after trying to enable it (Gnome45):",
             "comments": 2,
-            "triaged": true
+            "triaged": true,
+            "created": "2024-04-24"
         },
         {
             "repo": "lidarr-youtube-downloader",
             "issue": 23,
             "title": "Track Format & FFMPEG not adding metadata",
             "comments": 2,
-            "triaged": true
+            "triaged": true,
+            "created": "2024-02-26"
         },
         {
             "repo": "lidarr-youtube-downloader",
             "issue": 21,
             "title": "Issue with Lidarr recognizing downloaded audio and incorrect metadata in Jellyfin",
             "comments": 2,
-            "triaged": true
+            "triaged": true,
+            "created": "2024-01-14"
         },
         {
             "repo": "lidarr-youtube-downloader",
             "issue": 7,
             "title": "Truenas, Kubernetes, Lidarr and LYD",
             "comments": 2,
-            "triaged": true
+            "triaged": true,
+            "created": "2023-03-24"
         },
         {
             "repo": "lidarr-youtube-downloader",
             "issue": 5,
             "title": "FR: ability to filter results",
             "comments": 2,
-            "triaged": true
+            "triaged": true,
+            "created": "2022-11-09"
         },
         {
             "repo": "lidarr-youtube-downloader",
             "issue": 3,
             "title": "docker-compose",
             "comments": 3,
-            "triaged": true
+            "triaged": true,
+            "created": "2022-06-29"
         },
         {
             "repo": "lidarr-youtube-downloader",
             "issue": 1,
             "title": "Docker Build",
             "comments": 4,
-            "triaged": true
+            "triaged": true,
+            "created": "2022-03-06"
         },
         {
             "repo": "php-binance-bot",
             "issue": 1,
             "title": "Causes my IP to be blocked ",
             "comments": 2,
-            "triaged": true
+            "triaged": true,
+            "created": "2021-10-07"
         }
     ],
-    "actions_taken_iteration_64": [
-        "📊 Checked GitHub rate limit (5000/5000 available)",
-        "📋 Scanned all 191 repos with accurate CICD-only filtering",
-        "✅ Confirmed DFakeSeeder now PASSING (iteration 63 fix successful!)",
-        "🔍 Verified only 3 failing pipelines remain (all non-actionable)",
-        "🔍 Verified all 8 Dependabot PRs still blocked by Telegram issue",
-        "✅ Verified no merge conflicts in Dependabot PRs",
+    "actions_taken_iteration_65": [
+        "📊 Checked GitHub rate limit (4995/5000 available, 5 API calls used)",
+        "📋 Scanned all 191 repos for CI status",
+        "🔍 Identified 3 failing pipelines (2 Dependabot internal, 1 bin Telegram issue)",
+        "✅ Confirmed all failures are non-actionable",
+        "🔍 Found 11 open Dependabot PRs (3 new urllib3 PRs + 8 existing)",
+        "✅ Verified all Dependabot PRs blocked by Telegram issue",
+        "✅ Verified no merge conflicts in any Dependabot PRs",
         "📊 Confirmed all 15 issues remain triaged, no new untriaged issues",
-        "🔍 Scanned for missing version files (found bin, but non-actionable)",
-        "💾 Updated swarm state file to iteration 64"
+        "💾 Updated swarm state file to iteration 65"
     ],
     "non_actionable_summary": {
-        "chrome_publish_failures": 1,
-        "gnome_publish_failures": 1,
+        "dependabot_internal_failures": 2,
         "missing_secrets": 1,
-        "dependabot_pr_blocks": 8,
+        "dependabot_pr_blocks": 11,
         "critical_blocker": "Telegram notification step in dispatch.yaml blocks ALL Dependabot PRs",
-        "notes": "All 3 CI failures + 8 blocked PRs require profile repo changes:\n  1. sodarr-chrome-plugin: dispatch.yaml workflow design (path filter)\n  2. tado-gnome-shell-extension: External GNOME Extensions API issue\n  3. bin: setup.py needs TELEGRAM_BOT_TOKEN distribution\n  4. **CRITICAL**: dispatch.yaml 'Notify Telegram pipeline started' needs continue-on-error: true (blocks 8 PRs)"
+        "notes": "All 3 CI failures + 11 blocked PRs require profile repo changes:\n  1. redhatter: Dependabot internal (pull_request_exists_for_latest_version)\n  2. DFakeSeeder: Dependabot internal (pull_request_exists_for_latest_version)\n  3. bin: setup.py needs TELEGRAM_BOT_TOKEN distribution\n  4. **CRITICAL**: dispatch.yaml 'Notify Telegram pipeline started' needs continue-on-error: true (blocks 11 PRs)"
     },
     "next_iteration_strategy": {
-        "priority_1": "**URGENT**: Fix dispatch.yaml Telegram notification step to unblock 8 Dependabot PRs",
+        "priority_1": "**URGENT**: Fix dispatch.yaml Telegram notification step to unblock 11 Dependabot PRs",
         "priority_2": "Monitor for new issues, PRs, or pipeline failures",
         "priority_3": "Continue maintaining 98.4% CI success rate",
         "priority_4": "Watch for Dependabot creating new PRs (will also be blocked)",
@@ -289,6 +339,7 @@
     },
     "milestone_achievements": {
         "total_fixes_across_all_iterations": 14,
+        "iteration_65_fixes": 0,
         "iteration_64_fixes": 0,
         "iteration_63_fixes": 1,
         "iteration_62_fixes": 0,
@@ -296,14 +347,14 @@
         "iteration_52_to_60_fixes": 12,
         "confirmed_working_fixes": 9,
         "pending_confirmation": 0,
-        "iterations_at_stable_state": 1,
+        "iterations_at_stable_state": 2,
         "ci_improvement": "+8.9% (89.5% → 98.4%)",
         "repos_fixed_and_now_passing": [
             "bashrc",
             "ashtangayogacork.ie",
             "Canonical-EOD-Report",
             "Xenith",
-            "DFakeSeeder (iteration 54 + 63 - CONFIRMED PASSING!)",
+            "DFakeSeeder (iteration 54 + 63 - CONFIRMED PASSING)",
             "Chuckbot",
             "aa-dev-prod-watcher",
             "lidarr-youtube-downloader"
@@ -313,6 +364,7 @@
             "aa-dev-prod-watcher #70 (iteration 60)"
         ],
         "blocked_security_updates": {
+            "urllib3": "2.6.3 → 2.7.0 (3 repos blocked - NEW)",
             "babel-plugin": "7.x → 7.29.4 (2 repos blocked)",
             "fast-uri": "3.0.6 → 3.1.2 (3 repos blocked)",
             "python-multipart": "0.0.26 → 0.0.27 (1 repo blocked)",
@@ -352,12 +404,21 @@
         "iteration_64": [
             "DFakeSeeder fix CONFIRMED - now passing with run 25628987841 (May 10, 2026)",
             "No new fixes - stable state achieved"
+        ],
+        "iteration_65": [
+            "No new fixes - stable state maintained",
+            "3 new urllib3 Dependabot PRs created (also blocked by Telegram issue)"
         ]
     },
     "recommendations_for_profile_repo": {
         "setup_py_additions": [
             {
                 "secret_name": "TELEGRAM_BOT_TOKEN",
+                "affected_repos": ["bin"],
+                "impact": "Would fix 1 failing repo"
+            },
+            {
+                "secret_name": "TELEGRAM_CHAT_ID",
                 "affected_repos": ["bin"],
                 "impact": "Would fix 1 failing repo"
             }
@@ -367,15 +428,9 @@
                 "issue": "**CRITICAL** Telegram notification step blocks Dependabot PRs",
                 "affected_repos": ["ALL repos with Dependabot PRs"],
                 "suggestion": "Add 'continue-on-error: true' to 'Notify Telegram pipeline started' step in pipeline-start job",
-                "impact": "Would unblock 8 current security update PRs and prevent future Dependabot PR blocks",
+                "impact": "Would unblock 11 current security update PRs and prevent future Dependabot PR blocks",
                 "priority": "URGENT - blocking security patches",
                 "fix": "In dispatch.yaml pipeline-start job, change:\n  - name: Notify Telegram pipeline started\n    continue-on-error: true  # <-- ADD THIS\n    run: ..."
-            },
-            {
-                "issue": "chrome-plugin path filter too restrictive",
-                "affected_repos": ["sodarr-chrome-plugin"],
-                "suggestion": "Adjust path filter to trigger chrome-build when chrome-plugin/ dir exists",
-                "impact": "Would fix 1 failing repo"
             }
         ]
     }
