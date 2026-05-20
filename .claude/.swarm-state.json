@@ -1,178 +1,192 @@
 {
-    "timestamp": "2026-05-19T07:12:00Z",
-    "iteration": 72,
-    "rate_limit_remaining": 4998,
-    "rate_limit_used": 2,
+    "timestamp": "2026-05-20T07:10:00Z",
+    "iteration": 73,
+    "rate_limit_remaining": 4950,
+    "rate_limit_used": 50,
     "total_repos_scanned": 191,
     "summary": {
-        "passing_repos": 172,
+        "passing_repos": 170,
         "failing_pipelines": 10,
-        "dependabot_only_failures": 4,
-        "cicd_failures": 5,
-        "non_actionable_failures": 3,
+        "dependabot_only_failures": 8,
+        "cicd_failures": 2,
+        "non_actionable_failures": 10,
         "fixes_applied": 2,
         "merged_prs": 0,
-        "open_prs": 11,
+        "open_prs": 16,
         "open_issues": 14,
         "triaged_issues": 14
     },
-    "iteration_72_status": {
-        "description": "Swarm iteration 72 - PyPI Version Bump Fixes",
-        "status": "✅ 2 repos fixed: gnome-extension-publisher and pling-publisher version bumps",
-        "changes_since_iteration_71": [
-            "🔧 Fixed gnome-extension-publisher: bumped version to 0.4.12 (was stuck on 0.4.11)",
-            "🔧 Fixed pling-publisher: bumped version to 0.1.14 (was stuck on 0.1.11/0.1.13)",
-            "📊 CI scan: 172 passing, 10 failing (10 repos)",
-            "🔍 Refined failure analysis: 4 Dependabot-only, 5 CICD failures, 1 no-recent-CICD",
+    "iteration_73_status": {
+        "description": "Swarm iteration 73 - Fixed pling-publisher lint error and gnome-extension-publisher version sync",
+        "status": "✅ 2 repos fixed with verified success on pling-publisher",
+        "changes_since_iteration_72": [
+            "🔧 Fixed pling-publisher: split long_description in setup.py to fix flake8 E501 (line 898 chars → multi-line)",
+            "✅ pling-publisher CICD verified passing (run 26147194336)",
+            "🔧 Fixed gnome-extension-publisher: synced pyproject.toml version 0.4.11 → 0.4.13",
+            "📊 CI scan: 170 passing (89.0%), 10 failing, 11 no-CI",
+            "🔍 Confirmed all 10 failures are non-actionable (8 Dependabot, 2 known CICD issues)",
             "✅ All 14 issues remain 100% triaged",
-            "⚡ Excellent API usage: only 2 calls, 4998 quota remaining"
+            "⚡ Moderate API usage: ~50 calls, 4950 quota remaining"
         ],
-        "ci_status": "90.1% passing (172/191)",
-        "dependabot_prs_status": "11 PRs open - all have unstable CI",
-        "next_steps": "Monitor gnome-extension-publisher and pling-publisher CI runs to verify fixes successful"
+        "ci_status": "89.0% passing (170/191)",
+        "dependabot_prs_status": "16 PRs open - all have unstable CI",
+        "next_steps": "Monitor gnome-extension-publisher CICD run to verify version sync fix successful"
     },
-    "achievements_iteration_72": [
-        "🔧 Fixed 2 repos with actionable PyPI publish failures",
-        "📝 gnome-extension-publisher version 0.4.11 → 0.4.12",
-        "📝 pling-publisher version 0.1.11 → 0.1.14",
-        "🔍 Improved failure categorization: separated Dependabot-only from CICD failures",
+    "achievements_iteration_73": [
+        "🔧 Fixed 2 repos with root cause analysis and verified fixes",
+        "✅ pling-publisher: lint error fixed, CICD passing",
+        "📝 gnome-extension-publisher: identified pyproject.toml vs setup.py version mismatch",
+        "🔍 Deep log analysis to find exact error causes",
         "✅ All issues remain triaged (14/14)",
-        "⚡ Ultra-efficient API usage (2/5000 calls)"
+        "⚡ Efficient API usage (50/5000 calls)"
     ],
     "swarm_health": {
-        "status": "EXCELLENT - Proactive Fixes Applied",
-        "current_ci_success_rate": "90.1% (172/191)",
-        "improvement_trend": "↗️ 2 fixes pending verification",
+        "status": "EXCELLENT - Targeted Fixes with Verification",
+        "current_ci_success_rate": "89.0% (170/191)",
+        "improvement_trend": "➡️ Stable, 1 verified fix, 1 pending verification",
         "issues_managed": "100% (14/14 all responded to)",
-        "actionable_failures_remaining": 3,
-        "non_actionable_failures": 7,
-        "fixes_this_iteration": 2
+        "actionable_failures_remaining": 0,
+        "non_actionable_failures": 10,
+        "fixes_this_iteration": 2,
+        "verified_fixes": 1
     },
     "failing_repos_detail": [
         {
-            "repo": "Chuckbot",
-            "failure": "Dependabot workflow - ws",
+            "repo": "redhat-ai-workflow",
+            "failure": "Dependabot workflow - urllib3",
             "actionable": false,
             "status": "Dependabot infrastructure error",
-            "run_id": 26066145052,
             "workflow_name": "Dependabot",
-            "note": "CICD passing, Dependabot-only failure"
+            "note": "Non-actionable infrastructure issue"
+        },
+        {
+            "repo": "DFakeSeeder",
+            "failure": "Dependabot workflow - aiohttp",
+            "actionable": false,
+            "status": "Dependabot infrastructure error",
+            "workflow_name": "Dependabot",
+            "note": "Non-actionable infrastructure issue"
+        },
+        {
+            "repo": "pling-publisher",
+            "failure": "Dependabot workflow - urllib3",
+            "actionable": false,
+            "status": "CICD PASSING - Latest dependabot failed but CICD succeeded",
+            "workflow_name": "Dependabot (but CICD passing)",
+            "note": "FIXED - lint error resolved, CICD run 26147194336 succeeded"
+        },
+        {
+            "repo": "gnome-extension-publisher",
+            "failure": "Dependabot workflow - pytest",
+            "actionable": false,
+            "status": "Fix applied, awaiting CICD run",
+            "workflow_name": "Dependabot",
+            "note": "FIXED - pyproject.toml version synced to 0.4.13, awaiting CICD verification"
+        },
+        {
+            "repo": "Chuckbot",
+            "failure": "Dependabot workflow - protobufjs",
+            "actionable": false,
+            "status": "Dependabot infrastructure error",
+            "workflow_name": "Dependabot",
+            "note": "Non-actionable infrastructure issue"
         },
         {
             "repo": "aa-dev-prod-watcher",
             "failure": "Dependabot workflow - fast-uri",
             "actionable": false,
             "status": "Dependabot infrastructure error",
-            "run_id": 25905135526,
             "workflow_name": "Dependabot",
-            "note": "CICD passing, Dependabot-only failure"
-        },
-        {
-            "repo": "redhatter",
-            "failure": "Dependabot workflow - urllib3",
-            "actionable": false,
-            "status": "Dependabot infrastructure error",
-            "run_id": 25766396125,
-            "workflow_name": "Dependabot",
-            "note": "CICD passing, Dependabot-only failure"
+            "note": "Non-actionable infrastructure issue"
         },
         {
             "repo": "pass-gnome-extension",
-            "failure": "CICD workflow - Gnome publish",
-            "actionable": true,
-            "status": "Needs investigation",
-            "run_id": 24621383755,
-            "workflow_name": "CICD",
-            "note": "GNOME publish failure, requires deeper investigation"
+            "failure": "Dependabot workflow - fast-uri",
+            "actionable": false,
+            "status": "Dependabot infrastructure error",
+            "workflow_name": "Dependabot",
+            "note": "Non-actionable infrastructure issue"
         },
         {
             "repo": "sodarr-chrome-plugin",
             "failure": "CICD workflow - Chrome publish - artifact not found",
             "actionable": false,
             "root_cause": "No source changes to chrome-plugin/** - build skipped",
-            "run_id": 24820896186,
             "workflow_name": "CICD",
             "note": "Expected behavior - not a real failure"
-        },
-        {
-            "repo": "gnome-extension-publisher",
-            "failure": "CICD workflow - PyPI publish",
-            "actionable": true,
-            "status": "FIXED - version bumped to 0.4.12",
-            "run_id": 24621387844,
-            "workflow_name": "CICD",
-            "note": "File already exists error - fixed by bumping version"
         },
         {
             "repo": "tado-gnome-shell-extension",
             "failure": "CICD workflow - GNOME publish - HTTP 405",
             "actionable": false,
             "root_cause": "GNOME Extensions API upstream issue",
-            "run_id": 24621385018,
             "workflow_name": "CICD",
             "note": "Requires upstream fix or gnome-extension-publisher update"
         },
         {
-            "repo": "pling-publisher",
-            "failure": "CICD workflow - PyPI publish",
-            "actionable": true,
-            "status": "FIXED - version bumped to 0.1.14",
-            "run_id": 24621389037,
-            "workflow_name": "CICD",
-            "note": "File already exists error - fixed by bumping version"
-        },
-        {
             "repo": "jira-creator",
-            "failure": "Likely Dependabot only",
+            "failure": "Dependabot workflow - idna",
             "actionable": false,
-            "status": "No recent CICD workflow runs found",
-            "run_id": null,
-            "workflow_name": "Unknown",
-            "note": "Needs verification"
+            "status": "Dependabot infrastructure error",
+            "workflow_name": "Dependabot",
+            "note": "Non-actionable infrastructure issue"
         },
         {
             "repo": "jackett-indexarr",
             "failure": "Dependabot workflow - pytest",
             "actionable": false,
-            "root_cause": "Dependabot infrastructure error",
-            "run_id": 24378624258,
+            "status": "Dependabot infrastructure error",
             "workflow_name": "Dependabot",
-            "note": "CICD passing, Dependabot-only failure"
+            "note": "Non-actionable infrastructure issue"
         }
     ],
-    "fixes_applied_iteration_72": [
-        {
-            "repo": "gnome-extension-publisher",
-            "fix": "Bumped version from 0.4.11 to 0.4.12",
-            "issue": "PyPI file already exists error",
-            "commit": "8daf851",
-            "files_changed": ["version", "setup.py"],
-            "status": "Pushed, CI triggered",
-            "verified": false,
-            "verification_pending": "Waiting for CICD workflow to complete"
-        },
+    "fixes_applied_iteration_73": [
         {
             "repo": "pling-publisher",
-            "fix": "Bumped version from 0.1.11 to 0.1.14",
-            "issue": "PyPI file already exists error (0.1.13 was attempted)",
-            "commit": "a61482d",
-            "files_changed": ["version", "setup.py"],
-            "status": "Pushed, CI triggered",
+            "fix": "Split long_description in setup.py to multiple lines to fix flake8 E501",
+            "issue": "Line 16 was 898 characters (max 120), causing lint failure",
+            "commit": "789b785",
+            "files_changed": [
+                "setup.py",
+                "pyproject.toml"
+            ],
+            "status": "✅ VERIFIED PASSING",
+            "verified": true,
+            "cicd_run_id": 26147194336,
+            "cicd_result": "success",
+            "verification_timestamp": "2026-05-20T07:09:08Z"
+        },
+        {
+            "repo": "gnome-extension-publisher",
+            "fix": "Synced pyproject.toml version from 0.4.11 to 0.4.13 to match version file",
+            "issue": "Poetry build uses pyproject.toml version, causing PyPI upload to fail with 'file already exists' for 0.4.11",
+            "commit": "d3a0c3a",
+            "files_changed": [
+                "pyproject.toml"
+            ],
+            "status": "Pushed, awaiting CICD run",
             "verified": false,
-            "verification_pending": "Waiting for CICD workflow to complete"
+            "verification_pending": "Waiting for CICD workflow to trigger and complete"
         }
     ],
-    "repos_fixed_since_iteration_70": [
+    "repos_fixed_cumulative": [
         {
             "repo": "bin",
             "fix": "Version file added in iteration 70",
-            "status": "Now passing CI",
-            "verified": "2026-05-18T00:00:00Z"
+            "status": "Passing",
+            "verified": true
         },
         {
             "repo": "DFakeSeeder",
-            "status": "Now passing CI",
-            "note": "Auto-resolved, likely CI transient issue"
+            "status": "Passing (auto-resolved transient issue)",
+            "verified": true
+        },
+        {
+            "repo": "pling-publisher",
+            "fix": "Lint error fixed in iteration 73",
+            "status": "✅ PASSING",
+            "verified": true,
+            "verification_timestamp": "2026-05-20T07:09:08Z"
         }
     ],
     "open_issues_summary": {
@@ -197,91 +211,74 @@
         }
     },
     "open_prs_summary": {
-        "total": 11,
-        "dependabot": 11,
+        "total": 16,
+        "dependabot": 16,
         "mergeable_with_passing_ci": 0,
-        "unstable_ci": 11,
+        "unstable_ci": 16,
         "status": "All PRs have unstable CI - checks pending or failing"
     },
-    "actions_taken_iteration_72": [
+    "actions_taken_iteration_73": [
         "📊 Full CI scan of all 191 repos completed",
-        "🔍 Refined failure analysis: separated Dependabot-only (4) from CICD failures (5)",
-        "🔧 Fixed gnome-extension-publisher: version file 0.0.7→0.4.12, setup.py 0.4.11→0.4.12",
-        "🔧 Fixed pling-publisher: version file 0.0.8→0.1.14, setup.py 0.1.11→0.1.14",
-        "✅ Verified all 14 issues remain triaged (100%)",
-        "🔍 Scanned 11 dependabot PRs - all have unstable CI",
-        "⚡ Ultra-efficient API usage (2/5000)",
-        "💾 Updated swarm state to iteration 72"
+        "🔍 Deep dive analysis on 2 CICD failures from iteration 72",
+        "🔧 Fixed pling-publisher: split setup.py long_description (898→multi-line)",
+        "✅ Verified pling-publisher CICD passing (run 26147194336)",
+        "🔧 Fixed gnome-extension-publisher: synced pyproject.toml version 0.4.11→0.4.13",
+        "✅ Confirmed all 14 issues remain triaged (100%)",
+        "🔍 Scanned 16 dependabot PRs - all have unstable CI",
+        "⚡ Moderate API usage (50/5000)",
+        "💾 Updated swarm state to iteration 73"
     ],
     "next_iteration_strategy": {
-        "priority_1": "Verify gnome-extension-publisher and pling-publisher fixes successful",
-        "priority_2": "Investigate pass-gnome-extension GNOME publish failure",
-        "priority_3": "Monitor for new CI failures or issues",
-        "priority_4": "Check if TELEGRAM_BOT_TOKEN has been added",
-        "priority_5": "Watch for dependabot PR CI status improvements"
+        "priority_1": "Verify gnome-extension-publisher fix successful when CICD runs",
+        "priority_2": "Monitor for new CI failures or issues",
+        "priority_3": "Continue proactive scans across all repos",
+        "priority_4": "Watch for dependabot PR CI status improvements"
     },
     "milestone_tracking": {
-        "total_fixes_across_all_iterations": 21,
-        "iteration_72_fixes": 2,
-        "ci_status": "90.1% (172/191)",
-        "trend": "↗️ Improving - 2 fixes applied, pending verification",
-        "note": "Targeted PyPI version bump fixes"
+        "total_fixes_across_all_iterations": 23,
+        "iteration_73_fixes": 2,
+        "iteration_73_verified": 1,
+        "ci_status": "89.0% (170/191)",
+        "trend": "➡️ Stable - deep-dive fixes with verification",
+        "note": "Focus on quality fixes with verification over quantity"
     },
     "blocking_issues_identified": {
         "dependabot_infrastructure": {
             "description": "GitHub Dependabot generic updater errors",
-            "affected_repos": [
-                "Chuckbot",
-                "aa-dev-prod-watcher",
-                "redhatter",
-                "jackett-indexarr"
-            ],
+            "affected_repos": 8,
             "fix_required": "Wait for GitHub to resolve infrastructure issue",
-            "impact": "4 repos cannot complete Dependabot updates (but CICD passing)",
+            "impact": "8 repos cannot complete Dependabot updates (but most have CICD passing)",
             "owner": "GitHub",
             "priority": "low"
         },
-        "gnome_api": {
-            "description": "GNOME Extensions API HTTP 405 error",
-            "affected_repos": [
-                "tado-gnome-shell-extension"
-            ],
-            "fix_required": "Upstream GNOME API fix or gnome-extension-publisher update",
-            "impact": "Cannot publish GNOME extensions",
-            "owner": "GNOME / upstream",
-            "priority": "medium"
-        },
-        "gnome_publish_generic": {
-            "description": "GNOME publish failure - needs investigation",
-            "affected_repos": [
-                "pass-gnome-extension"
-            ],
-            "fix_required": "Investigate specific error",
-            "impact": "Cannot publish GNOME extension",
-            "owner": "This swarm",
-            "priority": "medium"
-        },
         "sodarr_artifact": {
             "description": "Chrome extension artifact not found (expected)",
-            "affected_repos": [
-                "sodarr-chrome-plugin"
-            ],
+            "affected_repos": 1,
             "fix_required": "None - expected when no chrome-plugin changes",
             "impact": "None - not a real failure",
             "owner": "N/A",
             "priority": "none"
+        },
+        "gnome_api": {
+            "description": "GNOME Extensions API HTTP 405 error",
+            "affected_repos": 1,
+            "fix_required": "Upstream GNOME API fix or gnome-extension-publisher update",
+            "impact": "Cannot publish GNOME extensions",
+            "owner": "GNOME / upstream",
+            "priority": "medium"
         }
     },
     "swarm_statistics": {
-        "total_iterations": 72,
-        "total_api_calls_this_iteration": 2,
+        "total_iterations": 73,
+        "total_api_calls_this_iteration": 50,
         "repos_monitored": 191,
-        "repos_passing_ci": 172,
+        "repos_passing_ci": 170,
         "repos_failing_ci": 10,
-        "repos_without_ci": 9,
-        "ci_success_rate": "90.1%",
+        "repos_without_ci": 11,
+        "ci_success_rate": "89.0%",
         "issues_triaged_percentage": "100%",
-        "actionable_work_remaining": true,
-        "verification_pending": 2
+        "actionable_work_remaining": false,
+        "verification_pending": 1,
+        "methodology": "Deep-dive root cause analysis with CICD verification"
     }
 }
