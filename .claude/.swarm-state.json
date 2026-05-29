@@ -1,243 +1,251 @@
 {
-    "timestamp": "2026-05-28T05:30:00Z",
-    "iteration": 81,
-    "rate_limit_remaining": 4981,
-    "rate_limit_used": 67,
-    "total_repos_scanned": 191,
-    "summary": {
-        "passing_repos": 174,
-        "failing_pipelines": 8,
-        "dependabot_only_failures": 6,
-        "cicd_failures": 2,
-        "non_actionable_failures": 8,
-        "fixes_applied": 0,
-        "merged_prs": 0,
-        "closed_prs": 0,
-        "open_prs": 7,
-        "open_issues": 14,
-        "triaged_issues": 14
-    },
-    "iteration_81_status": {
-        "description": "Swarm iteration 81 - New failure detected (Chuckbot Dependabot)",
-        "status": "✅ System stable - 91.1% CI success rate maintained",
-        "changes_since_iteration_80": [
-            "⚠️ NEW FAILURE: Chuckbot run 26556477275 (Dependabot infrastructure - non-actionable)",
-            "✅ CI status: 174 passing, 8 failing (1 new)",
-            "✅ Success rate: 91.1% (174/191) - down 0.5% due to new Chuckbot failure",
-            "✅ All 8 failures are non-actionable (6 Dependabot + 2 external API)",
-            "✅ All 14 issues remain 100% triaged",
-            "✅ All 7 dependabot PRs still failing due to Telegram notifications",
-            "⚡ API usage: 67 calls consumed this iteration"
-        ],
-        "ci_status": "91.1% passing (174/191)",
-        "dependabot_prs_status": "7 PRs failing on Pipeline end (Telegram secrets missing)",
-        "next_steps": "System healthy - continue monitoring for new actionable work"
-    },
-    "achievements_iteration_81": [
-        "✅ Scanned all 191 repos for CI status",
-        "✅ Identified 1 new failure (Chuckbot) - confirmed non-actionable Dependabot issue",
-        "✅ Verified all 14 open issues have responses (100% triage rate)",
-        "✅ Checked all 7 dependabot PRs - all failing due to Telegram secrets",
-        "✅ Sampled 5 repos for version files - all present",
-        "✅ System remains highly stable despite minor CI success rate decrease"
+  "timestamp": "2026-05-29T07:45:00Z",
+  "iteration": 82,
+  "rate_limit_remaining": 4956,
+  "rate_limit_used": 44,
+  "total_repos_scanned": 191,
+  "summary": {
+    "passing_repos": 174,
+    "failing_pipelines": 8,
+    "dependabot_only_failures": 6,
+    "cicd_failures": 2,
+    "non_actionable_failures": 8,
+    "fixes_applied": 0,
+    "merged_prs": 0,
+    "closed_prs": 0,
+    "open_prs": 7,
+    "open_issues": 14,
+    "triaged_issues": 14
+  },
+  "iteration_82_status": {
+    "description": "Swarm iteration 82 - Full scan completed",
+    "status": "✅ System stable - 91.1% CI success rate maintained",
+    "changes_since_iteration_81": [
+      "✅ Jira-creator has new Dependabot run (26606315349) - still failing (Dependabot infrastructure)",
+      "✅ CI status: 174 passing, 8 failing (same as iteration 81)",
+      "✅ Success rate: 91.1% (174/191) - stable",
+      "✅ All 8 failures remain non-actionable (6 Dependabot + 2 external API)",
+      "✅ All 14 issues remain 100% triaged with responses",
+      "✅ All 7 dependabot PRs still failing due to Telegram notification secrets",
+      "⚡ API usage: 44 calls consumed this iteration"
     ],
-    "swarm_health": {
-        "status": "HEALTHY - System Stable",
-        "current_ci_success_rate": "91.1% (174/191)",
-        "improvement_trend": "➡️ Slight decrease (0.5%) due to 1 new non-actionable failure",
-        "issues_managed": "100% (14/14 all responded to)",
-        "actionable_failures_remaining": 0,
-        "non_actionable_failures": 8,
-        "fixes_this_iteration": 0,
-        "prs_merged_this_iteration": 0,
-        "prs_closed_this_iteration": 0
+    "ci_status": "91.1% passing (174/191)",
+    "dependabot_prs_status": "7 PRs failing on Pipeline end/blog (Telegram secrets missing)",
+    "next_steps": "System healthy - all actionable work completed, continue monitoring"
+  },
+  "achievements_iteration_82": [
+    "✅ Verified rate limit: 5000/5000 available at start",
+    "✅ Scanned all 191 repos for CI status",
+    "✅ Confirmed 8 failures - all non-actionable",
+    "✅ Verified all 14 open issues have AI responses (100% triage rate)",
+    "✅ Checked all 7 dependabot PRs - confirmed Telegram notification failures",
+    "✅ Sampled 9 repos for version files - all present",
+    "✅ System stability maintained at 91.1% CI success"
+  ],
+  "swarm_health": {
+    "status": "HEALTHY - Steady State",
+    "current_ci_success_rate": "91.1% (174/191)",
+    "improvement_trend": "➡️ Stable (0% change from iteration 81)",
+    "issues_managed": "100% (14/14 all responded to)",
+    "actionable_failures_remaining": 0,
+    "non_actionable_failures": 8,
+    "fixes_this_iteration": 0,
+    "prs_merged_this_iteration": 0,
+    "prs_closed_this_iteration": 0
+  },
+  "failing_repos_detail": [
+    {
+      "repo": "Chuckbot",
+      "failure": "Dependabot npm_and_yarn - tmp",
+      "run_id": 26556477275,
+      "actionable": false,
+      "status": "Dependabot infrastructure error",
+      "workflow_name": "Dependabot",
+      "verified": "2026-05-29"
     },
-    "failing_repos_detail": [
-        {
-            "repo": "Chuckbot",
-            "failure": "Dependabot npm_and_yarn - tmp",
-            "run_id": 26556477275,
-            "actionable": false,
-            "status": "Dependabot infrastructure error",
-            "workflow_name": "Dependabot",
-            "verified": "2026-05-28",
-            "note": "NEW in iteration 81"
-        },
-        {
-            "repo": "redhat-ai-workflow",
-            "failure": "Dependabot npm_and_yarn - uuid",
-            "run_id": 26354752482,
-            "actionable": false,
-            "status": "Dependabot conflict: dbus-next requires uuid@^3.3.2",
-            "workflow_name": "Dependabot",
-            "verified": "2026-05-28"
-        },
-        {
-            "repo": "pling-publisher",
-            "failure": "Dependabot pip - urllib3",
-            "run_id": 26147242620,
-            "actionable": false,
-            "status": "Dependabot infrastructure error",
-            "workflow_name": "Dependabot",
-            "verified": "2026-05-28"
-        },
-        {
-            "repo": "pass-gnome-extension",
-            "failure": "Dependabot npm_and_yarn - fast-uri",
-            "run_id": 25586259469,
-            "actionable": false,
-            "status": "Dependabot infrastructure error",
-            "workflow_name": "Dependabot",
-            "verified": "2026-05-28"
-        },
-        {
-            "repo": "sodarr-chrome-plugin",
-            "failure": "CICD - Chrome publish",
-            "run_id": 24820896186,
-            "actionable": false,
-            "status": "Chrome Web Store API failure (external)",
-            "workflow_name": "CICD",
-            "verified": "2026-05-28",
-            "job_failed": "cicd / Chrome publish"
-        },
-        {
-            "repo": "tado-gnome-shell-extension",
-            "failure": "CICD - Gnome publish",
-            "run_id": 24621385018,
-            "actionable": false,
-            "status": "GNOME Extensions API HTTP 405 (external)",
-            "workflow_name": "CICD",
-            "verified": "2026-05-28",
-            "job_failed": "cicd / Gnome publish"
-        },
-        {
-            "repo": "jira-creator",
-            "failure": "Dependabot pip - idna",
-            "run_id": 26118511153,
-            "actionable": false,
-            "status": "Dependabot infrastructure error",
-            "workflow_name": "Dependabot",
-            "verified": "2026-05-28"
-        },
-        {
-            "repo": "jackett-indexarr",
-            "failure": "Dependabot pip - pytest",
-            "run_id": 24378624258,
-            "actionable": false,
-            "status": "Dependabot infrastructure error",
-            "workflow_name": "Dependabot",
-            "verified": "2026-05-28"
-        }
-    ],
-    "pr_ci_failures_analysis": {
-        "root_cause": "Missing Telegram notification secrets (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID)",
-        "affected_jobs": [
-            "Pipeline start",
-            "Pipeline end",
-            "blog"
-        ],
-        "impact": "Non-critical - notifications fail but actual CI logic passes",
-        "all_prs_have_same_issue": true,
-        "note": "Main branches pass CI for these repos - PR failures are notification-only"
+    {
+      "repo": "redhat-ai-workflow",
+      "failure": "Dependabot npm_and_yarn - uuid",
+      "run_id": 26354752482,
+      "actionable": false,
+      "status": "Dependabot conflict: dbus-next requires uuid@^3.3.2",
+      "workflow_name": "Dependabot",
+      "verified": "2026-05-29"
     },
-    "open_issues_summary": {
-        "total": 14,
-        "all_responded": true,
-        "needs_triage": 0,
-        "new_since_last_iteration": 0
+    {
+      "repo": "pling-publisher",
+      "failure": "Dependabot pip - urllib3",
+      "run_id": 26147242620,
+      "actionable": false,
+      "status": "Dependabot infrastructure error",
+      "workflow_name": "Dependabot",
+      "verified": "2026-05-29"
     },
-    "open_prs_summary": {
-        "total": 7,
-        "dependabot": 7,
-        "all_failing_ci": true,
-        "ci_failure_reason": "Telegram notification secrets missing",
-        "mergeable_with_passing_ci": 0,
-        "new_since_last_iteration": 0
+    {
+      "repo": "pass-gnome-extension",
+      "failure": "Dependabot npm_and_yarn - fast-uri",
+      "run_id": 25586259469,
+      "actionable": false,
+      "status": "Dependabot infrastructure error",
+      "workflow_name": "Dependabot",
+      "verified": "2026-05-29"
     },
-    "remaining_prs_with_failing_ci": [
-        {
-            "repo": "Chuckbot",
-            "pr": 63,
-            "title": "chore(deps): bump @protobufjs/utf8 from 1.1.0 to 1.1.1",
-            "failure": "Pipeline start/blog/Pipeline end (Telegram)"
-        },
-        {
-            "repo": "redhat-ai-workflow",
-            "pr": 156,
-            "title": "chore(deps): bump urllib3 from 2.6.3 to 2.7.0",
-            "failure": "Pipeline start/blog/Pipeline end (Telegram)"
-        },
-        {
-            "repo": "DFakeSeeder",
-            "pr": 21,
-            "title": "chore(deps): bump urllib3 from 2.6.3 to 2.7.0",
-            "failure": "Pipeline start/blog/Pipeline end (Telegram)"
-        },
-        {
-            "repo": "aa-dev-prod-watcher",
-            "pr": 73,
-            "title": "Bump @babel/plugin-transform-modules-systemjs from 7.18.0 to 7.29.4",
-            "failure": "Pipeline start/blog/Pipeline end (Telegram)"
-        },
-        {
-            "repo": "pass-gnome-extension",
-            "pr": 6,
-            "title": "Bump fast-uri from 3.0.6 to 3.1.2",
-            "failure": "Pipeline start/blog/Pipeline end (Telegram)"
-        },
-        {
-            "repo": "aa-dev-prod-watcher",
-            "pr": 72,
-            "title": "Bump fast-uri from 3.0.6 to 3.1.2",
-            "failure": "Pipeline start/blog/Pipeline end (Telegram)"
-        },
-        {
-            "repo": "Chuckbot",
-            "pr": 61,
-            "title": "chore(deps): bump fast-uri from 3.0.6 to 3.1.2",
-            "failure": "Pipeline start/blog/Pipeline end (Telegram)"
-        }
-    ],
-    "fixes_applied_iteration_81": [],
-    "prs_merged_iteration_81": [],
-    "prs_closed_iteration_81": [],
-    "actions_taken_iteration_81": [
-        "📊 Verified rate limit: 4981 remaining (99.6% capacity)",
-        "📖 Read swarm state from iteration 80",
-        "🔍 Listed all 191 repos",
-        "✅ Scanned all 191 repos for CI status",
-        "⚠️ NEW: Identified Chuckbot failure (run 26556477275) - Dependabot infrastructure error",
-        "✅ Verified 7 known failures still present",
-        "✅ Checked 7 dependabot PRs - all failing due to Telegram secrets",
-        "✅ Verified all 14 open issues have comments (100% triaged)",
-        "✅ Sampled 5 repos for version files - all have them",
-        "💾 Updated swarm state to iteration 81"
-    ],
-    "next_iteration_strategy": {
-        "priority_1": "Monitor Chuckbot for resolution",
-        "priority_2": "Watch for new actionable CI failures",
-        "priority_3": "Continue monitoring for new issues or PRs requiring triage",
-        "priority_4": "Consider adding Telegram secrets (optional improvement)"
+    {
+      "repo": "sodarr-chrome-plugin",
+      "failure": "CICD - Chrome publish",
+      "run_id": 24820896186,
+      "actionable": false,
+      "status": "Chrome Web Store API failure (external)",
+      "workflow_name": "CICD",
+      "verified": "2026-05-29",
+      "job_failed": "cicd / Chrome publish"
     },
-    "milestone_tracking": {
-        "total_fixes_across_all_iterations": 26,
-        "total_prs_merged_cumulative": 32,
-        "iteration_81_fixes": 0,
-        "iteration_81_prs_merged": 0,
-        "iteration_81_prs_closed": 0,
-        "ci_status": "91.1% (174/191)",
-        "trend": "➡️ Slight decrease (0.5%) - 1 new non-actionable failure",
-        "major_achievement": "✅ System health maintained at >91% - high stability!"
+    {
+      "repo": "tado-gnome-shell-extension",
+      "failure": "CICD - Gnome publish",
+      "run_id": 24621385018,
+      "actionable": false,
+      "status": "GNOME Extensions API HTTP 405 (external)",
+      "workflow_name": "CICD",
+      "verified": "2026-05-29",
+      "job_failed": "cicd / Gnome publish"
     },
-    "swarm_statistics": {
-        "total_iterations": 81,
-        "repos_monitored": 191,
-        "repos_passing_ci": 174,
-        "repos_failing_ci": 8,
-        "repos_without_ci": 9,
-        "ci_success_rate": "91.1%",
-        "issues_triaged_percentage": "100%",
-        "actionable_work_remaining": false,
-        "stability_streak": 24
+    {
+      "repo": "jira-creator",
+      "failure": "Dependabot pip - dulwich",
+      "run_id": 26606315349,
+      "actionable": false,
+      "status": "Dependabot infrastructure error",
+      "workflow_name": "Dependabot",
+      "verified": "2026-05-29",
+      "note": "Updated run ID in iteration 82"
+    },
+    {
+      "repo": "jackett-indexarr",
+      "failure": "Dependabot pip - pytest",
+      "run_id": 24378624258,
+      "actionable": false,
+      "status": "Dependabot infrastructure error",
+      "workflow_name": "Dependabot",
+      "verified": "2026-05-29"
     }
+  ],
+  "pr_ci_failures_analysis": {
+    "root_cause": "Missing Telegram notification secrets (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID)",
+    "affected_jobs": [
+      "Pipeline start",
+      "Pipeline end",
+      "blog"
+    ],
+    "impact": "Non-critical - notifications fail but actual CI logic passes",
+    "all_prs_have_same_issue": true,
+    "note": "Main branches pass CI for these repos - PR failures are notification-only"
+  },
+  "open_issues_summary": {
+    "total": 14,
+    "all_responded": true,
+    "needs_triage": 0,
+    "new_since_last_iteration": 0
+  },
+  "open_prs_summary": {
+    "total": 7,
+    "dependabot": 7,
+    "all_failing_ci": true,
+    "ci_failure_reason": "Telegram notification secrets missing",
+    "mergeable_with_passing_ci": 0,
+    "new_since_last_iteration": 0
+  },
+  "remaining_prs_with_failing_ci": [
+    {
+      "repo": "Chuckbot",
+      "pr": 63,
+      "title": "chore(deps): bump @protobufjs/utf8 from 1.1.0 to 1.1.1",
+      "failure": "Pipeline end/blog (Telegram)",
+      "mergeable": true
+    },
+    {
+      "repo": "redhat-ai-workflow",
+      "pr": 156,
+      "title": "chore(deps): bump urllib3 from 2.6.3 to 2.7.0",
+      "failure": "Pipeline end/blog (Telegram)",
+      "mergeable": true
+    },
+    {
+      "repo": "DFakeSeeder",
+      "pr": 21,
+      "title": "chore(deps): bump urllib3 from 2.6.3 to 2.7.0",
+      "failure": "Pipeline end/blog (Telegram)",
+      "mergeable": true
+    },
+    {
+      "repo": "aa-dev-prod-watcher",
+      "pr": 73,
+      "title": "Bump @babel/plugin-transform-modules-systemjs from 7.18.0 to 7.29.4",
+      "failure": "Pipeline end/blog (Telegram)",
+      "mergeable": true
+    },
+    {
+      "repo": "pass-gnome-extension",
+      "pr": 6,
+      "title": "Bump fast-uri from 3.0.6 to 3.1.2",
+      "failure": "Pipeline end/blog (Telegram)",
+      "mergeable": true
+    },
+    {
+      "repo": "aa-dev-prod-watcher",
+      "pr": 72,
+      "title": "Bump fast-uri from 3.0.6 to 3.1.2",
+      "failure": "Pipeline end/blog (Telegram)",
+      "mergeable": true
+    },
+    {
+      "repo": "Chuckbot",
+      "pr": 61,
+      "title": "chore(deps): bump fast-uri from 3.0.6 to 3.1.2",
+      "failure": "Pipeline end/blog (Telegram)",
+      "mergeable": true
+    }
+  ],
+  "fixes_applied_iteration_82": [],
+  "prs_merged_iteration_82": [],
+  "prs_closed_iteration_82": [],
+  "actions_taken_iteration_82": [
+    "📊 Verified rate limit: 5000/5000 available (100% capacity)",
+    "📖 Read swarm state from iteration 81",
+    "🔍 Listed all 191 repos",
+    "✅ Scanned all 191 repos for CI status - 174 passing, 8 failing, 9 no runs",
+    "✅ Verified 8 known failures - all confirmed non-actionable",
+    "✅ Updated jira-creator run ID to 26606315349 (still Dependabot infrastructure failure)",
+    "✅ Checked 7 dependabot PRs - all confirmed failing on Telegram notifications",
+    "✅ Verified all 14 open issues have AI responses (100% triaged)",
+    "✅ Sampled 9 repos for version files - all present",
+    "💾 Updated swarm state to iteration 82"
+  ],
+  "next_iteration_strategy": {
+    "priority_1": "Continue monitoring for new actionable CI failures",
+    "priority_2": "Watch for new issues or PRs requiring triage",
+    "priority_3": "Optional: Add TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID secrets to enable PR merging",
+    "priority_4": "System is in steady state - minimal intervention required"
+  },
+  "milestone_tracking": {
+    "total_fixes_across_all_iterations": 26,
+    "total_prs_merged_cumulative": 32,
+    "iteration_82_fixes": 0,
+    "iteration_82_prs_merged": 0,
+    "iteration_82_prs_closed": 0,
+    "ci_status": "91.1% (174/191)",
+    "trend": "➡️ Stable - no change from iteration 81",
+    "major_achievement": "✅ Maintained >91% CI success for 25+ iterations - excellent stability!"
+  },
+  "swarm_statistics": {
+    "total_iterations": 82,
+    "repos_monitored": 191,
+    "repos_passing_ci": 174,
+    "repos_failing_ci": 8,
+    "repos_without_ci": 9,
+    "ci_success_rate": "91.1%",
+    "issues_triaged_percentage": "100%",
+    "actionable_work_remaining": false,
+    "stability_streak": 25
+  }
 }
