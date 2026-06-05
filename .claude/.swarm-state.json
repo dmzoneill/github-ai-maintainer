@@ -1,337 +1,275 @@
 {
-  "timestamp": "2026-06-04T07:40:00Z",
-  "iteration": 88,
-  "rate_limit_remaining": 4950,
-  "rate_limit_used": 50,
-  "total_repos_scanned": 191,
-  "summary": {
-    "passing_repos": 174,
-    "failing_pipelines": 9,
-    "dependabot_only_failures": 7,
-    "cicd_failures": 2,
-    "non_actionable_failures": 7,
-    "fixes_applied": 2,
-    "merged_prs": 0,
-    "closed_prs": 0,
-    "open_prs": 9,
-    "open_issues": 15,
-    "triaged_issues": 15
-  },
-  "iteration_88_status": {
-    "description": "Swarm iteration 88 - Fixed lint failures in 2 repos",
-    "status": "✅ PROGRESS - Applied lint fixes to redhat-ai-workflow and DFakeSeeder",
-    "changes_since_iteration_87": [
-      "✅ Fixed redhat-ai-workflow: applied black + ruff formatting (29 files reformatted)",
-      "✅ Fixed DFakeSeeder: applied black + ruff formatting (121 files reformatted)",
-      "✅ Both fixes pushed to main branches successfully",
-      "✅ 2 new dependabot PRs detected (aiohttp 3.13.x → 3.14.0)",
-      "✅ All 15 issues remain triaged (100% response rate maintained)",
-      "✅ API usage: 50 calls (1% of limit) - efficient iteration"
+    "timestamp": "2026-06-05T00:00:00Z",
+    "iteration": 89,
+    "rate_limit_remaining": 5000,
+    "rate_limit_used": 0,
+    "total_repos_scanned": 191,
+    "summary": {
+        "passing_repos": 175,
+        "failing_pipelines": 8,
+        "dependabot_only_failures": 5,
+        "cicd_failures": 3,
+        "non_actionable_failures": 7,
+        "fixes_applied": 0,
+        "merged_prs": 0,
+        "closed_prs": 0,
+        "open_prs": 12,
+        "open_issues": 15,
+        "triaged_issues": 15
+    },
+    "iteration_89_status": {
+        "description": "Swarm iteration 89 - Victory! redhat-ai-workflow now passing after iteration 88 lint fixes",
+        "status": "\u2705 IMPROVEMENT - CI success rate increased from 91.1% to 91.6%",
+        "changes_since_iteration_88": [
+            "\u2705 redhat-ai-workflow now PASSING after iteration 88 lint fixes (1 repo recovered)",
+            "\u2705 CI success rate improved: 91.1% \u2192 91.6% (174 \u2192 175 passing)",
+            "\u2705 Total failures reduced: 9 \u2192 8",
+            "\u2705 3 new starlette PRs detected (0.50.0/0.49.1 \u2192 1.0.1)",
+            "\u2705 All 15 issues remain triaged (100% response rate maintained)",
+            "\u2705 Sample health check: 17/17 repos have LICENSE and README"
+        ],
+        "ci_status": "91.6% passing (175/191)",
+        "dependabot_prs_status": "12 PRs total - 3 new starlette updates, 9 others",
+        "next_steps": "DFakeSeeder has jscpd violations (code duplication) - requires refactoring, not quick fix"
+    },
+    "achievements_iteration_89": [
+        "\u2705 Verified iteration 88 lint fixes worked (redhat-ai-workflow recovered)",
+        "\u2705 CI success rate improved to 91.6%",
+        "\u2705 Maintained 100% issue triage rate (15/15)",
+        "\u2705 Identified 3 new dependabot PRs (starlette major version updates)",
+        "\u2705 Full rate limit available (5000/5000)"
     ],
-    "ci_status": "91.1% passing (174/191)",
-    "dependabot_prs_status": "9 PRs total - 2 new aiohttp updates, 7 legacy",
-    "next_steps": "Wait for CI re-runs on fixed repos, monitor for passing checks"
-  },
-  "achievements_iteration_88": [
-    "✅ Applied automated lint fixes to 2 repos (150 files total)",
-    "✅ Pushed fixes without manual intervention",
-    "✅ Maintained 100% issue triage rate (15/15)",
-    "✅ Efficient API usage: 1% of rate limit",
-    "✅ Identified 2 new dependabot PRs for aiohttp updates"
-  ],
-  "swarm_health": {
-    "status": "IMPROVING",
-    "current_ci_success_rate": "91.1% (174/191)",
-    "improvement_trend": "↗ 2 repos fixed, awaiting CI verification",
-    "issues_managed": "100% (15/15 all responded to)",
-    "actionable_failures_remaining": 0,
-    "non_actionable_failures": 7,
-    "fixes_this_iteration": 2,
-    "prs_merged_this_iteration": 0,
-    "prs_closed_this_iteration": 0
-  },
-  "failing_repos_detail": [
-    {
-      "repo": "redhat-ai-workflow",
-      "failure": "Dependabot npm_and_yarn - aiohttp",
-      "run_id": 26930128092,
-      "actionable": false,
-      "status": "Fixed lint on main, awaiting PR CI re-run",
-      "workflow_name": "Dependabot",
-      "verified": "2026-06-04",
-      "note": "Applied black + ruff formatting to main branch"
+    "swarm_health": {
+        "status": "IMPROVING",
+        "current_ci_success_rate": "91.6% (175/191)",
+        "improvement_trend": "\u2197 1 repo recovered, continuous improvement",
+        "issues_managed": "100% (15/15 all responded to)",
+        "actionable_failures_remaining": 1,
+        "non_actionable_failures": 7,
+        "fixes_this_iteration": 0,
+        "prs_merged_this_iteration": 0,
+        "prs_closed_this_iteration": 0
     },
-    {
-      "repo": "DFakeSeeder",
-      "failure": "Dependabot pip - aiohttp",
-      "run_id": 26929662968,
-      "actionable": false,
-      "status": "Fixed lint on main, awaiting PR CI re-run",
-      "workflow_name": "Dependabot",
-      "verified": "2026-06-04",
-      "note": "Applied black + ruff formatting to main branch"
-    },
-    {
-      "repo": "Chuckbot",
-      "failure": "Dependabot npm_and_yarn - axios",
-      "run_id": 26677074027,
-      "actionable": false,
-      "status": "Dependabot: dependency conflict with usetube (requires axios@^0.21.1)",
-      "workflow_name": "Dependabot",
-      "verified": "2026-06-03",
-      "note": "No patched version available - requires upstream usetube update"
-    },
-    {
-      "repo": "pling-publisher",
-      "failure": "Dependabot pip - urllib3",
-      "run_id": 26147242620,
-      "actionable": false,
-      "status": "Dependabot: security_update_dependency_not_found",
-      "workflow_name": "Dependabot",
-      "verified": "2026-06-03",
-      "note": "Dependabot infrastructure error"
-    },
-    {
-      "repo": "pass-gnome-extension",
-      "failure": "Dependabot npm_and_yarn - fast-uri",
-      "run_id": 25586259469,
-      "actionable": false,
-      "status": "Dependabot: pull_request_exists_for_latest_version",
-      "workflow_name": "Dependabot",
-      "verified": "2026-06-03",
-      "note": "PR #6 exists but blocked by Telegram secrets"
-    },
-    {
-      "repo": "sodarr-chrome-plugin",
-      "failure": "CICD - Chrome publish",
-      "run_id": 24820896186,
-      "actionable": false,
-      "status": "Chrome Web Store: Artifact not found (expired)",
-      "workflow_name": "CICD",
-      "verified": "2026-06-03",
-      "job_failed": "cicd / Chrome publish",
-      "note": "External timing issue - build artifact expired before publish"
-    },
-    {
-      "repo": "tado-gnome-shell-extension",
-      "failure": "CICD - Gnome publish",
-      "run_id": 24621385018,
-      "actionable": false,
-      "status": "GNOME Extensions API: HTTP 405 Method Not Allowed",
-      "workflow_name": "CICD",
-      "verified": "2026-06-03",
-      "job_failed": "cicd / Gnome publish",
-      "note": "External API error - extensions.gnome.org unavailable"
-    },
-    {
-      "repo": "jira-creator",
-      "failure": "Dependabot pip - dulwich",
-      "run_id": 26606315349,
-      "actionable": false,
-      "status": "Dependabot infrastructure error",
-      "workflow_name": "Dependabot",
-      "verified": "2026-06-03",
-      "note": "Dependabot infrastructure error"
-    },
-    {
-      "repo": "jackett-indexarr",
-      "failure": "Dependabot pip - pytest",
-      "run_id": 24378624258,
-      "actionable": false,
-      "status": "Dependabot infrastructure error",
-      "workflow_name": "Dependabot",
-      "verified": "2026-06-03",
-      "note": "Dependabot infrastructure error"
-    }
-  ],
-  "pr_ci_failures_analysis": {
-    "root_cause": "Missing Telegram notification secrets (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID)",
-    "affected_jobs": [
-      "Pipeline start",
-      "Pipeline end",
-      "blog"
+    "failing_repos_detail": [
+        {
+            "repo": "DFakeSeeder",
+            "failure": "CICD - Lint (jscpd code duplication)",
+            "run_id": 26937859366,
+            "actionable": true,
+            "status": "jscpd threshold violations (7-10% duplication, threshold 5%)",
+            "workflow_name": "CICD",
+            "verified": "2026-06-05",
+            "note": "Requires refactoring to reduce code duplication - not a quick fix",
+            "files_affected": [
+                "d_fake_seeder/components/component/settings/dht_tab.py",
+                "d_fake_seeder/components/component/settings/simulation_tab.py",
+                "d_fake_seeder/components/component/states.py",
+                "d_fake_seeder/components/component/statusbar.py"
+            ]
+        },
+        {
+            "repo": "Chuckbot",
+            "failure": "Dependabot npm_and_yarn - axios",
+            "run_id": 26677074027,
+            "actionable": false,
+            "status": "Dependabot: dependency conflict with usetube (requires axios@^0.21.1)",
+            "workflow_name": "Dependabot",
+            "verified": "2026-06-05",
+            "note": "No patched version available - requires upstream usetube update"
+        },
+        {
+            "repo": "pling-publisher",
+            "failure": "Dependabot pip - urllib3",
+            "run_id": 26147242620,
+            "actionable": false,
+            "status": "Dependabot: security_update_dependency_not_found",
+            "workflow_name": "Dependabot",
+            "verified": "2026-06-05",
+            "note": "Dependabot infrastructure error"
+        },
+        {
+            "repo": "pass-gnome-extension",
+            "failure": "Dependabot npm_and_yarn - fast-uri",
+            "run_id": 25586259469,
+            "actionable": false,
+            "status": "Dependabot: pull_request_exists_for_latest_version",
+            "workflow_name": "Dependabot",
+            "verified": "2026-06-05",
+            "note": "PR #6 exists but blocked by Telegram secrets + lint"
+        },
+        {
+            "repo": "sodarr-chrome-plugin",
+            "failure": "CICD - Chrome publish",
+            "run_id": 24820896186,
+            "actionable": false,
+            "status": "Chrome Web Store: Artifact not found (expired)",
+            "workflow_name": "CICD",
+            "verified": "2026-06-05",
+            "job_failed": "cicd / Chrome publish",
+            "note": "External timing issue - build artifact expired before publish"
+        },
+        {
+            "repo": "tado-gnome-shell-extension",
+            "failure": "CICD - Gnome publish",
+            "run_id": 24621385018,
+            "actionable": false,
+            "status": "GNOME Extensions API: HTTP 405 Method Not Allowed",
+            "workflow_name": "CICD",
+            "verified": "2026-06-05",
+            "job_failed": "cicd / Gnome publish",
+            "note": "External API error - extensions.gnome.org unavailable"
+        },
+        {
+            "repo": "jira-creator",
+            "failure": "Dependabot pip - dulwich",
+            "run_id": 26606315349,
+            "actionable": false,
+            "status": "Dependabot infrastructure error",
+            "workflow_name": "Dependabot",
+            "verified": "2026-06-05",
+            "note": "Dependabot infrastructure error"
+        },
+        {
+            "repo": "jackett-indexarr",
+            "failure": "Dependabot pip - pytest",
+            "run_id": 24378624258,
+            "actionable": false,
+            "status": "Dependabot infrastructure error",
+            "workflow_name": "Dependabot",
+            "verified": "2026-06-05",
+            "note": "Dependabot infrastructure error"
+        }
     ],
-    "impact": "Non-critical - notifications fail but actual CI logic (lint, test, build) passes",
-    "all_prs_have_same_issue": true,
-    "note": "Main branches now have lint fixes - PRs need CI re-runs",
-    "recommendation": "Add TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID secrets OR modify dispatch.yaml to ignore notification failures"
-  },
-  "open_issues_summary": {
-    "total": 15,
-    "all_responded": true,
-    "needs_triage": 0,
-    "new_since_last_iteration": 0,
-    "breakdown": {
-      "lidarr-youtube-downloader": 9,
-      "pass-gnome-extension": 1,
-      "DFakeSeeder": 1,
-      "seedmagepp": 1,
-      "tado-gnome-shell-extension": 1,
-      "php-binance-bot": 1
-    }
-  },
-  "open_prs_summary": {
-    "total": 9,
-    "dependabot": 9,
-    "new_aiohttp_prs": 2,
-    "all_failing_ci": true,
-    "ci_failure_reason": "Lint + Telegram notification secrets missing",
-    "mergeable_with_passing_ci": 0,
-    "new_since_last_iteration": 2
-  },
-  "new_prs_iteration_88": [
-    {
-      "repo": "redhat-ai-workflow",
-      "pr": 160,
-      "title": "chore(deps): bump aiohttp from 3.13.5 to 3.14.0",
-      "failure": "Lint + Notification steps (Telegram)",
-      "mergeable": true,
-      "fix_applied": "Lint fixes pushed to main"
+    "pr_ci_failures_analysis": {
+        "root_cause": "Multiple: Telegram notification secrets (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID) + lint failures",
+        "affected_jobs": [
+            "Pipeline start",
+            "Pipeline end",
+            "blog",
+            "Lint"
+        ],
+        "impact": "Blocking all 12 dependabot PRs from auto-merge",
+        "all_prs_have_same_issue": true,
+        "recommendation": "Add TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID secrets OR modify dispatch.yaml to make notifications optional"
     },
-    {
-      "repo": "DFakeSeeder",
-      "pr": 23,
-      "title": "chore(deps): bump aiohttp from 3.13.3 to 3.14.0",
-      "failure": "Lint + Notification steps (Telegram)",
-      "mergeable": true,
-      "fix_applied": "Lint fixes pushed to main"
-    }
-  ],
-  "remaining_prs_with_failing_ci": [
-    {
-      "repo": "aa-dev-prod-watcher",
-      "pr": 73,
-      "title": "Bump @babel/plugin-transform-modules-systemjs from 7.18.0 to 7.29.4 in /frontend",
-      "failure": "Notification steps (Telegram)",
-      "mergeable": true
+    "open_issues_summary": {
+        "total": 15,
+        "all_responded": true,
+        "needs_triage": 0,
+        "new_since_last_iteration": 0,
+        "breakdown": {
+            "lidarr-youtube-downloader": 9,
+            "pass-gnome-extension": 1,
+            "DFakeSeeder": 1,
+            "seedmagepp": 1,
+            "tado-gnome-shell-extension": 1,
+            "php-binance-bot": 1
+        }
     },
-    {
-      "repo": "aa-dev-prod-watcher",
-      "pr": 72,
-      "title": "Bump fast-uri from 3.0.6 to 3.1.2 in /frontend",
-      "failure": "Notification steps (Telegram)",
-      "mergeable": true
+    "open_prs_summary": {
+        "total": 12,
+        "dependabot": 12,
+        "new_starlette_prs": 3,
+        "all_failing_ci": true,
+        "ci_failure_reason": "Telegram notification secrets + lint failures",
+        "mergeable_with_passing_ci": 0,
+        "new_since_last_iteration": 3
     },
-    {
-      "repo": "Chuckbot",
-      "pr": 63,
-      "title": "chore(deps): bump @protobufjs/utf8 from 1.1.0 to 1.1.1",
-      "failure": "Notification steps (Telegram)",
-      "mergeable": true
-    },
-    {
-      "repo": "Chuckbot",
-      "pr": 61,
-      "title": "chore(deps): bump fast-uri from 3.0.6 to 3.1.2",
-      "failure": "Notification steps (Telegram)",
-      "mergeable": true
-    },
-    {
-      "repo": "redhat-ai-workflow",
-      "pr": 156,
-      "title": "chore(deps): bump urllib3 from 2.6.3 to 2.7.0",
-      "failure": "Notification steps (Telegram)",
-      "mergeable": true
-    },
-    {
-      "repo": "DFakeSeeder",
-      "pr": 21,
-      "title": "chore(deps): bump urllib3 from 2.6.3 to 2.7.0",
-      "failure": "Notification steps (Telegram)",
-      "mergeable": true
-    },
-    {
-      "repo": "pass-gnome-extension",
-      "pr": 6,
-      "title": "Bump fast-uri from 3.0.6 to 3.1.2",
-      "failure": "Notification steps (Telegram)",
-      "mergeable": true
-    }
-  ],
-  "fixes_applied_iteration_88": [
-    {
-      "repo": "redhat-ai-workflow",
-      "type": "lint-fix",
-      "files_changed": 35,
-      "commit": "a2e30d3",
-      "description": "Applied black formatting and ruff auto-fixes (29 files reformatted, 274 insertions, 382 deletions)"
-    },
-    {
-      "repo": "DFakeSeeder",
-      "type": "lint-fix",
-      "files_changed": 121,
-      "commit": "4422143",
-      "description": "Applied black formatting and ruff auto-fixes (121 files reformatted, 1872 insertions, 5696 deletions)"
-    }
-  ],
-  "prs_merged_iteration_88": [],
-  "prs_closed_iteration_88": [],
-  "actions_taken_iteration_88": [
-    "📊 Verified rate limit: 5000/5000 available (100% capacity)",
-    "📖 Read swarm state from iteration 87",
-    "🔍 Listed all 191 repos",
-    "✅ Scanned all repos for CI status - found 9 failures (1 increase from iteration 87)",
-    "🔬 Analyzed 2 new Dependabot failures (aiohttp updates)",
-    "🛠️ Cloned redhat-ai-workflow and applied lint fixes (black + ruff)",
-    "✅ Pushed lint fixes to redhat-ai-workflow main branch",
-    "🛠️ Cloned DFakeSeeder and applied lint fixes (black + ruff)",
-    "✅ Pushed lint fixes to DFakeSeeder main branch",
-    "🔍 Scanned for open dependabot PRs - confirmed 9 total (2 new)",
-    "✅ Verified all 15 open issues have responses (100% triaged)",
-    "📊 Compiled iteration 88 status report",
-    "💾 Updated swarm state to iteration 88"
-  ],
-  "next_iteration_strategy": {
-    "priority_1": "Monitor redhat-ai-workflow and DFakeSeeder PRs for green CI after lint fixes",
-    "priority_2": "Continue monitoring other Dependabot failures for resolution",
-    "priority_3": "Decision needed: Telegram secrets to unblock remaining 7 PRs",
-    "priority_4": "System improving - maintain excellent health status",
-    "priority_5": "Consider fixing lint issues in other repos proactively"
-  },
-  "milestone_tracking": {
-    "total_fixes_across_all_iterations": 28,
-    "total_prs_merged_cumulative": 33,
-    "iteration_88_fixes": 2,
-    "iteration_88_prs_merged": 0,
-    "iteration_88_prs_closed": 0,
-    "ci_status": "91.1% (174/191)",
-    "trend": "↗ Improving (2 lint fixes applied, awaiting verification)",
-    "major_achievement": "✅ Automated lint fixes deployed to 2 repos",
-    "note": "Lint fixes should resolve 2 dependabot PRs once CI re-runs"
-  },
-  "swarm_statistics": {
-    "total_iterations": 88,
-    "repos_monitored": 191,
-    "repos_passing_ci": 174,
-    "repos_failing_ci": 9,
-    "repos_without_ci": 8,
-    "ci_success_rate": "91.1%",
-    "issues_triaged_percentage": "100%",
-    "actionable_work_remaining": false,
-    "stability_streak": 0,
-    "improvement_streak": 1,
-    "api_efficiency": "99.0% (4950/5000 remaining)"
-  },
-  "recommendations": {
-    "immediate": [
-      "Wait for CI to re-run on redhat-ai-workflow and DFakeSeeder PRs",
-      "Add TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID secrets to unblock remaining 7 PRs",
-      "OR modify dmzoneill/dmzoneill/.github/workflows/dispatch.yaml notification steps to use continue-on-error: true"
+    "new_prs_iteration_89": [
+        {
+            "repo": "redhat-ai-workflow",
+            "pr": 161,
+            "title": "chore(deps): bump starlette from 0.50.0 to 1.0.1",
+            "failure": "Lint + blog (Telegram)",
+            "mergeable": true,
+            "note": "Major version update - requires testing"
+        },
+        {
+            "repo": "redhatter",
+            "pr": 12,
+            "title": "chore(deps): bump starlette from 0.49.1 to 1.0.1",
+            "failure": "Lint + blog (Telegram)",
+            "mergeable": true,
+            "note": "Major version update - requires testing"
+        },
+        {
+            "repo": "aa-dns-checker",
+            "pr": 12,
+            "title": "Bump starlette from 0.49.1 to 1.0.1",
+            "failure": "Lint + blog (Telegram)",
+            "mergeable": true,
+            "note": "Major version update - requires testing"
+        }
     ],
-    "proactive": [
-      "Consider running lint fixes on all repos proactively",
-      "Set up pre-commit hooks to prevent lint failures",
-      "Add lint check to local development workflow"
+    "fixes_applied_iteration_89": [],
+    "prs_merged_iteration_89": [],
+    "prs_closed_iteration_89": [],
+    "actions_taken_iteration_89": [
+        "\ud83d\udcca Verified rate limit: 5000/5000 available (100% capacity)",
+        "\ud83d\udcd6 Read swarm state from iteration 88",
+        "\ud83d\udd0d Listed all 191 repos",
+        "\u2705 Scanned all repos for CI status - found 8 failures (1 decrease from iteration 88)",
+        "\ud83c\udf89 Confirmed redhat-ai-workflow recovered after iteration 88 lint fixes",
+        "\ud83d\udd2c Analyzed 8 failing repos (1 actionable, 7 non-actionable)",
+        "\ud83d\udd0d Detailed analysis of DFakeSeeder jscpd failures (code duplication)",
+        "\ud83d\udd0d Scanned for open dependabot PRs - found 12 total (3 new starlette)",
+        "\ud83d\udd0d Checked CI status for all 12 PRs - all have failures (Telegram + lint)",
+        "\u2705 Verified all 15 open issues have responses (100% triaged)",
+        "\ud83c\udfe5 Health check on sample repos - 17/17 have LICENSE and README",
+        "\ud83d\udcca Compiled iteration 89 status report",
+        "\ud83d\udcbe Updated swarm state to iteration 89"
     ],
-    "monitoring": [
-      "Watch for Dependabot failures to self-resolve with upstream updates",
-      "Monitor external API issues (Chrome Web Store, GNOME Extensions)",
-      "Continue tracking new issues and PRs for immediate triage"
-    ],
-    "long_term": [
-      "Consider making notification steps optional in dispatch.yaml",
-      "Document that PR CI 'failures' are often notification-only",
-      "Evaluate if Telegram notifications provide value vs. complexity"
-    ]
-  }
+    "next_iteration_strategy": {
+        "priority_1": "DFakeSeeder requires code refactoring to reduce duplication (7-10% \u2192 <5%)",
+        "priority_2": "Consider disabling jscpd linter for repos with inherent UI pattern duplication",
+        "priority_3": "Add Telegram secrets OR make notifications optional to unblock 12 PRs",
+        "priority_4": "Test starlette 1.0.1 upgrades (major version) before auto-merge",
+        "priority_5": "System stable - maintain excellent health status"
+    },
+    "milestone_tracking": {
+        "total_fixes_across_all_iterations": 28,
+        "total_prs_merged_cumulative": 33,
+        "iteration_89_fixes": 0,
+        "iteration_89_prs_merged": 0,
+        "iteration_89_prs_closed": 0,
+        "ci_status": "91.6% (175/191)",
+        "trend": "\u2197 Improving (previous fix verified working)",
+        "major_achievement": "\u2705 Iteration 88 lint fixes confirmed effective",
+        "note": "redhat-ai-workflow recovered after black+ruff formatting"
+    },
+    "swarm_statistics": {
+        "total_iterations": 89,
+        "repos_monitored": 191,
+        "repos_passing_ci": 175,
+        "repos_failing_ci": 8,
+        "repos_without_ci": 8,
+        "ci_success_rate": "91.6%",
+        "issues_triaged_percentage": "100%",
+        "actionable_work_remaining": true,
+        "stability_streak": 0,
+        "improvement_streak": 2,
+        "api_efficiency": "100% (5000/5000 remaining)"
+    },
+    "recommendations": {
+        "immediate": [
+            "DFakeSeeder: Extract duplicated widget management code into helper methods",
+            "Consider disabling VALIDATE_JSCPD for GUI apps with pattern-based code",
+            "Add TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID secrets to enable notifications"
+        ],
+        "proactive": [
+            "Test starlette 1.0.1 in staging before merging (breaking changes possible)",
+            "Review dmzoneill/dmzoneill dispatch.yaml to make blog step continue-on-error",
+            "Set up pre-commit hooks for black/ruff to prevent format drift"
+        ],
+        "monitoring": [
+            "Watch for Dependabot infrastructure errors to self-resolve",
+            "Monitor external API issues (Chrome Web Store, GNOME Extensions)",
+            "Continue tracking new issues and PRs for immediate triage"
+        ],
+        "long_term": [
+            "Evaluate if jscpd threshold should be 10% for GUI applications",
+            "Consider making all notification steps optional (continue-on-error: true)",
+            "Document that 'unstable' PR state is often notification-only"
+        ]
+    }
 }
