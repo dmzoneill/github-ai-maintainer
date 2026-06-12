@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-06-11T00:00:00Z",
-  "iteration": 95,
+  "timestamp": "2026-06-12T00:00:00Z",
+  "iteration": 96,
   "rate_limit_remaining": 5000,
   "total_repos_scanned": 191,
   "summary": {
     "passing_repos": 183,
     "failing_pipelines": 8,
-    "dependabot_infrastructure_failures": 5,
+    "dependabot_infrastructure_failures": 4,
     "telegram_notification_failures": 1,
     "expired_artifact_failures": 1,
     "external_api_failures": 1,
@@ -18,22 +18,22 @@
     "open_issues": 15,
     "triaged_issues": 0
   },
-  "iteration_95_actions": {
-    "description": "Swarm iteration 95 - Full verification, ecosystem remains stable at 95.8% CI success",
+  "iteration_96_actions": {
+    "description": "Swarm iteration 96 - Full verification, ecosystem remains stable at 95.8% CI success",
     "actions_taken": [
       "✅ Verified all 191 repos",
       "✅ Confirmed 8 failing repos (all non-actionable infrastructure/external issues)",
       "✅ Confirmed 15 open issues (all already labeled and triaged)",
       "✅ Verified 1 open dependabot PR (aa-dev-prod-watcher #78) - failing only due to missing Telegram secrets",
-      "⚠️ aa-dev-prod-watcher PR #78: Lint SUCCESS, tests SKIPPED, failure is telegram-notify.py missing TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID",
+      "⚠️ aa-dev-prod-watcher PR #78: Lint SUCCESS ('All file(s) linted successfully'), tests SKIPPED, failure is telegram-notify.py missing TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID",
       "⚠️ All 8 pipeline failures are infrastructure/external issues, not code bugs",
-      "⚠️ No new commits or changes since iteration 94"
+      "⚠️ No new commits or changes since iteration 95"
     ],
     "issue_triage": []
   },
   "non_actionable_failures": {
     "third_party_actions": [
-      "pass-gnome-extension (mikeal/publish-to-github-action@master uses Alpine 3.9 with broken git-lfs URL)"
+      "pass-gnome-extension (mikeal/publish-to-github-action@master uses Alpine 3.9 with broken git-lfs URL - Docker build fails in bump-versions step)"
     ],
     "dependabot_infrastructure": [
       "Chuckbot (dependabot job failure)",
@@ -48,7 +48,7 @@
       "tado-gnome-shell-extension (Gnome publish - external API error)"
     ],
     "telegram_notification": [
-      "aa-dev-prod-watcher (PR #78 - lint passed, telegram notification missing TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID secrets)"
+      "aa-dev-prod-watcher (main branch - telegram notification missing TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID secrets)"
     ]
   },
   "repo_health": {
@@ -59,10 +59,10 @@
   },
   "milestone_tracking": {
     "total_fixes_cumulative": 49,
-    "iteration_95_fixes": 0,
+    "iteration_96_fixes": 0,
     "ci_status": "95.8% (183/191)",
     "swarm_efficiency": "100% - all actionable failures resolved, ecosystem stable",
-    "improvement_from_iteration_94": "No change - ecosystem stable"
+    "improvement_from_iteration_95": "No change - ecosystem stable"
   },
   "remaining_work": {
     "pipeline_fixes_needed": 0,
@@ -70,16 +70,44 @@
     "issues_needing_triage": 0,
     "repos_with_no_workflows": 9
   },
+  "open_issues_detail": [
+    "lidarr-youtube-downloader#31 - Question: Can I send my own artist and album?",
+    "pass-gnome-extension#3 - More uniform UI?",
+    "DFakeSeeder#15 - Question about sessions and events",
+    "lidarr-youtube-downloader#29 - [FR] Only search for missing songs from artists with a given tag",
+    "lidarr-youtube-downloader#28 - Stuck?",
+    "seedmagepp#1 - Questions: difference between Uploaded and session_uploaded",
+    "lidarr-youtube-downloader#25 - Most releases found are missing tracks",
+    "tado-gnome-shell-extension#2 - Got this message after trying to enable it (Gnome45)",
+    "lidarr-youtube-downloader#23 - Track Format & FFMPEG not adding metadata",
+    "lidarr-youtube-downloader#21 - Issue with Lidarr recognizing downloaded audio",
+    "lidarr-youtube-downloader#7 - Truenas, Kubernetes, Lidarr and LYD",
+    "lidarr-youtube-downloader#5 - FR: ability to filter results",
+    "lidarr-youtube-downloader#3 - docker-compose",
+    "lidarr-youtube-downloader#1 - Docker Build",
+    "php-binance-bot#1 - Causes my IP to be blocked"
+  ],
+  "dependabot_pr_detail": {
+    "aa-dev-prod-watcher#78": {
+      "title": "Bump shell-quote from 1.8.3 to 1.8.4 in /frontend",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "lint_status": "SUCCESS - All file(s) linted successfully with no errors detected",
+      "failure_reason": "telegram-notify.py requires TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID which are not available to Dependabot",
+      "note": "Code changes are valid, failure is infrastructure-only"
+    }
+  },
   "notes": [
     "CI success rate: 95.8% (183/191) counting only repos with workflows",
     "All 8 failing repos are non-actionable (infrastructure/external API issues)",
-    "aa-dev-prod-watcher PR #78: Actual lint and code changes are successful - failure is only telegram notification step missing secrets",
+    "aa-dev-prod-watcher PR #78: Lint actually passed, failure is only missing Telegram secrets for notification step",
     "All 15 open issues already labeled and triaged with appropriate tags",
-    "No new commits or changes detected since iteration 94",
+    "No new commits or changes detected since iteration 95",
     "Ecosystem is fully stable with no actionable work",
     "Infrastructure recommendations (not code fixes):",
     "  - Add TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID secrets to aa-dev-prod-watcher repo",
     "  - Investigate dependabot job failures on Chuckbot, pling-publisher, jira-creator, jackett-indexarr",
-    "  - Consider updating mikeal/publish-to-github-action or replacing with newer action for pass-gnome-extension"
+    "  - Consider updating mikeal/publish-to-github-action or replacing with newer action for pass-gnome-extension",
+    "  - pass-gnome-extension Docker build fails due to git-lfs download URL being broken in Alpine 3.9 base image"
   ]
 }
