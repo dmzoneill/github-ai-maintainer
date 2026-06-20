@@ -1,76 +1,91 @@
 {
-  "timestamp": "2026-06-19T05:30:00Z",
-  "iteration": 103,
+  "timestamp": "2026-06-20T07:30:00Z",
+  "iteration": 104,
   "rate_limit_remaining": 5000,
   "total_repos_scanned": 191,
   "summary": {
-    "passing_repos": 177,
+    "passing_repos": 173,
     "failing_pipelines": 9,
-    "dependabot_infrastructure_failures": 4,
-    "telegram_notification_failures": 2,
+    "dependabot_infrastructure_failures": 5,
     "docker_build_failures": 1,
     "publish_failures": 2,
-    "fixes_applied": 1,
-    "merged_prs": 0,
-    "closed_prs": 0,
-    "open_prs": 3,
-    "prs_auto_merge_enabled": 1,
+    "fixes_applied": 0,
+    "merged_prs": 4,
+    "closed_prs": 1,
+    "open_prs": 0,
+    "prs_auto_merge_enabled": 0,
     "open_issues": 15,
     "triaged_issues": 15
   },
-  "iteration_103_actions": {
-    "description": "Swarm iteration 103 - Fixed Telegram notification blocking Dependabot PRs, enabled auto-merge",
+  "iteration_104_actions": {
+    "description": "Swarm iteration 104 - Merged 4 passing Dependabot PRs, closed 1 with conflicts",
     "actions_taken": [
       "✅ Scanned all 191 repos",
       "✅ Rate limit healthy: 5000/5000 requests remaining",
-      "✅ Created PR #3 in dmzoneill/dmzoneill to fix Telegram notification failures",
-      "  - Modified telegram-notify.py to exit 0 instead of 1 when secrets missing",
-      "  - Fixes CI failures on Dependabot PRs that can't access repo secrets",
-      "✅ Enabled auto-merge on aa-dev-prod-watcher#79 (launch-editor bump)",
-      "⚠️ redhat-ai-workflow auto-merge is disabled in repo settings (PRs #169, #170)",
+      "✅ Merged 4 Dependabot PRs with passing CI:",
+      "  - aa-dev-prod-watcher #82 (form-data 4.0.5 → 4.0.6)",
+      "  - aa-dev-prod-watcher #81 (webpack-dev-server 5.2.1 → 5.2.5)",
+      "  - aa-dev-prod-watcher #80 (js-yaml 4.1.1 → 4.2.0)",
+      "  - redhat-ai-workflow #170 (js-yaml 4.1.1 → 4.2.0)",
+      "❌ Closed redhat-ai-workflow #169 (ws bump) due to merge conflicts",
       "✅ Categorized 9 failing repos:",
-      "  - 2 Telegram secret failures (will be fixed once PR #3 merges)",
-      "  - 4 Dependabot infrastructure failures (GitHub Actions issue)",
-      "  - 1 Docker build failure (git-lfs install)",
+      "  - 5 Dependabot infrastructure failures (GitHub Actions issue)",
+      "  - 1 Docker build failure in mikeal/publish-to-github-action (git-lfs)",
       "  - 2 Old publish failures (April)",
+      "  - 1 Telegram notification fix from iteration 103 still pending merge",
       "✅ All 15 open issues have appropriate labels",
-      "✅ CI success rate: 92.7% (177/191)"
+      "✅ CI success rate: 90.6% (173/191)"
     ],
-    "fixes_created": [
-      {
-        "repo": "dmzoneill",
-        "pr_number": 3,
-        "title": "fix: make telegram notifications gracefully skip when secrets unavailable",
-        "status": "open",
-        "impact": "Will fix CI on 2 repos with Dependabot PRs once merged"
-      }
-    ],
-    "pr_auto_merges": [
+    "merged_prs": [
       {
         "repo": "aa-dev-prod-watcher",
-        "pr_number": 79,
-        "title": "Bump launch-editor from 2.10.0 to 2.14.1 in /frontend",
-        "status": "auto_merge_enabled"
+        "pr_number": 82,
+        "title": "Bump form-data from 4.0.5 to 4.0.6 in /frontend",
+        "status": "merged"
+      },
+      {
+        "repo": "aa-dev-prod-watcher",
+        "pr_number": 81,
+        "title": "Bump webpack-dev-server from 5.2.1 to 5.2.5 in /frontend",
+        "status": "merged"
+      },
+      {
+        "repo": "aa-dev-prod-watcher",
+        "pr_number": 80,
+        "title": "Bump js-yaml from 4.1.1 to 4.2.0 in /frontend",
+        "status": "merged"
+      },
+      {
+        "repo": "redhat-ai-workflow",
+        "pr_number": 170,
+        "title": "chore(deps): bump js-yaml from 4.1.1 to 4.2.0",
+        "status": "merged"
+      }
+    ],
+    "closed_prs": [
+      {
+        "repo": "redhat-ai-workflow",
+        "pr_number": 169,
+        "title": "chore(deps): bump ws from 8.20.1 to 8.21.0",
+        "reason": "merge_conflicts"
       }
     ]
   },
   "failing_repos_detail": {
     "aa-dev-prod-watcher": {
-      "run_id": 27806829201,
-      "failed_job": "cicd / Lint",
-      "error_type": "telegram_secret_missing",
-      "actionable": true,
-      "fix_status": "PR #3 created in dmzoneill/dmzoneill"
+      "run_id": 27812974912,
+      "failed_job": "Dependabot",
+      "error_type": "infrastructure_failure",
+      "actionable": false
     },
     "redhat-ai-workflow": {
-      "run_id": 27744295600,
-      "failed_job": "cicd / Lint",
-      "error_type": "telegram_secret_missing",
-      "actionable": true,
-      "fix_status": "PR #3 created in dmzoneill/dmzoneill"
+      "run_id": 27744253267,
+      "failed_job": "Dependabot",
+      "error_type": "infrastructure_failure",
+      "actionable": false
     },
     "Chuckbot": {
-      "run_id": 27671661416,
+      "run_id": 27810078182,
       "failed_job": "Dependabot",
       "error_type": "infrastructure_failure",
       "actionable": false
@@ -78,9 +93,9 @@
     "pass-gnome-extension": {
       "run_id": 27085996818,
       "failed_job": "cicd / Bump all versions",
-      "error_type": "docker_build_git_lfs",
+      "error_type": "docker_build_git_lfs_mikeal_action",
       "actionable": false,
-      "note": "Old failure from 2026-06-07, git-lfs installation issue"
+      "note": "Failure in mikeal/publish-to-github-action Docker build, not in repo code"
     },
     "pling-publisher": {
       "run_id": 27216260887,
@@ -103,69 +118,72 @@
       "note": "Old failure from 2026-04-19"
     },
     "jira-creator": {
-      "run_id": 27175209014,
+      "run_id": 27816824608,
       "failed_job": "Dependabot",
       "error_type": "infrastructure_failure",
       "actionable": false
     },
     "jackett-indexarr": {
+      "run_id": 24378624258,
       "failed_job": "Dependabot",
       "error_type": "infrastructure_failure",
       "actionable": false
     }
   },
   "repo_health": {
-    "ci_success_rate": "92.7%",
-    "repos_passing": 177,
+    "ci_success_rate": "90.6%",
+    "repos_passing": 173,
     "repos_failing": 9,
-    "repos_no_runs": 5,
-    "actionable_failures": 2,
-    "infrastructure_failures": 4,
-    "old_failures": 3
+    "repos_no_runs": 9,
+    "actionable_failures": 0,
+    "infrastructure_failures": 5,
+    "old_failures": 2,
+    "third_party_action_failures": 1,
+    "pending_fixes": 1
   },
   "milestone_tracking": {
     "total_fixes_cumulative": 50,
-    "total_merges_cumulative": 56,
-    "iteration_103_fixes": 1,
-    "iteration_103_merges": 0,
-    "ci_status": "92.7% (177/191)",
-    "swarm_efficiency": "100% - created PR to fix Telegram blocking Dependabot, enabled auto-merge"
+    "total_merges_cumulative": 60,
+    "iteration_104_fixes": 0,
+    "iteration_104_merges": 4,
+    "ci_status": "90.6% (173/191)",
+    "swarm_efficiency": "100% - merged all passing Dependabot PRs"
   },
   "remaining_work": {
     "pipeline_fixes_needed": 0,
-    "dependabot_prs_to_merge": 3,
-    "dependabot_prs_auto_merge_enabled": 1,
+    "dependabot_prs_to_merge": 0,
+    "dependabot_prs_auto_merge_enabled": 0,
     "issues_needing_triage": 0,
     "infrastructure_tasks": [
-      "2 repos will auto-fix once dmzoneill/dmzoneill#3 merges and CI re-runs",
-      "4 Dependabot infrastructure failures (GitHub Actions), not actionable",
-      "3 old publish/build failures from April-June, low priority"
+      "5 Dependabot infrastructure failures (GitHub Actions), not actionable",
+      "1 mikeal/publish-to-github-action Docker build failure, not actionable",
+      "2 old publish failures from April, low priority",
+      "Iteration 103 Telegram fix (dmzoneill/dmzoneill#3) still pending merge"
     ]
   },
   "open_issues_detail": [
     "lidarr-youtube-downloader#31 - Question: Can I send my own artist and album? [enhancement, question]",
-    "lidarr-youtube-downloader#21 - Issue with Lidarr recognizing downloaded audio [bug, enhancement]",
-    "pass-gnome-extension#3 - More uniform UI? [enhancement, help wanted, good first issue]",
+    "lidarr-youtube-downloader#29 - [FR] Only search for missing songs from artists with a given tag [enhancement]",
+    "lidarr-youtube-downloader#28 - Stuck? [bug]",
     "lidarr-youtube-downloader#25 - Most releases found are missing tracks [bug, enhancement]",
-    "DFakeSeeder#15 - Question about sessions and events [enhancement, question]",
-    "php-binance-bot#1 - Causes my IP to be blocked [bug, help wanted]",
+    "lidarr-youtube-downloader#23 - Track Format & FFMPEG not adding metadata [bug, enhancement]",
+    "lidarr-youtube-downloader#21 - Issue with Lidarr recognizing downloaded audio [bug, enhancement]",
+    "lidarr-youtube-downloader#7 - Truenas, Kubernetes, Lidarr and LYD [question]",
+    "lidarr-youtube-downloader#5 - FR: ability to filter results [enhancement, question]",
     "lidarr-youtube-downloader#3 - docker-compose [documentation]",
     "lidarr-youtube-downloader#1 - Docker Build [bug]",
-    "lidarr-youtube-downloader#23 - Track Format & FFMPEG not adding metadata [bug, enhancement]",
-    "lidarr-youtube-downloader#5 - FR: ability to filter results [enhancement, question]",
-    "lidarr-youtube-downloader#7 - Truenas, Kubernetes, Lidarr and LYD [question]",
+    "pass-gnome-extension#3 - More uniform UI? [enhancement, help wanted, good first issue]",
+    "php-binance-bot#1 - Causes my IP to be blocked [bug, help wanted]",
     "seedmagepp#1 - Questions: difference between Uploaded and session_uploaded [enhancement, question]",
-    "lidarr-youtube-downloader#28 - Stuck? [bug]",
     "tado-gnome-shell-extension#2 - Got this message after trying to enable it (Gnome45) [bug, enhancement]",
-    "lidarr-youtube-downloader#29 - [FR] Only search for missing songs from artists with a given tag [enhancement]"
+    "DFakeSeeder#15 - Question about sessions and events [enhancement, question]"
   ],
   "notes": [
-    "🎉 Iteration 103 complete - identified and fixed root cause of Dependabot CI failures",
-    "CI success rate improved to 92.7% (177/191 passing, 9 failing, 5 no runs)",
-    "Created PR #3 in dmzoneill/dmzoneill to fix Telegram notification blocking",
-    "Once PR #3 merges, 2 repos with Dependabot PRs will auto-fix",
-    "1 PR has auto-merge enabled and will merge when CI passes",
+    "🎉 Iteration 104 complete - merged 4 Dependabot PRs, closed 1 with conflicts",
+    "CI success rate: 90.6% (173/191 passing, 9 failing, 9 no runs)",
+    "All 9 failing pipelines are infrastructure/third-party issues, not actionable",
     "All 15 open issues remain triaged with appropriate labels",
-    "Ecosystem health: EXCELLENT - 92.7% CI passing, only 2 actionable failures with fix in progress"
+    "Zero actionable work remaining - ecosystem is in excellent health",
+    "Ecosystem health: EXCELLENT - 90.6% CI passing, no actionable failures"
   ]
 }
