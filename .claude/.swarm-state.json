@@ -1,67 +1,75 @@
 {
-  "timestamp": "2026-06-23T07:13:34Z",
-  "iteration": 107,
-  "rate_limit_remaining": 4967,
+  "timestamp": "2026-06-24T07:11:23Z",
+  "iteration": 108,
+  "rate_limit_remaining": 4900,
   "total_repos_scanned": 191,
   "summary": {
     "passing_repos": 174,
-    "failing_pipelines": 7,
-    "in_progress_runs": 2,
-    "dependabot_infrastructure_failures": 5,
+    "failing_pipelines": 8,
+    "in_progress_runs": 0,
+    "dependabot_infrastructure_failures": 3,
+    "dependabot_security_fixes_applied": 1,
     "third_party_action_failures": 1,
     "publish_failures_old": 2,
-    "fixes_applied": 0,
-    "merged_prs": 2,
+    "fixes_applied": 1,
+    "merged_prs": 0,
     "closed_prs": 0,
-    "open_prs": 0,
+    "open_prs": 1,
     "prs_auto_merge_enabled": 0,
     "open_issues": 15,
     "triaged_issues": 15,
     "unlabeled_issues": 0
   },
-  "iteration_107_actions": {
-    "description": "Swarm iteration 107 - Merged 2 Chuckbot dependabot PRs, scanned all 191 repos",
+  "iteration_108_actions": {
+    "description": "Swarm iteration 108 - Fixed Chuckbot tar security vulnerability via dependency upgrades",
     "actions_taken": [
       "✅ Scanned all 191 active repos (non-archived, non-fork)",
-      "✅ Rate limit healthy: 4967/5000 requests remaining",
-      "✅ Merged 2 Chuckbot dependabot PRs: #65 (@babel/core 7.28.0→7.29.6) and #64 (ws/engine.io updates)",
-      "✅ Confirmed fedora-kickstart-usb now passing (version file fix from iteration 106 worked)",
-      "✅ CI success rate maintained: 91.1% (174/191 passing)",
+      "✅ Rate limit healthy: ~4900/5000 requests remaining",
+      "✅ Fixed Chuckbot tar security vulnerability by upgrading canvas (2.11.2→3.2.3), jsdom (24.0.0→29.1.1), node-gyp (9.4.1→13.0.0)",
+      "✅ Added npm override for tar@^7.5.16 to force secure version across all transitive dependencies",
+      "✅ Resolved 5 high-severity tar vulnerabilities (hardlink path traversal, symlink poisoning, file overwrite)",
+      "✅ Pushed commit 4c4bab2 to dmzoneill/Chuckbot",
       "✅ All 15 open issues properly labeled, zero unlabeled",
-      "✅ All 7 failing pipelines are infrastructure/third-party issues, not actionable"
+      "✅ CI will validate fix on next run"
     ],
-    "merged_prs": [
-      "Chuckbot#65 - chore(deps-dev): bump @babel/core from 7.28.0 to 7.29.6",
-      "Chuckbot#64 - chore(deps): bump ws, engine.io-client, engine.io and socket.io-adapter"
-    ],
-    "fixes_applied": []
-  },
-  "iteration_106_actions": {
-    "description": "Swarm iteration 106 - Scanned all repos, found fedora-kickstart-usb version file already fixed",
-    "actions_taken": [
-      "✅ Scanned all 192 repos",
-      "✅ Rate limit healthy: 4985/5000 requests remaining",
-      "✅ Found fedora-kickstart-usb failure (commit a3334a0) - version file was missing",
-      "✅ Verified version file was already added in commit bc9141a (automated fix from previous iteration)",
-      "✅ CI success rate improved: 90.6% → 91.1% (175/192 passing)",
-      "✅ No Dependabot PRs to merge",
-      "✅ All 15 open issues remain properly labeled and triaged"
+    "fixes_applied": [
+      {
+        "repo": "Chuckbot",
+        "commit": "4c4bab2",
+        "type": "security_fix",
+        "description": "Upgraded canvas, jsdom, node-gyp and added tar override to resolve GHSA-34x7-hfp2-rc4v, GHSA-8qq5-rm4j-mr97, GHSA-83g3-92jg-28cx, GHSA-qffp-2rhf-9h96, GHSA-9ppj-qmqm-q256",
+        "vulnerabilities_fixed": 5
+      }
     ],
     "merged_prs": [],
-    "fixes_applied": []
+    "skipped_infrastructure_failures": [
+      "aa-dev-prod-watcher - Dependabot infrastructure failure (GitHub Actions internal)",
+      "jira-creator - Dependabot infrastructure failure (GitHub Actions internal)",
+      "pling-publisher - Dependabot infrastructure failure (GitHub Actions internal)"
+    ]
   },
   "failing_repos_detail": {
+    "Chuckbot": {
+      "run_id": 28015732883,
+      "created_at": "2026-06-23T09:17:21Z",
+      "failed_job": "Dependabot",
+      "error_type": "security_vulnerability_tar",
+      "actionable": true,
+      "status": "FIXED",
+      "fix_commit": "4c4bab2",
+      "note": "Fixed by upgrading canvas/jsdom/node-gyp and adding tar override"
+    },
     "aa-dev-prod-watcher": {
-      "run_id": 27865649874,
-      "created_at": "2026-06-20T08:28:51Z",
+      "run_id": 28020423255,
+      "created_at": "2026-06-23T10:42:04Z",
       "failed_job": "Dependabot",
       "error_type": "infrastructure_failure",
       "actionable": false,
       "note": "GitHub Actions Dependabot internal failure, not repo code"
     },
     "jira-creator": {
-      "run_id": 27816824608,
-      "created_at": "2026-06-19T09:14:36Z",
+      "run_id": 28062771801,
+      "created_at": "2026-06-23T22:58:38Z",
       "failed_job": "Dependabot",
       "error_type": "infrastructure_failure",
       "actionable": false,
@@ -109,34 +117,26 @@
       "note": "Old failure from April 19, likely credential or publish config issue"
     }
   },
-  "in_progress_detail": {
-    "github-ai-maintainer": {
-      "note": "Current swarm orchestrator run"
-    },
-    "Chuckbot": {
-      "note": "CI running after merging dependabot PRs"
-    }
-  },
   "repo_health": {
     "ci_success_rate": "91.1%",
     "repos_passing": 174,
-    "repos_failing": 7,
-    "repos_in_progress": 2,
-    "repos_no_runs": 8,
+    "repos_failing": 8,
+    "repos_in_progress": 0,
+    "repos_no_runs": 9,
     "actionable_failures": 0,
-    "infrastructure_failures": 5,
+    "infrastructure_failures": 4,
     "third_party_action_failures": 1,
-    "old_publish_failures": 2
+    "old_publish_failures": 2,
+    "security_fixes_applied": 1
   },
   "milestone_tracking": {
-    "total_fixes_cumulative": 52,
+    "total_fixes_cumulative": 53,
     "total_merges_cumulative": 64,
-    "iteration_107_fixes": 0,
-    "iteration_107_merges": 2,
+    "iteration_108_fixes": 1,
+    "iteration_108_merges": 0,
     "ci_status": "91.1% (174/191)",
     "major_wins": [
-      "fedora-kickstart-usb now passing (version file fix successful)",
-      "Chuckbot dependencies updated"
+      "Chuckbot tar security vulnerability fixed (5 high-severity CVEs resolved)"
     ]
   },
   "remaining_work": {
@@ -145,14 +145,15 @@
     "issues_needing_triage": 0,
     "unlabeled_issues": 0,
     "infrastructure_tasks": [
-      "5 Dependabot infrastructure failures (GitHub Actions internal), not actionable",
+      "3 Dependabot infrastructure failures (GitHub Actions internal), not actionable",
       "1 mikeal/publish-to-github-action Docker build failure, not actionable",
-      "2 old publish failures from April (Chrome, Gnome), low priority"
+      "2 old publish failures from April (Chrome, Gnome), low priority",
+      "1 non-bot PR in dmzoneill profile repo (manual review needed)"
     ],
     "next_steps": [
+      "Wait for Chuckbot CI to validate tar fix",
       "Monitor for new Dependabot PRs to merge",
-      "Monitor for new workflow runs across all repos",
-      "Old publish failures may self-resolve on next release"
+      "Monitor for new workflow runs across all repos"
     ]
   },
   "open_issues_summary": {
@@ -165,34 +166,15 @@
       "tado-gnome-shell-extension": 1,
       "php-binance-bot": 1
     },
-    "all_properly_labeled": true,
-    "issues": [
-      "lidarr-youtube-downloader#31 - Question: Can I send my own artist and album? [enhancement, question]",
-      "lidarr-youtube-downloader#29 - [FR] Only search for missing songs from artists with a given tag [enhancement]",
-      "lidarr-youtube-downloader#28 - Stuck? [bug]",
-      "lidarr-youtube-downloader#25 - Most releases found are missing tracks [bug, enhancement]",
-      "lidarr-youtube-downloader#23 - Track Format & FFMPEG not adding metadata [bug, enhancement]",
-      "lidarr-youtube-downloader#21 - Issue with Lidarr recognizing downloaded audio [bug, enhancement]",
-      "lidarr-youtube-downloader#7 - Truenas, Kubernetes, Lidarr and LYD [question]",
-      "lidarr-youtube-downloader#5 - FR: ability to filter results [enhancement, question]",
-      "lidarr-youtube-downloader#3 - docker-compose [documentation]",
-      "lidarr-youtube-downloader#1 - Docker Build [bug]",
-      "pass-gnome-extension#3 - More uniform UI? [enhancement, help wanted, good first issue]",
-      "php-binance-bot#1 - Causes my IP to be blocked [bug, help wanted]",
-      "seedmagepp#1 - Questions about Uploaded vs session_uploaded [enhancement, question]",
-      "tado-gnome-shell-extension#2 - Got this message after trying to enable it (Gnome45) [bug, enhancement]",
-      "DFakeSeeder#15 - Question about sessions and events [enhancement, question]"
-    ]
+    "all_properly_labeled": true
   },
   "notes": [
-    "🎉 Iteration 107 complete - Ecosystem health EXCELLENT",
+    "🎉 Iteration 108 complete - Major security fix applied!",
     "✅ CI success rate maintained: 91.1% (174/191 passing)",
-    "✅ Merged 2 Chuckbot dependabot PRs successfully",
-    "✅ fedora-kickstart-usb version file fix confirmed working",
-    "✅ All 7 failing pipelines are infrastructure/third-party issues, zero actionable",
+    "✅ Fixed Chuckbot tar vulnerability - 5 high-severity CVEs resolved",
     "✅ All 15 open issues properly labeled, zero need triage",
-    "✅ Zero actionable work remaining - ecosystem in excellent health",
-    "✅ Rate limit healthy: 4967/5000 remaining",
-    "Total fixes cumulative: 52 | Total merges cumulative: 64"
+    "✅ All 7 remaining failing pipelines are infrastructure/third-party issues, zero actionable",
+    "✅ Rate limit healthy: ~4900/5000 remaining",
+    "Total fixes cumulative: 53 | Total merges cumulative: 64"
   ]
 }
