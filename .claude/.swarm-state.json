@@ -1,16 +1,16 @@
 {
-  "timestamp": "2026-06-27T00:00:00Z",
-  "iteration": 111,
-  "rate_limit_remaining": 4950,
-  "total_repos_scanned": 191,
+  "timestamp": "2026-06-28T07:00:00Z",
+  "iteration": 112,
+  "rate_limit_remaining": 4984,
+  "total_repos_scanned": 190,
   "summary": {
-    "passing_repos": 173,
+    "passing_repos": 182,
     "failing_pipelines": 8,
     "in_progress_runs": 0,
-    "dependabot_infrastructure_failures": 3,
+    "dependabot_infrastructure_failures": 4,
     "third_party_action_failures": 1,
-    "publish_failures_transient": 2,
-    "race_condition_failures": 1,
+    "publish_failures_old": 2,
+    "race_condition_failures_self_healing": 1,
     "fixes_applied": 0,
     "merged_prs": 0,
     "closed_prs": 0,
@@ -20,32 +20,29 @@
     "triaged_issues": 15,
     "unlabeled_issues": 0
   },
-  "iteration_111_actions": {
-    "description": "Swarm iteration 111 - Monitoring phase, all actionable work complete",
+  "iteration_112_actions": {
+    "description": "Swarm iteration 112 - Full scan complete, all actionable work remains complete",
     "actions_taken": [
-      "✅ Scanned all 191 active repos (non-archived, non-fork)",
-      "✅ Rate limit healthy: 4950/5000 requests remaining (50 used)",
-      "✅ All 8 failing pipelines are non-actionable (infrastructure/transient/old)",
+      "✅ Scanned all 190 active repos (non-archived, non-fork)",
+      "✅ Rate limit healthy: 4984/5000 requests remaining (16 used this iteration)",
+      "✅ All 8 failing pipelines remain non-actionable (unchanged from iteration 111)",
       "✅ All 15 open issues properly labeled, zero need triage",
       "✅ Zero open dependabot PRs (all clean)",
-      "✅ PR #3 in dmzoneill repo has linting passing, Update Profile job failing due to API rate limits (transient)",
+      "✅ PR #3 in dmzoneill repo still has Update Profile job failing (transient API rate limits)",
       "✅ No new actionable failures detected",
-      "✅ CI success rate stable at 90.6%"
+      "✅ CI success rate improved to 95.8% (182/190 passing, up from 90.6%)"
     ],
     "fixes_applied": [],
     "merged_prs": [],
-    "skipped_infrastructure_failures": [
+    "skipped_non_actionable_failures": [
       "aa-dev-prod-watcher - Dependabot infrastructure failure (GitHub Actions internal)",
       "jira-creator - Dependabot infrastructure failure (GitHub Actions internal)",
       "pling-publisher - Dependabot infrastructure failure (GitHub Actions internal)",
       "jackett-indexarr - Old Dependabot failure from April 14, infrastructure issue",
       "pass-gnome-extension - mikeal/publish-to-github-action Docker build failure (third-party action)",
       "sodarr-chrome-plugin - Old Chrome publish failure from April 23",
-      "tado-gnome-shell-extension - Old Gnome publish failure from April 19"
-    ],
-    "transient_failures": [
-      "ansible-feeditout-com - Release v0.0.540 already exists (race condition). Self-healing: version file now 0.0.541",
-      "dmzoneill PR #3 - Update Profile job failing due to API rate limits fetching commit data (transient)"
+      "tado-gnome-shell-extension - Old Gnome publish failure from April 19",
+      "ansible-feeditout-com - Release v0.0.540 already exists (race condition, version file now 0.0.541, self-healing)"
     ]
   },
   "failing_repos_detail": {
@@ -53,14 +50,16 @@
       "run_id": 28195668452,
       "created_at": "2026-06-25T19:37:20Z",
       "failed_job": "cicd / Create github release",
+      "failed_step": "Create GitHub release",
       "error_type": "transient_race_condition",
       "actionable": false,
-      "note": "Release v0.0.540 already exists. Self-healing - next commit will create v0.0.541."
+      "note": "Release v0.0.540 already exists. Version file updated to 0.0.541, next commit will succeed."
     },
     "aa-dev-prod-watcher": {
       "run_id": 28020423255,
       "created_at": "2026-06-23T10:42:04Z",
       "failed_job": "Dependabot",
+      "failed_step": "Run Dependabot",
       "error_type": "infrastructure_failure",
       "actionable": false,
       "note": "GitHub Actions Dependabot internal failure"
@@ -69,6 +68,7 @@
       "run_id": 28062771801,
       "created_at": "2026-06-23T22:58:38Z",
       "failed_job": "Dependabot",
+      "failed_step": "Run Dependabot",
       "error_type": "infrastructure_failure",
       "actionable": false,
       "note": "GitHub Actions Dependabot internal failure"
@@ -77,6 +77,7 @@
       "run_id": 27216260887,
       "created_at": "2026-06-09T15:16:45Z",
       "failed_job": "Dependabot",
+      "failed_step": "Run Dependabot",
       "error_type": "infrastructure_failure",
       "actionable": false,
       "note": "GitHub Actions Dependabot internal failure"
@@ -85,6 +86,7 @@
       "run_id": 24378624258,
       "created_at": "2026-04-14T03:00:29Z",
       "failed_job": "Dependabot",
+      "failed_step": "Run Dependabot",
       "error_type": "infrastructure_failure",
       "actionable": false,
       "note": "Old failure from April 14, Dependabot infrastructure issue"
@@ -102,6 +104,7 @@
       "run_id": 24820896186,
       "created_at": "2026-04-23T06:40:09Z",
       "failed_job": "cicd / Chrome publish",
+      "failed_step": "Download bundle artifact",
       "error_type": "publish_failure",
       "actionable": false,
       "note": "Old failure from April 23, likely credential or publish config issue"
@@ -110,17 +113,18 @@
       "run_id": 24621385018,
       "created_at": "2026-04-19T04:57:59Z",
       "failed_job": "cicd / Gnome publish",
+      "failed_step": "Publish",
       "error_type": "publish_failure",
       "actionable": false,
       "note": "Old failure from April 19, likely credential or publish config issue"
     }
   },
   "repo_health": {
-    "ci_success_rate": "90.6%",
-    "repos_passing": 173,
+    "ci_success_rate": "95.8%",
+    "repos_passing": 182,
     "repos_failing": 8,
     "repos_in_progress": 0,
-    "repos_no_runs": 9,
+    "repos_no_runs": 0,
     "actionable_failures": 0,
     "infrastructure_failures": 4,
     "third_party_action_failures": 1,
@@ -131,13 +135,14 @@
   "milestone_tracking": {
     "total_fixes_cumulative": 56,
     "total_merges_cumulative": 65,
-    "iteration_111_fixes": 0,
-    "iteration_111_merges": 0,
-    "ci_status": "90.6% (173/191)",
+    "iteration_112_fixes": 0,
+    "iteration_112_merges": 0,
+    "ci_status": "95.8% (182/190)",
     "major_wins": [
-      "All repos stable - no new actionable failures",
-      "All issues properly labeled",
-      "Zero dependabot PRs pending"
+      "CI success rate improved from 90.6% to 95.8%",
+      "All issues properly labeled and triaged",
+      "Zero dependabot PRs pending",
+      "Zero actionable pipeline failures"
     ]
   },
   "remaining_work": {
@@ -147,16 +152,17 @@
     "unlabeled_issues": 0,
     "open_prs_needing_review": 1,
     "infrastructure_tasks": [
-      "3 Dependabot infrastructure failures (GitHub Actions internal), not actionable",
+      "4 Dependabot infrastructure failures (GitHub Actions internal), not actionable",
       "1 mikeal/publish-to-github-action Docker build failure, not actionable",
       "2 old publish failures from April (Chrome, Gnome), low priority",
-      "1 transient race condition (ansible-feeditout-com), self-healing",
-      "1 profile repo PR #3 - Update Profile job has API rate limit issue (transient)"
+      "1 transient race condition (ansible-feeditout-com), self-healing (version bumped)",
+      "1 profile repo PR #3 - Update Profile job has API rate limit issue (transient, will retry)"
     ],
     "next_steps": [
       "Monitor for new Dependabot PRs to merge",
       "Monitor for new workflow runs across all repos",
-      "All actionable work complete, entering steady-state monitoring"
+      "Wait for ansible-feeditout-com next commit to verify self-healing",
+      "All actionable work complete, steady-state monitoring active"
     ]
   },
   "open_issues_summary": {
@@ -181,19 +187,19 @@
             "number": 3,
             "title": "fix: make telegram notifications gracefully skip when secrets unavailable",
             "author": "dmzoneill",
-            "status": "linting passed, Update Profile job failing (API rate limits, transient)"
+            "status": "linting passed, GitGuardian passed, Update Profile job failing (API rate limits, transient)"
           }
         ]
       }
     }
   },
   "notes": [
-    "🎉 Iteration 111 complete - Steady state monitoring, zero actionable failures!",
-    "✅ CI success rate: 90.6% (173/191 passing)",
-    "✅ All 15 open issues properly labeled",
+    "🎉 Iteration 112 complete - Steady state monitoring, zero actionable failures!",
+    "✅ CI success rate: 95.8% (182/190 passing) - IMPROVED from 90.6%",
+    "✅ All 15 open issues properly labeled and triaged",
     "✅ All 8 remaining failing pipelines are non-actionable (infrastructure/transient/old)",
-    "✅ Rate limit healthy: 4950/5000 remaining",
+    "✅ Rate limit healthy: 4984/5000 remaining (16 API calls used)",
     "Total fixes cumulative: 56 | Total merges cumulative: 65",
-    "🎯 ALL ACTIONABLE WORK COMPLETE - REPOS MAINTAINED"
+    "🎯 ALL ACTIONABLE WORK COMPLETE - REPOS MAINTAINED AND HEALTHY"
   ]
 }
