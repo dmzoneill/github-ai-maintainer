@@ -1,7 +1,7 @@
 {
-    "timestamp": "2026-07-21T06:50:00Z",
-    "iteration": 135,
-    "rate_limit_remaining": 4999,
+    "timestamp": "2026-07-22T12:00:00Z",
+    "iteration": 136,
+    "rate_limit_remaining": 5000,
     "total_repos_scanned": 193,
     "summary": {
         "passing_repos": 175,
@@ -13,52 +13,90 @@
         "stale_failures": 1,
         "code_ci_actually_passing": 183,
         "fixes_applied": 0,
-        "merged_prs": 1,
+        "merged_prs": 6,
         "closed_prs": 0,
         "open_prs": 1,
         "open_issues": 16,
         "triaged_issues": 16
     },
-    "iteration_135_actions": {
-        "description": "Swarm iteration 135 - Merged aa-dev-prod-watcher Dependabot PR #87 (axios 1.16.0→1.18.0). gnome-extension-publisher recovered. ansible-feeditout-com issues consolidated (3 closed, 1 new #94 already triaged). All repos stable.",
+    "iteration_136_actions": {
+        "description": "Swarm iteration 136 - Merged 6 Dependabot PRs across 3 repos (Chuckbot, redhat-ai-workflow, aa-dev-prod-watcher). All had passing CI. Zero Dependabot PRs remaining. All repos stable.",
         "actions_taken": [
             "✅ Scanned all 193 repos for CI status",
-            "✅ Merged aa-dev-prod-watcher PR #87 (Dependabot: axios 1.16.0 → 1.18.0) — all CI checks passed",
-            "✅ Confirmed gnome-extension-publisher recovered (latest run 29791305746 passed)",
-            "✅ Confirmed ansible-feeditout-com issues #70, #62, #55 closed; new issue #94 opened and already triaged",
+            "✅ Merged Chuckbot PR #68 (Dependabot: fast-uri 3.1.2 → 3.1.4) — all CI passed",
+            "✅ Merged Chuckbot PR #67 (Dependabot: body-parser 1.20.3 → 1.20.6) — all CI passed",
+            "✅ Merged redhat-ai-workflow PR #180 (Dependabot: pillow 12.2.0 → 12.3.0) — all CI passed",
+            "✅ Merged aa-dev-prod-watcher PR #90 (Dependabot: shell-quote 1.8.4 → 1.10.0) — all CI passed",
+            "✅ Merged aa-dev-prod-watcher PR #88 (Dependabot: js-yaml 4.2.0 → 4.3.0) — all CI passed",
+            "✅ Merged aa-dev-prod-watcher PR #89 (Dependabot: webpack-dev-server 5.2.5 → 5.2.6) — all CI passed",
+            "✅ Zero Dependabot PRs remaining across all repos",
             "✅ Verified all 16 open issues properly triaged (labels + AI comments)",
             "✅ Zero code-fixable failures across all 193 repos",
-            "⚠️  dmzoneill/dmzoneill PR #3 still open - non-bot PR, needs owner review",
-            "⚠️  8 repos show headline failures - all non-actionable (external services / infrastructure)",
-            "⚠️  aa-dev-prod-watcher latest run shows Dependabot axios update failure (infra), but CICD pipeline passes"
+            "⚠️  dmzoneill/dmzoneill PR #3 still open - non-bot PR, needs owner review (Update Profile check failing)",
+            "⚠️  8 repos show headline failures - all non-actionable (external services / infrastructure)"
         ],
         "pipeline_fixes": [],
         "prs_merged": [
             {
-                "repo": "aa-dev-prod-watcher",
-                "pr": 87,
-                "title": "Bump axios from 1.16.0 to 1.18.0 in /frontend",
+                "repo": "Chuckbot",
+                "pr": 68,
+                "title": "chore(deps): bump fast-uri from 3.1.2 to 3.1.4",
                 "author": "dependabot[bot]",
-                "merged_at": "2026-07-21T06:49:54Z"
+                "merged_at": "2026-07-22T12:00:00Z"
+            },
+            {
+                "repo": "Chuckbot",
+                "pr": 67,
+                "title": "chore(deps): bump body-parser from 1.20.3 to 1.20.6",
+                "author": "dependabot[bot]",
+                "merged_at": "2026-07-22T12:00:00Z"
+            },
+            {
+                "repo": "redhat-ai-workflow",
+                "pr": 180,
+                "title": "chore(deps): bump pillow from 12.2.0 to 12.3.0",
+                "author": "dependabot[bot]",
+                "merged_at": "2026-07-22T12:00:00Z"
+            },
+            {
+                "repo": "aa-dev-prod-watcher",
+                "pr": 90,
+                "title": "Bump shell-quote from 1.8.4 to 1.10.0 in /frontend",
+                "author": "dependabot[bot]",
+                "merged_at": "2026-07-22T12:00:00Z"
+            },
+            {
+                "repo": "aa-dev-prod-watcher",
+                "pr": 88,
+                "title": "Bump js-yaml from 4.2.0 to 4.3.0 in /frontend",
+                "author": "dependabot[bot]",
+                "merged_at": "2026-07-22T12:00:00Z"
+            },
+            {
+                "repo": "aa-dev-prod-watcher",
+                "pr": 89,
+                "title": "Bump webpack-dev-server from 5.2.5 to 5.2.6 in /frontend",
+                "author": "dependabot[bot]",
+                "merged_at": "2026-07-22T12:00:00Z"
             }
         ]
     },
     "failing_repos_detail": {
-        "aa-dev-prod-watcher": {
-            "run_id": 29800967430,
-            "created_at": "2026-07-21T04:20:08Z",
+        "Chuckbot": {
+            "run_id": 29885812856,
+            "created_at": "2026-07-22T02:26:11Z",
             "failed_job": "Dependabot (axios)",
             "error_type": "infrastructure_failure",
             "actionable": false,
-            "note": "Dependabot npm_and_yarn update run failures (axios). CICD pipeline passes. PR #87 merged."
+            "note": "Dependabot npm_and_yarn axios update failure. CICD pipeline passes."
         },
-        "Chuckbot": {
-            "run_id": 28482126526,
-            "created_at": "2026-06-30T23:17:50Z",
-            "failed_job": "Dependabot (js-yaml)",
+        "redhat-ai-workflow": {
+            "run_id": 29847310552,
+            "created_at": "2026-07-21T16:09:21Z",
+            "failed_job": "Dependabot (pillow/uv)",
             "error_type": "infrastructure_failure",
             "actionable": false,
-            "note": "Dependabot cannot resolve js-yaml dependency conflict."
+            "note": "Dependabot uv pillow update failure. CICD pipeline passes (run 29824158594). PR #180 merged."
         },
         "pling-publisher": {
             "run_id": 29371387152,
@@ -129,19 +167,19 @@
     },
     "milestone_tracking": {
         "total_fixes_cumulative": 70,
-        "total_merges_cumulative": 78,
-        "iteration_135_fixes": 0,
-        "iteration_135_merges": 1,
+        "total_merges_cumulative": 84,
+        "iteration_136_fixes": 0,
+        "iteration_136_merges": 6,
         "ci_status": "183/183 repos-with-CI passing code stages (100%)",
         "major_wins": [
-            "✅ Merged aa-dev-prod-watcher Dependabot PR #87 (axios update)",
-            "✅ gnome-extension-publisher recovered from Dependabot failure",
+            "✅ Merged 6 Dependabot PRs in one sweep across 3 repos",
+            "✅ Zero Dependabot PRs remaining across all 193 repos",
             "✅ All 183 repos with CI have passing code stages — 100% adjusted pass rate",
             "✅ All 16 open issues triaged with AI responses and labels",
             "✅ Zero code-fixable failures across all 193 repos"
         ],
         "concerns": [
-            "dmzoneill/dmzoneill PR #3 needs owner review (non-bot PR)",
+            "dmzoneill/dmzoneill PR #3 needs owner review (non-bot PR, Update Profile check failing)",
             "5 repos affected by Dependabot infrastructure issues",
             "2 Gnome publish API failures (external service)",
             "1 stale Chrome publish failure (dormant repo)"
@@ -175,9 +213,7 @@
             "tado-gnome-shell-extension": 1,
             "php-binance-bot": 1
         },
-        "changes_since_last_iteration": [
-            "ansible-feeditout-com: #70, #62, #55 closed; new #94 opened (Cloudflare DNS migration feature) — already triaged"
-        ],
+        "changes_since_last_iteration": [],
         "untriaged": 0
     },
     "open_prs_summary": {
@@ -186,17 +222,18 @@
             "status": "OPEN",
             "author": "dmzoneill",
             "title": "fix: make telegram notifications gracefully skip when secrets unavailable",
-            "note": "Non-bot PR - owner review needed."
+            "note": "Non-bot PR - owner review needed. Update Profile check failing."
         }
     },
     "notes": [
-        "Iteration 135 complete - Merged 1 Dependabot PR, gnome-extension-publisher recovered",
-        "aa-dev-prod-watcher PR #87 merged (axios 1.16.0 → 1.18.0) — all CI passed",
-        "gnome-extension-publisher latest run now passing (was Dependabot pytest failure)",
-        "ansible-feeditout-com consolidated: 3 old issues closed, 1 new #94 (Cloudflare DNS migration feature)",
+        "Iteration 136 complete - Merged 6 Dependabot PRs across 3 repos",
+        "Chuckbot: merged fast-uri 3.1.2→3.1.4 (PR #68) and body-parser 1.20.3→1.20.6 (PR #67)",
+        "redhat-ai-workflow: merged pillow 12.2.0→12.3.0 (PR #180) — latest Dependabot run still shows failure but CICD passes",
+        "aa-dev-prod-watcher: merged shell-quote 1.8.4→1.10.0 (PR #90), js-yaml 4.2.0→4.3.0 (PR #88), webpack-dev-server 5.2.5→5.2.6 (PR #89)",
+        "Zero Dependabot PRs remaining across all repos",
         "All 8 headline failures are non-actionable (Dependabot infra, Gnome API, Chrome publish stale)",
         "Adjusted code CI pass rate: 100% (183/183 repos-with-CI)",
-        "Rate limit healthy: 4999/5000",
-        "Total fixes cumulative: 70 | Total merges cumulative: 78"
+        "Rate limit healthy: 5000/5000",
+        "Total fixes cumulative: 70 | Total merges cumulative: 84"
     ]
 }
