@@ -1,57 +1,44 @@
 {
-    "timestamp": "2026-07-29T12:00:00Z",
-    "iteration": 143,
-    "rate_limit_remaining": 5000,
+    "timestamp": "2026-07-30T06:55:00Z",
+    "iteration": 144,
+    "rate_limit_remaining": 4995,
     "total_repos_scanned": 195,
     "summary": {
         "passing_repos": 187,
-        "failing_pipelines": 8,
+        "failing_pipelines": 9,
         "no_ci_repos": 11,
         "in_progress_repos": 0,
         "dependabot_infrastructure_failures": 5,
         "gnome_publish_api_failures": 1,
         "chrome_publish_failures": 1,
         "stale_failures": 2,
+        "ai_responder_failures": 1,
         "release_tag_fixes_in_progress": 0,
         "code_ci_actually_passing": 187,
-        "fixes_applied": 0,
-        "merged_prs": 10,
+        "fixes_applied": 1,
+        "merged_prs": 0,
         "closed_prs": 0,
-        "open_prs": 1,
-        "open_issues": 190,
-        "triaged_issues": 190
+        "open_prs": 2,
+        "open_issues": 109,
+        "triaged_issues": 109
     },
-    "iteration_143_actions": {
-        "description": "Swarm iteration 143 - Merged 10 Dependabot PRs on feeditout.com-2026 (9 previously-conflicting PRs now rebased + 1 new PR #42). feeditout.com-2026 dependency backlog fully cleared. Zero open Dependabot PRs remaining across all repos.",
+    "iteration_144_actions": {
+        "description": "Swarm iteration 144 - Triaged DFakeSeeder #26 (AttributeError bug), created fix PR #27. ansible-feeditout-com issue count dropped from 131 to 49 (PostfixWorkerDown alerts auto-closed).",
         "actions_taken": [
-            "Merged feeditout.com-2026 PR #18 (axios 1.7.9 to 1.18.1)",
-            "Merged feeditout.com-2026 PR #20 (form-data 4.0.0 to 4.0.6)",
-            "Merged feeditout.com-2026 PR #25 (follow-redirects 1.15.6 to 1.16.0)",
-            "Merged feeditout.com-2026 PR #26 (lodash-es 4.17.21 to 4.18.1)",
-            "Merged feeditout.com-2026 PR #27 (basic-ftp 5.0.5 to 5.3.1)",
-            "Merged feeditout.com-2026 PR #28 (launch-editor 2.6.1 to 2.14.1)",
-            "Merged feeditout.com-2026 PR #29 (@babel/plugin-transform-modules-systemjs 7.23.3 to 7.29.7)",
-            "Merged feeditout.com-2026 PR #30 (@tootallnate/once 2.0.0 to 2.0.1)",
-            "Merged feeditout.com-2026 PR #32 (on-headers and compression)",
-            "Merged feeditout.com-2026 PR #42 (js-yaml 3.14.1 to 3.15.0 — NEW)",
-            "Confirmed PR #38 already closed (superseded by #42)",
-            "Confirmed 15 new ansible-feeditout-com PostfixWorkerDown alerts (#328-#342) already auto-responded",
-            "Confirmed 44 harpnet.ie issues are project planning tickets — properly labeled, no AI response needed",
-            "Confirmed dmzoneill/dmzoneill PR #3 still open — non-bot PR, needs owner review"
+            "Triaged DFakeSeeder #26: labeled as 'bug', posted root cause analysis comment",
+            "Created fix PR dmzoneill/DFakeSeeder#27 — guards against missing self.settings in DHTManager._get_poll_interval() and _get_error_retry_interval()",
+            "Confirmed 0 open Dependabot PRs across all repos (still clean)",
+            "Confirmed dmzoneill/dmzoneill PR #3 still open (non-bot, owner review needed)",
+            "Confirmed all 8 previous pipeline failures remain non-actionable",
+            "Noted 1 new pipeline failure: DFakeSeeder AI responder workflow (not CICD — triggered by issue #26 open event)",
+            "Confirmed ansible-feeditout-com issues dropped from 131 to 49 (82 PostfixWorkerDown alerts auto-closed)",
+            "Confirmed 0 issues with 0 comments (excluding harpnet.ie planning tickets)"
         ],
         "pipeline_fixes": [],
-        "prs_merged": [
-            {"repo": "feeditout.com-2026", "pr": 18, "title": "Bump axios 1.7.9 to 1.18.1", "author": "dependabot[bot]"},
-            {"repo": "feeditout.com-2026", "pr": 20, "title": "Bump form-data 4.0.0 to 4.0.6", "author": "dependabot[bot]"},
-            {"repo": "feeditout.com-2026", "pr": 25, "title": "Bump follow-redirects 1.15.6 to 1.16.0", "author": "dependabot[bot]"},
-            {"repo": "feeditout.com-2026", "pr": 26, "title": "Bump lodash-es 4.17.21 to 4.18.1", "author": "dependabot[bot]"},
-            {"repo": "feeditout.com-2026", "pr": 27, "title": "Bump basic-ftp 5.0.5 to 5.3.1", "author": "dependabot[bot]"},
-            {"repo": "feeditout.com-2026", "pr": 28, "title": "Bump launch-editor 2.6.1 to 2.14.1", "author": "dependabot[bot]"},
-            {"repo": "feeditout.com-2026", "pr": 29, "title": "Bump @babel/plugin-transform-modules-systemjs 7.23.3 to 7.29.7", "author": "dependabot[bot]"},
-            {"repo": "feeditout.com-2026", "pr": 30, "title": "Bump @tootallnate/once 2.0.0 to 2.0.1", "author": "dependabot[bot]"},
-            {"repo": "feeditout.com-2026", "pr": 32, "title": "Bump on-headers and compression", "author": "dependabot[bot]"},
-            {"repo": "feeditout.com-2026", "pr": 42, "title": "Bump js-yaml 3.14.1 to 3.15.0", "author": "dependabot[bot]"}
+        "code_fixes": [
+            {"repo": "DFakeSeeder", "pr": 27, "issue": 26, "title": "fix: guard against missing settings attribute in DHTManager", "status": "open"}
         ],
+        "prs_merged": [],
         "prs_pending_rebase": []
     },
     "failing_repos_detail": {
@@ -70,6 +57,14 @@
             "error_type": "infrastructure_failure",
             "actionable": false,
             "note": "Dependabot npm_and_yarn update failure. Main branch CICD passes."
+        },
+        "DFakeSeeder": {
+            "run_id": 30445006897,
+            "created_at": "2026-07-29T10:47:05Z",
+            "failed_job": "AI Issue and PR Responder",
+            "error_type": "ai_responder_failure",
+            "actionable": false,
+            "note": "AI responder workflow triggered by issue #26 open event failed. Main branch CICD passes (last push run success 2026-07-25). Fix PR #27 created for the reported bug."
         },
         "Chuckbot": {
             "run_id": 30289674819,
@@ -122,40 +117,42 @@
     },
     "in_progress_runs": {},
     "repo_health": {
-        "headline_ci_rate": "90.3% (187/195 latest-run passing or no-CI)",
+        "headline_ci_rate": "89.7% (187/195 latest-run passing or no-CI, excluding 9 non-actionable failures)",
         "adjusted_ci_rate": "100% (187/187 repos-with-CI have passing code stages)",
-        "repos_latest_run_passing": 176,
+        "repos_latest_run_passing": 175,
         "repos_code_cicd_passing": 187,
         "repos_in_progress": 0,
-        "repos_failing_headline": 8,
+        "repos_failing_headline": 9,
         "repos_no_ci": 11,
         "failure_breakdown": {
             "code_fixable": 0,
             "fix_in_progress": 0,
             "dependabot_infrastructure": 5,
             "publish_api": 1,
+            "ai_responder": 1,
             "stale": 2
         },
-        "note": "All headline failures are non-actionable. Every repo with CI has passing code stages. Zero code failures. feeditout.com-2026 no longer in failing list after dependency merges."
+        "note": "All headline failures are non-actionable. Every repo with CI has passing code stages. Zero code failures. DFakeSeeder failure is AI responder (not CICD) — fix PR #27 created for the underlying bug."
     },
     "milestone_tracking": {
-        "total_fixes_cumulative": 74,
+        "total_fixes_cumulative": 75,
         "total_merges_cumulative": 132,
-        "iteration_143_fixes": 0,
-        "iteration_143_merges": 10,
+        "iteration_144_fixes": 1,
+        "iteration_144_merges": 0,
         "ci_status": "187/187 repos-with-CI passing code stages (100%)",
         "major_wins": [
-            "Merged 10 Dependabot PRs on feeditout.com-2026 — fully cleared dependency backlog",
-            "9 previously-conflicting PRs rebased successfully by Dependabot and merged",
-            "New PR #42 (js-yaml) merged immediately",
-            "Zero open Dependabot PRs across all 195 repos",
-            "feeditout.com-2026 removed from failing repos list — CI now passing",
+            "Triaged and fixed DFakeSeeder #26 — DHTManager missing settings attribute",
+            "Created PR #27 with minimal fix (getattr guard + default fallback)",
+            "ansible-feeditout-com issues dropped from 131 to 49 (82 auto-closed alerts)",
+            "Total open issues dropped from 190 to 109",
+            "All 109 open issues triaged — 0 issues with 0 comments (excl. harpnet.ie planning)",
+            "Zero open Dependabot PRs (maintained from iteration 143)",
             "All 187 repos with CI have passing code stages — 100% adjusted pass rate",
-            "All 190 open issues triaged (all have labels + AI responses)",
-            "Total cumulative: 74 fixes, 132 merges across 143 iterations"
+            "Total cumulative: 75 fixes, 132 merges across 144 iterations"
         ],
         "concerns": [
             "dmzoneill/dmzoneill PR #3 needs owner review (non-bot PR, telegram fix)",
+            "DFakeSeeder PR #27 awaiting CI and review",
             "5 repos affected by Dependabot infrastructure issues (not code problems)",
             "2 stale failures (sodarr-chrome-plugin, jackett-indexarr — dormant repos)",
             "44 harpnet.ie project planning issues have 0 comments (by design — roadmap tickets)"
@@ -163,60 +160,69 @@
     },
     "remaining_work": {
         "pipeline_fixes_needed": 0,
-        "fixes_in_progress": 0,
+        "fixes_in_progress": 1,
         "dependabot_prs_to_merge": 0,
         "dependabot_prs_pending_rebase": 0,
         "issues_needing_triage": 0,
-        "non_bot_prs": 1,
+        "non_bot_prs": 2,
         "actionable_items": [
+            "dmzoneill/DFakeSeeder PR #27 — fix PR for issue #26, awaiting CI + review",
             "dmzoneill/dmzoneill PR #3 — non-bot PR (telegram fix), owner review needed"
         ],
         "next_steps": [
+            "Monitor DFakeSeeder PR #27 CI result",
             "All Dependabot PRs cleared — zero remaining across all repos",
             "All issues triaged — no untriaged items",
-            "All pipelines either passing or non-actionable",
-            "Only remaining item: dmzoneill/dmzoneill PR #3 needs owner review"
+            "All pipelines either passing or non-actionable"
         ]
     },
     "open_issues_summary": {
-        "total": 190,
+        "total": 109,
         "all_properly_labeled": true,
         "all_have_ai_responses": true,
         "breakdown": {
-            "ansible-feeditout-com": 131,
+            "ansible-feeditout-com": 49,
             "harpnet.ie": 44,
             "lidarr-youtube-downloader": 10,
-            "pass-gnome-extension": 1,
             "DFakeSeeder": 1,
+            "pass-gnome-extension": 1,
             "seedmagepp": 1,
             "tado-gnome-shell-extension": 1,
             "php-binance-bot": 1
         },
-        "new_this_iteration": {
-            "ansible-feeditout-com_PostfixWorkerDown_alerts": 15,
-            "note": "15 new PostfixWorkerDown critical alerts (#328-#342), all auto-labeled and auto-responded"
+        "changes_since_last": {
+            "ansible-feeditout-com": "131 → 49 (82 PostfixWorkerDown alerts auto-closed)",
+            "DFakeSeeder": "1 → 1 (issue #26 opened, triaged with fix PR #27)",
+            "net_change": "-81 issues"
         },
         "untriaged": 0
     },
     "open_prs_summary": {
-        "total": 1,
+        "total": 2,
         "dependabot_prs": 0,
         "dmzoneill_3": {
+            "repo": "dmzoneill",
             "status": "OPEN",
             "author": "dmzoneill",
             "title": "fix: make telegram notifications gracefully skip when secrets unavailable",
             "note": "Non-bot PR — owner review needed"
+        },
+        "DFakeSeeder_27": {
+            "repo": "DFakeSeeder",
+            "status": "OPEN",
+            "author": "dmzoneill",
+            "title": "fix: guard against missing settings attribute in DHTManager",
+            "note": "Fix PR for issue #26, created this iteration, awaiting CI"
         }
     },
     "notes": [
-        "Iteration 143 complete - Merged 10 Dependabot PRs on feeditout.com-2026, fully cleared dependency backlog",
-        "feeditout.com-2026: all 23 Dependabot PRs now merged across iterations 141-143 (13 + 10)",
-        "Zero open Dependabot PRs across all 195 repos — first time at zero since tracking began",
-        "15 new ansible-feeditout-com PostfixWorkerDown alerts (Jul 28-29) — all auto-responded by ai-responder",
-        "44 harpnet.ie issues are project planning tickets — properly labeled with phases/areas, no AI response needed",
-        "All 8 headline pipeline failures are non-actionable (Dependabot infra, publish API, stale)",
+        "Iteration 144 complete - Triaged DFakeSeeder #26 and created fix PR #27",
+        "DFakeSeeder AI responder workflow failed (triggered by issue #26), but CICD pipeline passes",
+        "ansible-feeditout-com: 82 PostfixWorkerDown alerts auto-closed (131 → 49 open)",
+        "Total open issues down from 190 to 109",
+        "All 9 headline pipeline failures are non-actionable",
         "Adjusted code CI pass rate: 100% (187/187 repos-with-CI)",
-        "Rate limit healthy: 5000/5000",
-        "Total fixes cumulative: 74 | Total merges cumulative: 132"
+        "Rate limit healthy: 4995/5000 (used only 5 requests for full scan)",
+        "Total fixes cumulative: 75 | Total merges cumulative: 132"
     ]
 }
