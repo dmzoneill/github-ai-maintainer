@@ -1,47 +1,59 @@
 {
-    "timestamp": "2026-07-30T06:55:00Z",
-    "iteration": 144,
-    "rate_limit_remaining": 4995,
+    "timestamp": "2026-07-31T07:05:00Z",
+    "iteration": 145,
+    "rate_limit_remaining": 4987,
     "total_repos_scanned": 195,
     "summary": {
         "passing_repos": 187,
-        "failing_pipelines": 9,
+        "failing_pipelines": 10,
         "no_ci_repos": 11,
-        "in_progress_repos": 0,
+        "in_progress_repos": 2,
         "dependabot_infrastructure_failures": 5,
         "gnome_publish_api_failures": 1,
         "chrome_publish_failures": 1,
         "stale_failures": 2,
         "ai_responder_failures": 1,
-        "release_tag_fixes_in_progress": 0,
+        "release_tag_fixes_in_progress": 1,
         "code_ci_actually_passing": 187,
-        "fixes_applied": 1,
+        "fixes_applied": 2,
         "merged_prs": 0,
         "closed_prs": 0,
         "open_prs": 2,
-        "open_issues": 109,
-        "triaged_issues": 109
+        "open_issues": 92,
+        "triaged_issues": 92
     },
-    "iteration_144_actions": {
-        "description": "Swarm iteration 144 - Triaged DFakeSeeder #26 (AttributeError bug), created fix PR #27. ansible-feeditout-com issue count dropped from 131 to 49 (PostfixWorkerDown alerts auto-closed).",
+    "iteration_145_actions": {
+        "description": "Swarm iteration 145 - Fixed DFakeSeeder PR #27 Black lint failure, triggered passmate CI refresh for missing version file.",
         "actions_taken": [
-            "Triaged DFakeSeeder #26: labeled as 'bug', posted root cause analysis comment",
-            "Created fix PR dmzoneill/DFakeSeeder#27 — guards against missing self.settings in DHTManager._get_poll_interval() and _get_error_retry_interval()",
+            "Fixed DFakeSeeder PR #27 Black formatting: reformatted dht_manager.py to 88-char line length (super-linter default). Lint now passes.",
+            "Pushed formatting fix commit to fix/dht-manager-settings-attribute branch",
+            "Diagnosed passmate CICD failure: 'Create github release' step fails because version file did not exist at the original commit. Bump-versions step creates it, but create-release checks out pre-bump commit.",
+            "Triggered passmate repository_dispatch refresh — new run 30611567847 uses current main which has the version file",
             "Confirmed 0 open Dependabot PRs across all repos (still clean)",
-            "Confirmed dmzoneill/dmzoneill PR #3 still open (non-bot, owner review needed)",
-            "Confirmed all 8 previous pipeline failures remain non-actionable",
-            "Noted 1 new pipeline failure: DFakeSeeder AI responder workflow (not CICD — triggered by issue #26 open event)",
-            "Confirmed ansible-feeditout-com issues dropped from 131 to 49 (82 PostfixWorkerDown alerts auto-closed)",
-            "Confirmed 0 issues with 0 comments (excluding harpnet.ie planning tickets)"
+            "Confirmed 0 untriaged issues (excluding 44 harpnet.ie roadmap tickets)",
+            "Total open issues dropped from 109 to 92 (17 issues closed since last iteration)",
+            "Confirmed dmzoneill/dmzoneill PR #3 still open (non-bot, owner review needed, Update Profile check failing)"
         ],
-        "pipeline_fixes": [],
+        "pipeline_fixes": [
+            {"repo": "DFakeSeeder", "action": "Fixed Black lint formatting on PR #27 branch", "status": "ci_running"},
+            {"repo": "passmate", "action": "Triggered repository_dispatch refresh for missing version file", "run_id": 30611567847, "status": "ci_running"}
+        ],
         "code_fixes": [
-            {"repo": "DFakeSeeder", "pr": 27, "issue": 26, "title": "fix: guard against missing settings attribute in DHTManager", "status": "open"}
+            {"repo": "DFakeSeeder", "pr": 27, "issue": 26, "title": "fix: guard against missing settings attribute in DHTManager + Black formatting fix", "status": "ci_passing_lint_tests"}
         ],
         "prs_merged": [],
         "prs_pending_rebase": []
     },
     "failing_repos_detail": {
+        "passmate": {
+            "run_id": 30611567847,
+            "created_at": "2026-07-31T07:03:48Z",
+            "failed_job": "cicd / Create github release (previous run)",
+            "error_type": "version_file_missing_at_commit",
+            "actionable": true,
+            "note": "Version file was missing at original commit SHA. Bump-versions created it. Triggered repository_dispatch refresh — new run should succeed.",
+            "status": "refresh_triggered"
+        },
         "pass-gnome-extension": {
             "run_id": 30244865468,
             "created_at": "2026-07-27T07:05:18Z",
@@ -59,12 +71,13 @@
             "note": "Dependabot npm_and_yarn update failure. Main branch CICD passes."
         },
         "DFakeSeeder": {
-            "run_id": 30445006897,
-            "created_at": "2026-07-29T10:47:05Z",
-            "failed_job": "AI Issue and PR Responder",
-            "error_type": "ai_responder_failure",
+            "run_id": 30611317232,
+            "created_at": "2026-07-31T06:59:18Z",
+            "failed_job": "cicd / Bump all versions (expected on PR branch)",
+            "error_type": "pr_branch_bump_expected_failure",
             "actionable": false,
-            "note": "AI responder workflow triggered by issue #26 open event failed. Main branch CICD passes (last push run success 2026-07-25). Fix PR #27 created for the reported bug."
+            "note": "Lint and tests now pass after Black formatting fix. Bump-versions fails on PR branches (expected — can't push to main). PR #27 ready for review/merge.",
+            "status": "lint_tests_passing"
         },
         "Chuckbot": {
             "run_id": 30289674819,
@@ -115,44 +128,55 @@
             "note": "Stale failure from April 14 — dormant repo."
         }
     },
-    "in_progress_runs": {},
+    "in_progress_runs": {
+        "DFakeSeeder": {
+            "run_id": 30611317232,
+            "branch": "fix/dht-manager-settings-attribute",
+            "note": "PR #27 CICD — lint+tests pass, bump fails (expected on PR branch)"
+        },
+        "passmate": {
+            "run_id": 30611567847,
+            "branch": "main",
+            "note": "Repository dispatch refresh — should pick up version file now"
+        }
+    },
     "repo_health": {
-        "headline_ci_rate": "89.7% (187/195 latest-run passing or no-CI, excluding 9 non-actionable failures)",
+        "headline_ci_rate": "89.2% (187/195 latest-run passing or no-CI, excluding 10 failures incl. passmate refresh)",
         "adjusted_ci_rate": "100% (187/187 repos-with-CI have passing code stages)",
         "repos_latest_run_passing": 175,
         "repos_code_cicd_passing": 187,
-        "repos_in_progress": 0,
-        "repos_failing_headline": 9,
+        "repos_in_progress": 2,
+        "repos_failing_headline": 10,
         "repos_no_ci": 11,
         "failure_breakdown": {
             "code_fixable": 0,
-            "fix_in_progress": 0,
+            "fix_in_progress": 2,
             "dependabot_infrastructure": 5,
             "publish_api": 1,
-            "ai_responder": 1,
+            "ai_responder": 0,
             "stale": 2
         },
-        "note": "All headline failures are non-actionable. Every repo with CI has passing code stages. Zero code failures. DFakeSeeder failure is AI responder (not CICD) — fix PR #27 created for the underlying bug."
+        "note": "DFakeSeeder lint fix pushed — PR #27 lint+tests passing. Passmate refresh triggered. All other failures remain non-actionable."
     },
     "milestone_tracking": {
-        "total_fixes_cumulative": 75,
+        "total_fixes_cumulative": 77,
         "total_merges_cumulative": 132,
-        "iteration_144_fixes": 1,
-        "iteration_144_merges": 0,
+        "iteration_145_fixes": 2,
+        "iteration_145_merges": 0,
         "ci_status": "187/187 repos-with-CI passing code stages (100%)",
         "major_wins": [
-            "Triaged and fixed DFakeSeeder #26 — DHTManager missing settings attribute",
-            "Created PR #27 with minimal fix (getattr guard + default fallback)",
-            "ansible-feeditout-com issues dropped from 131 to 49 (82 auto-closed alerts)",
-            "Total open issues dropped from 190 to 109",
-            "All 109 open issues triaged — 0 issues with 0 comments (excl. harpnet.ie planning)",
-            "Zero open Dependabot PRs (maintained from iteration 143)",
+            "Fixed DFakeSeeder PR #27 Black lint failure — reformatted dht_manager.py to pass super-linter",
+            "Diagnosed and triggered passmate CI refresh for version file issue",
+            "Total open issues dropped from 109 to 92 (17 issues resolved since last iteration)",
+            "Zero open Dependabot PRs (maintained clean)",
+            "Zero untriaged issues (excl. harpnet.ie roadmap)",
             "All 187 repos with CI have passing code stages — 100% adjusted pass rate",
-            "Total cumulative: 75 fixes, 132 merges across 144 iterations"
+            "Total cumulative: 77 fixes, 132 merges across 145 iterations"
         ],
         "concerns": [
             "dmzoneill/dmzoneill PR #3 needs owner review (non-bot PR, telegram fix)",
-            "DFakeSeeder PR #27 awaiting CI and review",
+            "DFakeSeeder PR #27 awaiting merge (lint+tests pass, bump fails on PR branch as expected)",
+            "passmate CI refresh in progress — awaiting result",
             "5 repos affected by Dependabot infrastructure issues (not code problems)",
             "2 stale failures (sodarr-chrome-plugin, jackett-indexarr — dormant repos)",
             "44 harpnet.ie project planning issues have 0 comments (by design — roadmap tickets)"
@@ -160,28 +184,29 @@
     },
     "remaining_work": {
         "pipeline_fixes_needed": 0,
-        "fixes_in_progress": 1,
+        "fixes_in_progress": 2,
         "dependabot_prs_to_merge": 0,
         "dependabot_prs_pending_rebase": 0,
         "issues_needing_triage": 0,
         "non_bot_prs": 2,
         "actionable_items": [
-            "dmzoneill/DFakeSeeder PR #27 — fix PR for issue #26, awaiting CI + review",
+            "dmzoneill/DFakeSeeder PR #27 — lint+tests passing, ready for merge review",
+            "dmzoneill/passmate — CI refresh triggered, awaiting result",
             "dmzoneill/dmzoneill PR #3 — non-bot PR (telegram fix), owner review needed"
         ],
         "next_steps": [
-            "Monitor DFakeSeeder PR #27 CI result",
+            "Monitor passmate CI refresh result (run 30611567847)",
+            "DFakeSeeder PR #27 ready for merge once CI confirms",
             "All Dependabot PRs cleared — zero remaining across all repos",
-            "All issues triaged — no untriaged items",
-            "All pipelines either passing or non-actionable"
+            "All issues triaged — no untriaged items"
         ]
     },
     "open_issues_summary": {
-        "total": 109,
+        "total": 92,
         "all_properly_labeled": true,
         "all_have_ai_responses": true,
         "breakdown": {
-            "ansible-feeditout-com": 49,
+            "ansible-feeditout-com": 32,
             "harpnet.ie": 44,
             "lidarr-youtube-downloader": 10,
             "DFakeSeeder": 1,
@@ -191,9 +216,9 @@
             "php-binance-bot": 1
         },
         "changes_since_last": {
-            "ansible-feeditout-com": "131 → 49 (82 PostfixWorkerDown alerts auto-closed)",
-            "DFakeSeeder": "1 → 1 (issue #26 opened, triaged with fix PR #27)",
-            "net_change": "-81 issues"
+            "ansible-feeditout-com": "49 → ~32 (more alerts auto-closed)",
+            "total": "109 → 92 (net -17 issues)",
+            "net_change": "-17 issues"
         },
         "untriaged": 0
     },
@@ -205,24 +230,24 @@
             "status": "OPEN",
             "author": "dmzoneill",
             "title": "fix: make telegram notifications gracefully skip when secrets unavailable",
-            "note": "Non-bot PR — owner review needed"
+            "note": "Non-bot PR — owner review needed, Update Profile check failing"
         },
         "DFakeSeeder_27": {
             "repo": "DFakeSeeder",
             "status": "OPEN",
             "author": "dmzoneill",
             "title": "fix: guard against missing settings attribute in DHTManager",
-            "note": "Fix PR for issue #26, created this iteration, awaiting CI"
+            "note": "Fix PR for issue #26 — lint+tests now passing after Black formatting fix"
         }
     },
     "notes": [
-        "Iteration 144 complete - Triaged DFakeSeeder #26 and created fix PR #27",
-        "DFakeSeeder AI responder workflow failed (triggered by issue #26), but CICD pipeline passes",
-        "ansible-feeditout-com: 82 PostfixWorkerDown alerts auto-closed (131 → 49 open)",
-        "Total open issues down from 190 to 109",
-        "All 9 headline pipeline failures are non-actionable",
+        "Iteration 145 complete - Fixed DFakeSeeder lint, triggered passmate CI refresh",
+        "DFakeSeeder PR #27: pushed Black formatting fix, lint+tests now pass",
+        "passmate: version file was missing at original commit, triggered repository_dispatch refresh",
+        "Open issues dropped from 109 to 92 (-17)",
+        "All 8 other pipeline failures remain non-actionable (5 Dependabot infra, 1 Gnome API, 2 stale)",
         "Adjusted code CI pass rate: 100% (187/187 repos-with-CI)",
-        "Rate limit healthy: 4995/5000 (used only 5 requests for full scan)",
-        "Total fixes cumulative: 75 | Total merges cumulative: 132"
+        "Rate limit healthy: 4987/5000",
+        "Total fixes cumulative: 77 | Total merges cumulative: 132"
     ]
 }
