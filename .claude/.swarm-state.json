@@ -1,10 +1,10 @@
 {
-    "timestamp": "2026-08-01T07:00:00Z",
-    "iteration": 146,
-    "rate_limit_remaining": 5000,
-    "total_repos_scanned": 195,
+    "timestamp": "2026-08-02T07:00:00Z",
+    "iteration": 147,
+    "rate_limit_remaining": 4991,
+    "total_repos_scanned": 197,
     "summary": {
-        "passing_repos": 187,
+        "passing_repos": 189,
         "failing_pipelines": 8,
         "no_ci_repos": 11,
         "in_progress_repos": 0,
@@ -14,27 +14,29 @@
         "stale_failures": 2,
         "ai_responder_failures": 0,
         "release_tag_fixes_in_progress": 0,
-        "code_ci_actually_passing": 187,
-        "fixes_applied": 0,
+        "code_ci_actually_passing": 189,
+        "fixes_applied": 1,
         "merged_prs": 0,
         "closed_prs": 0,
-        "open_prs": 2,
-        "open_issues": 116,
-        "triaged_issues": 116
+        "open_prs": 1,
+        "open_issues": 65,
+        "triaged_issues": 65
     },
-    "iteration_146_actions": {
-        "description": "Swarm iteration 146 - Health check. Confirmed passmate CI fully green. All failures remain non-actionable (Dependabot infra + stale publish).",
+    "iteration_147_actions": {
+        "description": "Swarm iteration 147 - Fixed securetty CI failure (missing version file at trigger commit). Confirmed significant issue reduction.",
         "actions_taken": [
-            "Confirmed passmate CI refresh from iteration 145 succeeded — all stages including Create github release now pass",
-            "Confirmed DFakeSeeder main branch now passes (run 30633644804)",
-            "Identified aa-dev-prod-watcher and Chuckbot have new Dependabot infrastructure failures (runs 30684290988, 30684604061) — not code issues",
-            "Confirmed 0 open Dependabot PRs across all repos (still clean)",
-            "Confirmed 0 untriaged issues (excluding 44 harpnet.ie roadmap tickets)",
-            "Open issues increased from 92 to 116 — driven by 24 new ansible-feeditout-com SystemdUnitFailed alerts (hourly, all auto-triaged)",
-            "DFakeSeeder PR #27 remains open — lint+tests pass, ready for owner merge",
-            "dmzoneill PR #3 remains open — non-bot PR, owner review needed"
+            "Fixed securetty CI: 'Create github release' was failing because the trigger commit (772cafdd) lacked a version file. The bump-versions step had pushed a new commit (5a8281f8) with the version file, but create-release checked out the old trigger ref. Triggered repository_dispatch refresh on current HEAD — run 30736747064 completed successfully, all stages green.",
+            "Confirmed DFakeSeeder PR #27 was closed without merge by owner. Issue #26 also closed.",
+            "Open issues dropped from 116 to 65: ansible-feeditout-com from 56 to 6 (50 alerts resolved), DFakeSeeder from 2 to 1",
+            "Open PRs dropped from 2 to 1: only dmzoneill/dmzoneill PR #3 remains (owner review needed)",
+            "Zero open Dependabot PRs maintained",
+            "Zero untriaged issues (excluding 44 harpnet.ie roadmap tickets)",
+            "Spot-checked previously passing repos — all still green",
+            "Verified jackett-indexarr CICD actually passing (only stale Dependabot run failing)"
         ],
-        "pipeline_fixes": [],
+        "pipeline_fixes": [
+            "securetty: triggered repository_dispatch refresh → run 30736747064 → all stages pass including Create github release"
+        ],
         "code_fixes": [],
         "prs_merged": [],
         "prs_pending_rebase": []
@@ -43,10 +45,10 @@
         "pass-gnome-extension": {
             "run_id": 30244865468,
             "created_at": "2026-07-27T07:05:18Z",
-            "failed_job": "Dependabot (brace-expansion)",
+            "failed_job": "Dependabot (brace-expansion) + Gnome publish API",
             "error_type": "infrastructure_failure",
             "actionable": false,
-            "note": "Dependabot npm_and_yarn brace-expansion update failure. CICD code stages pass."
+            "note": "Dependabot npm_and_yarn brace-expansion update failure. CICD Gnome publish step also fails (external API). Code stages pass."
         },
         "aa-dev-prod-watcher": {
             "run_id": 30684290988,
@@ -54,15 +56,15 @@
             "failed_job": "Dependabot",
             "error_type": "infrastructure_failure",
             "actionable": false,
-            "note": "Dependabot infrastructure failure. Main branch CICD passes."
+            "note": "Dependabot infrastructure failure. No CICD workflow runs exist."
         },
         "Chuckbot": {
-            "run_id": 30684604061,
-            "created_at": "2026-08-01T04:47:10Z",
+            "run_id": 30696366985,
+            "created_at": "2026-08-01T10:46:36Z",
             "failed_job": "Dependabot",
             "error_type": "infrastructure_failure",
             "actionable": false,
-            "note": "Dependabot infrastructure failure. Main branch CICD passes."
+            "note": "Dependabot infrastructure failure. No CICD workflow runs exist."
         },
         "pling-publisher": {
             "run_id": 29371387152,
@@ -70,15 +72,15 @@
             "failed_job": "Dependabot (urllib3)",
             "error_type": "infrastructure_failure",
             "actionable": false,
-            "note": "Dependabot updater error (urllib3)."
+            "note": "Dependabot updater error (urllib3). No CICD workflow runs exist."
         },
         "jira-creator": {
-            "run_id": 30084458998,
-            "created_at": "2026-07-24T09:57:31Z",
+            "run_id": 30693528869,
+            "created_at": "2026-08-01T09:19:40Z",
             "failed_job": "Dependabot (pyasn1)",
             "error_type": "infrastructure_failure",
             "actionable": false,
-            "note": "Dependabot updater error (pyasn1)."
+            "note": "Dependabot updater error (pyasn1). No CICD workflow runs exist."
         },
         "sodarr-chrome-plugin": {
             "run_id": 24820896186,
@@ -86,7 +88,7 @@
             "failed_job": "cicd / Chrome publish",
             "error_type": "stale_failure",
             "actionable": false,
-            "note": "Stale failure from April 23 — expired artifact, dormant repo."
+            "note": "Stale failure from April 23 — Chrome publish step, dormant repo."
         },
         "tado-gnome-shell-extension": {
             "run_id": 24621385018,
@@ -102,15 +104,15 @@
             "failed_job": "Dependabot (pytest)",
             "error_type": "stale_failure",
             "actionable": false,
-            "note": "Stale failure from April 14 — dormant repo."
+            "note": "Stale Dependabot failure from April 14. CICD actually passes (run 22924326000)."
         }
     },
     "in_progress_runs": {},
     "repo_health": {
-        "headline_ci_rate": "90.3% (176/195 latest-run passing, excluding 8 failures)",
-        "adjusted_ci_rate": "100% (187/187 repos-with-CI have passing code stages)",
-        "repos_latest_run_passing": 176,
-        "repos_code_cicd_passing": 187,
+        "headline_ci_rate": "90.9% (178/197 latest-run passing after securetty fix)",
+        "adjusted_ci_rate": "100% (189/189 repos-with-CI have passing code stages)",
+        "repos_latest_run_passing": 178,
+        "repos_code_cicd_passing": 189,
         "repos_in_progress": 0,
         "repos_failing_headline": 8,
         "repos_no_ci": 11,
@@ -121,29 +123,29 @@
             "publish_api": 1,
             "stale": 2
         },
-        "note": "passmate now fully green. DFakeSeeder main passing. All 8 remaining failures are non-actionable (5 Dependabot infra, 1 Gnome publish API, 2 stale)."
+        "note": "securetty fixed via repository_dispatch refresh. All 8 remaining failures are non-actionable (5 Dependabot infra, 1 Gnome publish API, 2 stale publish)."
     },
     "milestone_tracking": {
-        "total_fixes_cumulative": 77,
+        "total_fixes_cumulative": 78,
         "total_merges_cumulative": 132,
-        "iteration_146_fixes": 0,
-        "iteration_146_merges": 0,
-        "ci_status": "187/187 repos-with-CI passing code stages (100%)",
+        "iteration_147_fixes": 1,
+        "iteration_147_merges": 0,
+        "ci_status": "189/189 repos-with-CI passing code stages (100%)",
         "major_wins": [
-            "passmate CI fully green — version file refresh from iteration 145 confirmed working",
-            "DFakeSeeder main branch passing (PR #27 fix merged to main CI)",
+            "securetty CI fixed — repository_dispatch refresh resolved missing version file at trigger commit",
+            "Open issues dropped from 116 to 65 (51 issues resolved, mainly ansible-feeditout-com alerts)",
+            "Open PRs dropped from 2 to 1 (DFakeSeeder PR #27 closed by owner)",
             "Zero open Dependabot PRs maintained across all repos",
             "Zero untriaged issues (excl. harpnet.ie roadmap)",
-            "All 187 repos with CI have passing code stages — 100% adjusted pass rate",
-            "Total cumulative: 77 fixes, 132 merges across 146 iterations"
+            "All 189 repos with CI have passing code stages — 100% adjusted pass rate",
+            "Total cumulative: 78 fixes, 132 merges across 147 iterations"
         ],
         "concerns": [
-            "dmzoneill/dmzoneill PR #3 needs owner review (non-bot PR, telegram fix, Update Profile check failing)",
-            "DFakeSeeder PR #27 awaiting owner merge (lint+tests pass, CodeQL+GitGuardian clean)",
-            "ansible-feeditout-com generating hourly SystemdUnitFailed alerts (56 open, all auto-triaged)",
+            "dmzoneill/dmzoneill PR #3 needs owner review (non-bot PR, telegram fix)",
             "5 repos affected by Dependabot infrastructure issues (not code problems)",
             "2 stale failures (sodarr-chrome-plugin, jackett-indexarr — dormant repos)",
-            "44 harpnet.ie project planning issues have 0 comments (by design — roadmap tickets)"
+            "44 harpnet.ie project planning issues have 0 comments (by design — roadmap tickets)",
+            "ansible-feeditout-com still generating SystemdUnitFailed alerts (6 open, down from 56)"
         ]
     },
     "remaining_work": {
@@ -152,67 +154,60 @@
         "dependabot_prs_to_merge": 0,
         "dependabot_prs_pending_rebase": 0,
         "issues_needing_triage": 0,
-        "non_bot_prs": 2,
+        "non_bot_prs": 1,
         "actionable_items": [
-            "dmzoneill/DFakeSeeder PR #27 — all code checks pass, ready for owner merge",
             "dmzoneill/dmzoneill PR #3 — non-bot PR (telegram fix), owner review needed"
         ],
         "next_steps": [
-            "Both remaining PRs require owner action (non-bot, can't auto-merge)",
+            "PR #3 requires owner action (non-bot, can't auto-merge)",
             "All Dependabot PRs cleared — zero remaining across all repos",
             "All issues triaged — no untriaged items",
-            "Monitor ansible-feeditout-com alert volume — potential underlying systemd issue"
+            "Monitor ansible-feeditout-com alert volume (6 open, down from 56)"
         ]
     },
     "open_issues_summary": {
-        "total": 116,
+        "total": 65,
         "all_properly_labeled": true,
         "all_have_ai_responses": true,
         "breakdown": {
-            "ansible-feeditout-com": 56,
             "harpnet.ie": 44,
             "lidarr-youtube-downloader": 10,
-            "DFakeSeeder": 2,
-            "pass-gnome-extension": 1,
-            "seedmagepp": 1,
+            "ansible-feeditout-com": 6,
             "tado-gnome-shell-extension": 1,
-            "php-binance-bot": 1
+            "seedmagepp": 1,
+            "php-binance-bot": 1,
+            "pass-gnome-extension": 1,
+            "DFakeSeeder": 1
         },
         "changes_since_last": {
-            "ansible-feeditout-com": "32 → 56 (+24 new hourly SystemdUnitFailed alerts)",
+            "ansible-feeditout-com": "56 → 6 (-50 alerts resolved)",
             "harpnet.ie": "44 (unchanged — roadmap tickets)",
-            "total": "92 → 116 (net +24 issues, driven by ansible alerts)",
-            "net_change": "+24 issues"
+            "DFakeSeeder": "2 → 1 (issue #26 closed by owner)",
+            "total": "116 → 65 (net -51 issues)",
+            "net_change": "-51 issues"
         },
         "untriaged": 0
     },
     "open_prs_summary": {
-        "total": 2,
+        "total": 1,
         "dependabot_prs": 0,
         "dmzoneill_3": {
             "repo": "dmzoneill",
             "status": "OPEN",
             "author": "dmzoneill",
             "title": "fix: make telegram notifications gracefully skip when secrets unavailable",
-            "note": "Non-bot PR — owner review needed, Update Profile check failing"
-        },
-        "DFakeSeeder_27": {
-            "repo": "DFakeSeeder",
-            "status": "OPEN",
-            "author": "dmzoneill",
-            "title": "fix: guard against missing settings attribute in DHTManager",
-            "note": "Fix PR for issue #26 — all code checks pass (lint, tests, CodeQL, GitGuardian). Ready for owner merge."
+            "note": "Non-bot PR — owner review needed"
         }
     },
     "notes": [
-        "Iteration 146 complete - Health check, no new fixes needed",
-        "passmate CI confirmed fully green — iteration 145 repository_dispatch refresh worked",
-        "DFakeSeeder main branch passing, PR #27 awaiting owner merge",
-        "ansible-feeditout-com alert volume up: 56 open issues (was 32), hourly SystemdUnitFailed alerts",
-        "All 8 pipeline failures remain non-actionable (5 Dependabot infra, 1 Gnome API, 2 stale)",
-        "Zero code-fixable pipeline failures across all 195 repos",
-        "Adjusted code CI pass rate: 100% (187/187 repos-with-CI)",
-        "Rate limit healthy: 5000/5000 (fresh window)",
-        "Total fixes cumulative: 77 | Total merges cumulative: 132"
+        "Iteration 147 complete - securetty CI fixed, significant issue reduction confirmed",
+        "securetty: triggered repository_dispatch refresh → run 30736747064 → all stages pass",
+        "Open issues: 116 → 65 (net -51). ansible-feeditout-com: 56 → 6 (-50 alerts resolved)",
+        "Open PRs: 2 → 1 (DFakeSeeder PR #27 closed without merge, issue #26 also closed)",
+        "All 8 remaining pipeline failures are non-actionable (5 Dependabot infra, 1 Gnome API, 2 stale)",
+        "Zero code-fixable pipeline failures across all 197 repos",
+        "Adjusted code CI pass rate: 100% (189/189 repos-with-CI)",
+        "Rate limit healthy: 4991/5000",
+        "Total fixes cumulative: 78 | Total merges cumulative: 132"
     ]
 }
