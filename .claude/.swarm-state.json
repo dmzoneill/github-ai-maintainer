@@ -1,47 +1,53 @@
 {
-    "timestamp": "2026-08-02T07:00:00Z",
-    "iteration": 147,
-    "rate_limit_remaining": 4991,
+    "timestamp": "2026-08-03T00:00:00Z",
+    "iteration": 148,
+    "rate_limit_remaining": 4995,
     "total_repos_scanned": 197,
     "summary": {
-        "passing_repos": 189,
-        "failing_pipelines": 8,
+        "passing_repos": 188,
+        "failing_pipelines": 9,
         "no_ci_repos": 11,
         "in_progress_repos": 0,
-        "dependabot_infrastructure_failures": 5,
+        "dependabot_infrastructure_failures": 6,
         "gnome_publish_api_failures": 1,
         "chrome_publish_failures": 1,
         "stale_failures": 2,
         "ai_responder_failures": 0,
         "release_tag_fixes_in_progress": 0,
         "code_ci_actually_passing": 189,
-        "fixes_applied": 1,
+        "fixes_applied": 0,
         "merged_prs": 0,
         "closed_prs": 0,
         "open_prs": 1,
         "open_issues": 65,
         "triaged_issues": 65
     },
-    "iteration_147_actions": {
-        "description": "Swarm iteration 147 - Fixed securetty CI failure (missing version file at trigger commit). Confirmed significant issue reduction.",
+    "iteration_148_actions": {
+        "description": "Swarm iteration 148 - Routine scan. One new Dependabot infra failure (feeditout.com-2026). No actionable items found.",
         "actions_taken": [
-            "Fixed securetty CI: 'Create github release' was failing because the trigger commit (772cafdd) lacked a version file. The bump-versions step had pushed a new commit (5a8281f8) with the version file, but create-release checked out the old trigger ref. Triggered repository_dispatch refresh on current HEAD — run 30736747064 completed successfully, all stages green.",
-            "Confirmed DFakeSeeder PR #27 was closed without merge by owner. Issue #26 also closed.",
-            "Open issues dropped from 116 to 65: ansible-feeditout-com from 56 to 6 (50 alerts resolved), DFakeSeeder from 2 to 1",
-            "Open PRs dropped from 2 to 1: only dmzoneill/dmzoneill PR #3 remains (owner review needed)",
-            "Zero open Dependabot PRs maintained",
-            "Zero untriaged issues (excluding 44 harpnet.ie roadmap tickets)",
-            "Spot-checked previously passing repos — all still green",
-            "Verified jackett-indexarr CICD actually passing (only stale Dependabot run failing)"
+            "Scanned all 197 repos for failing CI — found 9 failures (was 8), all non-actionable",
+            "New failure: feeditout.com-2026 (Dependabot brace-expansion npm update infra failure, no CICD workflow)",
+            "Confirmed Chuckbot and aa-dev-prod-watcher CICD still passing (only Dependabot runs failing)",
+            "Verified zero open Dependabot PRs across all repos",
+            "Verified dmzoneill/dmzoneill PR #3 still open (owner review needed, non-bot)",
+            "Verified zero untriaged issues (all 65 have labels and comments, excl. 44 harpnet.ie roadmap)",
+            "Zero new issues created since last iteration",
+            "Rate limit healthy: 4995/5000 after full scan"
         ],
-        "pipeline_fixes": [
-            "securetty: triggered repository_dispatch refresh → run 30736747064 → all stages pass including Create github release"
-        ],
+        "pipeline_fixes": [],
         "code_fixes": [],
         "prs_merged": [],
         "prs_pending_rebase": []
     },
     "failing_repos_detail": {
+        "feeditout.com-2026": {
+            "run_id": 30749683205,
+            "created_at": "2026-08-02T13:19:27Z",
+            "failed_job": "Dependabot (brace-expansion npm update)",
+            "error_type": "infrastructure_failure",
+            "actionable": false,
+            "note": "Dependabot npm_and_yarn brace-expansion update failure. No CICD workflow exists for this repo."
+        },
         "pass-gnome-extension": {
             "run_id": 30244865468,
             "created_at": "2026-07-27T07:05:18Z",
@@ -51,20 +57,20 @@
             "note": "Dependabot npm_and_yarn brace-expansion update failure. CICD Gnome publish step also fails (external API). Code stages pass."
         },
         "aa-dev-prod-watcher": {
-            "run_id": 30684290988,
-            "created_at": "2026-08-01T04:37:11Z",
-            "failed_job": "Dependabot",
+            "run_id": 30767674538,
+            "created_at": "2026-08-02T21:20:51Z",
+            "failed_job": "Dependabot (brace-expansion)",
             "error_type": "infrastructure_failure",
             "actionable": false,
-            "note": "Dependabot infrastructure failure. No CICD workflow runs exist."
+            "note": "Dependabot npm_and_yarn brace-expansion update failure. CICD passes (success 2026-07-25)."
         },
         "Chuckbot": {
-            "run_id": 30696366985,
-            "created_at": "2026-08-01T10:46:36Z",
-            "failed_job": "Dependabot",
+            "run_id": 30764329685,
+            "created_at": "2026-08-02T19:52:16Z",
+            "failed_job": "Dependabot (brace-expansion)",
             "error_type": "infrastructure_failure",
             "actionable": false,
-            "note": "Dependabot infrastructure failure. No CICD workflow runs exist."
+            "note": "Dependabot npm_and_yarn brace-expansion update failure. CICD passes (success 2026-07-22)."
         },
         "pling-publisher": {
             "run_id": 29371387152,
@@ -104,48 +110,47 @@
             "failed_job": "Dependabot (pytest)",
             "error_type": "stale_failure",
             "actionable": false,
-            "note": "Stale Dependabot failure from April 14. CICD actually passes (run 22924326000)."
+            "note": "Stale Dependabot failure from April 14. CICD actually passes."
         }
     },
     "in_progress_runs": {},
     "repo_health": {
-        "headline_ci_rate": "90.9% (178/197 latest-run passing after securetty fix)",
+        "headline_ci_rate": "90.4% (177/197 latest-run passing after feeditout.com-2026 Dependabot failure)",
         "adjusted_ci_rate": "100% (189/189 repos-with-CI have passing code stages)",
-        "repos_latest_run_passing": 178,
+        "repos_latest_run_passing": 177,
         "repos_code_cicd_passing": 189,
         "repos_in_progress": 0,
-        "repos_failing_headline": 8,
+        "repos_failing_headline": 9,
         "repos_no_ci": 11,
         "failure_breakdown": {
             "code_fixable": 0,
             "fix_in_progress": 0,
-            "dependabot_infrastructure": 5,
+            "dependabot_infrastructure": 6,
             "publish_api": 1,
+            "chrome_publish": 1,
             "stale": 2
         },
-        "note": "securetty fixed via repository_dispatch refresh. All 8 remaining failures are non-actionable (5 Dependabot infra, 1 Gnome publish API, 2 stale publish)."
+        "note": "feeditout.com-2026 added as new Dependabot infra failure. All 9 failures are non-actionable (6 Dependabot infra, 1 Gnome publish API, 1 Chrome publish, 1 stale Dependabot with passing CICD)."
     },
     "milestone_tracking": {
         "total_fixes_cumulative": 78,
         "total_merges_cumulative": 132,
-        "iteration_147_fixes": 1,
-        "iteration_147_merges": 0,
+        "iteration_148_fixes": 0,
+        "iteration_148_merges": 0,
         "ci_status": "189/189 repos-with-CI passing code stages (100%)",
         "major_wins": [
-            "securetty CI fixed — repository_dispatch refresh resolved missing version file at trigger commit",
-            "Open issues dropped from 116 to 65 (51 issues resolved, mainly ansible-feeditout-com alerts)",
-            "Open PRs dropped from 2 to 1 (DFakeSeeder PR #27 closed by owner)",
+            "All 189 repos with CI have passing code stages — 100% adjusted pass rate maintained",
             "Zero open Dependabot PRs maintained across all repos",
             "Zero untriaged issues (excl. harpnet.ie roadmap)",
-            "All 189 repos with CI have passing code stages — 100% adjusted pass rate",
-            "Total cumulative: 78 fixes, 132 merges across 147 iterations"
+            "65 open issues all properly labeled and triaged",
+            "Total cumulative: 78 fixes, 132 merges across 148 iterations"
         ],
         "concerns": [
             "dmzoneill/dmzoneill PR #3 needs owner review (non-bot PR, telegram fix)",
-            "5 repos affected by Dependabot infrastructure issues (not code problems)",
+            "6 repos affected by Dependabot infrastructure issues (not code problems, +1 feeditout.com-2026)",
             "2 stale failures (sodarr-chrome-plugin, jackett-indexarr — dormant repos)",
             "44 harpnet.ie project planning issues have 0 comments (by design — roadmap tickets)",
-            "ansible-feeditout-com still generating SystemdUnitFailed alerts (6 open, down from 56)"
+            "ansible-feeditout-com still has open alert issues (6 open, down from original 56)"
         ]
     },
     "remaining_work": {
@@ -162,7 +167,7 @@
             "PR #3 requires owner action (non-bot, can't auto-merge)",
             "All Dependabot PRs cleared — zero remaining across all repos",
             "All issues triaged — no untriaged items",
-            "Monitor ansible-feeditout-com alert volume (6 open, down from 56)"
+            "Monitor Dependabot brace-expansion infra failures (affecting 3 repos now)"
         ]
     },
     "open_issues_summary": {
@@ -180,11 +185,8 @@
             "DFakeSeeder": 1
         },
         "changes_since_last": {
-            "ansible-feeditout-com": "56 → 6 (-50 alerts resolved)",
-            "harpnet.ie": "44 (unchanged — roadmap tickets)",
-            "DFakeSeeder": "2 → 1 (issue #26 closed by owner)",
-            "total": "116 → 65 (net -51 issues)",
-            "net_change": "-51 issues"
+            "total": "65 (unchanged from iteration 147)",
+            "net_change": "0 issues"
         },
         "untriaged": 0
     },
@@ -200,14 +202,12 @@
         }
     },
     "notes": [
-        "Iteration 147 complete - securetty CI fixed, significant issue reduction confirmed",
-        "securetty: triggered repository_dispatch refresh → run 30736747064 → all stages pass",
-        "Open issues: 116 → 65 (net -51). ansible-feeditout-com: 56 → 6 (-50 alerts resolved)",
-        "Open PRs: 2 → 1 (DFakeSeeder PR #27 closed without merge, issue #26 also closed)",
-        "All 8 remaining pipeline failures are non-actionable (5 Dependabot infra, 1 Gnome API, 2 stale)",
-        "Zero code-fixable pipeline failures across all 197 repos",
+        "Iteration 148 complete - routine scan, no actionable items",
+        "New Dependabot infra failure: feeditout.com-2026 (brace-expansion npm update, no CICD workflow)",
+        "Failing repos: 8 → 9 (all non-actionable: 6 Dependabot infra, 1 Gnome API, 1 Chrome publish, 1 stale)",
+        "Open issues: 65 (unchanged). Open PRs: 1 (unchanged). No new items since last iteration.",
         "Adjusted code CI pass rate: 100% (189/189 repos-with-CI)",
-        "Rate limit healthy: 4991/5000",
+        "Rate limit healthy: 4995/5000",
         "Total fixes cumulative: 78 | Total merges cumulative: 132"
     ]
 }
