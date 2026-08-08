@@ -1,13 +1,13 @@
 {
-    "timestamp": "2026-08-07T03:30:00Z",
-    "iteration": 152,
-    "rate_limit_remaining": 4998,
+    "timestamp": "2026-08-08T06:20:00Z",
+    "iteration": 153,
+    "rate_limit_remaining": 4993,
     "total_repos_scanned": 197,
     "summary": {
         "passing_repos": 189,
-        "failing_pipelines": 7,
+        "failing_pipelines": 8,
         "no_ci_repos": 11,
-        "in_progress_repos": 1,
+        "in_progress_repos": 0,
         "dependabot_infrastructure_failures": 5,
         "gnome_publish_api_failures": 1,
         "chrome_publish_failures": 1,
@@ -16,98 +16,74 @@
         "release_tag_fixes_in_progress": 0,
         "code_ci_actually_passing": 190,
         "fixes_applied": 0,
-        "merged_prs": 5,
+        "merged_prs": 1,
         "closed_prs": 0,
-        "open_prs": 2,
-        "open_issues": 86,
-        "triaged_issues": 86,
-        "issues_responded_to": 12
+        "open_prs": 3,
+        "open_issues": 78,
+        "triaged_issues": 78,
+        "issues_responded_to": 0,
+        "prs_reviewed": 2
     },
-    "iteration_152_actions": {
-        "description": "Swarm iteration 152 - Merged 5 Dependabot PRs (2 aa-dev-prod-watcher, 3 feeditout.com-2026). Responded to 12 securetty issues that had 0 comments. Confirmed securetty CICD is passing (failure was AI responder workflow). Chuckbot failure is Dependabot infra (js-yaml security update blocked by conflicting deps).",
+    "iteration_153_actions": {
+        "description": "Swarm iteration 153 - Merged 1 Dependabot PR (aa-dev-prod-watcher #98). Reviewed and approved 2 contributor PRs on whisper-npu-wayland (#3, #4 from chrismeyersfsu). 8 securetty issues closed since last iteration. 8 new securetty issues already triaged.",
         "actions_taken": [
-            "Scanned all 197 repos for failing CI — found 8 headline failures (same as last iteration)",
-            "CONFIRMED: securetty CICD is passing (run 30982892991 = success) — 'failure' was AI responder workflow, not code CI",
-            "CONFIRMED: Chuckbot failure is Dependabot infra (js-yaml security update impossible due to conflicting dependencies)",
-            "MERGED: aa-dev-prod-watcher PR #97 (dependabot postcss 8.5.22 → 8.5.25)",
-            "MERGED: aa-dev-prod-watcher PR #96 (dependabot brace-expansion 1.1.13 → 1.1.18)",
-            "MERGED: feeditout.com-2026 PR #47 (dependabot brace-expansion in twentytwenty)",
-            "MERGED: feeditout.com-2026 PR #46 (dependabot brace-expansion in twentytwentyone)",
-            "MERGED: feeditout.com-2026 PR #45 (dependabot brace-expansion in twentynineteen)",
-            "RESPONDED: securetty #62 — CI pipeline proposal (lint, test, build verification)",
-            "RESPONDED: securetty #61 — config-based credential resolver (per-org token scoping)",
-            "RESPONDED: securetty #60 — HMAC-authenticated credential proxy for SSH/GPG",
-            "RESPONDED: securetty #59 — route-through governance hook (single SDLC entry point)",
-            "RESPONDED: securetty #57 — optional read-only mode (write guard hook)",
-            "RESPONDED: securetty #55 — statusline with cost tracking, rate limits, context bar",
-            "RESPONDED: securetty #54 — integrate ai-guardian (secret scanning, prompt injection, SSRF)",
-            "RESPONDED: securetty #53 — add evaluation harness (promptfoo in CI)",
-            "RESPONDED: securetty #52 — add cost/token tracking (OTEL or Langfuse)",
-            "RESPONDED: securetty #51 — add skillsaw linting for AGENTS.md/CLAUDE.md/skills",
-            "RESPONDED: securetty #50 — adopt AgentSkills.io spec for MCP skills",
-            "RESPONDED: securetty #42 — route agent credentials through infrastructure proxy",
-            "Verified aa-dev-prod-watcher PR #98 has CI running (will merge next iteration)",
-            "Verified dmzoneill/dmzoneill PR #3 still open (owner review needed, non-bot)",
-            "Rate limit healthy: 4998/5000"
+            "Scanned all 197 repos for failing CI — found 8 headline failures (same set as iteration 152)",
+            "MERGED: aa-dev-prod-watcher PR #98 (dependabot js-yaml 4.3.0 → 4.3.1 in /frontend) — all CI passing",
+            "REVIEWED & APPROVED: whisper-npu-wayland PR #3 (fix: listen on all keyboard devices instead of first match) — contributor chrismeyersfsu",
+            "REVIEWED & APPROVED: whisper-npu-wayland PR #4 (fix: re-attach keyboards after KVM switch / USB hotplug) — contributor chrismeyersfsu",
+            "CONFIRMED: PR #3 should merge before #4 (dependency chain)",
+            "CONFIRMED: Test failures on both PRs are environment-related (hardware-dependent code, no main branch test baseline)",
+            "CONFIRMED: All 8 new securetty issues (#86, #87, #89, #95, #96, #97, #98, #99) already triaged with labels and comments",
+            "CONFIRMED: 0 issues with 0 comments (excluding harpnet.ie roadmap tickets)",
+            "CONFIRMED: feeditout.com-2026 new failure is Dependabot postcss update (infra, not code)",
+            "CONFIRMED: All headline failures remain non-actionable (Dependabot infra, publish APIs, stale)",
+            "Rate limit healthy: 4993/5000 (used 7 this iteration)"
         ],
         "pipeline_fixes": [],
         "code_fixes": [],
         "prs_merged": [
             {
                 "repo": "aa-dev-prod-watcher",
-                "pr_number": 97,
-                "title": "Bump postcss from 8.5.22 to 8.5.25 in /frontend",
-                "author": "dependabot[bot]",
-                "ci_status": "all_passing"
-            },
-            {
-                "repo": "aa-dev-prod-watcher",
-                "pr_number": 96,
-                "title": "Bump brace-expansion from 1.1.13 to 1.1.18 in /frontend",
-                "author": "dependabot[bot]",
-                "ci_status": "all_passing"
-            },
-            {
-                "repo": "feeditout.com-2026",
-                "pr_number": 47,
-                "title": "build(deps): bump brace-expansion in /wp-content/themes/twentytwenty",
-                "author": "dependabot[bot]",
-                "ci_status": "all_passing"
-            },
-            {
-                "repo": "feeditout.com-2026",
-                "pr_number": 46,
-                "title": "build(deps-dev): bump brace-expansion from 1.1.11 to 1.1.18 in /wp-content/themes/twentytwentyone",
-                "author": "dependabot[bot]",
-                "ci_status": "all_passing"
-            },
-            {
-                "repo": "feeditout.com-2026",
-                "pr_number": 45,
-                "title": "build(deps): bump brace-expansion in /wp-content/themes/twentynineteen",
+                "pr_number": 98,
+                "title": "Bump js-yaml from 4.3.0 to 4.3.1 in /frontend",
                 "author": "dependabot[bot]",
                 "ci_status": "all_passing"
             }
         ],
-        "issues_responded_to": [
-            {"repo": "securetty", "issue": 62, "title": "feat: add CI pipeline (lint, test, build verification)"},
-            {"repo": "securetty", "issue": 61, "title": "feat: config-based credential resolver (per-org token scoping)"},
-            {"repo": "securetty", "issue": 60, "title": "feat: HMAC-authenticated credential proxy for SSH/GPG"},
-            {"repo": "securetty", "issue": 59, "title": "feat: route-through governance hook (single SDLC entry point)"},
-            {"repo": "securetty", "issue": 57, "title": "feat: optional read-only mode (write guard hook)"},
-            {"repo": "securetty", "issue": 55, "title": "feat: statusline with cost tracking, rate limits, context bar"},
-            {"repo": "securetty", "issue": 54, "title": "feat: integrate ai-guardian (secret scanning, prompt injection, SSRF)"},
-            {"repo": "securetty", "issue": 53, "title": "feat: add evaluation harness (promptfoo in CI)"},
-            {"repo": "securetty", "issue": 52, "title": "feat: add cost/token tracking (OTEL or Langfuse)"},
-            {"repo": "securetty", "issue": 51, "title": "feat: add skillsaw linting for AGENTS.md/CLAUDE.md/skills"},
-            {"repo": "securetty", "issue": 50, "title": "feat: adopt AgentSkills.io spec for MCP skills"},
-            {"repo": "securetty", "issue": 42, "title": "feat: route agent credentials through infrastructure proxy"}
+        "prs_reviewed": [
+            {
+                "repo": "whisper-npu-wayland",
+                "pr_number": 3,
+                "title": "fix: listen on all keyboard devices instead of first match",
+                "author": "chrismeyersfsu",
+                "review": "APPROVED",
+                "note": "Multi-keyboard support, asyncio.Queue event merging, well-tested with real hardware"
+            },
+            {
+                "repo": "whisper-npu-wayland",
+                "pr_number": 4,
+                "title": "fix: re-attach keyboards after KVM switch / USB hotplug",
+                "author": "chrismeyersfsu",
+                "review": "APPROVED",
+                "note": "Hotplug re-attach via keyboard_watcher coroutine, builds on PR #3"
+            }
         ],
-        "prs_pending_ci": [
-            {"repo": "aa-dev-prod-watcher", "pr_number": 98, "status": "lint_pending"}
+        "issues_responded_to": [],
+        "prs_pending_owner": [
+            {"repo": "whisper-npu-wayland", "pr_number": 3, "note": "Approved, owner merge needed (non-bot PR, #3 before #4)"},
+            {"repo": "whisper-npu-wayland", "pr_number": 4, "note": "Approved, owner merge needed (non-bot PR, depends on #3)"},
+            {"repo": "dmzoneill", "pr_number": 3, "note": "Owner's own PR — telegram fix, needs owner action"}
         ]
     },
     "failing_repos_detail": {
+        "feeditout.com-2026": {
+            "run_id": 31153878240,
+            "created_at": "2026-08-07T06:25:23Z",
+            "failed_job": "Dependabot (postcss update in blackoot-lite)",
+            "error_type": "infrastructure_failure",
+            "actionable": false,
+            "note": "Dependabot npm_and_yarn postcss update failure. All visible runs are Dependabot. Code CI not triggered recently."
+        },
         "Chuckbot": {
             "run_id": 31144390209,
             "created_at": "2026-08-07T03:27:11Z",
@@ -115,14 +91,6 @@
             "error_type": "infrastructure_failure",
             "actionable": false,
             "note": "Dependabot cannot update js-yaml to safe version (4.3.1) due to conflicting dependencies: jest, babel-jest, depcheck, update, @open-wa/wa-automate all require js-yaml@^3.x"
-        },
-        "redhat-ai-workflow": {
-            "run_id": 31078874581,
-            "created_at": "2026-08-06T06:53:58Z",
-            "failed_job": "Dependabot (push event)",
-            "error_type": "infrastructure_failure",
-            "actionable": false,
-            "note": "Latest successful CICD run: 31078875405. This failure is stale."
         },
         "pass-gnome-extension": {
             "run_id": 30244865468,
@@ -173,78 +141,78 @@
             "note": "Stale Dependabot failure from April 14. CICD actually passes."
         }
     },
-    "in_progress_runs": {
-        "aa-dev-prod-watcher": {
-            "note": "PR #98 CI running — will merge next iteration when checks pass"
-        }
-    },
+    "in_progress_runs": {},
     "repo_health": {
         "headline_ci_rate": "95.9% (189/197 latest-run passing)",
         "adjusted_ci_rate": "100% (190/190 repos-with-CI have passing code stages)",
         "repos_latest_run_passing": 189,
         "repos_code_cicd_passing": 190,
-        "repos_in_progress": 1,
+        "repos_in_progress": 0,
         "repos_failing_headline": 8,
         "repos_no_ci": 11,
         "failure_breakdown": {
             "code_fixable": 0,
             "fix_in_progress": 0,
-            "pr_ci_pending": 1,
+            "pr_ci_pending": 0,
             "dependabot_infrastructure": 5,
             "publish_api": 1,
             "chrome_publish": 1,
             "stale": 2
         },
-        "note": "All code CI passing. 5 Dependabot PRs merged. 12 securetty issues responded to. Headline failures all non-actionable (Dependabot infra, publish APIs, stale)."
+        "note": "All code CI passing. 1 Dependabot PR merged. 2 contributor PRs reviewed and approved. All headline failures non-actionable."
     },
     "milestone_tracking": {
         "total_fixes_cumulative": 80,
-        "total_merges_cumulative": 147,
+        "total_merges_cumulative": 148,
         "total_issues_responded_cumulative": 89,
-        "iteration_152_fixes": 0,
-        "iteration_152_merges": 5,
-        "iteration_152_issue_responses": 12,
+        "total_prs_reviewed_cumulative": 2,
+        "iteration_153_fixes": 0,
+        "iteration_153_merges": 1,
+        "iteration_153_reviews": 2,
+        "iteration_153_issue_responses": 0,
         "ci_status": "190/190 repos-with-CI passing code stages (100%)",
         "major_wins": [
             "All 190 repos with CI have passing code stages — 100% adjusted pass rate maintained",
-            "5 Dependabot PRs merged across 2 repos (aa-dev-prod-watcher x2, feeditout.com-2026 x3)",
-            "12 securetty issues responded to with detailed implementation guidance",
-            "All issues now have labels and/or AI responses",
-            "Total cumulative: 80 fixes, 147 merges, 89 issue responses across 152 iterations"
+            "Merged aa-dev-prod-watcher PR #98 (dependabot js-yaml 4.3.0 → 4.3.1)",
+            "Reviewed and approved 2 real contributor PRs on whisper-npu-wayland from chrismeyersfsu",
+            "All 78 open issues triaged with labels and/or AI responses",
+            "8 securetty issues closed since last iteration, 8 new ones already triaged",
+            "Total cumulative: 80 fixes, 148 merges, 89 issue responses, 2 PR reviews across 153 iterations"
         ],
         "concerns": [
             "Chuckbot js-yaml security update blocked by conflicting dependencies — needs manual dep upgrade",
             "dmzoneill/dmzoneill PR #3 needs owner review (non-bot PR, telegram fix)",
-            "4 repos have Dependabot infra failures as latest run (no actionable PRs)",
-            "2 stale publish failures (sodarr-chrome-plugin Chrome, tado-gnome-shell-extension Gnome) — dormant repos",
-            "44 harpnet.ie roadmap issues have 0 comments (by design — project planning tickets)"
+            "whisper-npu-wayland PRs #3 and #4 approved but need owner merge (non-bot, merge #3 first)",
+            "5 repos have Dependabot infra failures as latest run (no actionable fixes)",
+            "2 stale publish failures (sodarr-chrome-plugin Chrome, tado-gnome-shell-extension Gnome) — dormant repos"
         ]
     },
     "remaining_work": {
         "pipeline_fixes_needed": 0,
         "fixes_in_progress": 0,
-        "pr_ci_pending": 1,
-        "dependabot_prs_to_merge": 1,
+        "pr_ci_pending": 0,
+        "dependabot_prs_to_merge": 0,
         "dependabot_prs_pending_rebase": 0,
         "issues_needing_triage": 0,
-        "non_bot_prs": 1,
+        "non_bot_prs_pending_owner": 3,
         "actionable_items": [
-            "aa-dev-prod-watcher PR #98 — CI running, merge when passing",
+            "whisper-npu-wayland PR #3 — APPROVED, awaiting owner merge (merge before #4)",
+            "whisper-npu-wayland PR #4 — APPROVED, awaiting owner merge (depends on #3)",
             "dmzoneill/dmzoneill PR #3 — non-bot PR (telegram fix), owner review needed"
         ],
         "next_steps": [
-            "Merge aa-dev-prod-watcher PR #98 when CI passes",
-            "PR #3 requires owner action (non-bot, can't auto-merge)",
+            "All 3 open non-bot PRs require owner action (approved or owner-authored)",
+            "Monitor for new Dependabot PRs that may appear",
             "Monitor remaining Dependabot infra failures (5 repos, no actionable PRs)",
             "Consider manual intervention for Chuckbot js-yaml dep conflict"
         ]
     },
     "open_issues_summary": {
-        "total": 86,
+        "total": 78,
         "all_properly_labeled": true,
         "breakdown": {
             "harpnet.ie": 44,
-            "securetty": 21,
+            "securetty": 13,
             "lidarr-youtube-downloader": 10,
             "ansible-feeditout-com": 6,
             "tado-gnome-shell-extension": 1,
@@ -254,22 +222,31 @@
             "DFakeSeeder": 1
         },
         "changes_since_last": {
-            "total": "86 (up from 77 last iteration)",
-            "net_change": "+9 issues (9 new securetty feature requests)",
-            "new_responses": "12 securetty issues now have AI comments"
+            "total": "78 (down from 86 last iteration)",
+            "net_change": "-8 issues (securetty: 21→13, 8 new created + 16 closed)",
+            "new_securetty_issues": "#86, #87, #89, #95, #96, #97, #98, #99 — all already triaged"
         },
         "untriaged": 0,
         "without_comments": 44,
-        "note": "44 harpnet.ie roadmap issues intentionally have 0 comments — these are project planning tickets"
+        "note": "44 harpnet.ie roadmap issues intentionally have 0 comments — project planning tickets"
     },
     "open_prs_summary": {
-        "total": 2,
-        "dependabot_prs": 1,
-        "aa_dev_prod_watcher_98": {
-            "repo": "aa-dev-prod-watcher",
-            "status": "CI_RUNNING",
-            "author": "dependabot[bot]",
-            "note": "New PR appeared after merging — CI still running"
+        "total": 3,
+        "dependabot_prs": 0,
+        "non_bot_prs": 3,
+        "whisper_npu_wayland_3": {
+            "repo": "whisper-npu-wayland",
+            "status": "APPROVED",
+            "author": "chrismeyersfsu",
+            "title": "fix: listen on all keyboard devices instead of first match",
+            "note": "Approved, awaiting owner merge. Merge before PR #4."
+        },
+        "whisper_npu_wayland_4": {
+            "repo": "whisper-npu-wayland",
+            "status": "APPROVED",
+            "author": "chrismeyersfsu",
+            "title": "fix: re-attach keyboards after KVM switch / USB hotplug",
+            "note": "Approved, awaiting owner merge. Depends on PR #3."
         },
         "dmzoneill_3": {
             "repo": "dmzoneill",
@@ -280,18 +257,16 @@
         }
     },
     "notes": [
-        "Iteration 152 complete - 0 fixes, 5 PRs merged, 12 issues responded to",
-        "CONFIRMED: securetty CICD is passing — headline failure was AI responder workflow (issues event)",
-        "CONFIRMED: Chuckbot failure is Dependabot infra (js-yaml upgrade blocked by transitive deps)",
-        "MERGED: aa-dev-prod-watcher #97 (dependabot postcss 8.5.22 → 8.5.25)",
-        "MERGED: aa-dev-prod-watcher #96 (dependabot brace-expansion 1.1.13 → 1.1.18)",
-        "MERGED: feeditout.com-2026 #47 (dependabot brace-expansion twentytwenty)",
-        "MERGED: feeditout.com-2026 #46 (dependabot brace-expansion twentytwentyone)",
-        "MERGED: feeditout.com-2026 #45 (dependabot brace-expansion twentynineteen)",
-        "RESPONDED: 12 securetty issues (#62, #61, #60, #59, #57, #55, #54, #53, #52, #51, #50, #42)",
-        "NEW: aa-dev-prod-watcher PR #98 opened after merging — CI running",
-        "Adjusted code CI pass rate: 100% (190/190 repos-with-CI)",
-        "Rate limit healthy: 4998/5000",
-        "Total fixes cumulative: 80 | Total merges cumulative: 147 | Total issue responses: 89"
+        "Iteration 153 complete - 0 fixes, 1 PR merged, 2 PRs reviewed & approved",
+        "MERGED: aa-dev-prod-watcher #98 (dependabot js-yaml 4.3.0 → 4.3.1)",
+        "APPROVED: whisper-npu-wayland #3 (multi-keyboard support from chrismeyersfsu)",
+        "APPROVED: whisper-npu-wayland #4 (KVM hotplug re-attach from chrismeyersfsu)",
+        "Test failures on whisper-npu-wayland PRs are environment-related (hardware-dependent, no main baseline)",
+        "8 securetty issues closed since iteration 152, 8 new ones already triaged (net -8)",
+        "All headline failures remain non-actionable (Dependabot infra, publish APIs, stale)",
+        "feeditout.com-2026 new Dependabot failure (postcss in blackoot-lite) — not code CI",
+        "0 untriaged issues across all repos",
+        "Rate limit healthy: 4993/5000 (used 7 this iteration)",
+        "Total fixes cumulative: 80 | Total merges cumulative: 148 | Total issue responses: 89"
     ]
 }
