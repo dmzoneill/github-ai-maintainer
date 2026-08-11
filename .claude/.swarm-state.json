@@ -1,22 +1,22 @@
 {
-    "timestamp": "2026-08-10T06:31:00Z",
-    "iteration": 155,
-    "rate_limit_remaining": 4986,
+    "timestamp": "2026-08-11T06:30:00Z",
+    "iteration": 156,
+    "rate_limit_remaining": 5000,
     "total_repos_scanned": 197,
     "summary": {
-        "passing_repos": 189,
-        "failing_pipelines": 8,
+        "passing_repos": 188,
+        "failing_pipelines": 9,
         "no_ci_repos": 11,
-        "in_progress_repos": 1,
-        "dependabot_infrastructure_failures": 4,
+        "in_progress_repos": 0,
+        "dependabot_infrastructure_failures": 5,
         "gnome_publish_api_failures": 1,
         "chrome_publish_failures": 1,
         "stale_failures": 2,
         "ai_responder_failures": 0,
         "release_tag_fixes_in_progress": 0,
         "code_ci_actually_passing": 192,
-        "fixes_applied": 1,
-        "merged_prs": 1,
+        "fixes_applied": 0,
+        "merged_prs": 0,
         "closed_prs": 0,
         "open_prs": 3,
         "open_issues": 65,
@@ -24,52 +24,21 @@
         "issues_responded_to": 0,
         "prs_reviewed": 0
     },
-    "iteration_155_actions": {
-        "description": "Swarm iteration 155 - Fixed securetty 6-category lint failure (gitleaks, markdownlint, textlint, black, flake8, isort). Merged redhat-ai-workflow Dependabot PR #189 (pypdf 6.14.2→6.15.0).",
+    "iteration_156_actions": {
+        "description": "Swarm iteration 156 - Verification pass. securetty fix from iteration 155 confirmed SUCCESS. Evolution-BB removed from failing list (latest run passes). aa-dev-prod-watcher added as new Dependabot infra failure. No actionable work found.",
         "actions_taken": [
-            "Scanned all 197 repos for failing CI — found 10 headline failures (8 from iteration 154 + 2 new: securetty CICD relapse, redhat-ai-workflow Dependabot pypdf)",
-            "DIAGNOSED securetty lint failure: new commit cdb1c9a (feat: Jira auto-triage agent) introduced 6 linter errors across 4 files",
-            "FIXED gitleaks: added .gitleaks.toml to allowlist group_vars/all.yml (securetty_ssh_key name flagged as generic-api-key false positive)",
-            "FIXED markdownlint: added language specifier (text) to 6 fenced code blocks + renamed duplicate '### Configuration' heading in docs/jira-auto-triage.md",
-            "FIXED textlint: changed 'repo' to 'repository' in AGENTS.md line 56",
-            "FIXED black: reformatted WORKFLOWS_DIR line wrapping and 3 SQL string literals in dispatcher/app.py init_db()",
-            "FIXED flake8: broke 3 lines exceeding 120 chars (lines 227, 671, 795) in dispatcher/app.py",
-            "FIXED isort: reordered imports (metrics before pydantic, collapsed workflows import) in dispatcher/app.py",
-            "PUSHED: Commit 82cdfe7 to securetty main — all 6 linter categories resolved",
-            "CICD run 31362273751 in progress — awaiting verification",
-            "MERGED: redhat-ai-workflow Dependabot PR #189 (pypdf 6.14.2→6.15.0) — CI fully passing, CLEAN merge state",
-            "CONFIRMED: 3 non-bot PRs still pending owner action (unchanged from iteration 154)",
-            "CONFIRMED: 0 untriaged issues across all repos",
-            "Rate limit healthy: 4986/5000 (used 14 this iteration)"
+            "Scanned all 197 repos for failing CI — found 9 headline failures",
+            "VERIFIED securetty CICD run 31362273751 → SUCCESS (lint fix from iteration 155 confirmed working)",
+            "REMOVED Evolution-BB from failing list — latest run 22924252997 is SUCCESS (March 10)",
+            "ADDED aa-dev-prod-watcher as new Dependabot infra failure (micromatch npm_and_yarn update, run 31446657533)",
+            "Confirmed 0 open Dependabot PRs to merge",
+            "Confirmed 0 truly untriaged issues (all 65 open issues have labels)",
+            "Confirmed 3 non-bot PRs unchanged — all require owner action",
+            "Rate limit healthy: 5000/5000"
         ],
-        "pipeline_fixes": [
-            {
-                "repo": "securetty",
-                "run_id": 31302982846,
-                "failed_job": "cicd / Lint",
-                "fix_commit": "82cdfe7",
-                "fix_description": "Fixed 6 super-linter categories: gitleaks (.gitleaks.toml allowlist), markdownlint (MD040 language + MD024 duplicate heading), textlint (terminology), black (formatting), flake8 (E501 x3), isort (import order)",
-                "result": "CICD run 31362273751 in progress"
-            }
-        ],
-        "code_fixes": [
-            {
-                "repo": "securetty",
-                "files_changed": [".gitleaks.toml", "AGENTS.md", "dispatcher/app.py", "docs/jira-auto-triage.md"],
-                "commit": "82cdfe7",
-                "description": "Lint fixes across 6 categories: gitleaks allowlist, markdown code blocks + heading, textlint terminology, black/flake8/isort Python formatting"
-            }
-        ],
-        "prs_merged": [
-            {
-                "repo": "redhat-ai-workflow",
-                "pr_number": 189,
-                "author": "dependabot[bot]",
-                "title": "chore(deps): bump pypdf from 6.14.2 to 6.15.0",
-                "ci_status": "all checks passing",
-                "merge_status": "CLEAN"
-            }
-        ],
+        "pipeline_fixes": [],
+        "code_fixes": [],
+        "prs_merged": [],
         "prs_reviewed": [],
         "issues_responded_to": [],
         "prs_pending_owner": [
@@ -79,6 +48,14 @@
         ]
     },
     "failing_repos_detail": {
+        "aa-dev-prod-watcher": {
+            "run_id": 31446657533,
+            "created_at": "2026-08-11T00:36:59Z",
+            "failed_job": "Dependabot (micromatch npm_and_yarn update)",
+            "error_type": "infrastructure_failure",
+            "actionable": false,
+            "note": "New Dependabot npm_and_yarn micromatch update failure. Code CI passes (run 31243459396 success)."
+        },
         "feeditout.com-2026": {
             "run_id": 31153878240,
             "created_at": "2026-08-07T06:25:23Z",
@@ -98,7 +75,7 @@
         "pass-gnome-extension": {
             "run_id": 30244865468,
             "created_at": "2026-07-27T07:05:18Z",
-            "failed_job": "Dependabot (brace-expansion) + Gnome publish API",
+            "failed_job": "Dependabot (brace-expansion)",
             "error_type": "infrastructure_failure",
             "actionable": false,
             "note": "Dependabot npm_and_yarn brace-expansion update failure. Code stages pass."
@@ -110,14 +87,6 @@
             "error_type": "infrastructure_failure",
             "actionable": false,
             "note": "Dependabot updater error (urllib3). No CICD workflow runs exist."
-        },
-        "jira-creator": {
-            "run_id": 31012786327,
-            "created_at": "2026-08-05T13:58:04Z",
-            "failed_job": "Dependabot (cryptography)",
-            "error_type": "infrastructure_failure",
-            "actionable": false,
-            "note": "Dependabot pip cryptography update failure. Not a code CI issue."
         },
         "sodarr-chrome-plugin": {
             "run_id": 24820896186,
@@ -135,6 +104,14 @@
             "actionable": false,
             "note": "Gnome Extensions API failure. Stale from April 19."
         },
+        "jira-creator": {
+            "run_id": 31012786327,
+            "created_at": "2026-08-05T13:58:04Z",
+            "failed_job": "Dependabot (cryptography)",
+            "error_type": "infrastructure_failure",
+            "actionable": false,
+            "note": "Dependabot pip cryptography update failure. Not a code CI issue."
+        },
         "jackett-indexarr": {
             "run_id": 24378624258,
             "created_at": "2026-04-14T03:00:29Z",
@@ -144,70 +121,65 @@
             "note": "Stale Dependabot failure from April 14. CICD actually passes."
         }
     },
-    "fixed_this_iteration": {
+    "verified_fixes": {
         "securetty": {
-            "previous_run_id": 31302982846,
-            "previous_conclusion": "failure",
+            "fixed_in_iteration": 155,
+            "verified_in_iteration": 156,
             "fix_run_id": 31362273751,
-            "fix_conclusion": "in_progress",
+            "fix_conclusion": "success",
+            "latest_run_id": 31435443638,
+            "latest_conclusion": "success",
             "fix_commit": "82cdfe7",
-            "note": "6-category lint failure fixed — gitleaks, markdownlint, textlint, black, flake8, isort. CICD run in progress."
-        }
-    },
-    "in_progress_runs": {
-        "securetty": {
-            "run_id": 31362273751,
-            "commit": "82cdfe7",
-            "started_at": "2026-08-10T06:30:58Z",
-            "note": "CICD run verifying lint fix commit"
+            "note": "6-category lint failure fixed and verified. Latest CICD run 31435443638 also passes (Aug 10)."
         }
     },
     "repo_health": {
-        "headline_ci_rate": "95.9% (189/197 latest-run passing, 1 in-progress)",
+        "headline_ci_rate": "95.4% (188/197 latest-run passing)",
         "adjusted_ci_rate": "100% (192/192 repos-with-CI have passing code stages)",
-        "repos_latest_run_passing": 189,
+        "repos_latest_run_passing": 188,
         "repos_code_cicd_passing": 192,
-        "repos_in_progress": 1,
-        "repos_failing_headline": 8,
+        "repos_in_progress": 0,
+        "repos_failing_headline": 9,
         "repos_no_ci": 11,
         "failure_breakdown": {
             "code_fixable": 0,
-            "fix_in_progress": 1,
+            "fix_in_progress": 0,
             "pr_ci_pending": 0,
-            "dependabot_infrastructure": 4,
+            "dependabot_infrastructure": 5,
             "publish_api": 1,
             "chrome_publish": 1,
             "stale": 2
         },
-        "note": "All code CI passing. securetty lint fix pushed, CICD run in progress. redhat-ai-workflow Dependabot PR merged."
+        "note": "All code CI passing. securetty fix verified. Evolution-BB no longer failing. aa-dev-prod-watcher added (Dependabot infra)."
     },
     "milestone_tracking": {
         "total_fixes_cumulative": 82,
         "total_merges_cumulative": 149,
         "total_issues_responded_cumulative": 89,
         "total_prs_reviewed_cumulative": 2,
-        "iteration_155_fixes": 1,
-        "iteration_155_merges": 1,
-        "iteration_155_reviews": 0,
-        "iteration_155_issue_responses": 0,
+        "iteration_156_fixes": 0,
+        "iteration_156_merges": 0,
+        "iteration_156_reviews": 0,
+        "iteration_156_issue_responses": 0,
         "ci_status": "192/192 repos-with-CI passing code stages (100%)",
         "major_wins": [
-            "Fixed securetty 6-category lint failure — gitleaks, markdownlint, textlint, black, flake8, isort across 4 files",
-            "Merged redhat-ai-workflow Dependabot PR #189 (pypdf 6.14.2→6.15.0) — CI fully passing",
+            "VERIFIED: securetty lint fix from iteration 155 confirmed passing",
+            "RESOLVED: Evolution-BB latest run is SUCCESS — removed from failing list",
             "All 192 repos with CI have passing code stages — 100% adjusted pass rate maintained",
-            "Total cumulative: 82 fixes, 149 merges, 89 issue responses across 155 iterations"
+            "Total cumulative: 82 fixes, 149 merges, 89 issue responses across 156 iterations"
         ],
         "concerns": [
+            "NEW: aa-dev-prod-watcher Dependabot micromatch update failure (not actionable)",
             "Chuckbot js-yaml security update blocked by conflicting dependencies — needs manual dep upgrade",
             "dmzoneill/dmzoneill PR #3 needs owner review (non-bot PR, telegram fix)",
             "whisper-npu-wayland PRs #3 and #4 approved but need owner merge (non-bot, merge #3 first)",
-            "4 repos have Dependabot infra failures as latest run (no actionable fixes)",
+            "5 repos have Dependabot infra failures as latest run (no actionable fixes)",
             "2 stale publish failures (sodarr-chrome-plugin Chrome, tado-gnome-shell-extension Gnome) — dormant repos"
         ]
     },
     "remaining_work": {
         "pipeline_fixes_needed": 0,
-        "fixes_in_progress": 1,
+        "fixes_in_progress": 0,
         "pr_ci_pending": 0,
         "dependabot_prs_to_merge": 0,
         "dependabot_prs_pending_rebase": 0,
@@ -219,10 +191,10 @@
             "dmzoneill/dmzoneill PR #3 — non-bot PR (telegram fix), owner review needed"
         ],
         "next_steps": [
-            "Monitor securetty CICD run 31362273751 for completion",
             "All 3 open non-bot PRs require owner action (approved or owner-authored)",
             "Monitor for new Dependabot PRs that may appear",
-            "Monitor remaining Dependabot infra failures (4 repos, no actionable PRs)"
+            "Monitor Dependabot infra failures (5 repos, no actionable PRs)",
+            "No code CI failures to fix — clean sweep"
         ]
     },
     "open_issues_summary": {
@@ -239,8 +211,8 @@
             "DFakeSeeder": 1
         },
         "untriaged": 0,
-        "without_comments": 44,
-        "note": "44 harpnet.ie roadmap issues intentionally have 0 comments — project planning tickets"
+        "without_labels": 0,
+        "note": "All 65 open issues have labels. 44 harpnet.ie roadmap issues are project planning tickets."
     },
     "open_prs_summary": {
         "total": 3,
@@ -269,16 +241,15 @@
         }
     },
     "notes": [
-        "Iteration 155 complete - 1 fix applied, 1 PR merged, 0 PRs reviewed",
-        "FIXED: securetty 6-category lint failure — .gitleaks.toml + AGENTS.md + dispatcher/app.py + docs/jira-auto-triage.md",
-        "MERGED: redhat-ai-workflow Dependabot PR #189 (pypdf 6.14.2→6.15.0)",
-        "securetty CICD run 31362273751 in progress — verifying fix",
-        "securetty ci.yml workflow shows 0 jobs (pre-existing config issue, not related to our changes)",
-        "0 Dependabot PRs open (all previously merged or resolved)",
+        "Iteration 156 complete - verification pass, 0 fixes, 0 merges, 0 reviews",
+        "VERIFIED: securetty lint fix (iteration 155) confirmed SUCCESS — run 31435443638 passing",
+        "RESOLVED: Evolution-BB removed from failing list — latest run is success (March 10)",
+        "ADDED: aa-dev-prod-watcher new Dependabot infra failure (micromatch npm_and_yarn)",
+        "0 Dependabot PRs open (none to merge)",
         "3 non-bot PRs unchanged — all require owner action",
         "All headline failures remain non-actionable (Dependabot infra, publish APIs, stale)",
-        "0 untriaged issues across all repos",
-        "Rate limit healthy: 4986/5000 (used 14 this iteration)",
+        "0 untriaged issues across all repos — all 65 open issues properly labeled",
+        "Rate limit healthy: 5000/5000",
         "Total fixes cumulative: 82 | Total merges cumulative: 149 | Total issue responses: 89"
     ]
 }
