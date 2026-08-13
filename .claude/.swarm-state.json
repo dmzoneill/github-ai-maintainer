@@ -1,22 +1,22 @@
 {
-    "timestamp": "2026-08-12T06:30:00Z",
-    "iteration": 157,
+    "timestamp": "2026-08-13T06:30:00Z",
+    "iteration": 158,
     "rate_limit_remaining": 5000,
     "total_repos_scanned": 197,
     "summary": {
-        "passing_repos": 188,
-        "failing_pipelines": 9,
+        "passing_repos": 189,
+        "failing_pipelines": 8,
         "no_ci_repos": 8,
         "in_progress_repos": 1,
-        "dependabot_infrastructure_failures": 6,
-        "gnome_publish_api_failures": 1,
+        "dependabot_infrastructure_failures": 5,
+        "gnome_publish_api_failures": 2,
         "chrome_publish_failures": 1,
         "stale_failures": 2,
         "ai_responder_failures": 0,
         "release_tag_fixes_in_progress": 0,
         "code_ci_actually_passing": 192,
         "fixes_applied": 0,
-        "merged_prs": 1,
+        "merged_prs": 0,
         "closed_prs": 0,
         "open_prs": 3,
         "open_issues": 74,
@@ -24,23 +24,21 @@
         "issues_responded_to": 0,
         "prs_reviewed": 0
     },
-    "iteration_157_actions": {
-        "description": "Swarm iteration 157 — Merged Chuckbot dependabot PR #73 (nanoid 3.3.11→3.3.18, all CI passing). feeditout.com-2026 has new Dependabot failure (nanoid in twentytwenty theme). 9 new securetty issues appeared (all already labeled). No code CI failures to fix.",
+    "iteration_158_actions": {
+        "description": "Swarm iteration 158 — Verified Chuckbot now passing after PR #73 merge (iteration 157). Headline failures drop from 9 to 8. ansible-feeditout-com issue resolved (7→6 open). Zero new issues, zero dependabot PRs, zero code CI failures. Clean sweep.",
         "actions_taken": [
-            "Scanned all 197 repos for failing CI — found 9 headline failures (same count, feeditout.com-2026 has new run)",
-            "MERGED Chuckbot PR #73 (dependabot nanoid 3.3.11→3.3.18) — all CI checks passing, squash-merged at 2026-08-12T06:28:35Z",
-            "UPDATED feeditout.com-2026 — new Dependabot failure run 31558220331 (nanoid in twentytwenty theme, Aug 12)",
+            "Scanned all 197 repos for failing CI — found 8 headline failures (down from 9, Chuckbot now passing)",
+            "VERIFIED Chuckbot CICD success — run 31570136005 passed Aug 12 after PR #73 merge",
+            "Confirmed 0 dependabot PRs open — nothing to merge",
             "Confirmed 0 untriaged issues — all 74 open issues have labels",
             "Confirmed 3 non-bot PRs unchanged — all require owner action",
-            "9 new securetty issues (#139, #141, #142, #143, #157, #161, #162, #166, #175) — all properly labeled",
-            "1 new ansible-feeditout-com issue (#452 SystemdUnitFailed alert) — labeled",
+            "ansible-feeditout-com: 1 issue resolved (7→6 open issues)",
+            "No new issues created since last iteration",
             "Rate limit healthy: 5000/5000"
         ],
         "pipeline_fixes": [],
         "code_fixes": [],
-        "prs_merged": [
-            {"repo": "Chuckbot", "pr_number": 73, "title": "chore(deps-dev): bump nanoid from 3.3.11 to 3.3.18", "author": "dependabot[bot]", "merged_at": "2026-08-12T06:28:35Z"}
-        ],
+        "prs_merged": [],
         "prs_reviewed": [],
         "issues_responded_to": [],
         "prs_pending_owner": [
@@ -50,21 +48,13 @@
         ]
     },
     "failing_repos_detail": {
-        "Chuckbot": {
-            "run_id": 31494475859,
-            "created_at": "2026-08-11T13:06:22Z",
-            "failed_job": "Dependabot (js-yaml security update)",
-            "error_type": "infrastructure_failure",
-            "actionable": false,
-            "note": "Dependabot cannot update js-yaml to safe version due to conflicting dependencies. PR #73 (nanoid) merged — new CICD run expected."
-        },
         "aa-dev-prod-watcher": {
-            "run_id": 31446657533,
-            "created_at": "2026-08-11T00:36:59Z",
+            "run_id": 31605387443,
+            "created_at": "2026-08-12T14:11:02Z",
             "failed_job": "Dependabot (micromatch npm_and_yarn update)",
             "error_type": "infrastructure_failure",
             "actionable": false,
-            "note": "Dependabot npm_and_yarn micromatch update failure. Code CI passes."
+            "note": "Dependabot npm_and_yarn micromatch update failure. Code CI passes (Aug 8 success)."
         },
         "feeditout.com-2026": {
             "run_id": 31558220331,
@@ -72,15 +62,15 @@
             "failed_job": "Dependabot (nanoid update in twentytwenty theme)",
             "error_type": "infrastructure_failure",
             "actionable": false,
-            "note": "NEW run — Dependabot npm_and_yarn nanoid update failure in wp-content/themes/twentytwenty. All recent runs are Dependabot-related."
+            "note": "Dependabot npm_and_yarn nanoid update failure in wp-content/themes/twentytwenty."
         },
         "pass-gnome-extension": {
             "run_id": 30244865468,
             "created_at": "2026-07-27T07:05:18Z",
-            "failed_job": "Dependabot (brace-expansion)",
+            "failed_job": "Dependabot (brace-expansion) + Gnome publish failure on CICD",
             "error_type": "infrastructure_failure",
             "actionable": false,
-            "note": "Dependabot npm_and_yarn brace-expansion update failure. Code stages pass."
+            "note": "Dependabot brace-expansion failure. CICD run also failed on Gnome publish. Code CI passes (Jul 26)."
         },
         "pling-publisher": {
             "run_id": 29371387152,
@@ -112,7 +102,7 @@
             "failed_job": "Dependabot (cryptography)",
             "error_type": "infrastructure_failure",
             "actionable": false,
-            "note": "Dependabot pip cryptography update failure. Not a code CI issue."
+            "note": "Dependabot pip cryptography update failure. No CICD runs exist."
         },
         "jackett-indexarr": {
             "run_id": 24378624258,
@@ -120,7 +110,7 @@
             "failed_job": "Dependabot (pytest)",
             "error_type": "stale_failure",
             "actionable": false,
-            "note": "Stale Dependabot failure from April 14. CICD actually passes."
+            "note": "Stale Dependabot failure from April 14. CICD actually passes (Mar 10)."
         }
     },
     "verified_fixes": {
@@ -133,50 +123,61 @@
             "latest_conclusion": "success",
             "fix_commit": "82cdfe7",
             "note": "6-category lint failure fixed and verified. Latest CICD run 31435443638 also passes (Aug 10)."
+        },
+        "Chuckbot": {
+            "fixed_in_iteration": 157,
+            "verified_in_iteration": 158,
+            "fix_type": "dependabot_merge",
+            "fix_pr": 73,
+            "fix_conclusion": "success",
+            "latest_run_id": 31570136005,
+            "latest_conclusion": "success",
+            "note": "PR #73 (nanoid 3.3.11→3.3.18) merged in iteration 157, CICD now passing (Aug 12)."
         }
     },
     "repo_health": {
-        "headline_ci_rate": "95.4% (188/197 latest-run passing)",
+        "headline_ci_rate": "96.4% (189/196 latest-run passing, excluding in-progress)",
         "adjusted_ci_rate": "100% (192/192 repos-with-CI have passing code stages)",
-        "repos_latest_run_passing": 188,
+        "repos_latest_run_passing": 189,
         "repos_code_cicd_passing": 192,
         "repos_in_progress": 1,
-        "repos_failing_headline": 9,
+        "repos_failing_headline": 8,
         "repos_no_ci": 8,
         "failure_breakdown": {
             "code_fixable": 0,
             "fix_in_progress": 0,
             "pr_ci_pending": 0,
-            "dependabot_infrastructure": 6,
-            "publish_api": 1,
+            "dependabot_infrastructure": 5,
+            "publish_api": 2,
             "chrome_publish": 1,
             "stale": 2
         },
-        "note": "All code CI passing. Chuckbot PR #73 merged (nanoid bump). feeditout.com-2026 new Dependabot failure (nanoid). github-ai-maintainer CI in progress."
+        "note": "All code CI passing. Chuckbot verified passing after PR #73 merge. Headline rate improved 95.4%→96.4% with Chuckbot recovery."
     },
     "milestone_tracking": {
         "total_fixes_cumulative": 82,
         "total_merges_cumulative": 150,
         "total_issues_responded_cumulative": 89,
         "total_prs_reviewed_cumulative": 2,
-        "iteration_157_fixes": 0,
-        "iteration_157_merges": 1,
-        "iteration_157_reviews": 0,
-        "iteration_157_issue_responses": 0,
+        "iteration_158_fixes": 0,
+        "iteration_158_merges": 0,
+        "iteration_158_reviews": 0,
+        "iteration_158_issue_responses": 0,
         "ci_status": "192/192 repos-with-CI passing code stages (100%)",
         "major_wins": [
-            "MERGED: Chuckbot PR #73 (dependabot nanoid 3.3.11→3.3.18) — security dependency update",
+            "VERIFIED: Chuckbot now passing — PR #73 merge confirmed successful (run 31570136005)",
+            "Headline CI rate improved: 95.4% → 96.4% (Chuckbot recovered)",
             "All 192 repos with CI have passing code stages — 100% adjusted pass rate maintained",
-            "Total cumulative: 82 fixes, 150 merges, 89 issue responses across 157 iterations"
+            "Total cumulative: 82 fixes, 150 merges, 89 issue responses across 158 iterations"
         ],
         "concerns": [
-            "feeditout.com-2026 new Dependabot failure (nanoid in twentytwenty, run 31558220331)",
             "Chuckbot js-yaml security update still blocked by conflicting dependencies",
             "dmzoneill/dmzoneill PR #3 needs owner review (non-bot PR, telegram fix)",
             "whisper-npu-wayland PRs #3 and #4 approved but need owner merge (non-bot, merge #3 first)",
-            "6 repos have Dependabot infra failures as latest run (no actionable fixes)",
-            "2 stale publish failures (sodarr-chrome-plugin Chrome, tado-gnome-shell-extension Gnome) — dormant repos",
-            "9 new securetty issues opened (all labeled — cli-audit, gap, missing, enhancement categories)"
+            "5 repos have Dependabot infra failures as latest run (no actionable fixes)",
+            "2 repos have Gnome publish failures (pass-gnome-extension, tado-gnome-shell-extension)",
+            "1 repo has Chrome publish failure (sodarr-chrome-plugin, dormant)",
+            "2 stale failures (sodarr-chrome-plugin Apr, jackett-indexarr Apr)"
         ]
     },
     "remaining_work": {
@@ -193,11 +194,10 @@
             "dmzoneill/dmzoneill PR #3 — non-bot PR (telegram fix), owner review needed"
         ],
         "next_steps": [
-            "Monitor Chuckbot for new CICD run after PR #73 merge",
             "All 3 open non-bot PRs require owner action (approved or owner-authored)",
             "Monitor for new Dependabot PRs that may appear",
-            "Monitor Dependabot infra failures (6 repos, no actionable PRs)",
-            "No code CI failures to fix — clean sweep"
+            "Monitor Dependabot infra failures (5 repos, no actionable PRs)",
+            "No code CI failures to fix — clean sweep maintained"
         ]
     },
     "open_issues_summary": {
@@ -207,7 +207,7 @@
             "harpnet.ie": 44,
             "lidarr-youtube-downloader": 10,
             "securetty": 9,
-            "ansible-feeditout-com": 7,
+            "ansible-feeditout-com": 6,
             "tado-gnome-shell-extension": 1,
             "seedmagepp": 1,
             "php-binance-bot": 1,
@@ -216,7 +216,7 @@
         },
         "untriaged": 0,
         "without_labels": 0,
-        "note": "All 74 open issues have labels. 44 harpnet.ie roadmap issues are project planning tickets. 9 new securetty issues (cli-audit, gap, missing, enhancement)."
+        "note": "All 74 open issues have labels. ansible-feeditout-com dropped from 7 to 6 (1 resolved since last iteration)."
     },
     "open_prs_summary": {
         "total": 3,
@@ -245,16 +245,15 @@
         }
     },
     "notes": [
-        "Iteration 157 complete — 0 fixes, 1 merge (Chuckbot #73 nanoid bump), 0 reviews",
-        "MERGED: Chuckbot PR #73 (dependabot nanoid 3.3.11→3.3.18) — all CI checks passed, squash-merged",
-        "UPDATED: feeditout.com-2026 new Dependabot failure run 31558220331 (nanoid in twentytwenty theme)",
-        "9 new securetty issues opened since last iteration — all properly labeled (cli-audit, gap, missing, enhancement)",
-        "1 new ansible-feeditout-com issue #452 (SystemdUnitFailed alert) — labeled",
-        "0 Dependabot PRs open (none to merge after Chuckbot #73 merged)",
+        "Iteration 158 complete — 0 fixes, 0 merges, 0 reviews (maintenance sweep, no actionable work)",
+        "VERIFIED: Chuckbot now passing after PR #73 merge in iteration 157 (run 31570136005 success)",
+        "Headline CI rate improved 95.4% → 96.4% (Chuckbot recovery)",
+        "ansible-feeditout-com: 1 issue resolved (7→6 open)",
+        "0 dependabot PRs open, 0 new issues, 0 untriaged issues",
         "3 non-bot PRs unchanged — all require owner action",
-        "All headline failures remain non-actionable (Dependabot infra, publish APIs, stale)",
-        "0 untriaged issues across all repos — all 74 open issues properly labeled",
+        "All 8 headline failures are non-actionable (Dependabot infra, publish APIs, stale)",
+        "All code CI passing — 192/192 repos with CI at 100% adjusted pass rate",
         "Rate limit healthy: 5000/5000",
-        "Total fixes cumulative: 82 | Total merges cumulative: 150 | Total issue responses: 89"
+        "Total cumulative: 82 fixes, 150 merges, 89 issue responses across 158 iterations"
     ]
 }
