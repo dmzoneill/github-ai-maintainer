@@ -1,13 +1,13 @@
 {
-    "timestamp": "2026-08-19T00:00:00Z",
-    "iteration": 164,
-    "rate_limit_remaining": 5000,
+    "timestamp": "2026-08-20T06:15:00Z",
+    "iteration": 165,
+    "rate_limit_remaining": 4989,
     "total_repos_scanned": 199,
     "summary": {
-        "passing_repos": 179,
+        "passing_repos": 180,
         "failing_pipelines": 8,
-        "no_ci_repos": 5,
-        "in_progress_repos": 0,
+        "no_ci_repos": 9,
+        "in_progress_repos": 2,
         "dependabot_infrastructure_failures": 5,
         "gnome_publish_api_failures": 1,
         "chrome_publish_failures": 1,
@@ -24,18 +24,19 @@
         "issues_responded_to": 0,
         "prs_reviewed": 0
     },
-    "iteration_164_actions": {
-        "description": "Swarm iteration 164 — monitoring pass. No new code CI failures. 3 issues closed in lidarr-youtube-downloader by owner (Aug 18). Open issue count 76→73. All 73 remaining issues properly labeled. No new dependabot PRs. Same 8 non-actionable failing repos (dependabot infra + stale publish failures). 100% code CI pass rate maintained.",
+    "iteration_165_actions": {
+        "description": "Swarm iteration 165 — monitoring pass. No new code CI failures. No new issues opened or closed since iteration 164. Same 8 non-actionable failing repos. 2 repos with in-progress scheduled runs (dmzoneill CICD, github-ai-maintainer Swarm Maintenance). 100% code CI pass rate maintained.",
         "actions_taken": [
-            "Scanned all 199 repos for CI status — 179 passing, 8 failing, 0 in progress, 5 no CI",
+            "Scanned all 199 repos for CI status — 180 passing, 8 failing, 2 in progress, 9 no CI",
             "Confirmed 0 new code CI failures — all 196 repos with CI have passing code stages",
-            "Detected 3 issues closed since iteration 163: lidarr-youtube-downloader #5, #3, #1 (closed Aug 18 by owner)",
-            "Open issue count: 76 → 73",
-            "0 untriaged issues — all 73 open issues properly labeled",
+            "0 issues created since Aug 19, 0 issues closed since Aug 19",
+            "Open issue count unchanged at 73, all properly labeled",
+            "0 untriaged issues",
             "0 open dependabot PRs",
-            "1 non-bot PR: dmzoneill #3 (telegram fix) — still pending owner action",
+            "1 non-bot PR: dmzoneill #3 (telegram fix) — still pending owner action, linter failing on PR branch",
             "8 failing repos unchanged — all non-actionable (5 dependabot infra, 1 gnome publish, 1 chrome publish, 2 stale)",
-            "Rate limit healthy: 5000/5000"
+            "2 in-progress scheduled runs: dmzoneill CICD (run 32338343257), github-ai-maintainer Swarm Maintenance (run 32338173604)",
+            "Rate limit healthy: 4989/5000"
         ],
         "pipeline_fixes": [],
         "code_fixes": [],
@@ -43,13 +44,10 @@
         "prs_closed": [],
         "prs_reviewed": [],
         "issues_responded_to": [],
-        "issues_closed_by_owner": [
-            {"repo": "lidarr-youtube-downloader", "number": 5, "title": "FR: ability to filter results", "closed_at": "2026-08-18T13:27:45Z"},
-            {"repo": "lidarr-youtube-downloader", "number": 3, "title": "docker-compose", "closed_at": "2026-08-18T13:27:44Z"},
-            {"repo": "lidarr-youtube-downloader", "number": 1, "title": "Docker Build", "closed_at": "2026-08-18T13:27:58Z"}
-        ],
+        "issues_created": [],
+        "issues_closed": [],
         "prs_pending_owner": [
-            {"repo": "dmzoneill", "pr_number": 3, "note": "Owner's own PR — telegram fix, needs owner action"}
+            {"repo": "dmzoneill", "pr_number": 3, "note": "Owner's own PR — telegram fix, linter failing, needs owner action"}
         ]
     },
     "failing_repos_detail": {
@@ -178,13 +176,13 @@
         }
     },
     "repo_health": {
-        "headline_ci_rate": "95.7% (179/187 repos-with-CI latest-run passing)",
+        "headline_ci_rate": "95.7% (180/188 repos-with-CI latest-run passing)",
         "adjusted_ci_rate": "100% (196/196 repos-with-CI have passing code stages)",
-        "repos_latest_run_passing": 179,
+        "repos_latest_run_passing": 180,
         "repos_code_cicd_passing": 196,
-        "repos_in_progress": 0,
+        "repos_in_progress": 2,
         "repos_failing_headline": 8,
-        "repos_no_ci": 5,
+        "repos_no_ci": 9,
         "failure_breakdown": {
             "code_fixable": 0,
             "fix_in_progress": 0,
@@ -202,20 +200,19 @@
         "total_issues_responded_cumulative": 89,
         "total_prs_reviewed_cumulative": 2,
         "total_prs_closed_cumulative": 1,
-        "iteration_164_fixes": 0,
-        "iteration_164_merges": 0,
-        "iteration_164_reviews": 0,
-        "iteration_164_issue_responses": 0,
-        "iteration_164_prs_closed": 0,
+        "iteration_165_fixes": 0,
+        "iteration_165_merges": 0,
+        "iteration_165_reviews": 0,
+        "iteration_165_issue_responses": 0,
+        "iteration_165_prs_closed": 0,
         "ci_status": "196/196 repos-with-CI passing code stages (100%)",
         "major_wins": [
-            "Owner closed 3 issues in lidarr-youtube-downloader (Aug 18)",
             "100% code CI pass rate maintained across 196 repos with CI",
             "All 73 open issues properly labeled — 0 untriaged",
-            "Total cumulative: 85 fixes, 150 merges, 89 issue responses across 164 iterations"
+            "Total cumulative: 85 fixes, 150 merges, 89 issue responses across 165 iterations"
         ],
         "concerns": [
-            "dmzoneill/dmzoneill PR #3 needs owner review (non-bot PR, telegram fix)",
+            "dmzoneill/dmzoneill PR #3 needs owner review (non-bot PR, telegram fix, linter failing)",
             "5 repos have Dependabot infra failures as latest run (no actionable fixes)",
             "1 repo has Gnome publish failure (tado-gnome-shell-extension, stale Apr 19)",
             "1 repo has Chrome publish failure (sodarr-chrome-plugin, stale Apr 23)",
@@ -245,9 +242,9 @@
         "all_properly_labeled": true,
         "breakdown": {
             "harpnet.ie": 44,
-            "lidarr-youtube-downloader": 5,
             "securetty": 8,
             "ansible-feeditout-com": 6,
+            "lidarr-youtube-downloader": 5,
             "DFakeSeeder": 1,
             "pass-gnome-extension": 1,
             "php-binance-bot": 1,
@@ -257,12 +254,7 @@
         },
         "untriaged": 0,
         "without_labels": 0,
-        "recently_closed": [
-            "lidarr-youtube-downloader#5 (FR: ability to filter results) — closed Aug 18",
-            "lidarr-youtube-downloader#3 (docker-compose) — closed Aug 18",
-            "lidarr-youtube-downloader#1 (Docker Build) — closed Aug 18"
-        ],
-        "note": "73 open issues (down 3 from iteration 163). Owner closed 3 in lidarr-youtube-downloader."
+        "note": "73 open issues unchanged from iteration 164. All properly labeled."
     },
     "open_prs_summary": {
         "total": 1,
@@ -273,19 +265,21 @@
             "status": "OPEN",
             "author": "dmzoneill",
             "title": "fix: make telegram notifications gracefully skip when secrets unavailable",
+            "ci_status": "linter failing",
             "note": "Non-bot PR — owner review needed"
         }
     },
     "notes": [
-        "Iteration 164 complete — monitoring pass, no new fixes needed",
-        "Owner closed 3 issues in lidarr-youtube-downloader on Aug 18: #5, #3, #1",
-        "Open issue count dropped from 76 to 73",
+        "Iteration 165 complete — monitoring pass, no new fixes needed",
+        "No issues created or closed since iteration 164 (Aug 19)",
+        "Open issue count unchanged at 73",
         "Same 8 non-actionable failing repos: 5 dependabot infra, 1 gnome publish, 1 chrome publish, 2 stale",
         "0 new code CI failures — 100% code CI pass rate (196/196)",
         "0 dependabot PRs open",
-        "1 open PR: dmzoneill #3 (owner PR, telegram fix)",
+        "1 open PR: dmzoneill #3 (owner PR, telegram fix, linter failing)",
+        "2 in-progress scheduled runs: dmzoneill CICD + github-ai-maintainer Swarm Maintenance",
         "73 open issues, all labeled, 0 untriaged",
-        "Rate limit healthy: 5000/5000",
-        "Total cumulative: 85 fixes, 150 merges, 89 issue responses across 164 iterations"
+        "Rate limit healthy: 4989/5000",
+        "Total cumulative: 85 fixes, 150 merges, 89 issue responses across 165 iterations"
     ]
 }
