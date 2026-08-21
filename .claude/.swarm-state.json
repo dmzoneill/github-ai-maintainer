@@ -1,13 +1,13 @@
 {
-    "timestamp": "2026-08-20T06:15:00Z",
-    "iteration": 165,
-    "rate_limit_remaining": 4989,
+    "timestamp": "2026-08-21T06:15:00Z",
+    "iteration": 166,
+    "rate_limit_remaining": 4998,
     "total_repos_scanned": 199,
     "summary": {
         "passing_repos": 180,
         "failing_pipelines": 8,
         "no_ci_repos": 9,
-        "in_progress_repos": 2,
+        "in_progress_repos": 10,
         "dependabot_infrastructure_failures": 5,
         "gnome_publish_api_failures": 1,
         "chrome_publish_failures": 1,
@@ -24,19 +24,18 @@
         "issues_responded_to": 0,
         "prs_reviewed": 0
     },
-    "iteration_165_actions": {
-        "description": "Swarm iteration 165 — monitoring pass. No new code CI failures. No new issues opened or closed since iteration 164. Same 8 non-actionable failing repos. 2 repos with in-progress scheduled runs (dmzoneill CICD, github-ai-maintainer Swarm Maintenance). 100% code CI pass rate maintained.",
+    "iteration_166_actions": {
+        "description": "Swarm iteration 166 — monitoring pass. No new code CI failures. No new issues opened or closed since iteration 165. Same 8 non-actionable failing repos. 100% code CI pass rate maintained.",
         "actions_taken": [
-            "Scanned all 199 repos for CI status — 180 passing, 8 failing, 2 in progress, 9 no CI",
+            "Scanned all 199 repos for CI status — 180 passing, 8 failing, 10 in progress, 9 no CI",
             "Confirmed 0 new code CI failures — all 196 repos with CI have passing code stages",
-            "0 issues created since Aug 19, 0 issues closed since Aug 19",
+            "0 issues created since Aug 20, 0 issues closed since Aug 20",
             "Open issue count unchanged at 73, all properly labeled",
             "0 untriaged issues",
             "0 open dependabot PRs",
-            "1 non-bot PR: dmzoneill #3 (telegram fix) — still pending owner action, linter failing on PR branch",
+            "1 non-bot PR: dmzoneill #3 (telegram fix) — still pending owner action, last updated Jun 26",
             "8 failing repos unchanged — all non-actionable (5 dependabot infra, 1 gnome publish, 1 chrome publish, 2 stale)",
-            "2 in-progress scheduled runs: dmzoneill CICD (run 32338343257), github-ai-maintainer Swarm Maintenance (run 32338173604)",
-            "Rate limit healthy: 4989/5000"
+            "Rate limit healthy: 4998/5000"
         ],
         "pipeline_fixes": [],
         "code_fixes": [],
@@ -47,7 +46,7 @@
         "issues_created": [],
         "issues_closed": [],
         "prs_pending_owner": [
-            {"repo": "dmzoneill", "pr_number": 3, "note": "Owner's own PR — telegram fix, linter failing, needs owner action"}
+            {"repo": "dmzoneill", "pr_number": 3, "note": "Owner's own PR — telegram fix, linter failing, needs owner action, last updated 2026-06-26"}
         ]
     },
     "failing_repos_detail": {
@@ -180,7 +179,7 @@
         "adjusted_ci_rate": "100% (196/196 repos-with-CI have passing code stages)",
         "repos_latest_run_passing": 180,
         "repos_code_cicd_passing": 196,
-        "repos_in_progress": 2,
+        "repos_in_progress": 10,
         "repos_failing_headline": 8,
         "repos_no_ci": 9,
         "failure_breakdown": {
@@ -200,19 +199,19 @@
         "total_issues_responded_cumulative": 89,
         "total_prs_reviewed_cumulative": 2,
         "total_prs_closed_cumulative": 1,
-        "iteration_165_fixes": 0,
-        "iteration_165_merges": 0,
-        "iteration_165_reviews": 0,
-        "iteration_165_issue_responses": 0,
-        "iteration_165_prs_closed": 0,
+        "iteration_166_fixes": 0,
+        "iteration_166_merges": 0,
+        "iteration_166_reviews": 0,
+        "iteration_166_issue_responses": 0,
+        "iteration_166_prs_closed": 0,
         "ci_status": "196/196 repos-with-CI passing code stages (100%)",
         "major_wins": [
             "100% code CI pass rate maintained across 196 repos with CI",
             "All 73 open issues properly labeled — 0 untriaged",
-            "Total cumulative: 85 fixes, 150 merges, 89 issue responses across 165 iterations"
+            "Total cumulative: 85 fixes, 150 merges, 89 issue responses across 166 iterations"
         ],
         "concerns": [
-            "dmzoneill/dmzoneill PR #3 needs owner review (non-bot PR, telegram fix, linter failing)",
+            "dmzoneill/dmzoneill PR #3 needs owner review (non-bot PR, telegram fix, linter failing, stale since Jun 26)",
             "5 repos have Dependabot infra failures as latest run (no actionable fixes)",
             "1 repo has Gnome publish failure (tado-gnome-shell-extension, stale Apr 19)",
             "1 repo has Chrome publish failure (sodarr-chrome-plugin, stale Apr 23)",
@@ -230,7 +229,7 @@
             "dmzoneill/dmzoneill PR #3 — non-bot PR (telegram fix), owner review needed"
         ],
         "next_steps": [
-            "dmzoneill PR #3 requires owner action (owner-authored PR)",
+            "dmzoneill PR #3 requires owner action (owner-authored PR, stale since Jun 26)",
             "Monitor for new Dependabot PRs",
             "Monitor for new issues",
             "Monitor for new CI failures",
@@ -254,7 +253,7 @@
         },
         "untriaged": 0,
         "without_labels": 0,
-        "note": "73 open issues unchanged from iteration 164. All properly labeled."
+        "note": "73 open issues unchanged from iteration 165. All properly labeled."
     },
     "open_prs_summary": {
         "total": 1,
@@ -266,20 +265,20 @@
             "author": "dmzoneill",
             "title": "fix: make telegram notifications gracefully skip when secrets unavailable",
             "ci_status": "linter failing",
-            "note": "Non-bot PR — owner review needed"
+            "last_updated": "2026-06-26T07:18:11Z",
+            "note": "Non-bot PR — owner review needed, stale since Jun 26"
         }
     },
     "notes": [
-        "Iteration 165 complete — monitoring pass, no new fixes needed",
-        "No issues created or closed since iteration 164 (Aug 19)",
+        "Iteration 166 complete — monitoring pass, no new fixes needed",
+        "No issues created or closed since iteration 165 (Aug 20)",
         "Open issue count unchanged at 73",
         "Same 8 non-actionable failing repos: 5 dependabot infra, 1 gnome publish, 1 chrome publish, 2 stale",
         "0 new code CI failures — 100% code CI pass rate (196/196)",
         "0 dependabot PRs open",
-        "1 open PR: dmzoneill #3 (owner PR, telegram fix, linter failing)",
-        "2 in-progress scheduled runs: dmzoneill CICD + github-ai-maintainer Swarm Maintenance",
+        "1 open PR: dmzoneill #3 (owner PR, telegram fix, linter failing, stale since Jun 26)",
         "73 open issues, all labeled, 0 untriaged",
-        "Rate limit healthy: 4989/5000",
-        "Total cumulative: 85 fixes, 150 merges, 89 issue responses across 165 iterations"
+        "Rate limit healthy: 4998/5000",
+        "Total cumulative: 85 fixes, 150 merges, 89 issue responses across 166 iterations"
     ]
 }
