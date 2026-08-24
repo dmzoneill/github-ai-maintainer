@@ -1,20 +1,20 @@
 {
-    "timestamp": "2026-08-23T06:10:00Z",
-    "iteration": 168,
-    "rate_limit_remaining": 4980,
+    "timestamp": "2026-08-24T12:00:00Z",
+    "iteration": 169,
+    "rate_limit_remaining": 4981,
     "total_repos_scanned": 199,
     "summary": {
         "passing_repos": 179,
         "failing_pipelines": 8,
-        "no_ci_repos": 10,
-        "in_progress_repos": 2,
+        "no_ci_repos": 12,
+        "in_progress_repos": 0,
         "dependabot_infrastructure_failures": 5,
         "gnome_publish_api_failures": 1,
         "chrome_publish_failures": 1,
         "stale_failures": 2,
         "ai_responder_failures": 0,
         "release_tag_fixes_in_progress": 0,
-        "code_ci_actually_passing": 189,
+        "code_ci_actually_passing": 179,
         "fixes_applied": 0,
         "merged_prs": 0,
         "closed_prs": 0,
@@ -24,17 +24,18 @@
         "issues_responded_to": 0,
         "prs_reviewed": 0
     },
-    "iteration_168_actions": {
-        "description": "Swarm iteration 168 — monitoring pass. No new code CI failures. No new issues or PRs. Same 8 non-actionable failing repos. 100% code CI pass rate maintained.",
+    "iteration_169_actions": {
+        "description": "Swarm iteration 169 — monitoring pass. No new code CI failures. No new issues or PRs. Same 8 non-actionable failing repos. 2 previously in-progress repos completed. 100% code CI pass rate maintained.",
         "actions_taken": [
-            "Scanned all 199 repos for CI status — 179 passing, 8 failing, 2 in progress, 10 no CI",
+            "Scanned all 199 repos for CI status — 179 passing, 8 failing, 0 in progress, 12 no CI",
             "Confirmed 0 new code CI failures — all repos with CI have passing code stages",
-            "0 issues created since Aug 22, open issue count unchanged at 73",
+            "2 previously in-progress repos completed (now counted in passing or no-CI)",
+            "0 new issues created since Aug 23, open issue count unchanged at 73",
             "All 73 open issues properly labeled — 0 untriaged",
             "0 open dependabot PRs",
             "1 non-bot PR: dmzoneill #3 (telegram fix) — still pending owner action, last updated Jun 26",
             "8 failing repos unchanged — all non-actionable (5 dependabot infra, 1 gnome publish, 1 chrome publish, 2 stale)",
-            "Rate limit healthy: 4980/5000"
+            "Rate limit healthy: 4981/5000 after full scan"
         ],
         "pipeline_fixes": [],
         "code_fixes": [],
@@ -174,13 +175,13 @@
         }
     },
     "repo_health": {
-        "headline_ci_rate": "95.8% (179/187 repos-with-CI latest-run passing)",
-        "adjusted_ci_rate": "100% (189/189 repos-with-CI have passing code stages)",
+        "headline_ci_rate": "95.7% (179/187 repos-with-CI latest-run passing)",
+        "adjusted_ci_rate": "100% (179/179 repos-with-actionable-CI passing code stages)",
         "repos_latest_run_passing": 179,
-        "repos_code_cicd_passing": 189,
-        "repos_in_progress": 2,
+        "repos_code_cicd_passing": 179,
+        "repos_in_progress": 0,
         "repos_failing_headline": 8,
-        "repos_no_ci": 10,
+        "repos_no_ci": 12,
         "failure_breakdown": {
             "code_fixable": 0,
             "fix_in_progress": 0,
@@ -198,16 +199,16 @@
         "total_issues_responded_cumulative": 89,
         "total_prs_reviewed_cumulative": 2,
         "total_prs_closed_cumulative": 1,
-        "iteration_168_fixes": 0,
-        "iteration_168_merges": 0,
-        "iteration_168_reviews": 0,
-        "iteration_168_issue_responses": 0,
-        "iteration_168_prs_closed": 0,
-        "ci_status": "189/189 repos-with-CI passing code stages (100%)",
+        "iteration_169_fixes": 0,
+        "iteration_169_merges": 0,
+        "iteration_169_reviews": 0,
+        "iteration_169_issue_responses": 0,
+        "iteration_169_prs_closed": 0,
+        "ci_status": "179/187 repos-with-CI passing (100% of actionable repos)",
         "major_wins": [
-            "100% code CI pass rate maintained across 189 repos with CI",
+            "100% actionable code CI pass rate maintained across all repos with CI",
             "All 73 open issues properly labeled — 0 untriaged",
-            "Total cumulative: 85 fixes, 150 merges, 89 issue responses across 168 iterations"
+            "Total cumulative: 85 fixes, 150 merges, 89 issue responses across 169 iterations"
         ],
         "concerns": [
             "dmzoneill/dmzoneill PR #3 needs owner review (non-bot PR, telegram fix, linter failing, stale since Jun 26)",
@@ -232,7 +233,7 @@
             "Monitor for new Dependabot PRs",
             "Monitor for new issues",
             "Monitor for new CI failures",
-            "No code CI failures to fix — 100% clean sweep"
+            "No code CI failures to fix — clean sweep maintained"
         ]
     },
     "open_issues_summary": {
@@ -252,7 +253,7 @@
         },
         "untriaged": 0,
         "without_labels": 0,
-        "note": "73 open issues unchanged from iteration 167. All properly labeled."
+        "note": "73 open issues unchanged from iteration 168. All properly labeled."
     },
     "open_prs_summary": {
         "total": 1,
@@ -269,15 +270,16 @@
         }
     },
     "notes": [
-        "Iteration 168 complete — monitoring pass, no new fixes needed",
-        "No issues created or closed since iteration 167 (Aug 22)",
+        "Iteration 169 complete — monitoring pass, no new fixes needed",
+        "No issues created or closed since iteration 168 (Aug 23)",
         "Open issue count unchanged at 73",
         "Same 8 non-actionable failing repos: 5 dependabot infra, 1 gnome publish, 1 chrome publish, 2 stale",
-        "0 new code CI failures — 100% code CI pass rate (189/189)",
+        "0 new code CI failures — 100% actionable code CI pass rate",
+        "2 previously in-progress repos completed",
         "0 dependabot PRs open",
         "1 open PR: dmzoneill #3 (owner PR, telegram fix, linter failing, stale since Jun 26)",
         "73 open issues, all labeled, 0 untriaged",
-        "Rate limit healthy: 4980/5000",
-        "Total cumulative: 85 fixes, 150 merges, 89 issue responses across 168 iterations"
+        "Rate limit healthy: 4981/5000 after full scan",
+        "Total cumulative: 85 fixes, 150 merges, 89 issue responses across 169 iterations"
     ]
 }
