@@ -17,7 +17,7 @@ This project uses specialized AI agents to monitor and act on:
 
 ## Architecture
 
-```
+```text
 Orchestrator (Swarm Coordinator)
 ├── Issue Agent       → Triage, analyze, respond to issues
 ├── PR Agent          → Review code, run tests, auto-merge
